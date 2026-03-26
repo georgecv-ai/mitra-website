@@ -1,22 +1,11 @@
 # Cloudflare Pages redirects
-# Clean URL support: /en/for-parents -> /en/for-parents.html
-/en/for-parents /en/for-parents.html 301
-/en/for-students /en/for-students.html 301
-/en/about /en/about.html 301
-/en/privacy /en/privacy.html 301
-/en/terms /en/terms.html 301
-/en/refund /en/refund.html 301
-/ko/for-parents /ko/for-parents.html 301
-/ko/for-students /ko/for-students.html 301
-/ko/about /ko/about.html 301
-/ko/privacy /ko/privacy.html 301
-/ko/terms /ko/terms.html 301
-/ko/refund /ko/refund.html 301
+# Note: Cloudflare Pages has built-in pretty URLs (.html extension stripping)
+# so /en/for-students automatically serves /en/for-students.html
 
 # Old-style paths (without /en/ or /ko/ prefix) redirect to English
-/for-parents /en/for-parents.html 301
-/for-students /en/for-students.html 301
-/about /en/about.html 301
-/privacy /en/privacy.html 301
-/terms /en/terms.html 301
-/refund /en/refund.html 301
+/for-parents /en/for-parents 301
+/for-students /en/for-students 301
+/about /en/about 301
+/privacy /en/privacy 301
+/terms /en/terms 301
+/refund /en/refund 301
