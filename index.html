@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Mitra AI Tutor</title>
+  <script>
+    var lang = (navigator.language || navigator.userLanguage || 'en').substring(0, 2);
+    var dest = lang === 'ko' ? '/ko/' : '/en/';
+    window.location.replace(dest);
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/en/" />
+  </noscript>
+</head>
+<body>
+  <p>Redirecting... <a href="/en/">English</a> | <a href="/ko/">한국어</a></p>
+</body>
+</html>
