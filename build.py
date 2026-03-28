@@ -23,7 +23,7 @@ TEMPLATES_DIR = PORTAL_DIR / "templates"
 TRANSLATIONS_FILE = PORTAL_DIR / "translations.json"
 OUTPUT_DIR = Path(__file__).parent
 
-PORTAL_URL = "https://mitratutor.com"
+PORTAL_URL = "https://app.mitratutor.com"
 WWW_URL = "https://www.mitratutor.com"
 
 # Pages to render: (template_name, output_filename, title_key_or_literal)
@@ -99,8 +99,8 @@ def build_base_html(lang, translations):
         <li class="nav-item"><a class="nav-link" href="/{lang}/">{t('home')}</a></li>
         <li class="nav-item"><a class="nav-link" href="/{lang}/for-students.html">{t('for_students')}</a></li>
         <li class="nav-item"><a class="nav-link" href="/{lang}/for-parents.html">{t('for_parents')}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{PORTAL_URL}/enroll{"?lang=ko" if lang == "ko" else ""}">{t('enroll')}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{PORTAL_URL}/parent/login">{t('parent_login')}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{PORTAL_URL}/{lang}/enroll">{t('enroll')}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{PORTAL_URL}/{lang}/parent/login">{t('parent_login')}</a></li>
         <!-- Language toggle -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -130,7 +130,7 @@ def build_base_html(lang, translations):
       <div class="footer-nav">
         <a href="/{lang}/for-parents.html">{t('for_parents')}</a>
         <a href="/{lang}/about.html">{t('about')}</a>
-        <a href="{PORTAL_URL}/enroll{"?lang=ko" if lang == "ko" else ""}">{t('enroll')}</a>
+        <a href="{PORTAL_URL}/{lang}/enroll">{t('enroll')}</a>
         <a href="mailto:support@mitratutor.com">support@mitratutor.com</a>
         <a href="/{lang}/privacy.html">{t('footer_privacy')}</a>
         <a href="/{lang}/terms.html">{t('footer_terms')}</a>
