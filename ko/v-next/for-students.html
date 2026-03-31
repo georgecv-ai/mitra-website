@@ -43,6 +43,28 @@
     .mitra-bubble strong {
       color: #ffffff;
     }
+
+    /* Phone frame for chat demos */
+    .phone-frame {
+      background: #1a1a2e;
+      border-radius: 28px;
+      padding: 12px;
+      max-width: 360px;
+      margin: 0 auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .phone-frame-inner {
+      background: #fff;
+      border-radius: 20px;
+      padding: 16px;
+    }
+    .phone-frame-notch {
+      width: 120px;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      margin: 0 auto 12px;
+    }
   </style>
 </head>
 <body>
@@ -197,11 +219,16 @@
           <p>학습은 짧고 밀도 있게 진행됩니다. 미트라는 <strong>한 번에 하나의 개념</strong>만 전달하며 반응에 따라 속도를 조절합니다. 사진 촬영만으로도 질문이 가능하며, 작은 성취감을 맛보며 즐겁게 공부를 마칠 수 있습니다.</p>
           <hr>
           <h4>실제 세션은 이런 느낌이에요</h4>
-          <div class="students-chat-demo">
-            <div class="chat-bubble student-bubble">인수분해 문제를 어떻게 푸는지 모르겠어요. 선생님이 설명해 주셨는데도 이해가 안 돼요.</div>
-            <div class="chat-bubble mitra-bubble">알겠습니다. 천천히 생각해 봅시다.<br><br>x²+5x+6을 인수분해한다는 것은 곱해서 6이 되고 더해서 5가 되는 두 수를 찾는 것을 의미합니다.<br><br>어떤 두 수가 떠오르나요?</div>
-            <div class="chat-bubble student-bubble">음... 2와 3인가요?</div>
-            <div class="chat-bubble mitra-bubble"><strong>맞아요!</strong> 2×3=6이고 2+3=5니까요.<br><br>그래서 답은 (x+2)(x+3)이 됩니다.<br><br>다음 문제도 직접 한번 풀어볼까요?</div>
+          <div class="phone-frame">
+            <div class="phone-frame-inner">
+              <div class="phone-frame-notch"></div>
+              <div class="students-chat-demo">
+                <div class="chat-bubble student-bubble">인수분해 문제를 어떻게 푸는지 모르겠어요. 선생님이 설명해 주셨는데도 이해가 안 돼요.</div>
+                <div class="chat-bubble mitra-bubble">알겠습니다. 천천히 생각해 봅시다.<br><br>x²+5x+6을 인수분해한다는 것은 곱해서 6이 되고 더해서 5가 되는 두 수를 찾는 것을 의미합니다.<br><br>어떤 두 수가 떠오르나요?</div>
+                <div class="chat-bubble student-bubble">음... 2와 3인가요?</div>
+                <div class="chat-bubble mitra-bubble"><strong>맞아요!</strong> 2×3=6이고 2+3=5니까요.<br><br>그래서 답은 (x+2)(x+3)이 됩니다.<br><br>다음 문제도 직접 한번 풀어볼까요?</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
