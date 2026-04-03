@@ -1,0 +1,50 @@
+name: "Mitra Website"
+status: "active"
+
+description: |
+  Static public website for Mitra AI Tutor. Split from the main portal to allow
+  independent updates and delegation. Serves landing page, information pages
+  (for parents, for students, about), and legal pages (privacy, terms, refund)
+  in English and Korean. Enrollment and authenticated areas (admin, parent portal)
+  remain on the main portal at mitratutor.com.
+
+flowchart: |
+  graph TD
+    USER["Visitor"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
+    WWW --> LANG{"Browser language?"}
+    LANG -->|en| EN["/en/ pages"]
+    LANG -->|ko| KO["/ko/ pages"]
+    EN --> ENROLL["Click Enroll"]
+    KO --> ENROLL
+    ENROLL --> PORTAL["mitratutor.com/enroll<br/>(?lang=ko for Korean)"]
+    EN --> LOGIN["Click Parent Login"]
+    KO --> LOGIN
+    LOGIN --> PORTAL_LOGIN["mitratutor.com/parent/login"]
+
+    BARE["mitratutor.com/"] -->|301 redirect| WWW
+    BARE_ABOUT["mitratutor.com/about"] -->|301 redirect| WWW
+
+human_interaction:
+  activation:
+    - name: "Public Website (Production)"
+      url: "https://www.mitratutor.com"
+    - name: "Local Preview"
+      command: "python -m http.server 8080"
+      working_dir: "."
+      url: "http://localhost:8080"
+
+deployment:
+  platform: "Cloudflare Pages"
+  url: "https://www.mitratutor.com"
+  github: "georgecv-ai/mitra-website (main)"
+  auto_deploy: true
+  dns:
+    - type: "CNAME"
+      name: "www"
+      target: "<project>.pages.dev"
+      note: "Set up in Cloudflare DNS after creating Pages project"
+
+integrations:
+  - project: "Mitra"
+    direction: "outbound"
+    description: "Links to mitratutor.com for enrollment, parent login, and all authenticated features"

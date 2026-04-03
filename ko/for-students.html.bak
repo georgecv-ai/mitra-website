@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>당신의 튜터. 당신만의 방식으로. — Mitra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/ko/static/style.css" />
+  <link rel="icon" type="image/png" href="/ko/static/images/mitra-logo-icon-v2_003.png">
+  <link rel="canonical" href="https://www.mitratutor.com/ko/for-students.html" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/ko/"><img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/ko/">홈</a></li>
+        <li class="nav-item"><a class="nav-link" href="/ko/for-students.html">학생 안내</a></li>
+        <li class="nav-item"><a class="nav-link" href="/ko/for-parents.html">학부모 안내</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://app.mitratutor.com/ko/enroll">등록</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://app.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
+        <!-- Language toggle -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KO" style="border-radius:2px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item " href="/en/for-students.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
+            <li><a class="dropdown-item active" href="/ko/for-students.html"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  <div class="parents-page">
+
+  <div class="parents-header">
+    <h1>당신의 튜터. 당신만의 방식으로.</h1>
+    <p>교과서 방식이 아닌, <strong>당신의 두뇌</strong> 방식대로 작동하는 인내심 있는 AI 튜터입니다.</p>
+  </div>
+
+  <!-- What Makes Mitra Different -->
+  <div class="mitra-special">
+    <div class="mitra-special-header">
+      <h2>미트라가 다른 이유</h2>
+      <p>대부분의 튜터는 일주일에 한 번 가능하고, 비용이 많이 들며, 자기 페이스대로 진행합니다. 미트라는 다릅니다.</p>
+    </div>
+
+    <div class="knowledge-circles">
+      <div class="knowledge-circle">
+        <div class="circle-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h3>언제나 이용 가능</h3>
+          <p>밤 11시에 숙제 마감이라고요? 괜찮아요. 미트라는 필요할 때 언제나 있습니다. 예약도, 기다림도 없습니다.</p>
+        </div>
+      </div>
+      <div class="knowledge-circle">
+        <div class="circle-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <h3>학습 이력 기억</h3>
+          <p>미트라는 세션에 걸쳐 노트를 유지합니다. 어디서 멈췄는지, 무엇을 이미 다뤘는지 다시 설명할 필요가 없습니다.</p>
+        </div>
+      </div>
+      <div class="knowledge-circle">
+        <div class="circle-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div>
+          <h3>짧고 명확한 설명</h3>
+          <p>미트라는 한 번에 한 가지 개념으로 나눠서 설명합니다. 긴 텍스트 없이. 같은 질문을 다섯 번 해도 판단 없이 답해드립니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="convergence">
+      <span class="convergence-label">인내심 있게. 솔직하게. 당신 편에서.</span>
+    </div>
+
+    <div class="comparison-grid">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="col-other">유튜브 / 구글</th>
+            <th class="col-other">ChatGPT / Gemini</th>
+            <th class="col-other">과외 선생님</th>
+            <th class="col-mitra">Mitra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>내 문제를 직접 설명해줌</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>24시간 이용 가능</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>이전 세션 기억</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>문자/메시지로 이용 가능</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>학습 방식에 맞춤 적응</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="half">&#9680;</span></td>
+            <td><span class="half">&#9680;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>합리적 가격</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="accordion" id="studentsAccordion">
+
+    <!-- How it works -->
+    <div class="parents-accordion-item">
+      <h2>
+        <button class="parents-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#howItWorks" aria-expanded="true">
+          세션 진행 방식
+        </button>
+      </h2>
+      <div id="howItWorks" class="collapse show" data-bs-parent="#studentsAccordion">
+        <div class="parents-accordion-body">
+          <p><strong>Telegram 또는 WhatsApp</strong>으로 미트라에게 문자를 보내세요. 새 앱 설치 없이, 이미 쓰는 앱으로.</p>
+          <p>세션은 의도적으로 짧습니다. 미트라는 <strong>한 번에 한 가지 개념</strong>을 보내고, 답변을 기다리며, 당신의 말에 따라 조정합니다. 타이핑이 어려우면 숙제 사진을 보내도 됩니다.</p>
+          <p>타이머도, 압박도 없습니다. 미트라는 세션이 마무리될 때를 알고, 실제로 이해한 것으로 마무리합니다. 힘든 상태가 아닌 좋은 느낌으로 끝납니다.</p>
+          <hr>
+          <h4>세션이 어떤 모습인지</h4>
+          <div class="students-chat-demo">
+            <div class="chat-bubble student-bubble">x² 인수분해 문제를 어떻게 하는지 모르겠어요. 선생님이 설명했는데 이해가 안 됐어요</div>
+            <div class="chat-bubble mitra-bubble">알겠어요. 천천히 해봐요.<br><br>x² + 5x + 6을 인수분해하는 건 <strong>곱하면 6</strong>이 되고 <strong>더하면 5</strong>가 되는 두 숫자를 찾는 거예요.<br><br>어떤 두 숫자가 떠오르나요?</div>
+            <div class="chat-bubble student-bubble">음... 2랑 3?</div>
+            <div class="chat-bubble mitra-bubble"><strong>맞아요.</strong> 2 × 3 = 6이고, 2 + 3 = 5예요. 그게 전부예요.<br><br>그래서 답은 (x + 2)(x + 3)이에요.<br><br>직접 하나 해볼까요?</div>
+            <div class="chat-bubble student-bubble">네 해볼게요</div>
+            <div class="chat-bubble mitra-bubble">이건 어때요: x² + 7x + 10<br><br>10을 곱하고 7을 더하는 두 숫자는 뭘까요?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What we cover -->
+    <div class="parents-accordion-item">
+      <h2>
+        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whatWeCover">
+          미트라가 가르치는 내용
+        </button>
+      </h2>
+      <div id="whatWeCover" class="collapse" data-bs-parent="#studentsAccordion">
+        <div class="parents-accordion-body">
+          <p>미트라는 학교에서 마주칠 거의 모든 주제를 도울 수 있습니다. 음악이론, 역사 에세이, 코딩, 무엇이든 물어보세요. 교육과정에 있는 것이라면 함께할 수 있습니다.</p>
+          <p>다만, 미트라는 중학교 1학년부터 고등학교 3학년까지의 다섯 가지 핵심 과목에 심층적으로 훈련되어 있습니다:</p>
+          <ul>
+            <li><strong>수학</strong> — 기초 대수부터 미적분까지</li>
+            <li><strong>읽기</strong> — 독해, 분석, 정독</li>
+            <li><strong>쓰기</strong> — 구조, 논증, 편집</li>
+            <li><strong>과학</strong> — 생물, 화학, 물리, 지구과학</li>
+            <li><strong>사회</strong> — 역사, 지리, 시민</li>
+          </ul>
+          <p>이 과목들에서 미트라는 단순히 내용만 아는 것이 아닙니다. 각 학년에서 학생들이 막히는 방식, 자주 생기는 오해, 그리고 첫 설명이 잘 안 될 때 다른 방향으로 설명하는 방법을 알고 있습니다. 여기서 가장 좋은 결과를 얻을 수 있습니다.</p>
+          <p>등록 시 부모님이 공부 중인 과목과 현재 수준을 알려줍니다. 미트라는 거기서 먼저 집중합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Your privacy -->
+    <div class="parents-accordion-item">
+      <h2>
+        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#yourPrivacy">
+          내 개인정보 보호
+        </button>
+      </h2>
+      <div id="yourPrivacy" class="collapse" data-bs-parent="#studentsAccordion">
+        <div class="parents-accordion-body">
+          <p>세션은 내 것입니다. 미트라는 정확한 메시지를 부모님과 공유하지 않습니다. 부모님이 받는 것은 <strong>주간 요약</strong>입니다. 과목 진도, 진행 상황 등.</p>
+          <p>부모님은 별도 포털을 통해 진도에 대해 물어볼 수 있습니다. 미트라는 솔직하게 답하지만 직접 인용하지는 않습니다.</p>
+          <hr>
+          <h4>한 가지 예외</h4>
+          <p>세션에서 당신이나 다른 사람의 안전에 위험이 될 만한 것이 나오면, 미트라는 즉시 부모님이나 보호자에게 알립니다. 이건 절대적인 규칙입니다.</p>
+          <p>그 외 모든 것은 대화가 비공개로 유지됩니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADHD / neurodivergent -->
+    <div class="parents-accordion-item parents-accordion-highlight">
+      <h2>
+        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#adhd">
+          ADHD가 있거나 다르게 배우는 경우
+        </button>
+      </h2>
+      <div id="adhd" class="collapse" data-bs-parent="#studentsAccordion">
+        <div class="parents-accordion-body">
+          <p>미트라는 ADHD를 염두에 두고 만들었습니다. 짧은 메시지, 한 번에 한 개념, 서두르지 않음, 이력 기억 — 이 모든 것이 ADHD 두뇌가 실제로 정보를 처리하는 방식을 반영합니다.</p>
+          <p>많은 튜터링이 두뇌가 튜터 스타일에 맞춰질 것이라고 가정합니다. 미트라는 반대입니다. 당신에게 맞춥니다.</p>
+          <ul>
+            <li><strong>학습 프로필</strong>은 등록 시 설정됩니다. 미트라는 과목, 수준, 효과적인 방식을 알고 있습니다.</li>
+            <li>세션은 <strong>끝낼 수 있을 만큼 짧게</strong> 설계되어 있습니다. 지치지 않도록.</li>
+            <li>같은 방식으로 계속 막힌다면, 미트라가 알아채고 접근법을 바꿉니다.</li>
+            <li><strong>판단도, 조급함도 없습니다.</strong> 메시지 사이에 10분이 걸려도 됩니다. 미트라는 기다립니다.</li>
+          </ul>
+          <p>ADHD 진단이 없어도 이것의 혜택을 받을 수 있습니다. 하지만 있다면, 미트라가 다른 튜터링 도구와 눈에 띄게 다르다고 느낄 것입니다.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="parents-cta">
+    <a href="https://app.mitratutor.com/ko/enroll" class="btn-cta-primary btn-cta-large">시작하기 — 부모님께 등록 요청하기</a>
+  </div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
+        <span class="footer-logo">Mitra AI Tutor</span>
+      </div>
+      <div class="footer-nav">
+        <a href="/ko/for-parents.html">학부모 안내</a>
+        <a href="/ko/about.html">소개</a>
+        <a href="https://app.mitratutor.com/ko/enroll">등록</a>
+        <a href="mailto:support@mitratutor.com">support@mitratutor.com</a>
+        <a href="/ko/privacy.html">개인정보처리방침</a>
+        <a href="/ko/terms.html">이용약관</a>
+        <a href="/ko/refund.html">환불정책</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
+      <div class="small text-muted">
+        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot;
+        사업자등록번호: 332-06-03605 &middot;
+        서울특별시 강남구 영동대로 602, 6층 Z183호 &middot;
+        전화: 010-3094-9059 &middot;
+        <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+.students-chat-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  max-width: 520px;
+}
+.chat-bubble {
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-width: 82%;
+}
+.student-bubble {
+  background: #2d3748;
+  color: #f7fafc;
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+.mitra-bubble {
+  background: #2B4C7E;
+  color: #f7fafc;
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+.mitra-bubble strong {
+  color: #ffffff;
+}
+</style>
+</body>
+</html>

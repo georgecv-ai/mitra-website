@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>등록 전 알아야 할 사항 — Mitra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/ko/static/style.css" />
+  <link rel="icon" type="image/png" href="/ko/static/images/mitra-logo-icon-v2_003.png">
+  <link rel="canonical" href="https://www.mitratutor.com/ko/for-parents.html" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/ko/"><img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/ko/">홈</a></li>
+        <li class="nav-item"><a class="nav-link" href="/ko/for-students.html">학생 안내</a></li>
+        <li class="nav-item"><a class="nav-link" href="/ko/for-parents.html">학부모 안내</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://app.mitratutor.com/ko/enroll">등록</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://app.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
+        <!-- Language toggle -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KO" style="border-radius:2px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item " href="/en/for-parents.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
+            <li><a class="dropdown-item active" href="/ko/for-parents.html"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  <div class="parents-page">
+
+  <div class="parents-header">
+    <h1>등록 전 알아야 할 사항</h1>
+    <p>아이를 등록하기 전에 읽어주세요.</p>
+  </div>
+
+  <!-- What Makes Mitra Special -->
+  <div class="mitra-special">
+    <div class="mitra-special-header">
+      <h2>미트라가 특별한 이유</h2>
+      <p>대부분의 튜터링 도구는 한 가지만 잘합니다. 미트라는 세 가지를 압니다.</p>
+    </div>
+
+    <div class="knowledge-circles">
+      <div class="knowledge-circle">
+        <div class="circle-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div>
+          <h3>교과 전문성</h3>
+          <p>미트라는 각 과목을 연구합니다. 교재, 학습 진도, 그리고 가르치는 방법에 대한 근거까지. 과목 및 주제 지식은 Common Core State Standards와 International Baccalaureate 교육과정 기대치를 연구하여 도출합니다. 단순히 정답이 아니라, 가장 좋은 설명 방법을 찾습니다.</p>
+        </div>
+      </div>
+      <div class="knowledge-circle">
+        <div class="circle-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div>
+          <h3>아이의 사고방식</h3>
+          <p>미트라는 ADHD와 같은 인지적 차이가 학습에 미치는 영향을 연구하고, 시간이 지나면서 아이를 알아갑니다. 무엇이 효과적이고, 무엇이 아닌지, 어떻게 참여하는지. 모든 세션이 이전 세션 위에 쌓입니다.</p>
+        </div>
+      </div>
+      <div class="knowledge-circle">
+        <div class="circle-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <h3>스마트폰으로, 아이 시간에</h3>
+          <p>10~15분 세션, 언제든지, 바로 스마트폰으로. 미트라는 텍스트로 가르친다는 것을 알고 있으며, 그것을 한계가 아닌 강점으로 만듭니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="convergence">
+      <span class="convergence-label">세 가지 모두를 결합한 것은 미트라뿐입니다</span>
+    </div>
+
+    <div class="comparison-grid">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="col-other">ChatGPT</th>
+            <th class="col-other">과외 선생님</th>
+            <th class="col-mitra">Mitra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>교과 내용 파악</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>ADHD 이해</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="half">&#9680;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>아이에게 맞춤 적응</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>아이 시간에 맞춤</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>친구처럼 문자</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>지난 세션 기억</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>합리적 가격</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="accordion" id="parentsAccordion">
+
+    <!-- Our Approach -->
+    <div class="parents-accordion-item">
+      <h2>
+        <button class="parents-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#approach" aria-expanded="true">
+          참여를 최우선으로 하는 이유
+        </button>
+      </h2>
+      <div id="approach" class="collapse show" data-bs-parent="#parentsAccordion">
+        <div class="parents-accordion-body">
+          <p>미트라는 <strong>참여 우선 교육 방식</strong>을 사용합니다. 튜터는 매 세션의 처음 몇 분을 아이의 안부를 묻고, 어떤 일이 있는지, 무엇에 관심이 있는지 확인하는 데 사용합니다. 이것은 시간 낭비가 아닙니다. 이것이 바로 교육 방법입니다.</p>
+          <p>ADHD 학생에게는 튜터와의 관계 자체가 치료적 개입입니다. 세션이 "그냥 수다"처럼 보인다면, 그것은 교육 방법이 작동하고 있는 것입니다. 신뢰 관계가 실제 학습이 이루어지는 조건을 만듭니다.</p>
+          <p>우리는 먼저 유대감을 형성한 후, 그 유대감을 통해 가르칩니다. 아이는 실제로 대화하고 싶은 튜터에게서 더 많이 배웁니다.</p>
+          <hr>
+          <h4>학업에만 국한되지 않습니다</h4>
+          <p>아이가 힘든 하루, 친구 관계 문제, 스트레스 또는 학업 외의 주제에 대해 이야기하면 — <strong>튜터가 함께 대화합니다.</strong> "학교 공부만 도와줄 수 있어요"라고 회피하지 않습니다.</p>
+          <p>ADHD가 있는 아이에게 "학교 일"과 "일상 일"의 경계는 모호합니다. 그 경계를 강요하면 신뢰가 무너집니다. 튜터는 경청하고, 공감하며, 적절한 순간에 부드럽게 학습으로 돌아갑니다.</p>
+          <p>유일한 절대적 경계는 <strong>안전</strong>입니다 — 튜터가 안전 문제를 감지하면 즉시 연락드립니다 (아래 참조).</p>
+          <p>등록 시 아이가 도움이 필요한 과목을 알려주시면 됩니다. 미트라는 이를 출발점으로 사용합니다 — 하지만 아이가 다른 주제에 더 집중한다면, 미트라는 그것을 따릅니다. <em>어떤</em> 과목이든 생산적인 세션은 성공입니다. 주간 요약에서 아이가 무엇을 공부했고 무엇을 배웠는지 정확히 알려드립니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How Sessions Work -->
+    <div class="parents-accordion-item">
+      <h2>
+        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sessions">
+          세션 진행 방식
+        </button>
+      </h2>
+      <div id="sessions" class="collapse" data-bs-parent="#parentsAccordion">
+        <div class="parents-accordion-body">
+          <ul>
+            <li>세션은 <strong>Telegram</strong>을 통해 진행됩니다 — 아이가 튜터와 자연스럽게 대화합니다. WhatsApp은 기존 테스터에게만 제공됩니다.</li>
+            <li>메시지는 <strong>짧습니다</strong> — 최대 2-4문장. ADHD 두뇌에 맞게 설계되었습니다.</li>
+            <li><strong>한 번에 한 가지 개념.</strong> 장문의 텍스트나 정보 과부하가 없습니다.</li>
+            <li>튜터는 <strong>아이의 에너지에 맞춰 적응합니다</strong>. 집중하면 맞추고, 장난치면 가볍게 대응합니다.</li>
+            <li>일반적인 생산적 세션: <strong>10-15분</strong>.</li>
+            <li>모든 완료된 세션은 <strong>긍정적인 마무리</strong>로 끝납니다 — 힘든 날이었더라도.</li>
+          </ul>
+          <hr>
+          <h4>추적하는 내용</h4>
+          <p>우리는 <strong>진행 추세와 참여 패턴</strong>을 추적합니다 — 성적이나 시험 점수가 아닙니다. 성장 신호를 봅니다: 아이가 더 어려운 문제에 도전할 의지와 능력이 있는가? 세션에 더 오래 머무는가? 스스로 돌아오는가? 그것이 중요합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy & Communication -->
+    <div class="parents-accordion-item">
+      <h2>
+        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy">
+          아이의 프라이버시
+        </button>
+      </h2>
+      <div id="privacy" class="collapse" data-bs-parent="#parentsAccordion">
+        <div class="parents-accordion-body">
+          <p>학부모로서 <strong>진행 요약</strong>만 보실 수 있습니다. 대화 내용은 볼 수 없습니다. 이것은 의도적입니다.</p>
+          <p>아이는 모든 메시지를 부모가 읽고 있다는 걱정 없이 좌절감, 혼란, 취약함을 표현할 수 있는 안전한 공간이 필요합니다. 그 안전함이 튜터링을 효과적으로 만듭니다. 안전 문제가 있으면 즉시 연락드립니다.</p>
+          <hr>
+          <h4>연락드리는 경우</h4>
+          <ul>
+            <li><strong>성취:</strong> 아이가 학습 목표를 달성하거나 의미 있는 진전을 보일 때.</li>
+            <li><strong>주간 요약:</strong> 아이가 무엇을 공부했는지, 무엇을 배웠는지, 어떻게 참여하고 있는지 — 등록한 과목과 다른 과목을 선택한 경우도 포함합니다.</li>
+            <li><strong>안전 문제:</strong> 튜터가 자해, 학대 또는 위험 징후를 감지하면 <strong>즉시 알림을 받으실 것입니다.</strong> 이것은 자동이며 즉각적입니다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Where We Are -->
+    <div class="parents-accordion-item parents-accordion-highlight">
+      <h2>
+        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#prototype">
+          이것은 프로토타입입니다
+        </button>
+      </h2>
+      <div id="prototype" class="collapse" data-bs-parent="#parentsAccordion">
+        <div class="parents-accordion-body">
+          <p>현재 상황에 대해 알아두셔야 할 사항이 있습니다:</p>
+          <ol>
+            <li><strong>신규 등록은 Telegram만 가능합니다.</strong> 먼저 이 사이트에서 등록한 후, Telegram에서 <strong>@Mitradhdbot</strong>을 검색하여 대화를 시작하세요. WhatsApp은 기존 테스트 가족만 이용 가능합니다.</li>
+            <li><strong>AI 큐레이션 연구.</strong> 교육 전략은 AI가 연구하고 품질을 검토합니다. 전문가의 인간 검토가 진행 중입니다.</li>
+            <li><strong>ADHD를 위한 설계.</strong> 미트라는 ADHD 학생을 위해 만들어졌습니다. 테스트 기간 동안 ADHD가 있는 학생과 없는 학생 모두를 초대하여 경험을 개선하고 있습니다.</li>
+            <li><strong>참여가 우선입니다.</strong> 우리는 참여 우선 교육 방법을 사용합니다. 튜터는 학업에 들어가기 전에 아이와 신뢰를 쌓고 연결을 형성합니다. 이것은 의도적인 교육 방법이며, 놀고 있는 것이 아닙니다.</li>
+          </ol>
+          <hr>
+          <h4>아이가 원하는 만큼 미트라를 사용할 수 있습니다</h4>
+          <p>엄격한 사용 제한이 없습니다. 아이가 매일 튜터와 대화하고 싶다면 좋습니다. 일주일에 한 번만 확인해도 괜찮습니다.</p>
+          <p>사용량이 우리가 감당할 수 있는 범위를 넘으면 <strong>먼저 상의드리겠습니다.</strong> 빈도를 조정하거나, 추가 비용을 요청하거나, 비용을 부담할 수 있습니다.</p>
+          <p><strong>사전 상의 없이 아이의 서비스를 중단하는 일은 절대 없습니다.</strong> 아이의 참여는 우리에게 가장 가치 있는 데이터입니다.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pricing (always visible) -->
+  <div class="parents-pricing">
+    <h2>가격</h2>
+    <p>한국 거주 가정은 <strong>월 50,000원</strong>, 미국 거주 가정은 <strong>월 $35</strong>입니다. 이는 실제 비용보다 낮은 금액입니다 — 실제 아이들의 사용이 서비스를 개선하기에 나머지를 부담합니다.</p>
+    <p><strong>결제:</strong> 카카오페이 또는 Venmo — 등록 확인 시 상세 내용을 안내해 드립니다.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="parents-cta">
+    <a href="https://app.mitratutor.com/ko/enroll" class="btn-cta-primary btn-cta-large">준비되셨나요? 아이 등록하기 →</a>
+  </div>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
+        <span class="footer-logo">Mitra AI Tutor</span>
+      </div>
+      <div class="footer-nav">
+        <a href="/ko/for-parents.html">학부모 안내</a>
+        <a href="/ko/about.html">소개</a>
+        <a href="https://app.mitratutor.com/ko/enroll">등록</a>
+        <a href="mailto:support@mitratutor.com">support@mitratutor.com</a>
+        <a href="/ko/privacy.html">개인정보처리방침</a>
+        <a href="/ko/terms.html">이용약관</a>
+        <a href="/ko/refund.html">환불정책</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
+      <div class="small text-muted">
+        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot;
+        사업자등록번호: 332-06-03605 &middot;
+        서울특별시 강남구 영동대로 602, 6층 Z183호 &middot;
+        전화: 010-3094-9059 &middot;
+        <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

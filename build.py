@@ -85,6 +85,17 @@ def build_base_html(lang, translations):
   <link rel="stylesheet" href="/{lang}/static/style.css" />
   <link rel="icon" type="image/png" href="/{lang}/static/images/mitra-logo-icon-v2_003.png">
   <link rel="canonical" href="{WWW_URL}/{{{{ canonical_path }}}}" />
+  <meta property="og:title" content="{{{{ title }}}}" />
+  <meta property="og:description" content="Personalized AI tutoring for your child" />
+  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{WWW_URL}/{{{{ canonical_path }}}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{{{ title }}}}" />
+  <meta name="twitter:description" content="Personalized AI tutoring for your child" />
+  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
 </head>
 <body>
 
@@ -288,6 +299,17 @@ def main():
 <head>
   <meta charset="UTF-8" />
   <title>Mitra AI Tutor</title>
+  <meta property="og:title" content="Mitra AI Tutor" />
+  <meta property="og:description" content="Personalized AI tutoring for your child" />
+  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mitratutor.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mitra AI Tutor" />
+  <meta name="twitter:description" content="Personalized AI tutoring for your child" />
+  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <script>
     var lang = (navigator.language || navigator.userLanguage || 'en').substring(0, 2);
     var dest = lang === 'ko' ? '/ko/' : '/en/';
