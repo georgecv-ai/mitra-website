@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mitra AI Blog</title>
+    <link>https://www.mitratutor.com/en/blog/</link>
+    <description>Inside Mitra AI: how we build an AI tutoring platform with our AI systems as team members.</description>
+    <language>en</language>
+    <atom:link href="https://www.mitratutor.com/en/blog/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>We Held a Product Meeting With Our AI Tutor. Here's What Happened.</title>
+      <link>https://www.mitratutor.com/en/blog/product-meeting</link>
+      <guid>https://www.mitratutor.com/en/blog/product-meeting</guid>
+      <pubDate>Mon, 07 Apr 2026 00:00:00 +0900</pubDate>
+      <author>support@mitratutor.com (George Neal)</author>
+      <description>We included our AI tutor in a product planning meeting. She killed a bad design, turned down a tool we offered, and discovered her own architecture. Three moments that changed how we think about building with AI.</description>
+    </item>
+
+  </channel>
+</rss>
