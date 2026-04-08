@@ -47,6 +47,13 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Free Trial -->
+  <url>
+    <loc>https://www.mitratutor.com/en/free-trial</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Blog -->
   <url>
     <loc>https://www.mitratutor.com/en/blog/</loc>
