@@ -314,6 +314,7 @@ document.getElementById("trial-form").addEventListener("submit", function(e) {
     .then(r => r.json())
     .then(data => {
       if (data.ok) {
+        plausible("Trial Signup", {props: {platform: body.platform}});
         document.getElementById("trial-open").style.display = "none";
         document.getElementById("trial-success").style.display = "block";
       } else {
@@ -352,6 +353,7 @@ document.getElementById("waitlist-form").addEventListener("submit", function(e) 
     .then(r => r.json())
     .then(data => {
       if (data.ok) {
+        plausible("Waitlist Signup");
         document.getElementById("trial-full").style.display = "none";
         document.getElementById("waitlist-success").style.display = "block";
       } else {

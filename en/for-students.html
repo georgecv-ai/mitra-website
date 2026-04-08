@@ -363,5 +363,23 @@
   color: #ffffff;
 }
 </style>
+
+<script>
+// Track key CTA clicks
+document.addEventListener("click", function(e) {
+  var link = e.target.closest("a");
+  if (!link) return;
+  var href = link.getAttribute("href") || "";
+  if (href.includes("/enroll")) {
+    plausible("Enroll Click", {props: {page: location.pathname, source: link.textContent.trim().substring(0, 30)}});
+  }
+  if (href.includes("/free-trial")) {
+    plausible("Trial Click", {props: {page: location.pathname}});
+  }
+  if (href.includes("/parent/login")) {
+    plausible("Parent Login Click", {props: {page: location.pathname}});
+  }
+});
+</script>
 </body>
 </html>
