@@ -1,334 +1,192 @@
 """
-One-time build script: renders Mitra portal Jinja2 templates into static HTML.
+Marketing site build script.
 
-Usage:
-    python build.py
+Reads `src/_layout.html`, `src/_config.json`, and content fragments from
+`src/en/*.html` and `src/ko/*.html`. Writes assembled standalone HTML to
+`en/*.html` and `ko/*.html` at the repo root (where Cloudflare Pages serves
+from).
 
-Reads templates and translations from ../tutor/portal/, writes static HTML
-into en/ and ko/ directories. After running, the generated HTML files are
-the source of truth -- edit them directly.
+Each content fragment may have an HTML comment "frontmatter" at the top:
+
+    <!-- META
+    title: Mitra — About
+    description: Mitra AI Tutor was built for students who learn differently.
+    slug: about.html
+    canonical: en/about.html
+    -->
+    <div class="about-page">
+      ...
+    </div>
+
+Required keys: title, description, slug.
+canonical defaults to "{lang}/{slug}".
+og_image defaults to the language's default_og_image.
+extra_head and extra_scripts are optional.
+
+Run:  python build.py
 """
 
 import json
-import os
+import re
 import sys
 from pathlib import Path
 
-# Jinja2 is needed -- install with: pip install jinja2
-from jinja2 import Environment, FileSystemLoader
-from markupsafe import Markup
-
-PORTAL_DIR = Path(__file__).parent.parent / "tutor" / "portal"
-TEMPLATES_DIR = PORTAL_DIR / "templates"
-TRANSLATIONS_FILE = PORTAL_DIR / "translations.json"
-OUTPUT_DIR = Path(__file__).parent
-
-PORTAL_URL = "https://app.mitratutor.com"
-WWW_URL = "https://www.mitratutor.com"
-
-# Pages to render: (template_name, output_filename, title_key_or_literal)
-PAGES = [
-    ("index.html", "index.html"),
-    ("for_parents.html", "for-parents.html"),
-    ("for_students.html", "for-students.html"),
-    ("about.html", "about.html"),
-    ("privacy.html", "privacy.html"),
-    ("terms.html", "terms.html"),
-    ("refund.html", "refund.html"),
-]
-
-# Korean overrides (these templates exist in ko/ subdirectory)
-KO_OVERRIDES = {
-    "index.html",
-    "for_parents.html",
-    "about.html",
-    "privacy.html",
-    "terms.html",
-    "refund.html",
-}
+ROOT = Path(__file__).parent
+SRC = ROOT / "src"
+LAYOUT_PATH = SRC / "_layout.html"
+CONFIG_PATH = SRC / "_config.json"
 
 
-def load_translations():
-    with open(TRANSLATIONS_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+META_BLOCK_RE = re.compile(
+    r"^\s*<!--\s*META\s*\n(.*?)\n\s*-->\s*\n", re.DOTALL
+)
 
 
-def make_t(translations, lang):
-    """Create a translation function for the given language."""
-    def t(key):
-        entry = translations.get(key, {})
-        if isinstance(entry, dict):
-            return entry.get(lang, entry.get("en", key))
-        return entry
-    return t
+def load_config() -> dict:
+    return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
 
 
-def build_base_html(lang, translations):
-    """Build the static base HTML wrapper for the public site."""
-    t = make_t(translations, lang)
-    other_lang = "ko" if lang == "en" else "en"
-    flag_code = "kr" if lang == "ko" else "en"
-    other_flag = "en" if lang == "ko" else "kr"
-    lang_label = "English" if lang == "en" else "한국어"
-    other_label = "한국어" if lang == "en" else "English"
-
-    return f'''<!DOCTYPE html>
-<html lang="{lang}">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{{{ title }}}}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/{lang}/static/style.css" />
-  <link rel="icon" type="image/png" href="/{lang}/static/images/mitra-logo-icon-v2_003.png">
-  <link rel="canonical" href="{WWW_URL}/{{{{ canonical_path }}}}" />
-  <meta property="og:title" content="{{{{ title }}}}" />
-  <meta property="og:description" content="Personalized AI tutoring for your child" />
-  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{WWW_URL}/{{{{ canonical_path }}}}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{{{ title }}}}" />
-  <meta name="twitter:description" content="Personalized AI tutoring for your child" />
-  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="/{lang}/"><img src="/{lang}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navLinks">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/{lang}/">{t('home')}</a></li>
-        <li class="nav-item"><a class="nav-link" href="/{lang}/for-students.html">{t('for_students')}</a></li>
-        <li class="nav-item"><a class="nav-link" href="/{lang}/for-parents.html">{t('for_parents')}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{PORTAL_URL}/{lang}/enroll">{t('enroll')}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{PORTAL_URL}/{lang}/parent/login">{t('parent_login')}</a></li>
-        <!-- Language toggle -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/{lang}/static/images/flag-{flag_code}.png" width="24" height="16" alt="{lang.upper()}" style="border-radius:2px;">
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item {"active" if lang == "en" else ""}" href="/en/{{{{ current_page }}}}"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
-            <li><a class="dropdown-item {"active" if lang == "ko" else ""}" href="/ko/{{{{ current_page }}}}"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<main class="container py-4">
-  {{{{ content }}}}
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <img src="/{lang}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
-        <span class="footer-logo">Mitra AI Tutor</span>
-      </div>
-      <div class="footer-nav">
-        <a href="/{lang}/for-parents.html">{t('for_parents')}</a>
-        <a href="/{lang}/about.html">{t('about')}</a>
-        <a href="{PORTAL_URL}/{lang}/enroll">{t('enroll')}</a>
-        <a href="mailto:support@mitratutor.com">support@mitratutor.com</a>
-        <a href="/{lang}/privacy.html">{t('footer_privacy')}</a>
-        <a href="/{lang}/terms.html">{t('footer_terms')}</a>
-        <a href="/{lang}/refund.html">{t('footer_refund')}</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
-      <div class="small text-muted">
-        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot;
-        사업자등록번호: 332-06-03605 &middot;
-        서울특별시 강남구 영동대로 602, 6층 Z183호 &middot;
-        전화: 010-3094-9059 &middot;
-        <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-{{{{ scripts }}}}
-</body>
-</html>'''
+def load_layout() -> str:
+    return LAYOUT_PATH.read_text(encoding="utf-8")
 
 
-def render_page(env, template_name, lang, translations):
-    """Render a single page template, extracting just the content block."""
-    t_func = make_t(translations, lang)
-
-    # Check for Korean override
-    if lang == "ko" and template_name in KO_OVERRIDES:
-        tpl_path = f"ko/{template_name}"
+def parse_fragment(text: str) -> tuple[dict, str]:
+    """Split a content file into (metadata dict, body html)."""
+    meta = {}
+    m = META_BLOCK_RE.match(text)
+    if m:
+        for line in m.group(1).splitlines():
+            line = line.strip()
+            if not line or ":" not in line:
+                continue
+            key, _, value = line.partition(":")
+            meta[key.strip()] = value.strip()
+        body = text[m.end():]
     else:
-        tpl_path = template_name
+        body = text
+    return meta, body
 
-    try:
-        tpl = env.get_template(tpl_path)
-    except Exception:
-        tpl = env.get_template(template_name)
 
-    # Render the full template (it extends base.html, but we'll extract content)
-    # Instead, let's render with a custom base that captures blocks
-    context = {
-        "t": t_func,
-        "lang": lang,
-        "request": type("Request", (), {"session": type("Session", (), {"get": lambda self, k: None})()})(),
-        "flash": None,
-        "csrf_token": "",
+def render_nav_items(nav_items: list[dict], current_href: str) -> str:
+    out = []
+    for item in nav_items:
+        active = ' active' if current_href == item["href"] else ''
+        out.append(
+            f'        <li class="nav-item">'
+            f'<a class="nav-link{active}" href="{item["href"]}">'
+            f'{item["label"]}</a></li>'
+        )
+    return "\n".join(out)
+
+
+def render_footer_links(footer_links: list[dict]) -> str:
+    out = []
+    for link in footer_links:
+        cls = ' class="text-muted"' if link.get("muted") else ''
+        out.append(f'        <a href="{link["href"]}"{cls}>{link["label"]}</a>')
+    return "\n".join(out)
+
+
+def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str) -> str:
+    slug = meta.get("slug", "")
+    # slug_clean strips the trailing .html so canonical/hreflang use the
+    # CF-Pages-friendly clean URL form (e.g. /en/about not /en/about.html).
+    slug_clean = slug[:-5] if slug.endswith(".html") else slug
+    if slug_clean == "index":
+        slug_clean = ""  # /en/ not /en/index
+    title = meta.get("title", "Mitra")
+    description = meta.get("description", lang_cfg.get("default_description", ""))
+    og_description = meta.get("og_description", description)
+    twitter_description = meta.get("twitter_description", description)
+    og_image = meta.get("og_image", lang_cfg.get("default_og_image", ""))
+
+    current_href = f"/{lang}/{slug}" if slug else f"/{lang}/"
+    nav_items_html = render_nav_items(lang_cfg["nav_items"], current_href)
+    footer_links_html = render_footer_links(lang_cfg["footer_links"])
+
+    en_active = "active" if lang == "en" else ""
+    ko_active = "active" if lang == "ko" else ""
+
+    toggle = lang_cfg["lang_toggle"]
+
+    # Normal pages get wrapped in <main class="container py-4">.
+    # Pages with `raw: true` in META supply their own structure between nav
+    # and footer (e.g. a hero banner before <main>, or a custom main_class).
+    if meta.get("raw", "").lower() == "true":
+        content_block = body.rstrip()
+    else:
+        main_class = meta.get("main_class", "container py-4")
+        content_block = (
+            f'<main class="{main_class}">\n{body.rstrip()}\n</main>'
+        )
+
+    replacements = {
+        "{{ html_lang }}": lang_cfg["html_lang"],
+        "{{ fonts_url }}": lang_cfg.get("fonts_url", ""),
+        "{{ title }}": title,
+        "{{ description }}": description,
+        "{{ og_description }}": og_description,
+        "{{ twitter_description }}": twitter_description,
+        "{{ og_image }}": og_image,
+        "{{ slug }}": slug,
+        "{{ slug_clean }}": slug_clean,
+        "{{ extra_head }}": meta.get("extra_head", ""),
+        "{{ extra_scripts }}": meta.get("extra_scripts", ""),
+        "{{ nav_items_html }}": nav_items_html,
+        "{{ footer_links_html }}": footer_links_html,
+        "{{ footer_copyright }}": lang_cfg["footer_copyright"],
+        "{{ footer_legal_html }}": lang_cfg["footer_legal_html"],
+        "{{ lang_toggle_current_flag }}": toggle["current_flag"],
+        "{{ lang_toggle_current_alt }}": toggle["current_alt"],
+        "{{ en_active_class }}": en_active,
+        "{{ ko_active_class }}": ko_active,
+        "{{ content_block }}": content_block,
     }
 
-    rendered = tpl.render(**context)
-    return rendered
+    out = layout
+    for k, v in replacements.items():
+        out = out.replace(k, v)
+    return out
 
 
-def extract_content_from_rendered(html):
-    """Extract just the main content from a fully rendered page."""
-    # The base template wraps content in <main class="container py-4">...</main>
-    start_marker = '<main class="container py-4">'
-    end_marker = '</main>'
-
-    start = html.find(start_marker)
-    if start == -1:
-        return html
-    start += len(start_marker)
-    end = html.find(end_marker, start)
-    if end == -1:
-        return html[start:]
-    return html[start:end].strip()
-
-
-def extract_scripts_from_rendered(html):
-    """Extract the scripts block content (between bootstrap and </body>)."""
-    marker = '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>'
-    idx = html.find(marker)
-    if idx == -1:
-        return ""
-    after = html[idx + len(marker):]
-    end = after.find("</body>")
-    if end == -1:
-        return ""
-    scripts = after[:end].strip()
-    return scripts
-
-
-def extract_title_from_rendered(html):
-    """Extract the <title> content."""
-    start = html.find("<title>")
-    if start == -1:
-        return "Mitra"
-    start += len("<title>")
-    end = html.find("</title>", start)
-    if end == -1:
-        return "Mitra"
-    return html[start:end]
-
-
-def build_final_page(base_html_template, title, content, scripts, canonical_path, current_page):
-    """Assemble the final static HTML page."""
-    return (
-        base_html_template
-        .replace("{{ title }}", title)
-        .replace("{{ content }}", content)
-        .replace("{{ scripts }}", scripts)
-        .replace("{{ canonical_path }}", canonical_path)
-        .replace("{{ current_page }}", current_page)
-    )
-
-
-def main():
-    if not TEMPLATES_DIR.exists():
-        print(f"Error: Templates directory not found at {TEMPLATES_DIR}")
+def build():
+    if not SRC.exists():
+        print(f"ERROR: {SRC} does not exist", file=sys.stderr)
         sys.exit(1)
+    config = load_config()
+    layout = load_layout()
 
-    translations = load_translations()
-
-    # Set up Jinja2 environment pointing at portal templates
-    env = Environment(
-        loader=FileSystemLoader(str(TEMPLATES_DIR)),
-        autoescape=False,
-    )
-    # Add safe filter
-    env.filters["safe"] = lambda x: Markup(x)
-
+    total = 0
     for lang in ("en", "ko"):
-        base_html = build_base_html(lang, translations)
-        out_dir = OUTPUT_DIR / lang
-
-        for template_name, output_name in PAGES:
-            print(f"  Rendering {lang}/{output_name}...")
-
-            rendered = render_page(env, template_name, lang, translations)
-            content = extract_content_from_rendered(rendered)
-            scripts = extract_scripts_from_rendered(rendered)
-            title = extract_title_from_rendered(rendered)
-
-            # Build canonical path
-            if output_name == "index.html":
-                canonical_path = f"{lang}/"
-            else:
-                canonical_path = f"{lang}/{output_name}"
-
-            final_html = build_final_page(
-                base_html, title, content, scripts, canonical_path, output_name
-            )
-
-            out_file = out_dir / output_name
-            out_file.write_text(final_html, encoding="utf-8")
-            print(f"    -> {out_file}")
-
-    # Create root index.html that redirects based on browser language
-    root_index = OUTPUT_DIR / "index.html"
-    root_index.write_text(
-        '''<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Mitra AI Tutor</title>
-  <meta property="og:title" content="Mitra AI Tutor" />
-  <meta property="og:description" content="Personalized AI tutoring for your child" />
-  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.mitratutor.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mitra AI Tutor" />
-  <meta name="twitter:description" content="Personalized AI tutoring for your child" />
-  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
-  <script>
-    var lang = (navigator.language || navigator.userLanguage || 'en').substring(0, 2);
-    var dest = lang === 'ko' ? '/ko/' : '/en/';
-    window.location.replace(dest);
-  </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=/en/" />
-  </noscript>
-</head>
-<body>
-  <p>Redirecting... <a href="/en/">English</a> | <a href="/ko/">한국어</a></p>
-</body>
-</html>
-''',
-        encoding="utf-8",
-    )
-    print(f"  -> {root_index}")
-    print("Done!")
+        lang_cfg = config.get(lang)
+        if not lang_cfg:
+            print(f"WARNING: no config for lang={lang}, skipping")
+            continue
+        src_dir = SRC / lang
+        if not src_dir.exists():
+            print(f"WARNING: {src_dir} does not exist, skipping")
+            continue
+        out_dir = ROOT / lang
+        out_dir.mkdir(parents=True, exist_ok=True)
+        for src_file in sorted(src_dir.glob("*.html")):
+            # Skip sidecar .head.html files
+            if src_file.name.endswith(".head.html"):
+                continue
+            text = src_file.read_text(encoding="utf-8")
+            meta, body = parse_fragment(text)
+            if not meta.get("slug"):
+                meta["slug"] = src_file.name
+            # Look for sidecar extra_head file alongside the fragment
+            sidecar = src_file.with_suffix(".head.html")
+            if sidecar.exists():
+                meta["extra_head"] = sidecar.read_text(encoding="utf-8").rstrip()
+            assembled = assemble_page(layout, lang_cfg, lang, meta, body)
+            out_file = out_dir / src_file.name
+            out_file.write_text(assembled, encoding="utf-8")
+            total += 1
+            print(f"  wrote {out_file.relative_to(ROOT)}")
+    print(f"Built {total} pages.")
 
 
 if __name__ == "__main__":
-    main()
+    build()
