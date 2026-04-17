@@ -8,7 +8,7 @@
     },
     "staging": {
       "app_base": "https://staging.mitratutor.com",
-      "site_base": "https://staging.mitra-website.pages.dev"
+      "site_base": "https://staging-mitra-website.georgeneal.workers.dev"
     },
     "local": {
       "app_base": "http://localhost:8000",
