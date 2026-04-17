@@ -1,10 +1,14 @@
 """
 Marketing site build script.
 
-Reads `src/_layout.html`, `src/_config.json`, and content fragments from
-`src/en/*.html` and `src/ko/*.html`. Writes assembled standalone HTML to
-`en/*.html` and `ko/*.html` at the repo root (where Cloudflare Pages serves
-from).
+Reads `src/_layout.html`, `src/_config.json`, `shared/nav-config.json`, and
+content fragments from `src/en/*.html` and `src/ko/*.html`. Writes assembled
+standalone HTML to `en/*.html` and `ko/*.html` at the repo root (where
+Cloudflare Pages serves from).
+
+Nav and footer links come from `shared/nav-config.json` (the single source of
+truth shared with the Railway app). Per-language page config (fonts, metadata,
+legal text) stays in `src/_config.json`.
 
 Each content fragment may have an HTML comment "frontmatter" at the top:
 
@@ -23,9 +27,10 @@ canonical defaults to "{lang}/{slug}".
 og_image defaults to the language's default_og_image.
 extra_head and extra_scripts are optional.
 
-Run:  python build.py
+Run:  python build.py [--env production|staging|local]
 """
 
+import argparse
 import json
 import re
 import sys
@@ -35,6 +40,7 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 LAYOUT_PATH = SRC / "_layout.html"
 CONFIG_PATH = SRC / "_config.json"
+NAV_CONFIG_PATH = ROOT / "shared" / "nav-config.json"
 
 
 META_BLOCK_RE = re.compile(
@@ -46,8 +52,52 @@ def load_config() -> dict:
     return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
 
 
+def load_nav_config() -> dict:
+    return json.loads(NAV_CONFIG_PATH.read_text(encoding="utf-8"))
+
+
 def load_layout() -> str:
     return LAYOUT_PATH.read_text(encoding="utf-8")
+
+
+def resolve_vars(text: str, app_base: str, site_base: str, lang: str) -> str:
+    """Replace {{app_base}}, {{site_base}}, and {{lang}} in a string."""
+    return (text
+            .replace("{{app_base}}", app_base)
+            .replace("{{site_base}}", site_base)
+            .replace("{{lang}}", lang))
+
+
+def get_nav_items(nav_config: dict, lang: str, app_base: str, site_base: str) -> list[dict]:
+    """Filter and resolve nav items for a given language."""
+    items = []
+    for item in nav_config["nav_items"]:
+        # Skip items restricted to other languages
+        if "lang" in item and lang not in item["lang"]:
+            continue
+        label = item["label"].get(lang)
+        if not label:
+            continue
+        href = resolve_vars(item["href"], app_base, site_base, lang)
+        items.append({"label": label, "href": href})
+    return items
+
+
+def get_footer_links(nav_config: dict, lang: str, app_base: str, site_base: str) -> list[dict]:
+    """Filter and resolve footer links for a given language."""
+    links = []
+    for item in nav_config["footer_links"]:
+        if "lang" in item and lang not in item["lang"]:
+            continue
+        label = item["label"].get(lang)
+        if not label:
+            continue
+        href = resolve_vars(item["href"], app_base, site_base, lang)
+        entry = {"label": label, "href": href}
+        if item.get("muted"):
+            entry["muted"] = True
+        links.append(entry)
+    return links
 
 
 def parse_fragment(text: str) -> tuple[dict, str]:
@@ -87,13 +137,13 @@ def render_footer_links(footer_links: list[dict]) -> str:
     return "\n".join(out)
 
 
-def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str) -> str:
+def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
+                  nav_items: list[dict], footer_links: list[dict],
+                  app_base: str, site_base: str) -> str:
     slug = meta.get("slug", "")
-    # slug_clean strips the trailing .html so canonical/hreflang use the
-    # CF-Pages-friendly clean URL form (e.g. /en/about not /en/about.html).
     slug_clean = slug[:-5] if slug.endswith(".html") else slug
     if slug_clean == "index":
-        slug_clean = ""  # /en/ not /en/index
+        slug_clean = ""
     title = meta.get("title", "Mitra")
     description = meta.get("description", lang_cfg.get("default_description", ""))
     og_description = meta.get("og_description", description)
@@ -101,17 +151,14 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str)
     og_image = meta.get("og_image", lang_cfg.get("default_og_image", ""))
 
     current_href = f"/{lang}/{slug}" if slug else f"/{lang}/"
-    nav_items_html = render_nav_items(lang_cfg["nav_items"], current_href)
-    footer_links_html = render_footer_links(lang_cfg["footer_links"])
+    nav_items_html = render_nav_items(nav_items, current_href)
+    footer_links_html = render_footer_links(footer_links)
 
     en_active = "active" if lang == "en" else ""
     ko_active = "active" if lang == "ko" else ""
 
     toggle = lang_cfg["lang_toggle"]
 
-    # Normal pages get wrapped in <main class="container py-4">.
-    # Pages with `raw: true` in META supply their own structure between nav
-    # and footer (e.g. a hero banner before <main>, or a custom main_class).
     if meta.get("raw", "").lower() == "true":
         content_block = body.rstrip()
     else:
@@ -119,6 +166,9 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str)
         content_block = (
             f'<main class="{main_class}">\n{body.rstrip()}\n</main>'
         )
+
+    # Resolve {{app_base}} in page content (CTA buttons, contact links, etc.)
+    content_block = resolve_vars(content_block, app_base, site_base, lang)
 
     replacements = {
         "{{ html_lang }}": lang_cfg["html_lang"],
@@ -149,12 +199,34 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str)
     return out
 
 
-def build():
+def detect_env() -> str:
+    """Auto-detect environment from CF_PAGES_BRANCH if available."""
+    import os
+    branch = os.environ.get("CF_PAGES_BRANCH", "")
+    if branch == "staging":
+        return "staging"
+    return "production"
+
+
+def build(env: str):
     if not SRC.exists():
         print(f"ERROR: {SRC} does not exist", file=sys.stderr)
         sys.exit(1)
+
     config = load_config()
+    nav_config = load_nav_config()
     layout = load_layout()
+
+    env_vars = nav_config["env"].get(env)
+    if not env_vars:
+        print(f"ERROR: unknown env '{env}'. Valid: {list(nav_config['env'].keys())}", file=sys.stderr)
+        sys.exit(1)
+    app_base = env_vars["app_base"]
+    site_base = env_vars["site_base"]
+
+    print(f"Building for env={env}")
+    print(f"  app_base = {app_base}")
+    print(f"  site_base = {site_base}")
 
     total = 0
     for lang in ("en", "ko"):
@@ -166,21 +238,25 @@ def build():
         if not src_dir.exists():
             print(f"WARNING: {src_dir} does not exist, skipping")
             continue
+
+        # Resolve nav/footer from shared config for this language + env
+        nav_items = get_nav_items(nav_config, lang, app_base, site_base)
+        footer_links = get_footer_links(nav_config, lang, app_base, site_base)
+
         out_dir = ROOT / lang
         out_dir.mkdir(parents=True, exist_ok=True)
         for src_file in sorted(src_dir.glob("*.html")):
-            # Skip sidecar .head.html files
             if src_file.name.endswith(".head.html"):
                 continue
             text = src_file.read_text(encoding="utf-8")
             meta, body = parse_fragment(text)
             if not meta.get("slug"):
                 meta["slug"] = src_file.name
-            # Look for sidecar extra_head file alongside the fragment
             sidecar = src_file.with_suffix(".head.html")
             if sidecar.exists():
                 meta["extra_head"] = sidecar.read_text(encoding="utf-8").rstrip()
-            assembled = assemble_page(layout, lang_cfg, lang, meta, body)
+            assembled = assemble_page(layout, lang_cfg, lang, meta, body,
+                                      nav_items, footer_links, app_base, site_base)
             out_file = out_dir / src_file.name
             out_file.write_text(assembled, encoding="utf-8")
             total += 1
@@ -189,4 +265,10 @@ def build():
 
 
 if __name__ == "__main__":
-    build()
+    parser = argparse.ArgumentParser(description="Build Mitra marketing site")
+    parser.add_argument("--env", default=None,
+                        help="Target environment (production, staging, local). "
+                             "Auto-detects from CF_PAGES_BRANCH if not set.")
+    args = parser.parse_args()
+    env = args.env or detect_env()
+    build(env)

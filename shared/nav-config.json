@@ -1,0 +1,64 @@
+{
+  "_comment": "Single source of truth for nav and footer links. Used by both the static site (build.py) and the Railway app (portal/nav.py). Three variables: {{app_base}} (Railway domain), {{site_base}} (static site domain, only needed by Railway), {{lang}} (en or ko).",
+
+  "env": {
+    "production": {
+      "app_base": "https://mitratutor.com",
+      "site_base": "https://www.mitratutor.com"
+    },
+    "staging": {
+      "app_base": "https://staging.mitratutor.com",
+      "site_base": "https://staging.mitra-website.pages.dev"
+    },
+    "local": {
+      "app_base": "http://localhost:8000",
+      "site_base": "http://localhost:8080"
+    }
+  },
+
+  "nav_items": [
+    {"label": {"en": "Home",            "ko": "홈"},            "href": "/{{lang}}/"},
+    {"label": {"en": "For students",    "ko": "학생 안내"},      "href": "/{{lang}}/for-students.html"},
+    {"label": {"en": "For Parents",     "ko": "학부모 안내"},    "href": "/{{lang}}/for-parents.html"},
+    {"label": {"en": "For Partners",    "ko": "파트너 안내"},    "href": "/{{lang}}/partners.html"},
+    {"label": {"en": "FAQ",             "ko": "자주 묻는 질문"}, "href": "/{{lang}}/faq.html"},
+    {"label": {"en": "Blog"},                                    "href": "/en/blog/",              "lang": ["en"]},
+    {"label": {"en": "Enroll",          "ko": "등록"},           "href": "{{app_base}}/{{lang}}/enroll"},
+    {"label": {"en": "Parent Login",    "ko": "학부모 로그인"},  "href": "{{app_base}}/{{lang}}/parent/login"}
+  ],
+
+  "footer_links": [
+    {"label": {"en": "For Parents",           "ko": "학부모 안내"},       "href": "/{{lang}}/for-parents.html"},
+    {"label": {"en": "About",                 "ko": "소개"},              "href": "/{{lang}}/about.html"},
+    {"label": {"en": "Blog"},                                              "href": "/en/blog/",              "lang": ["en"]},
+    {"label": {"en": "Enroll",                "ko": "등록"},              "href": "{{app_base}}/{{lang}}/enroll"},
+    {"label": {"en": "support@mitratutor.com","ko": "support@mitratutor.com"}, "href": "mailto:support@mitratutor.com"},
+    {"label": {"en": "Privacy",               "ko": "개인정보처리방침"},  "href": "/{{lang}}/privacy.html"},
+    {"label": {"en": "Terms",                 "ko": "이용약관"},          "href": "/{{lang}}/terms.html"},
+    {"label": {"en": "Refund Policy",         "ko": "환불정책"},          "href": "/{{lang}}/refund.html"},
+    {"label": {"en": "Admin",                 "ko": "Admin"},             "href": "{{app_base}}/admin/login", "muted": true, "lang": ["en"]}
+  ],
+
+  "portal_nav": {
+    "parent": [
+      {"label": {"en": "My Child",  "ko": "내 아이"},     "href": "{{app_base}}/{{lang}}/parent/"},
+      {"label": {"en": "Billing",   "ko": "결제"},        "href": "{{app_base}}/{{lang}}/parent/billing"},
+      {"label": {"en": "Profile",   "ko": "프로필"},      "href": "{{app_base}}/{{lang}}/parent/profile"},
+      {"label": {"en": "Contact",   "ko": "문의"},        "href": "{{app_base}}/{{lang}}/parent/contact"},
+      {"label": {"en": "Logout",    "ko": "로그아웃"},    "href": "{{app_base}}/{{lang}}/parent/logout"}
+    ],
+    "admin": [
+      {"label": {"en": "Dashboard", "ko": "Dashboard"},   "href": "{{app_base}}/admin/"},
+      {"label": {"en": "Logout",    "ko": "Logout"},      "href": "{{app_base}}/admin/logout"}
+    ],
+    "org": [
+      {"label": {"en": "Dashboard",  "ko": "대시보드"},    "href": "{{app_base}}/{{lang}}/org/"},
+      {"label": {"en": "Classes",    "ko": "수업"},        "href": "{{app_base}}/{{lang}}/org/classes"},
+      {"label": {"en": "Students",   "ko": "학생"},        "href": "{{app_base}}/{{lang}}/org/students"},
+      {"label": {"en": "Files",      "ko": "파일"},        "href": "{{app_base}}/{{lang}}/org/files"},
+      {"label": {"en": "Chat Mitra", "ko": "미트라 채팅"}, "href": "{{app_base}}/{{lang}}/org/chat"},
+      {"label": {"en": "Analytics",  "ko": "분석"},        "href": "{{app_base}}/{{lang}}/org/analytics"},
+      {"label": {"en": "Sign Out",   "ko": "로그아웃"},    "href": "{{app_base}}/{{lang}}/org/logout"}
+    ]
+  }
+}

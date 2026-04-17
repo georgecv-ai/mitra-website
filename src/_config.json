@@ -1,22 +1,11 @@
 {
-  "_comment": "Per-language config for the marketing site. Each language is independent — add/remove nav items, footer links, change strings without affecting the other.",
+  "_comment": "Per-language page config. Nav and footer links are in shared/nav-config.json.",
 
   "en": {
     "html_lang": "en",
     "default_og_image": "https://mitratutor.com/static/images/mitra-og-image.png",
     "default_description": "Personalized AI tutoring for your child",
     "fonts_url": "https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap",
-
-    "nav_items": [
-      { "label": "Home",         "href": "/en/" },
-      { "label": "For students", "href": "/en/for-students.html" },
-      { "label": "For Parents",  "href": "/en/for-parents.html" },
-      { "label": "For Partners", "href": "/en/partners.html" },
-      { "label": "FAQ",          "href": "/en/faq.html" },
-      { "label": "Blog",         "href": "/en/blog/" },
-      { "label": "Enroll",       "href": "https://app.mitratutor.com/en/enroll" },
-      { "label": "Parent Login", "href": "https://app.mitratutor.com/en/parent/login" }
-    ],
 
     "lang_toggle": {
       "current_label": "English",
@@ -28,18 +17,6 @@
       "other_alt": "KR"
     },
 
-    "footer_links": [
-      { "label": "For Parents",        "href": "/en/for-parents.html" },
-      { "label": "About",              "href": "/en/about.html" },
-      { "label": "Blog",               "href": "/en/blog/" },
-      { "label": "Enroll",             "href": "https://app.mitratutor.com/en/enroll" },
-      { "label": "support@mitratutor.com", "href": "mailto:support@mitratutor.com" },
-      { "label": "Privacy",            "href": "/en/privacy.html" },
-      { "label": "Terms",              "href": "/en/terms.html" },
-      { "label": "Refund Policy",      "href": "/en/refund.html" },
-      { "label": "Admin",              "href": "https://app.mitratutor.com/admin/login", "muted": true }
-    ],
-
     "footer_copyright": "&copy; 2026 Mitra AI &middot; 미트라 AI",
     "footer_legal_html": "상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href=\"mailto:support@mitratutor.com\" class=\"text-muted\">support@mitratutor.com</a>"
   },
@@ -50,16 +27,6 @@
     "default_description": "아이를 위한 개인 맞춤 AI 튜터",
     "fonts_url": "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap",
 
-    "nav_items": [
-      { "label": "홈",            "href": "/ko/" },
-      { "label": "학생 안내",       "href": "/ko/for-students.html" },
-      { "label": "학부모 안내",     "href": "/ko/for-parents.html" },
-      { "label": "파트너 안내",     "href": "/ko/partners.html" },
-      { "label": "자주 묻는 질문",   "href": "/ko/faq.html" },
-      { "label": "등록",            "href": "https://app.mitratutor.com/ko/enroll" },
-      { "label": "학부모 로그인",   "href": "https://app.mitratutor.com/ko/parent/login" }
-    ],
-
     "lang_toggle": {
       "current_label": "한국어",
       "current_flag": "/ko/static/images/flag-kr.png",
@@ -69,16 +36,6 @@
       "other_flag": "/en/static/images/flag-en.png",
       "other_alt": "EN"
     },
-
-    "footer_links": [
-      { "label": "학부모 안내",       "href": "/ko/for-parents.html" },
-      { "label": "소개",              "href": "/ko/about.html" },
-      { "label": "등록",              "href": "https://app.mitratutor.com/ko/enroll" },
-      { "label": "support@mitratutor.com", "href": "mailto:support@mitratutor.com" },
-      { "label": "개인정보처리방침",   "href": "/ko/privacy.html" },
-      { "label": "이용약관",          "href": "/ko/terms.html" },
-      { "label": "환불정책",          "href": "/ko/refund.html" }
-    ],
 
     "footer_copyright": "&copy; 2026 Mitra AI &middot; 미트라 AI",
     "footer_legal_html": "상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href=\"mailto:support@mitratutor.com\" class=\"text-muted\">support@mitratutor.com</a>"
