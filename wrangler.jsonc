@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mitra-website",
   "compatibility_date": "2026-04-15",
@@ -12,11 +11,4 @@
   "compatibility_flags": [
     "nodejs_compat"
   ]
-=======
-  "name": "mitra-website",
-  "compatibility_date": "2026-04-15",
-  "assets": {
-    "directory": "./"
-  }
->>>>>>> origin/staging
 }
