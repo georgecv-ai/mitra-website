@@ -36,6 +36,7 @@
     {"label": {"en": "Privacy",               "ko": "개인정보처리방침"},  "href": "/{{lang}}/privacy.html"},
     {"label": {"en": "Terms",                 "ko": "이용약관"},          "href": "/{{lang}}/terms.html"},
     {"label": {"en": "Refund Policy",         "ko": "환불정책"},          "href": "/{{lang}}/refund.html"},
+    {"label": {"en": "How to work with Mitra"},                            "href": "/en/how-to-work-with-mitra.html", "lang": ["en"]},
     {"label": {"en": "Compliance",            "ko": "컴플라이언스"},      "href": "/{{lang}}/compliance.html"},
     {"label": {"en": "Admin",                 "ko": "Admin"},             "href": "{{app_base}}/admin/login", "muted": true, "lang": ["en"]}
   ],
