@@ -3,10 +3,31 @@ status: "active"
 
 description: |
   Static public website for Mitra AI Tutor. Split from the main portal to allow
-  independent updates and delegation. Serves landing page, information pages
-  (for parents, for students, about), and legal pages (privacy, terms, refund)
-  in English and Korean. Enrollment and authenticated areas (admin, parent portal)
-  remain on the main portal at mitratutor.com.
+  independent updates and delegation. Page inventory (EN and KO unless noted):
+
+  - Landing (/)
+  - Why Build Mitra (about.html) — founder narrative
+  - For Parents, For Students, For Academies/Hagwons/Schools/Tutors (partners.html)
+  - How to Work With Mitra — Mitra's letter to families, in her voice
+    (EN: translation; KO: Mitra's own adaptation via /coach relay, with
+    register shift to 반말 for students)
+  - FAQ — 31 questions across parents, students, partners
+  - Compliance — AI Basic Act / PIPA / safety architecture (live counters
+    deferred; see backlog item compliance-live-counters)
+  - Blog — EN only, by design
+  - Legal: Privacy, Terms, Refund Policy
+
+  Nav structure: About ▾ dropdown + Resources ▾ dropdown + Enroll CTA + Parent
+  Login. Footer: 4 columns (Learn / Resources / Legal / Get started) plus a
+  muted Admin link below. Nav and footer render from shared/nav-config.json,
+  consumed both by build.py here and by portal/nav.py in the Railway app so
+  the two surfaces stay in sync.
+
+  Partners page intentionally diverges EN vs KO (Warmly wrote them
+  separately for each audience).
+
+  Enrollment and authenticated areas (admin, parent portal) remain on the
+  main portal at mitratutor.com.
 
 flowchart: |
   graph TD
@@ -36,7 +57,7 @@ human_interaction:
 deployment:
   platform: "Cloudflare Pages"
   url: "https://www.mitratutor.com"
-  github: "georgecv-ai/mitra-website (main)"
+  github: "georgecv-ai/mitra-website (master for prod, staging for preview)"
   auto_deploy: true
   dns:
     - type: "CNAME"
