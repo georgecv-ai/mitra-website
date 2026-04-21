@@ -41,8 +41,8 @@ deployment:
   dns:
     - type: "CNAME"
       name: "www"
-      target: "<project>.pages.dev"
-      note: "Set up in Cloudflare DNS after creating Pages project"
+      target: "mitra-website.georgeneal.workers.dev"
+      note: "CF project: mitra-website. Staging: staging-mitra-website.georgeneal.workers.dev (dash not dot). Enable staging branch in CF dashboard Branch Control."
 
 integrations:
   - project: "Mitra"

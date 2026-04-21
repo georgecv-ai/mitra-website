@@ -1,0 +1,142 @@
+<!-- META
+title: Free Trial — Mitra AI Tutor
+description: Try Mitra AI Tutor free for 1 month. No credit card required. AI tutoring designed for students with ADHD and learning differences. Grades 6-12.
+slug: free-trial.html
+og_description: Try Mitra AI Tutor free for 1 month. No credit card required. AI tutoring for students with ADHD.
+twitter_description: Try Mitra AI Tutor free for 1 month. No credit card required.
+-->
+<div class="trial-page">
+
+    <div id="loading">Checking availability...</div>
+
+    <!-- SLOTS AVAILABLE -->
+    <div id="trial-open" style="display:none;">
+      <h1>Free Trial</h1>
+      <p class="subtitle">1 month of AI tutoring. No credit card. No commitment.</p>
+      <div class="trial-badge"><span id="slot-count"></span> trial spots available</div>
+
+      <div class="trial-how">
+        <h3>How it works</h3>
+        <ol>
+          <li><strong>Sign up below.</strong> No payment information needed.</li>
+          <li><strong>Your child starts chatting with Mitra</strong> on Telegram or KakaoTalk. Mitra builds a relationship first, then weaves in learning.</li>
+          <li><strong>After one month, we check in.</strong> If it's working well for your family (and for us), we extend to a full 3-month trial. If not, no hard feelings.</li>
+        </ol>
+      </div>
+
+      <p>In exchange for free tutoring, we ask permission to use <strong>anonymized</strong> session data (no names, no identifying information) for marketing and research. That's the deal.</p>
+
+      <form id="trial-form" class="trial-form">
+        <h3 class="border-bottom pb-2 mb-3 mt-4">About You</h3>
+
+        <div class="mb-3">
+          <label class="form-label">Your name <span class="text-danger">*</span></label>
+          <input type="text" name="parent_name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Your email <span class="text-danger">*</span></label>
+          <input type="email" name="parent_email" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Your phone number <span class="text-danger">*</span></label>
+          <input type="tel" name="parent_phone" class="form-control" required placeholder="+82 10-1234-5678" />
+          <div class="form-text">For account notifications and safety alerts. We will never share your number.</div>
+        </div>
+
+        <h3 class="border-bottom pb-2 mb-3 mt-4">About Your Child</h3>
+
+        <div class="mb-3">
+          <label class="form-label">Child's name <span class="text-danger">*</span></label>
+          <input type="text" name="student_name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Grade</label>
+          <select name="student_grade" class="form-select">
+            <option value="0">Not specified</option>
+            <option value="6">Grade 6</option>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">What subject would they like help with?</label>
+          <input type="text" name="focus_area" class="form-control" placeholder="e.g., math, science, English" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Messaging platform <span class="text-danger">*</span></label>
+          <select name="platform" class="form-select" required>
+            <option value="telegram">Telegram</option>
+            <option value="kakaotalk">KakaoTalk</option>
+          </select>
+        </div>
+        <div class="mb-3" id="platform-id-group">
+          <label class="form-label">Telegram username or phone <span class="text-danger">*</span></label>
+          <input type="text" name="platform_id" class="form-control" placeholder="@username or phone number" />
+          <div class="form-text">Your child's Telegram username so Mitra can find them.</div>
+        </div>
+
+        <div class="consent-box">
+          <label>
+            <input type="checkbox" name="data_consent" required />
+            I consent to Mitra AI using <strong>anonymized</strong> session excerpts, learning patterns, and progress data from my child's tutoring sessions for marketing, research, and product improvement. No names or identifying information will be used. I understand this consent is the basis for the free trial.
+          </label>
+        </div>
+
+        <div class="consent-box">
+          <label>
+            <input type="checkbox" name="parental_consent" required />
+            I am the parent or legal guardian of this child and consent to their use of Mitra AI Tutor. I have read the <a href="/en/privacy.html" target="_blank">Privacy Notice</a> and <a href="/en/terms.html" target="_blank">Terms of Service</a>.
+          </label>
+        </div>
+
+        <div id="trial-error" class="alert alert-danger" style="display:none;"></div>
+
+        <button type="submit" class="btn btn-trial w-100 mt-3">Start Free Trial</button>
+      </form>
+    </div>
+
+    <!-- SLOTS FULL -->
+    <div id="trial-full" style="display:none;">
+      <h1>Free Trial</h1>
+      <p class="subtitle">1 month of AI tutoring. No credit card. No commitment.</p>
+      <div class="trial-badge full">Trial spots are currently full</div>
+
+      <p>We're at capacity for our free trial program right now. Leave your contact information and we'll reach out when spots open up.</p>
+
+      <form id="waitlist-form">
+        <div class="mb-3">
+          <label class="form-label">Your name <span class="text-danger">*</span></label>
+          <input type="text" name="wl_name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Your email <span class="text-danger">*</span></label>
+          <input type="email" name="wl_email" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Your phone number</label>
+          <input type="tel" name="wl_phone" class="form-control" placeholder="+82 10-1234-5678" />
+        </div>
+
+        <div id="waitlist-error" class="alert alert-danger" style="display:none;"></div>
+        <button type="submit" class="btn btn-waitlist w-100 mt-3">Join Waitlist</button>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATES -->
+    <div id="trial-success" class="trial-success" style="display:none;">
+      <h2>You're in!</h2>
+      <p>Your child's free trial is active. They can start chatting with Mitra right now.</p>
+      <p>We'll check in after the first month. If things are going well, we'll extend to 3 months.</p>
+      <p><a href="/en/">Back to home</a></p>
+    </div>
+
+    <div id="waitlist-success" class="waitlist-success" style="display:none;">
+      <h2>You're on the list.</h2>
+      <p>We'll contact you when trial spots open up. In the meantime, you can <a href="{{app_base}}/en/enroll">enroll with a paid subscription</a> any time.</p>
+    </div>
+
+  </div>

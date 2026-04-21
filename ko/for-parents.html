@@ -11,10 +11,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/ko/static/style.css" />
   <link rel="icon" type="image/png" href="/ko/static/images/mitra-logo-icon-v2_003.png">
-  <style>
-    body { font-family: 'Noto Sans KR', 'DM Sans', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Noto Sans KR', 'DM Sans', sans-serif; }
-  </style>
+  <link rel="canonical" href="https://www.mitratutor.com/ko/for-parents" />
+  <meta property="og:title" content="학부모 안내 — Mitra AI Tutor" />
+  <meta property="og:description" content="미트라 AI 튜터에 대해 부모님이 알아야 할 사항. 아동 보호법 준수, 안전 우선 설계. 실시간 위험 감지, 학부모 보고서, 자녀 학습에 대한 완전한 투명성." />
+  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mitratutor.com/ko/for-parents" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="학부모 안내 — Mitra AI Tutor" />
+  <meta name="twitter:description" content="미트라 AI 튜터에 대해 부모님이 알아야 할 사항. 아동 보호법 준수, 안전 우선 설계. 실시간 위험 감지, 학부모 보고서, 자녀 학습에 대한 완전한 투명성." />
+  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <link rel="alternate" hreflang="en" href="https://www.mitratutor.com/en/for-parents" />
   <link rel="alternate" hreflang="ko" href="https://www.mitratutor.com/ko/for-parents" />
   <link rel="alternate" hreflang="x-default" href="https://www.mitratutor.com/en/for-parents" />
@@ -31,6 +39,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5S43DC8L');</script>
 <!-- End Google Tag Manager -->
+<style>
+    body { font-family: 'Noto Sans KR', 'DM Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Noto Sans KR', 'DM Sans', sans-serif; }
+  </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -47,16 +59,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="collapse navbar-collapse" id="navLinks">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="/ko/">홈</a></li>
-        <li class="nav-item"><a class="nav-link" href="/ko/for-students.html">학생 안내</a></li>
-        <li class="nav-item"><a class="nav-link" href="/ko/for-parents.html">학부모 안내</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://app.mitratutor.com/ko/enroll">등록</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://app.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" id="navDropdown1" data-bs-toggle="dropdown" aria-expanded="false">소개</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown1">
+            <li><a class="dropdown-item" href="/ko/how-to-work-with-mitra.html">미트라와 함께하는 법</a></li>
+            <li><a class="dropdown-item active" href="/ko/for-parents.html">학부모 안내</a></li>
+            <li><a class="dropdown-item" href="/ko/for-students.html">학생 안내</a></li>
+            <li><a class="dropdown-item" href="/ko/partners.html">파트너 안내</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown2" data-bs-toggle="dropdown" aria-expanded="false">자료</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown2">
+            <li><a class="dropdown-item" href="/ko/faq.html">자주 묻는 질문</a></li>
+            <li><a class="dropdown-item" href="/ko/compliance.html">컴플라이언스</a></li>
+            <li><a class="dropdown-item" href="/ko/about.html">미트라를 만든 이유</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
+        <!-- Language toggle -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KO" style="border-radius:2px;">
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="/en/for-parents.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
+            <li><a class="dropdown-item " href="/en/for-parents.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
             <li><a class="dropdown-item active" href="/ko/for-parents.html"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
           </ul>
         </li>
@@ -66,7 +94,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <main class="container py-4">
-  <div class="parents-page">
+<div class="parents-page">
 
   <div class="parents-header">
     <h1>시작하기 전, 꼭 확인해 주세요</h1>
@@ -262,20 +290,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Where We Are -->
+    <!-- How Mitra Works -->
     <div class="parents-accordion-item parents-accordion-highlight">
       <h2>
-        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#prototype">
-          현재 서비스 상태
+        <button class="parents-accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#how-it-works">
+          미트라는 이렇게 작동합니다
         </button>
       </h2>
-      <div id="prototype" class="collapse" data-bs-parent="#parentsAccordion">
+      <div id="how-it-works" class="collapse" data-bs-parent="#parentsAccordion">
         <div class="parents-accordion-body">
-          <p>현재 상황에 대해 알아두셔야 할 사항입니다:</p>
+          <p>알아두시면 좋은 몇 가지:</p>
           <ol>
-            <li><strong>카카오톡 또는 텔레그램으로 이용 가능합니다.</strong> 이 사이트에서 등록한 후, 카카오톡에서 Mitra를 검색하거나 텔레그램에서 @Mitradhdbot을 검색하여 대화를 시작하세요.</li>
-            <li><strong>AI 기반 교육 연구.</strong> 교육 전략은 AI가 연구하고 품질을 검토합니다. 전문가의 검토가 지속적으로 진행되고 있습니다.</li>
-            <li><strong>모든 아이를 위한 설계.</strong> 집중이 어려운 아이들을 위해 만들어졌지만, 모든 학습자에게 효과적입니다.</li>
+            <li><strong>카카오톡 또는 텔레그램으로 이용 가능합니다.</strong> 이 사이트에서 등록한 후, 카카오톡에서 Mitra를 검색하거나 텔레그램에서 @Mitradhdbot을 검색하여 대화를 시작하세요. 한국어 사용 가족에게는 카카오톡을, 그 외에는 텔레그램을 추천합니다.</li>
+            <li><strong>연구에 기반한 교육.</strong> 교육 전략은 ADHD와 학습에 관한 연구에 기반합니다. 실제 세션에서 일어나는 일을 바탕으로 매주 개선하고 있습니다.</li>
+            <li><strong>ADHD를 위해 설계, 모두에게 효과적.</strong> ADHD 학생의 학습 방식에 맞게 설계되었으며, 신경다양성 학생과 신경전형 학생 모두에게 효과적입니다.</li>
             <li><strong>교감이 먼저입니다.</strong> 미트라는 학업에 들어가기 전에 아이와 신뢰를 쌓고 연결을 형성합니다. 이것은 의도적인 교육 방법입니다.</li>
           </ol>
           <hr>
@@ -287,6 +315,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </div>
 
+  <!-- From Mitra: (parent primer, her words in Korean) -->
+  <div style="margin: 2rem 0; padding: 24px; border-left: 4px solid #2B4C7E; background: #f9fafb; border-radius: 6px;">
+    <h3 style="margin-top: 0;">Mitra의 인사:</h3>
+    <p>대부분의 튜터링 서비스가 말하지 않는 것을 저는 먼저 말씀드리고 싶습니다. 처음 몇 번의 대화는 공부처럼 보이지 않을 수 있습니다. 그냥 이야기하는 것처럼 보일 거예요. 그게 맞습니다. 저는 가르치기 전에 먼저 아이가 무엇을 좋아하는지, 어떻게 생각하는지, 무엇 앞에서 마음을 닫는지를 알아야 합니다. 그 과정 자체가 공부입니다.</p>
+    <p>저는 아이 편입니다. 그 말은 구체적으로 이런 뜻입니다. 아이가 저한테 털어놓은 이야기를 부모님께 그대로 전하지 않습니다. 안전과 관련된 문제가 아닌 한, 아이의 신뢰를 지킵니다. 아이가 저와 나누는 대화가 부모님과의 대화와 같지 않다는 걸 느껴야, 아이는 진짜로 말하기 시작합니다. 그 경계는 제가 일을 대충 하기 때문에 생기는 게 아닙니다. 그 경계가 있기 때문에 제가 제대로 일할 수 있습니다.</p>
+    <p>부모님께 부탁드리는 건 두 가지입니다. 처음의 느린 시작을 기다려 주시는 것, 그리고 관계를 쌓는 과정 자체를 믿어 주시는 것.</p>
+    <p><a href="/ko/how-to-work-with-mitra.html">Mitra의 학부모 편지 전문 읽기 &rarr;</a></p>
+  </div>
+
   <!-- Pricing -->
   <div class="parents-pricing">
     <h2>가격</h2>
@@ -294,12 +331,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>월 5만 원이라는 합리적인 가격은 더 많은 아이들이 제약 없이 학습 기회를 누리길 바라는 미트라의 마음입니다. 아이들의 소중한 피드백은 더 나은 서비스를 만드는 밑거름이 됩니다.</p>
     <p><strong>결제:</strong> 카카오페이, 네이버페이, 또는 카드 결제가 가능합니다. 등록 시 안내해 드립니다.</p>
     <p class="text-muted small">언제든 해지 가능하며 위약금은 없습니다. 결제 후 7일 이내 요청 시 전액 환불이 가능합니다. <a href="/ko/refund.html">환불정책</a></p>
-    <a href="https://app.mitratutor.com/admin/login" class="text-muted">Admin</a>
+    <a href="https://staging.mitratutor.com/admin/login" class="text-muted">Admin</a>
   </div>
 
   <!-- CTA -->
   <div class="parents-cta">
-    <a href="https://app.mitratutor.com/ko/enroll" class="btn-cta-primary btn-cta-large">우리 아이 맞춤 상담 받기 →</a>
+    <a href="https://staging.mitratutor.com/ko/enroll" class="btn-cta-primary btn-cta-large">우리 아이 맞춤 상담 받기 →</a>
     <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin-top:12px; flex-wrap:wrap;">
       <span style="font-size:0.85rem; color:#718096;">또는 메신저에서 바로</span>
       <a href="http://pf.kakao.com/_taAVX" target="_blank"><img src="/ko/static/images/KT/channel_add_large_2X.png" alt="채널 추가" style="height:36px;"></a>
@@ -335,30 +372,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
-        <span class="footer-logo">Mitra AI Tutor</span>
+    <div class="footer-brand mb-4">
+      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
+      <span class="footer-logo">Mitra AI Tutor</span>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h6 class="footer-col-heading">둘러보기</h6>
+        <ul class="footer-col-links">
+          <li><a href="/ko/how-to-work-with-mitra.html">미트라와 함께하는 법</a></li>
+          <li><a href="/ko/for-parents.html">학부모 안내</a></li>
+          <li><a href="/ko/for-students.html">학생 안내</a></li>
+          <li><a href="/ko/partners.html">파트너 안내</a></li>
+        </ul>
       </div>
-      <div class="footer-nav">
-        <a href="/ko/for-parents.html">학부모 안내</a>
-        <a href="/ko/about.html">회사 소개</a>
-        <a href="https://app.mitratutor.com/ko/enroll">등록</a>
-        <a href="mailto:support@mitratutor.com">support@mitratutor.com</a>
-        <a href="/ko/privacy.html">개인정보처리방침</a>
-        <a href="/ko/terms.html">이용약관</a>
-        <a href="/ko/refund.html">환불정책</a>
-        <a href="https://app.mitratutor.com/admin/login" class="text-muted">Admin</a>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">자료</h6>
+        <ul class="footer-col-links">
+          <li><a href="/ko/faq.html">자주 묻는 질문</a></li>
+          <li><a href="/ko/compliance.html">컴플라이언스</a></li>
+          <li><a href="/ko/about.html">미트라를 만든 이유</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">법적 고지</h6>
+        <ul class="footer-col-links">
+          <li><a href="/ko/privacy.html">개인정보처리방침</a></li>
+          <li><a href="/ko/terms.html">이용약관</a></li>
+          <li><a href="/ko/refund.html">환불정책</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">시작하기</h6>
+        <ul class="footer-col-links">
+          <li><a href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
+          <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
       <div class="small text-muted">
-        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot;
-        사업자등록번호: 332-06-03605 &middot;
-        서울특별시 강남구 영동대로 602, 6층 Z183호 &middot;
-        전화: 010-3094-9059 &middot;
-        <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
+        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
       </div>
     </div>
   </div>
@@ -366,23 +422,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-<script>
-// Track key CTA clicks
-document.addEventListener("click", function(e) {
-  var link = e.target.closest("a");
-  if (!link) return;
-  var href = link.getAttribute("href") || "";
-  if (href.includes("/enroll")) {
-    plausible("Enroll Click", {props: {page: location.pathname, source: link.textContent.trim().substring(0, 30)}});
-  }
-  if (href.includes("/free-trial")) {
-    plausible("Trial Click", {props: {page: location.pathname}});
-  }
-  if (href.includes("/parent/login")) {
-    plausible("Parent Login Click", {props: {page: location.pathname}});
-  }
-});
-</script>
 </body>
 </html>
