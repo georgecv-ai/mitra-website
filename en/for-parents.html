@@ -56,13 +56,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="collapse navbar-collapse" id="navLinks">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/en/for-students.html">For students</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/en/for-parents.html">For Parents</a></li>
-        <li class="nav-item"><a class="nav-link" href="/en/partners.html">For Partners</a></li>
-        <li class="nav-item"><a class="nav-link" href="/en/faq.html">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/en/blog/">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://mitratutor.com/en/enroll">Enroll</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://mitratutor.com/en/parent/login">Parent Login</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" id="navDropdown1" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown1">
+            <li><a class="dropdown-item" href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+            <li><a class="dropdown-item active" href="/en/for-parents.html">For Parents</a></li>
+            <li><a class="dropdown-item" href="/en/for-students.html">For Students</a></li>
+            <li><a class="dropdown-item" href="/en/partners.html">For Academies, Hagwons, Schools & Tutors</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown2">
+            <li><a class="dropdown-item" href="/en/faq.html">FAQ</a></li>
+            <li><a class="dropdown-item" href="/en/compliance.html">Compliance</a></li>
+            <li><a class="dropdown-item" href="/en/about.html">Why Build Mitra</a></li>
+            <li><a class="dropdown-item" href="/en/blog/">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/en/parent/login">Parent Login</a></li>
         <!-- Language toggle -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -322,7 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- CTA -->
   <div class="parents-cta">
-    <a href="https://mitratutor.com/en/enroll" class="btn-cta-primary btn-cta-large">Ready? Enroll your child →</a>
+    <a href="https://staging.mitratutor.com/en/enroll" class="btn-cta-primary btn-cta-large">Ready? Enroll your child →</a>
     <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin-top:12px; flex-wrap:wrap;">
       <span style="font-size:0.85rem; color:#718096;">or start directly on</span>
       <a href="http://pf.kakao.com/_taAVX" target="_blank"><img src="/en/static/images/KT/channel_add_large_2X.png" alt="KakaoTalk" style="height:36px;"></a>
@@ -356,24 +369,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
-        <span class="footer-logo">Mitra AI Tutor</span>
+    <div class="footer-brand mb-4">
+      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
+      <span class="footer-logo">Mitra AI Tutor</span>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Learn</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+          <li><a href="/en/for-parents.html">For Parents</a></li>
+          <li><a href="/en/for-students.html">For Students</a></li>
+          <li><a href="/en/partners.html">For Partners</a></li>
+        </ul>
       </div>
-      <div class="footer-nav">
-        <a href="/en/for-parents.html">For Parents</a>
-        <a href="/en/about.html">About</a>
-        <a href="/en/blog/">Blog</a>
-        <a href="https://mitratutor.com/en/enroll">Enroll</a>
-        <a href="mailto:support@mitratutor.com">support@mitratutor.com</a>
-        <a href="/en/privacy.html">Privacy</a>
-        <a href="/en/terms.html">Terms</a>
-        <a href="/en/refund.html">Refund Policy</a>
-        <a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a>
-        <a href="/en/compliance.html">Compliance</a>
-        <a href="https://mitratutor.com/admin/login" class="text-muted">Admin</a>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Resources</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/faq.html">FAQ</a></li>
+          <li><a href="/en/compliance.html">Compliance</a></li>
+          <li><a href="/en/about.html">Why Build Mitra</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Legal</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/privacy.html">Privacy</a></li>
+          <li><a href="/en/terms.html">Terms</a></li>
+          <li><a href="/en/refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Get started</h6>
+        <ul class="footer-col-links">
+          <li><a href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+          <li><a href="https://staging.mitratutor.com/en/parent/login">Parent Login</a></li>
+          <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
+        </ul>
+      </div>
+    <div class="footer-muted small text-muted text-center mt-3"><a href="https://staging.mitratutor.com/admin/login" class="text-muted">Admin</a></div>
     </div>
     <div class="footer-bottom">
       <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>

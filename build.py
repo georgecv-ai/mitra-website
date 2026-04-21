@@ -68,36 +68,64 @@ def resolve_vars(text: str, app_base: str, site_base: str, lang: str) -> str:
             .replace("{{lang}}", lang))
 
 
+def _resolve_link(item: dict, lang: str, app_base: str, site_base: str) -> dict | None:
+    """Resolve a single link (label + href) for a given language. Returns None if filtered out."""
+    if "lang" in item and lang not in item["lang"]:
+        return None
+    label = item["label"].get(lang)
+    if not label:
+        return None
+    href = resolve_vars(item["href"], app_base, site_base, lang)
+    return {"label": label, "href": href}
+
+
 def get_nav_items(nav_config: dict, lang: str, app_base: str, site_base: str) -> list[dict]:
-    """Filter and resolve nav items for a given language."""
+    """Filter and resolve nav items for a given language. Items may have children (dropdowns)."""
     items = []
     for item in nav_config["nav_items"]:
-        # Skip items restricted to other languages
         if "lang" in item and lang not in item["lang"]:
             continue
         label = item["label"].get(lang)
         if not label:
             continue
-        href = resolve_vars(item["href"], app_base, site_base, lang)
-        items.append({"label": label, "href": href})
+
+        if "children" in item:
+            children = []
+            for child in item["children"]:
+                resolved = _resolve_link(child, lang, app_base, site_base)
+                if resolved:
+                    children.append(resolved)
+            if children:
+                items.append({"label": label, "children": children})
+        else:
+            href = resolve_vars(item["href"], app_base, site_base, lang)
+            items.append({"label": label, "href": href})
     return items
 
 
-def get_footer_links(nav_config: dict, lang: str, app_base: str, site_base: str) -> list[dict]:
-    """Filter and resolve footer links for a given language."""
-    links = []
-    for item in nav_config["footer_links"]:
-        if "lang" in item and lang not in item["lang"]:
-            continue
-        label = item["label"].get(lang)
-        if not label:
-            continue
-        href = resolve_vars(item["href"], app_base, site_base, lang)
-        entry = {"label": label, "href": href}
-        if item.get("muted"):
-            entry["muted"] = True
-        links.append(entry)
-    return links
+def get_footer_columns(nav_config: dict, lang: str, app_base: str, site_base: str) -> list[dict]:
+    """Resolve grouped footer columns for a given language."""
+    columns = []
+    for column in nav_config.get("footer_columns", []):
+        heading = column.get("heading", {}).get(lang, "")
+        links = []
+        for link in column.get("links", []):
+            resolved = _resolve_link(link, lang, app_base, site_base)
+            if resolved:
+                links.append(resolved)
+        if links:
+            columns.append({"heading": heading, "links": links})
+    return columns
+
+
+def get_footer_muted(nav_config: dict, lang: str, app_base: str, site_base: str) -> list[dict]:
+    """Resolve muted footer items (e.g., Admin)."""
+    items = []
+    for item in nav_config.get("footer_muted", []):
+        resolved = _resolve_link(item, lang, app_base, site_base)
+        if resolved:
+            items.append(resolved)
+    return items
 
 
 def parse_fragment(text: str) -> tuple[dict, str]:
@@ -119,26 +147,65 @@ def parse_fragment(text: str) -> tuple[dict, str]:
 
 def render_nav_items(nav_items: list[dict], current_href: str) -> str:
     out = []
-    for item in nav_items:
-        active = ' active' if current_href == item["href"] else ''
-        out.append(
-            f'        <li class="nav-item">'
-            f'<a class="nav-link{active}" href="{item["href"]}">'
-            f'{item["label"]}</a></li>'
+    for idx, item in enumerate(nav_items):
+        if "children" in item:
+            dropdown_id = f"navDropdown{idx}"
+            any_active = any(current_href == c["href"] for c in item["children"])
+            parent_active = " active" if any_active else ""
+            child_html = []
+            for child in item["children"]:
+                child_active = " active" if current_href == child["href"] else ""
+                child_html.append(
+                    f'            <li><a class="dropdown-item{child_active}" href="{child["href"]}">{child["label"]}</a></li>'
+                )
+            out.append(
+                f'        <li class="nav-item dropdown">\n'
+                f'          <a class="nav-link dropdown-toggle{parent_active}" href="#" role="button" '
+                f'id="{dropdown_id}" data-bs-toggle="dropdown" aria-expanded="false">{item["label"]}</a>\n'
+                f'          <ul class="dropdown-menu" aria-labelledby="{dropdown_id}">\n'
+                + "\n".join(child_html) + "\n"
+                f'          </ul>\n'
+                f'        </li>'
+            )
+        else:
+            active = ' active' if current_href == item["href"] else ''
+            out.append(
+                f'        <li class="nav-item">'
+                f'<a class="nav-link{active}" href="{item["href"]}">'
+                f'{item["label"]}</a></li>'
+            )
+    return "\n".join(out)
+
+
+def render_footer_columns(columns: list[dict], muted: list[dict]) -> str:
+    col_html = []
+    for col in columns:
+        links_html = "\n".join(
+            f'          <li><a href="{link["href"]}">{link["label"]}</a></li>'
+            for link in col["links"]
         )
-    return "\n".join(out)
-
-
-def render_footer_links(footer_links: list[dict]) -> str:
-    out = []
-    for link in footer_links:
-        cls = ' class="text-muted"' if link.get("muted") else ''
-        out.append(f'        <a href="{link["href"]}"{cls}>{link["label"]}</a>')
-    return "\n".join(out)
+        col_html.append(
+            f'      <div class="footer-col">\n'
+            f'        <h6 class="footer-col-heading">{col["heading"]}</h6>\n'
+            f'        <ul class="footer-col-links">\n'
+            f'{links_html}\n'
+            f'        </ul>\n'
+            f'      </div>'
+        )
+    columns_block = "\n".join(col_html)
+    muted_block = ""
+    if muted:
+        muted_links = " · ".join(
+            f'<a href="{item["href"]}" class="text-muted">{item["label"]}</a>'
+            for item in muted
+        )
+        muted_block = f'\n    <div class="footer-muted small text-muted text-center mt-3">{muted_links}</div>'
+    return columns_block + muted_block
 
 
 def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
-                  nav_items: list[dict], footer_links: list[dict],
+                  nav_items: list[dict], footer_columns: list[dict],
+                  footer_muted: list[dict],
                   app_base: str, site_base: str) -> str:
     slug = meta.get("slug", "")
     slug_clean = slug[:-5] if slug.endswith(".html") else slug
@@ -152,7 +219,7 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
 
     current_href = f"/{lang}/{slug}" if slug else f"/{lang}/"
     nav_items_html = render_nav_items(nav_items, current_href)
-    footer_links_html = render_footer_links(footer_links)
+    footer_links_html = render_footer_columns(footer_columns, footer_muted)
 
     en_active = "active" if lang == "en" else ""
     ko_active = "active" if lang == "ko" else ""
@@ -241,7 +308,8 @@ def build(env: str):
 
         # Resolve nav/footer from shared config for this language + env
         nav_items = get_nav_items(nav_config, lang, app_base, site_base)
-        footer_links = get_footer_links(nav_config, lang, app_base, site_base)
+        footer_columns = get_footer_columns(nav_config, lang, app_base, site_base)
+        footer_muted = get_footer_muted(nav_config, lang, app_base, site_base)
 
         out_dir = ROOT / lang
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -256,7 +324,8 @@ def build(env: str):
             if sidecar.exists():
                 meta["extra_head"] = sidecar.read_text(encoding="utf-8").rstrip()
             assembled = assemble_page(layout, lang_cfg, lang, meta, body,
-                                      nav_items, footer_links, app_base, site_base)
+                                      nav_items, footer_columns, footer_muted,
+                                      app_base, site_base)
             out_file = out_dir / src_file.name
             out_file.write_text(assembled, encoding="utf-8")
             total += 1
