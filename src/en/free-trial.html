@@ -140,3 +140,116 @@ twitter_description: Try Mitra AI Tutor free for 1 month. No credit card require
     </div>
 
   </div>
+
+<script>
+const API_BASE = "{{app_base}}";
+
+fetch(API_BASE + "/api/trial/status")
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("loading").style.display = "none";
+    if (data.slots_available > 0) {
+      document.getElementById("trial-open").style.display = "block";
+      document.getElementById("slot-count").textContent = data.slots_available;
+    } else {
+      document.getElementById("trial-full").style.display = "block";
+    }
+  })
+  .catch(() => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("trial-open").style.display = "block";
+    document.getElementById("slot-count").textContent = "";
+  });
+
+document.querySelector('[name="platform"]').addEventListener("change", function() {
+  const group = document.getElementById("platform-id-group");
+  if (this.value === "kakaotalk") {
+    group.style.display = "none";
+    group.querySelector("input").required = false;
+  } else {
+    group.style.display = "block";
+    group.querySelector("input").required = true;
+  }
+});
+
+document.getElementById("trial-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const btn = this.querySelector("button[type=submit]");
+  btn.disabled = true;
+  btn.textContent = "Enrolling...";
+  document.getElementById("trial-error").style.display = "none";
+
+  const body = {
+    parent_name: this.parent_name.value,
+    parent_email: this.parent_email.value,
+    parent_phone: this.parent_phone.value,
+    student_name: this.student_name.value,
+    student_grade: this.student_grade.value,
+    focus_area: this.focus_area.value,
+    platform: this.platform.value,
+    platform_id: this.platform_id ? this.platform_id.value : "",
+    data_consent: this.data_consent.checked,
+  };
+
+  fetch(API_BASE + "/enroll/trial", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(body),
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        document.getElementById("trial-open").style.display = "none";
+        document.getElementById("trial-success").style.display = "block";
+      } else {
+        const err = data.errors ? data.errors.join(" ") : (data.error || "Something went wrong.");
+        document.getElementById("trial-error").textContent = err;
+        document.getElementById("trial-error").style.display = "block";
+        btn.disabled = false;
+        btn.textContent = "Start Free Trial";
+      }
+    })
+    .catch(() => {
+      document.getElementById("trial-error").textContent = "Connection error. Please try again.";
+      document.getElementById("trial-error").style.display = "block";
+      btn.disabled = false;
+      btn.textContent = "Start Free Trial";
+    });
+});
+
+document.getElementById("waitlist-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const btn = this.querySelector("button[type=submit]");
+  btn.disabled = true;
+  btn.textContent = "Joining...";
+  document.getElementById("waitlist-error").style.display = "none";
+
+  fetch(API_BASE + "/api/trial/waitlist", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      name: this.wl_name.value,
+      email: this.wl_email.value,
+      phone: this.wl_phone.value,
+    }),
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        document.getElementById("trial-full").style.display = "none";
+        document.getElementById("waitlist-success").style.display = "block";
+      } else {
+        document.getElementById("waitlist-error").textContent = data.error || "Something went wrong.";
+        document.getElementById("waitlist-error").style.display = "block";
+        btn.disabled = false;
+        btn.textContent = "Join Waitlist";
+      }
+    })
+    .catch(() => {
+      document.getElementById("waitlist-error").textContent = "Connection error. Please try again.";
+      document.getElementById("waitlist-error").style.display = "block";
+      btn.disabled = false;
+      btn.textContent = "Join Waitlist";
+    });
+});
+</script>
