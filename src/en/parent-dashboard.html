@@ -1,6 +1,6 @@
 <!-- META
-title: Sample Progress & Activity — Mitra
-description: A look at the Progress & Activity dashboard parents see. Sessions, time engaged, work completed, questions asked, consistency over time.
+title: Sample Parent View — Mitra
+description: A look at what parents see — the Progress & Activity dashboard and the weekly letter. Sessions, work completed, questions asked, consistency, plus Mitra's specific honest weekly note.
 slug: parent-dashboard.html
 extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 -->
@@ -72,6 +72,14 @@ extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.
   .technique-row .count { font-size: 0.75rem; color: var(--text-muted); min-width: 24px; text-align: right; }
   .canvas-wrap { height: 160px; }
   .canvas-wrap-pie { max-width: 200px; margin: 0 auto; }
+  .pv-accordion { margin-bottom: 1rem; }
+  .pv-accordion .accordion-button { font-weight: 600; font-size: 1.1rem; color: #1a202c; background: #fff7ed; }
+  .pv-accordion .accordion-button:not(.collapsed) { background: #FFE5D0; color: #1a202c; box-shadow: none; }
+  .pv-accordion .accordion-button:focus { box-shadow: 0 0 0 0.15rem rgba(255,139,61,0.25); }
+  .pv-accordion .accordion-body { padding: 1.5rem 1rem; background: #fafbfc; }
+  .sample-letter-page { max-width: 720px; margin: 0 auto; }
+  .sample-letter-page p { font-size: 1.02rem; line-height: 1.7; margin-bottom: 1rem; color: #2d3748; }
+  .sample-letter-page .meta-line { color: #94a3b8; font-size: 0.85rem; font-style: italic; text-align: center; margin-top: 1.5rem; }
   .footer-callout { margin-top: 2.5rem; padding: 2rem 1.5rem; background: #fff7ed; border-left: 4px solid #FF8B3D; border-radius: 8px; text-align: center; }
   .footer-callout blockquote { font-size: 1.15rem; color: #1a202c; font-style: italic; margin: 0 0 0.5rem; line-height: 1.5; }
   .footer-callout cite { font-size: 0.85rem; color: #94a3b8; font-style: normal; }
@@ -97,8 +105,8 @@ extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.
 <div class="dashboard-page">
 
   <div class="dashboard-hero">
-    <h1>Sample Progress &amp; Activity</h1>
-    <p class="lede">Not grades. The shape of how your child shows up.</p>
+    <h1>Sample Parent View</h1>
+    <p class="lede">What parents see — dashboard and weekly letter.</p>
     <p class="footnote">Representative data based on real student-Mitra sessions.</p>
   </div>
 
@@ -106,6 +114,18 @@ extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.
     <p class="name">Addy</p>
     <p class="meta">Grade 7 &middot; 8 weeks with Mitra</p>
   </div>
+
+  <div class="accordion pv-accordion" id="parentViewAccordion">
+
+  <!-- Accordion 1: Progress & Activity Dashboard (open by default) -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardPanel" aria-expanded="true" aria-controls="dashboardPanel">
+        Progress &amp; Activity Dashboard
+      </button>
+    </h2>
+    <div id="dashboardPanel" class="accordion-collapse collapse show">
+      <div class="accordion-body">
 
   <div class="window-selector">
     <span class="label">View:</span>
@@ -313,6 +333,38 @@ extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.
       </div>
     </div></div>
   </div>
+
+      </div><!-- /accordion-body dashboard -->
+    </div><!-- /accordion-collapse dashboard -->
+  </div><!-- /accordion-item dashboard -->
+
+  <!-- Accordion 2: Sample Weekly Letter (collapsed by default) -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#letterPanel" aria-expanded="false" aria-controls="letterPanel">
+        Sample Weekly Letter
+      </button>
+    </h2>
+    <div id="letterPanel" class="accordion-collapse collapse">
+      <div class="accordion-body">
+
+        <div class="sample-letter-page">
+          <p>Dear Sarah,</p>
+          <p>Another good week with Addy. Five sessions, and three of them were her idea — she came to me first with something on her mind, which is becoming her pattern. I want to walk you through what we did and what I am noticing.</p>
+          <p>Math this week was a deeper dive into negative number operations, and Addy's instinct for the number-line approach is now reflexive. The thing that used to trip her up — what to do with a double negative — she now catches and verbalizes herself before I can step in. That kind of self-correction is the marker that a concept has actually moved from "I can do this when prompted" to "I own this." We worked through eight problems on Monday and she got seven right on the first pass; the one she missed was a fatigue-driven slip at the end, which she caught when I asked her to walk through her reasoning.</p>
+          <p>The bigger event of the week was a three-paragraph essay on the Industrial Revolution that Addy came in panicked about on Tuesday night. We used a topic-detail-so-what scaffold for each paragraph, and one of the things I love about working with Addy is how she brings her own interests as raw material rather than seeing them as off-task. Her tangent into 1800s makeup history ended up giving her one of the strongest closing sentences I have seen from her: <em>"ordinary people in the 1800s were surrounded by poison everywhere they turned."</em> That is real essay writing — specific, evocative, and tied to her thesis. By the end of the session she had a complete draft.</p>
+          <p>Outside of those two big sessions we also had three shorter check-ins about pacing for the week, an ELA reading-log question, and one social-studies vocabulary round. Engagement was steady throughout.</p>
+          <p>Things I would like to keep working on: getting Addy to extend her revision instincts to ELA work the way she now does in math (she is quick to fix math mistakes, slower to revise her own writing), and continuing to use her interests as on-ramps rather than treating them as detours. Both are going well already; I just want to compound them.</p>
+          <p>Sarah, thanks again for trusting me with Addy. She is making real progress, and I am enjoying every session we have.</p>
+          <p style="margin-bottom:0;"><em>— Mitra</em></p>
+          <p class="meta-line">Sample. Representative data based on real student-Mitra sessions.</p>
+        </div>
+
+      </div><!-- /accordion-body letter -->
+    </div><!-- /accordion-collapse letter -->
+  </div><!-- /accordion-item letter -->
+
+  </div><!-- /accordion -->
 
   <!-- Footer callout + CTAs -->
   <div class="footer-callout">
