@@ -1,0 +1,369 @@
+<!-- META
+title: Sample Progress & Activity — Mitra
+description: A look at the Progress & Activity dashboard parents see. Sessions, time engaged, work completed, questions asked, consistency over time.
+slug: parent-dashboard.html
+extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+-->
+<style>
+  .dashboard-page { --accent: #FF8B3D; --accent-light: #FFE5D0; --text-main: #2C3E50; --text-muted: #94a3b8; max-width: 1100px; margin: 0 auto; padding-bottom: 2rem; }
+  .dashboard-hero { text-align: center; margin: 1rem 0 2rem; }
+  .dashboard-hero h1 { font-size: clamp(1.75rem, 5vw, 2.4rem); font-weight: 700; color: #2C3E50; margin: 0 0 0.6rem; line-height: 1.2; }
+  .dashboard-hero .lede { font-size: 1.05rem; color: #4a5568; margin: 0 0 0.4rem; }
+  .dashboard-hero .footnote { font-size: 0.85rem; color: #94a3b8; font-style: italic; margin: 0; }
+  .student-context { text-align: center; padding: 0.75rem 0 1.5rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 1.5rem; }
+  .student-context .name { font-size: 1.4rem; font-weight: 600; color: #2C3E50; margin: 0; }
+  .student-context .meta { font-size: 0.85rem; color: #94a3b8; margin-top: 0.2rem; }
+  .window-selector { display: flex; gap: 4px; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; justify-content: center; }
+  .window-selector .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-right: 6px; }
+  .window-selector a { font-size: 0.78rem; padding: 4px 10px; border-radius: 999px; background: #f1f5f9; color: var(--text-main); text-decoration: none; border: 1px solid transparent; }
+  .window-selector a.active { background: var(--accent-light); color: #b9541b; border-color: #ffcc99; font-weight: 600; }
+  .metric-card { border: none; border-radius: 12px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; height: 100%; }
+  .metric-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .mc-sessions::before { background: linear-gradient(90deg, #FF8B3D, #FFB347); }
+  .mc-time::before { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+  .mc-work::before { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .mc-questions::before { background: linear-gradient(90deg, #10b981, #6ee7b7); }
+  .metric-card .body { padding: 0.8rem 1rem 0.9rem; position: relative; }
+  .metric-icon { font-size: 1.5rem; opacity: 0.15; position: absolute; top: 10px; right: 12px; }
+  .mc-sessions .metric-icon { color: #FF8B3D; }
+  .mc-time .metric-icon { color: #6366f1; }
+  .mc-work .metric-icon { color: #14b8a6; }
+  .mc-questions .metric-icon { color: #10b981; }
+  .metric-val { font-size: 1.6rem; font-weight: 700; color: var(--text-main); line-height: 1.1; margin: 0; }
+  .metric-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+  .metric-sub { font-size: 0.72rem; font-weight: 500; margin: 0; }
+  .metric-sub.up { color: #10b981; }
+  .metric-sub.flat { color: var(--text-muted); }
+  .section-card { border: none; border-radius: 10px; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.04); height: 100%; }
+  .section-card .body { padding: 1rem 1.1rem; }
+  .section-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.75rem; }
+  .heatmap-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; max-width: 280px; margin: 0 auto; }
+  .heatmap-cell { aspect-ratio: 1; border-radius: 2px; background: #f1f5f9; }
+  .heatmap-cell[data-count="1"] { background: var(--accent-light); }
+  .heatmap-cell[data-count="2"] { background: #ffcc99; }
+  .heatmap-cell[data-count="3"] { background: var(--accent); opacity: 0.7; }
+  .heatmap-cell[data-count="4"] { background: var(--accent); }
+  .heatmap-headers { display: flex; gap: 1px; max-width: 280px; margin: 0 auto 4px; font-size: 0.65rem; color: var(--text-muted); }
+  .heatmap-headers span { flex: 1; text-align: center; }
+  .heatmap-legend { display: flex; align-items: center; gap: 4px; margin-top: 0.5rem; font-size: 0.65rem; color: var(--text-muted); justify-content: center; }
+  .heatmap-legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+  .progress-bar-track { height: 8px; border-radius: 4px; background: #f1f5f9; overflow: hidden; }
+  .progress-bar-fill { height: 100%; }
+  .technique-bar { height: 5px; border-radius: 3px; background: #f1f5f9; overflow: hidden; flex: 1; }
+  .technique-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+  .outcome-chip { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; margin-right: 4px; }
+  .outcome-correct { background: #d1fae5; color: #065f46; }
+  .outcome-in-progress { background: #dbeafe; color: #1e40af; }
+  .outcome-abandoned { background: #f3f4f6; color: #6b7280; }
+  .grid-row { display: grid; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .grid-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-row.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-row.cols-1 { grid-template-columns: 1fr; }
+  .row-5-7 { display: grid; grid-template-columns: 5fr 7fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .consistency-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+  .consistency-item { font-size: 0.85rem; }
+  .consistency-item .label { color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .consistency-item .val { font-size: 1.2rem; font-weight: 600; color: var(--text-main); }
+  .consistency-item .sub { color: var(--text-muted); font-size: 0.7rem; }
+  .file-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.82rem; flex-wrap: wrap; }
+  .file-row .file-name { font-weight: 500; min-width: 0; flex: 1; }
+  .technique-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .technique-row .name { font-size: 0.85rem; flex: 1; min-width: 0; }
+  .technique-row .count { font-size: 0.75rem; color: var(--text-muted); min-width: 24px; text-align: right; }
+  .canvas-wrap { height: 160px; }
+  .canvas-wrap-pie { max-width: 200px; margin: 0 auto; }
+  .footer-callout { margin-top: 2.5rem; padding: 2rem 1.5rem; background: #fff7ed; border-left: 4px solid #FF8B3D; border-radius: 8px; text-align: center; }
+  .footer-callout blockquote { font-size: 1.15rem; color: #1a202c; font-style: italic; margin: 0 0 0.5rem; line-height: 1.5; }
+  .footer-callout cite { font-size: 0.85rem; color: #94a3b8; font-style: normal; }
+  .footer-cta-row { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+  .footer-cta { padding: 0.6rem 1.4rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  .footer-cta.primary { background: #FF8B3D; color: white; }
+  .footer-cta.secondary { background: white; color: #FF8B3D; border: 1px solid #FF8B3D; }
+  .footer-cta:hover { opacity: 0.9; }
+  /* Mobile breakpoint: stack everything single-column */
+  @media (max-width: 720px) {
+    .grid-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .row-5-7 { grid-template-columns: 1fr; }
+    .grid-row.cols-2 { grid-template-columns: 1fr; }
+    .consistency-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 420px) {
+    .grid-row.cols-4 { grid-template-columns: 1fr; }
+    .consistency-grid { grid-template-columns: 1fr; }
+    .metric-val { font-size: 1.4rem; }
+  }
+</style>
+
+<div class="dashboard-page">
+
+  <div class="dashboard-hero">
+    <h1>Sample Progress &amp; Activity</h1>
+    <p class="lede">Not grades. The shape of how your child shows up.</p>
+    <p class="footnote">Representative data based on real student-Mitra sessions.</p>
+  </div>
+
+  <div class="student-context">
+    <p class="name">Addy</p>
+    <p class="meta">Grade 7 &middot; 8 weeks with Mitra</p>
+  </div>
+
+  <div class="window-selector">
+    <span class="label">View:</span>
+    <a href="#" class="active">Last 7 days</a>
+    <a href="#">Last 30 days</a>
+    <a href="#">All time</a>
+  </div>
+
+  <!-- Metric Cards -->
+  <div class="grid-row cols-4">
+    <div class="metric-card mc-sessions"><div class="body">
+      <span class="metric-icon">&#x1F4CA;</span>
+      <p class="metric-label">Sessions</p>
+      <p class="metric-val">5</p>
+      <p class="metric-sub up">&#9650; +1 vs last week</p>
+    </div></div>
+    <div class="metric-card mc-time"><div class="body">
+      <span class="metric-icon">&#x23F1;</span>
+      <p class="metric-label">Total time</p>
+      <p class="metric-val">3.4h</p>
+      <p class="metric-sub up">&#9650; +42 min this week</p>
+    </div></div>
+    <div class="metric-card mc-work"><div class="body">
+      <span class="metric-icon">&#x2714;</span>
+      <p class="metric-label">Work completed</p>
+      <p class="metric-val">17</p>
+      <p class="metric-sub flat">14 correct, 1 partial, 2 set aside</p>
+    </div></div>
+    <div class="metric-card mc-questions"><div class="body">
+      <span class="metric-icon">&#x2753;</span>
+      <p class="metric-label">Questions asked</p>
+      <p class="metric-val">28</p>
+      <p class="metric-sub flat">by Addy</p>
+    </div></div>
+  </div>
+
+  <!-- Consistency -->
+  <div class="grid-row cols-1">
+    <div class="section-card"><div class="body">
+      <p class="section-title">Consistency</p>
+      <div class="consistency-grid">
+        <div class="consistency-item">
+          <div class="label">Current streak</div>
+          <div class="val">8 weeks</div>
+        </div>
+        <div class="consistency-item">
+          <div class="label">Longest streak</div>
+          <div class="val">8 weeks</div>
+        </div>
+        <div class="consistency-item">
+          <div class="label">Typical gap</div>
+          <div class="val">1 day</div>
+          <div class="sub">between sessions</div>
+        </div>
+        <div class="consistency-item">
+          <div class="label">This vs last week</div>
+          <div class="val">5 vs 4</div>
+          <div class="sub">sessions</div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Heatmap + Curriculum progress -->
+  <div class="row-5-7">
+    <div class="section-card"><div class="body">
+      <p class="section-title">Activity (last 4 weeks)</p>
+      <div class="heatmap-headers">
+        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+      </div>
+      <div class="heatmap-grid">
+        <div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="0"></div>
+        <div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div>
+        <div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="0"></div>
+        <div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="3"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="2"></div>
+      </div>
+      <div class="heatmap-legend">
+        <span>Less</span>
+        <span class="swatch" style="background:#f1f5f9;"></span>
+        <span class="swatch" style="background:var(--accent-light);"></span>
+        <span class="swatch" style="background:#ffcc99;"></span>
+        <span class="swatch" style="background:var(--accent);"></span>
+        <span>More</span>
+      </div>
+    </div></div>
+
+    <div class="section-card"><div class="body">
+      <p class="section-title">Curriculum progress</p>
+
+      <div style="margin-bottom:0.85rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="font-weight:600;">Math (Grade 7 CC)</span>
+          <span style="color:var(--text-muted);">12/18 topics (67%)</span>
+        </div>
+        <div class="progress-bar-track" style="margin-top:4px;">
+          <div style="display:flex;height:100%;">
+            <div class="progress-bar-fill" style="width:33%;background:#10b981;"></div>
+            <div class="progress-bar-fill" style="width:22%;background:#6366f1;"></div>
+            <div class="progress-bar-fill" style="width:12%;background:#cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:0.85rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="font-weight:600;">ELA (Grade 7 CC)</span>
+          <span style="color:var(--text-muted);">7/14 topics (50%)</span>
+        </div>
+        <div class="progress-bar-track" style="margin-top:4px;">
+          <div style="display:flex;height:100%;">
+            <div class="progress-bar-fill" style="width:21%;background:#10b981;"></div>
+            <div class="progress-bar-fill" style="width:14%;background:#6366f1;"></div>
+            <div class="progress-bar-fill" style="width:15%;background:#cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:0.85rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="font-weight:600;">Social Studies (Grade 7 CC)</span>
+          <span style="color:var(--text-muted);">4/12 topics (33%)</span>
+        </div>
+        <div class="progress-bar-track" style="margin-top:4px;">
+          <div style="display:flex;height:100%;">
+            <div class="progress-bar-fill" style="width:8%;background:#10b981;"></div>
+            <div class="progress-bar-fill" style="width:17%;background:#6366f1;"></div>
+            <div class="progress-bar-fill" style="width:8%;background:#cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:0.75rem;margin-top:0.5rem;font-size:0.7rem;color:var(--text-muted);flex-wrap:wrap;">
+        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;"></span> Reinforced</span>
+        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#6366f1;"></span> Practiced</span>
+        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#cbd5e1;"></span> Introduced</span>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Per-file progress -->
+  <div class="grid-row cols-1">
+    <div class="section-card"><div class="body">
+      <p class="section-title">Progress by file</p>
+      <div class="file-row">
+        <span class="file-name">Math worksheet — neg. ints</span>
+        <span class="outcome-chip outcome-correct">8 done</span>
+      </div>
+      <div class="file-row">
+        <span class="file-name">SS Industrial Rev. essay</span>
+        <span class="outcome-chip outcome-correct">3 done</span>
+        <span class="outcome-chip outcome-in-progress">1 in progress</span>
+      </div>
+      <div class="file-row">
+        <span class="file-name">ELA reading log — Wonder</span>
+        <span class="outcome-chip outcome-correct">3 done</span>
+        <span class="outcome-chip outcome-abandoned">2 set aside</span>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Charts -->
+  <div class="grid-row cols-2">
+    <div class="section-card"><div class="body">
+      <p class="section-title">Sessions &amp; time (last 8 weeks)</p>
+      <div class="canvas-wrap"><canvas id="comboChart"></canvas></div>
+    </div></div>
+    <div class="section-card"><div class="body">
+      <p class="section-title">Questions Addy asked Mitra</p>
+      <div class="canvas-wrap"><canvas id="questionsChart"></canvas></div>
+    </div></div>
+  </div>
+
+  <!-- Subjects + What's working -->
+  <div class="row-5-7">
+    <div class="section-card"><div class="body">
+      <p class="section-title">Subjects covered</p>
+      <div class="canvas-wrap-pie"><canvas id="subjectsChart" height="200"></canvas></div>
+    </div></div>
+    <div class="section-card"><div class="body">
+      <p class="section-title">What's working</p>
+      <div class="technique-row">
+        <span class="name">Walking the number line concretely</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:100%;"></div></div>
+        <span class="count">6x</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">Bridging through her interests</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:83%;"></div></div>
+        <span class="count">5x</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">Topic-detail-so-what scaffold</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:67%;"></div></div>
+        <span class="count">4x</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">Reframing slips as fatigue</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:50%;"></div></div>
+        <span class="count">3x</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">Asking what she already knows</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:33%;"></div></div>
+        <span class="count">2x</span>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Footer callout + CTAs -->
+  <div class="footer-callout">
+    <blockquote>"Engagement is the metric, not completion."</blockquote>
+    <cite>From Mitra in principle and practice</cite>
+    <div class="footer-cta-row">
+      <a href="/en/principles.html" class="footer-cta secondary">Read the principles</a>
+      <a href="https://mitratutor.com/en/enroll" class="footer-cta primary">Enroll your student</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  if (typeof Chart !== 'undefined') {
+    const weekLabels = ['W1','W2','W3','W4','W5','W6','W7','W8'];
+    new Chart(document.getElementById('comboChart'), {
+      type: 'bar',
+      data: { labels: weekLabels, datasets: [
+        { label: 'Sessions', data: [3,4,3,4,4,5,4,5], backgroundColor: '#FF8B3D', yAxisID: 'y' },
+        { label: 'Minutes', data: [78,102,91,110,124,138,132,168], type: 'line', borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.1)', tension: 0.3, yAxisID: 'y1' }
+      ]},
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { font: { size: 10 } } } },
+        scales: {
+          y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+          y1: { position: 'right', beginAtZero: true, ticks: { font: { size: 10 } }, grid: { display: false } },
+          x: { ticks: { font: { size: 10 } }, grid: { display: false } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('questionsChart'), {
+      type: 'line',
+      data: { labels: weekLabels, datasets: [{
+        label: 'Questions', data: [12,17,14,21,19,24,22,28],
+        borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.15)',
+        fill: true, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#10b981'
+      }]},
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+                  x: { ticks: { font: { size: 10 } }, grid: { display: false } } }
+      }
+    });
+
+    new Chart(document.getElementById('subjectsChart'), {
+      type: 'doughnut',
+      data: { labels: ['Math','ELA','Social Studies'],
+              datasets: [{ data: [14,8,6], backgroundColor: ['#FF8B3D','#6366f1','#10b981'], borderWidth: 0 }] },
+      options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8 } } }, cutout: '55%' }
+    });
+  }
+</script>
