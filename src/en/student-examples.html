@@ -17,22 +17,25 @@ slug: student-examples.html
   @media (max-width: 600px) { #conversationsCarousel .showcase-slide { min-height: 620px; } }
 
   /* Tip cards */
-  .tip-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.4rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-  .tip-card .tip-headline { font-size: 1.15rem; font-weight: 700; color: #1a202c; margin: 0 0 0.5rem; }
-  .tip-card .tip-headline::before { content: "→"; color: #FF8B3D; font-weight: 700; margin-right: 0.5rem; }
-  .tip-card .tip-body { font-size: 0.95rem; color: #4a5568; line-height: 1.6; margin: 0 0 1rem; }
-  .tip-mini-chat { background: #f8fafc; border-radius: 8px; padding: 0.85rem 1rem; }
+  .tip-card { background: #FFFFFF; border: 1px solid #CBD5E0; border-radius: 12px; padding: 1.4rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .tip-card .tip-headline { font-size: 1.15rem; font-weight: 700; color: #2B4C7E; margin: 0 0 0.5rem; }
+  .tip-card .tip-headline::before { content: "→"; color: #2A9D8F; font-weight: 700; margin-right: 0.5rem; }
+  .tip-card .tip-body { font-size: 0.95rem; color: #4A5568; line-height: 1.6; margin: 0 0 1rem; }
+  .tip-mini-chat { background: #F0F2F5; border-radius: 8px; padding: 0.85rem 1rem; }
   .tip-chat-msg { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.4rem; }
   .tip-chat-msg.tutor { justify-content: flex-start; }
   .tip-chat-msg.student { justify-content: flex-end; }
   .tip-chat-bubble { max-width: 88%; padding: 0.4rem 0.8rem; border-radius: 14px; font-size: 0.88rem; line-height: 1.45; }
-  .tip-chat-msg.tutor .tip-chat-bubble { background: #FFE5D0; color: #1a202c; border-bottom-left-radius: 4px; }
-  .tip-chat-msg.student .tip-chat-bubble { background: #4a5568; color: white; border-bottom-right-radius: 4px; }
-  .tip-avatar { width: 22px; height: 22px; border-radius: 50%; background: #FF8B3D; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; flex-shrink: 0; }
+  .tip-chat-msg.tutor .tip-chat-bubble { background: #D9E2EC; color: #1A1A2E; border-bottom-left-radius: 4px; }
+  .tip-chat-msg.student .tip-chat-bubble { background: #2B4C7E; color: white; border-bottom-right-radius: 4px; }
+  .tip-avatar { width: 22px; height: 22px; border-radius: 50%; background: #2B4C7E; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; flex-shrink: 0; }
 
-  .se-cta { margin-top: 3rem; padding: 1.75rem 1.5rem; background: #fff7ed; border-radius: 10px; text-align: center; border: 1px solid #FFE5D0; }
-  .se-cta h3 { font-size: 1.2rem; margin: 0 0 0.4rem; color: #1a202c; }
-  .se-cta p { font-size: 0.95rem; color: #4a5568; margin: 0 0 1rem; }
+  .se-cta { margin-top: 3rem; padding: 1.75rem 1.5rem; background: #D9E2EC; border-radius: 10px; text-align: center; border: 1px solid #CBD5E0; }
+  .se-cta h3 { font-size: 1.2rem; margin: 0 0 0.4rem; color: #2B4C7E; }
+  .se-cta p { font-size: 0.95rem; color: #4A5568; margin: 0 0 1rem; }
+  .se-cta .channel-row { display:flex; justify-content:center; align-items:center; gap:14px; margin-top:8px; flex-wrap:wrap; }
+  .se-cta .channel-tg { display:inline-flex; align-items:center; gap:8px; background:#0088cc; color:#fff; padding:8px 18px; border-radius:8px; font-size:0.95rem; font-weight:600; text-decoration:none; }
+  .se-cta .channel-tg img { height:18px; filter:brightness(10); }
 </style>
 
 <div class="se-page">
@@ -173,9 +176,13 @@ slug: student-examples.html
 
   <div class="se-cta">
     <h3>Ready to try?</h3>
-    <p>Start a chat with Mitra on Telegram or KakaoTalk.</p>
-    <a href="https://t.me/Mitradhdbot" target="_blank" class="btn-cta-primary" style="margin-right:0.5rem;">Open Telegram →</a>
-    <a href="http://pf.kakao.com/_taAVX" target="_blank" class="btn-cta-primary">Open KakaoTalk →</a>
+    <p>Start a chat with Mitra on KakaoTalk or Telegram.</p>
+    <div class="channel-row">
+      <a href="http://pf.kakao.com/_taAVX" target="_blank"><img src="/en/static/images/KT/channel_add_large_2X.png" alt="Add Mitra on KakaoTalk" style="height:40px;"></a>
+      <a href="https://t.me/Mitradhdbot" target="_blank" class="channel-tg">
+        <img src="/en/static/images/Telegram/telegram-logo.svg" alt="Telegram"> Telegram
+      </a>
+    </div>
   </div>
 
 </div>
