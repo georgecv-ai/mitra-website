@@ -372,6 +372,19 @@ a:hover {
   background: var(--primary);
   color: var(--white);
 }
+.chat-avatar-tutor img,
+.chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.chat-avatar:has(img),
+.chat-avatar-tutor:has(img) {
+  padding: 0;
+  overflow: hidden;
+}
 .chat-bubble {
   display: inline-block;
   padding: 10px 14px;

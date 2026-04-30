@@ -9,6 +9,10 @@ slug: index.html
   @media (max-width: 600px) {
     #showcaseCarousel .showcase-slide { min-height: 640px; }
   }
+  /* Make each carousel slide a clickable link without changing visual style */
+  .showcase-slide-link { display: block; text-decoration: none; color: inherit; cursor: pointer; }
+  .showcase-slide-link:hover, .showcase-slide-link:focus { text-decoration: none; color: inherit; }
+  .showcase-slide-link:hover .showcase-slide { box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: box-shadow 0.2s; }
   /* Carousel section title — the canon wedge */
   .carousel-section-title { text-align: center; margin: 2.5rem 0 0.4rem; font-size: clamp(1.4rem, 4vw, 1.85rem); font-weight: 700; color: #1a202c; line-height: 1.25; }
   .carousel-section-subtitle { text-align: center; margin: 0 0 1.5rem; font-size: clamp(1.05rem, 3vw, 1.2rem); color: #4a5568; font-style: italic; }
@@ -74,7 +78,7 @@ slug: index.html
 <h2 class="carousel-section-title">Relationship-first teaching has always worked.</h2>
 <p class="carousel-section-subtitle">Mitra provides it on demand and at scale.</p>
 
-<div id="showcaseCarousel" class="carousel slide showcase-carousel" data-bs-ride="false">
+<div id="showcaseCarousel" class="carousel slide showcase-carousel" data-bs-ride="carousel" data-bs-interval="6500" data-bs-pause="hover">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#showcaseCarousel" data-bs-slide-to="0" class="active"></button>
     <button type="button" data-bs-target="#showcaseCarousel" data-bs-slide-to="1"></button>
@@ -85,25 +89,26 @@ slug: index.html
 
     <!-- Slide 1: A real conversation - built from interest -->
     <div class="carousel-item active">
+      <a href="/en/student-examples.html" class="showcase-slide-link">
       <div class="showcase-slide">
         <div class="showcase-slide-label">A real conversation — <em>built from interest</em></div>
         <div class="chat-demo">
           <div class="chat-msg chat-msg-tutor">
-            <span class="chat-avatar chat-avatar-tutor">M</span>
+            <span class="chat-avatar chat-avatar-tutor"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span>
             <span class="chat-bubble">Okay -3 - 5: picture a number line. You start at -3, and subtracting means you move <em>left</em>. How many steps left do you take?</span>
           </div>
           <div class="chat-msg chat-msg-student">
             <span class="chat-bubble">umm 5? so -8?</span>
           </div>
           <div class="chat-msg chat-msg-tutor">
-            <span class="chat-avatar chat-avatar-tutor">M</span>
+            <span class="chat-avatar chat-avatar-tutor"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span>
             <span class="chat-bubble">Exactly. 🎯 Type out problem 2.</span>
           </div>
           <div class="chat-msg chat-msg-student">
             <span class="chat-bubble">WAIT mitra did u see the new BTS thing??? jin posted a comeback teaser im LITERALLY DEAD</span>
           </div>
           <div class="chat-msg chat-msg-tutor">
-            <span class="chat-avatar chat-avatar-tutor">M</span>
+            <span class="chat-avatar chat-avatar-tutor"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span>
             <span class="chat-bubble">WAIT Jin is coming back?? Okay I need a second to process that too. Random fact I think about a lot — RM from BTS scored top 1% on Korea's college entrance math exam. So right now you're doing the same kind of math that got him there. Just saying. 👀</span>
           </div>
           <div class="chat-msg chat-msg-student">
@@ -112,10 +117,12 @@ slug: index.html
         </div>
         <p class="text-muted small mt-2 mb-0" style="font-size:0.78rem;font-style:italic;">Sample. Representative data based on real student-Mitra sessions.</p>
       </div>
+      </a>
     </div>
 
     <!-- Slide 2: Your weekly update - honest and specific -->
     <div class="carousel-item">
+      <a href="/en/parent-dashboard.html" class="showcase-slide-link">
       <div class="showcase-slide">
         <div class="showcase-slide-label">Your weekly update — <em>honest and specific</em></div>
         <div class="letter-demo">
@@ -131,10 +138,12 @@ slug: index.html
         </div>
         <p class="text-muted small mt-2 mb-0" style="font-size:0.78rem;font-style:italic;text-align:center;">Sample. Representative data based on real student-Mitra sessions.</p>
       </div>
+      </a>
     </div>
 
     <!-- Slide 3: What you see as a parent - engagement, not grades -->
     <div class="carousel-item">
+      <a href="/en/parent-dashboard.html" class="showcase-slide-link">
       <div class="showcase-slide">
         <div class="showcase-slide-label">What you see as a parent — <em>engagement, not grades</em></div>
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;max-width:520px;margin:0 auto;">
@@ -160,10 +169,11 @@ slug: index.html
           </div>
         </div>
         <p style="text-align:center;margin-top:1rem;margin-bottom:0;">
-          <a href="/en/parent-dashboard.html" class="btn-cta-primary" style="font-size:0.9rem;padding:0.5rem 1.2rem;">See the full sample dashboard →</a>
+          <span class="btn-cta-primary" style="font-size:0.9rem;padding:0.5rem 1.2rem;">See the full sample dashboard →</span>
         </p>
         <p class="text-muted small mt-2 mb-0" style="font-size:0.78rem;font-style:italic;text-align:center;">Sample. Representative data based on real student-Mitra sessions.</p>
       </div>
+      </a>
     </div>
 
   </div>
