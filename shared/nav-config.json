@@ -73,6 +73,7 @@
       "links": [
         {"label": {"en": "Enroll", "ko": "등록"}, "href": "{{app_base}}/{{lang}}/enroll"},
         {"label": {"en": "Parent Login", "ko": "학부모 로그인"}, "href": "{{app_base}}/{{lang}}/parent/login"},
+        {"label": {"en": "Partner Login", "ko": "파트너 로그인"}, "href": "{{app_base}}/{{lang}}/org/login"},
         {"label": {"en": "support@mitratutor.com", "ko": "support@mitratutor.com"}, "href": "mailto:support@mitratutor.com"}
       ]
     }
