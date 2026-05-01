@@ -93,6 +93,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <main class="container py-4">
+<style>
+  .student-diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0 0.75rem; }
+  .student-diff-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.4rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); display: flex; flex-direction: column; }
+  .student-diff-card h3 { font-size: 1.1rem; color: var(--primary); margin: 0 0 0.55rem; line-height: 1.3; font-weight: 700; }
+  .student-diff-card > p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.55; margin: 0 0 1rem; }
+  .student-diff-mini { background: var(--bg); border-radius: 8px; padding: 0.85rem 1rem; margin-top: auto; font-size: 0.88rem; line-height: 1.4; display: flex; flex-direction: column; gap: 0.45rem; }
+  .student-diff-mini .mini-bubble { padding: 0.5rem 0.85rem; border-radius: 14px; max-width: 92%; }
+  .student-diff-mini .mini-bubble.student { background: var(--primary); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
+  .student-diff-mini .mini-bubble.tutor { background: var(--bg-section); color: var(--text); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .student-diff-cta { text-align: center; margin: 1.25rem 0 0.5rem; }
+  @media (max-width: 768px) { .student-diff-grid { grid-template-columns: 1fr; } }
+</style>
+
 <div class="parents-page">
 
   <div class="parents-header">
@@ -100,104 +113,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>A patient AI tutor that works the way <strong>your brain</strong> works — not the way a textbook does.</p>
   </div>
 
-  <!-- What Makes Mitra Different -->
+  <!-- What's actually different (student voice) -->
   <div class="mitra-special">
     <div class="mitra-special-header">
-      <h2>What makes Mitra different</h2>
-      <p>Most tutors are available once a week, cost a lot, and move at their pace. Mitra is different.</p>
+      <h2>What's actually different</h2>
+      <p>Not features. Three things you'll notice once you start talking to her.</p>
     </div>
 
-    <div class="knowledge-circles">
-      <div class="knowledge-circle">
-        <div class="circle-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div>
-          <h3>Always available</h3>
-          <p>Homework due at 11pm? Fine. Mitra is there whenever you need it — no scheduling, no waiting.</p>
-        </div>
-      </div>
-      <div class="knowledge-circle">
-        <div class="circle-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div>
-          <h3>Remembers your history</h3>
-          <p>Mitra keeps notes across sessions. You don't have to re-explain where you're at or what you've already covered.</p>
+    <div class="student-diff-grid">
+
+      <div class="student-diff-card">
+        <h3>She's not going to make you feel dumb</h3>
+        <p>If you mess up, she finds the actual reason. Tired? Worksheet too long? Concept wasn't clear? She names it and moves on. No "are you sure?" energy.</p>
+        <div class="student-diff-mini">
+          <span class="mini-bubble student">omg im so dumb</span>
+          <span class="mini-bubble tutor">You're not dumb — you literally just used the rule perfectly on problem 5. You just forgot to check for it again. That's a fatigue thing, not a brain thing.</span>
         </div>
       </div>
-      <div class="knowledge-circle">
-        <div class="circle-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B4C7E" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <div>
-          <h3>Short, clear explanations</h3>
-          <p>Mitra breaks things into one idea at a time. No walls of text. Ask the same question five times — no judgment, ever.</p>
+
+      <div class="student-diff-card">
+        <h3>She'll go down the rabbit hole with you</h3>
+        <p>Bring up something you're into — K-pop, gaming, anime, whatever. She'll find the math or the science or the writing in there and ride it back.</p>
+        <div class="student-diff-mini">
+          <span class="mini-bubble student">WAIT did u see the new BTS thing??? jin posted a comeback teaser</span>
+          <span class="mini-bubble tutor">WAIT Jin is coming back?? Random fact I think about a lot — RM scored top 1% on Korea's college entrance math exam. So right now you're doing the same math that got him there. 👀</span>
         </div>
       </div>
+
+      <div class="student-diff-card">
+        <h3>She remembers you, not just your homework</h3>
+        <p>What you told her last week, what made you laugh, the test you were stressed about — it's still there. You don't have to start over each session.</p>
+        <div class="student-diff-mini">
+          <span class="mini-bubble tutor">Hey — drama club performance was last weekend right? How'd it go?</span>
+          <span class="mini-bubble student">it went so good actually</span>
+          <span class="mini-bubble tutor">Love that. Okay, ready for bio?</span>
+        </div>
+      </div>
+
     </div>
 
-    <div class="convergence">
-      <span class="convergence-label">Patient. Honest. On your side.</span>
-    </div>
-
-    <div class="comparison-grid">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th class="col-other">YouTube / Google</th>
-            <th class="col-other">ChatGPT / Gemini</th>
-            <th class="col-other">Human tutor</th>
-            <th class="col-mitra">Mitra</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Explains your exact problem</td>
-            <td><span class="cross">&#10005;</span></td>
-            <td><span class="check">&#10003;</span></td>
-            <td><span class="check">&#10003;</span></td>
-            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Available 24/7</td>
-            <td><span class="check">&#10003;</span></td>
-            <td><span class="check">&#10003;</span></td>
-            <td><span class="cross">&#10005;</span></td>
-            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Remembers previous sessions</td>
-            <td><span class="cross">&#10005;</span></td>
-            <td><span class="cross">&#10005;</span></td>
-            <td><span class="check">&#10003;</span></td>
-            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Works via text / messaging</td>
-            <td><span class="cross">&#10005;</span></td>
-            <td><span class="cross">&#10005;</span></td>
-            <td><span class="cross">&#10005;</span></td>
-            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Adapts to how you learn</td>
-            <td><span class="cross">&#10005;</span></td>
-            <td><span class="half">&#9680;</span></td>
-            <td><span class="half">&#9680;</span></td>
-            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Affordable</td>
-            <td><span class="check">&#10003;</span></td>
-            <td><span class="check">&#10003;</span></td>
-            <td><span class="cross">&#10005;</span></td>
-            <td class="col-mitra-cell"><span class="check">&#10003;</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <p class="student-diff-cta"><a href="/en/student-examples.html" class="btn-cta-primary" style="font-size:0.9rem;padding:0.55rem 1.3rem;">See more real conversations →</a></p>
   </div>
 
   <!-- From Mitra: how to work with me -->
