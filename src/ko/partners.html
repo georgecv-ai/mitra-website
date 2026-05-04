@@ -3,6 +3,170 @@ title: 학원·학교·선생님을 위한 안내 — 미트라
 description: 미트라는 학원, 학교, 교육기관, 개인 튜터와 함께합니다. 선생님의 자리를 대신하지 않고, 가르침을 잇고 넓혀드립니다.
 slug: partners.html
 -->
+<style>
+  /* ===== Partner-page accordion samples ===== */
+  .pn-accordion { margin: 1.25rem 0 0; }
+  .pn-accordion .accordion-button { font-weight: 600; font-size: 1rem;
+                                      background: #f0f7f4; color: #1a202c; }
+  .pn-accordion .accordion-button:not(.collapsed) { background: #d9ebe2;
+                                                      color: #1a202c; box-shadow: none; }
+  .pn-accordion .accordion-button:focus { box-shadow: 0 0 0 0.15rem rgba(42,157,143,0.25); }
+  .pn-accordion .accordion-body { background: #fafbfc; padding: 1.25rem 1.25rem; }
+  .pn-sample-caption { font-size: 0.88rem; color: #4a5568; font-style: italic;
+                        margin-top: 0.75rem; padding-top: 0.6rem;
+                        border-top: 1px dashed #cbd5e0; }
+
+  /* ===== Sample chats ===== */
+  .pn-chat { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+              padding: 0.85rem 0.95rem; }
+  .pn-chat + .pn-chat { margin-top: 1rem; }
+  .pn-chat .pn-chat-title { font-weight: 700; font-size: 0.92rem; color: #2B4C7E;
+                              margin-bottom: 0.6rem; }
+  .pn-msg { display: flex; gap: 0.5rem; margin-bottom: 0.4rem; align-items: flex-start; }
+  .pn-msg.from-mitra { justify-content: flex-start; }
+  .pn-msg.from-student { justify-content: flex-end; flex-direction: row-reverse; }
+  .pn-bubble { padding: 0.5rem 0.75rem; border-radius: 14px; font-size: 0.9rem;
+                line-height: 1.45; max-width: 80%; }
+  .pn-msg.from-mitra .pn-bubble { background: #eef2f7; color: #1a202c;
+                                     border-bottom-left-radius: 4px; }
+  .pn-msg.from-student .pn-bubble { background: #2A9D8F; color: #fff;
+                                       border-bottom-right-radius: 4px; }
+  .pn-avatar { width: 24px; height: 24px; border-radius: 50%; background: #2B4C7E;
+                color: #fff; font-size: 11px; font-weight: 700;
+                display: inline-flex; align-items: center; justify-content: center;
+                flex-shrink: 0; overflow: hidden; }
+  .pn-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ===== Sample dashboard mock ===== */
+  .pn-dash { font-family: 'Inter', -apple-system, sans-serif; }
+  .pn-dash-hero { background: linear-gradient(135deg, #1B3A5C 0%, #2B4C7E 60%, #2A9D8F 140%);
+                    color: #fff; padding: 1.25rem 1.4rem; border-radius: 12px; margin-bottom: 1rem; }
+  .pn-dash-hero .head { display: flex; justify-content: space-between;
+                          flex-wrap: wrap; gap: 0.6rem; align-items: flex-start;
+                          margin-bottom: 0.9rem; }
+  .pn-dash-hero h4 { color: #fff; margin: 0 0 0.2rem; font-weight: 700; font-size: 1.25rem; }
+  .pn-dash-hero .sub { font-size: 0.86rem; opacity: 0.85; }
+  .pn-dash-hero .health { background: rgba(255,255,255,0.12);
+                            border: 1px solid rgba(255,255,255,0.3);
+                            border-radius: 10px; padding: 0.45rem 0.8rem;
+                            display: flex; align-items: center; gap: 0.6rem; }
+  .pn-dash-hero .health .score { font-family: 'DM Sans', sans-serif;
+                                    font-size: 1.6rem; font-weight: 700; line-height: 1; }
+  .pn-dash-hero .health .lab { font-size: 0.72rem; opacity: 0.85;
+                                  text-transform: uppercase; letter-spacing: 0.05em; }
+  .pn-dash-hero .health .badge { background: #2A9D8F; color: #fff;
+                                    padding: 2px 8px; border-radius: 999px;
+                                    font-size: 0.68rem; font-weight: 700;
+                                    text-transform: uppercase; letter-spacing: 0.05em;
+                                    display: inline-block; margin-top: 2px; }
+  .pn-dash-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+  .pn-dash-stat { background: rgba(255,255,255,0.1); border-radius: 8px;
+                    padding: 0.55rem 0.7rem; }
+  .pn-dash-stat .v { font-family: 'DM Sans', sans-serif; font-size: 1.35rem;
+                       font-weight: 700; line-height: 1.05; color: #fff; }
+  .pn-dash-stat .l { font-size: 0.65rem; opacity: 0.78;
+                       text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+
+  /* Heatmap */
+  .pn-heatmap-card { background: #fff; border: 1px solid #e2e8f0;
+                      border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .pn-panel-h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+                  text-transform: uppercase; color: #2B4C7E; margin: 0 0 0.5rem; }
+  .pn-heat-wrap { display: flex; gap: 0.4rem; align-items: flex-start; }
+  .pn-heat-labels { display: flex; flex-direction: column; gap: 2px;
+                      font-size: 0.65rem; color: #4a5568; }
+  .pn-heat-labels span { height: 18px; line-height: 18px; }
+  .pn-heat-grid { display: grid; grid-template-rows: repeat(7, 18px);
+                    grid-auto-flow: column; grid-auto-columns: 18px; gap: 2px; }
+  .pn-heat-cell { width: 18px; height: 18px; border-radius: 3px; background: #eef2f7; }
+  .pn-heat-cell.l1 { background: #c8d8eb; }
+  .pn-heat-cell.l2 { background: #93b6dd; }
+  .pn-heat-cell.l3 { background: #5b8fcc; }
+  .pn-heat-cell.l4 { background: #2B4C7E; }
+  .pn-heat-cell.l5 { background: #1B3A5C; }
+
+  /* Topics */
+  .pn-card { background: #fff; border: 1px solid #e2e8f0;
+              border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .pn-topic-row { display: grid; grid-template-columns: 24px 1fr 100px;
+                    gap: 0.75rem; align-items: center; padding: 0.55rem 0;
+                    border-bottom: 1px solid #e2e8f0; }
+  .pn-topic-row:last-child { border-bottom: none; }
+  .pn-topic-rank { width: 24px; height: 24px; border-radius: 50%;
+                     background: #d6e1ee; color: #2B4C7E; font-weight: 700;
+                     font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+                     text-align: center; line-height: 24px; }
+  .pn-topic-name { font-weight: 600; font-size: 0.92rem; color: #1a202c; }
+  .pn-topic-bar { height: 7px; background: #eef2f7; border-radius: 4px;
+                    overflow: hidden; margin-top: 0.3rem; }
+  .pn-topic-fill { height: 100%; border-radius: 4px;
+                     background: linear-gradient(90deg, #2A9D8F 0%, #2B4C7E 100%); }
+  .pn-topic-meta { font-size: 0.78rem; color: #4a5568; text-align: right;
+                     font-variant-numeric: tabular-nums; }
+  .pn-topic-meta strong { display: block; color: #1a202c;
+                            font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
+
+  /* Challenge */
+  .pn-challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
+                    border: 1px solid #fed7aa; border-left: 4px solid #f97316;
+                    border-radius: 10px; padding: 0.95rem 1.1rem;
+                    display: grid; grid-template-columns: 36px 1fr; gap: 0.85rem;
+                    margin-bottom: 1rem; }
+  .pn-challenge-icon { width: 36px; height: 36px; border-radius: 8px;
+                          background: #f97316; color: #fff; font-weight: 700;
+                          display: flex; align-items: center; justify-content: center;
+                          font-size: 1.1rem; }
+  .pn-challenge .ch-title { font-weight: 700; color: #7c2d12; font-size: 1rem;
+                              margin-bottom: 0.15rem; }
+  .pn-challenge .ch-meta { font-size: 0.78rem; color: #9a3412; margin-bottom: 0.4rem; }
+  .pn-challenge .ch-meta strong { font-weight: 700; }
+  .pn-challenge .ch-action { background: rgba(255,255,255,0.7);
+                                border-radius: 6px; padding: 0.55rem 0.7rem;
+                                font-size: 0.85rem; line-height: 1.5; color: #1a202c; }
+  .pn-challenge .ch-action b { color: #7c2d12; }
+
+  /* Per-class tile */
+  .pn-class { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+               padding: 1rem 1.15rem; margin-bottom: 0.85rem; }
+  .pn-class-head { display: flex; justify-content: space-between; align-items: baseline;
+                      flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.85rem;
+                      padding-bottom: 0.7rem; border-bottom: 1px solid #e2e8f0; }
+  .pn-class-name { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 700;
+                      color: #2B4C7E; margin: 0; }
+  .pn-class-pill { background: #d6e1ee; color: #2B4C7E; padding: 1px 8px; border-radius: 999px;
+                      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+                      letter-spacing: 0.05em; margin-left: 0.4rem; }
+  .pn-class-counts { font-size: 0.78rem; color: #4a5568; }
+  .pn-class-counts strong { color: #1a202c; }
+  .pn-class-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .pn-class-block { padding: 0.75rem 0.85rem; border-radius: 8px; }
+  .pn-class-block.topic { background: linear-gradient(135deg, #f0f7f4 0%, #e7f3ee 100%);
+                              border: 1px solid #b6d8c9; }
+  .pn-class-block.challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
+                                  border: 1px solid #fed7aa; }
+  .pn-class-block .blk-h { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+                              text-transform: uppercase; margin-bottom: 0.3rem; }
+  .pn-class-block.topic .blk-h { color: #2A9D8F; }
+  .pn-class-block.challenge .blk-h { color: #9a3412; }
+  .pn-class-block .blk-main { font-family: 'DM Sans', sans-serif; font-size: 0.98rem;
+                                 font-weight: 700; line-height: 1.2; color: #1a202c;
+                                 margin-bottom: 0.25rem; }
+  .pn-class-block.challenge .blk-main { color: #7c2d12; }
+  .pn-class-block .blk-meta { font-size: 0.74rem; color: #4a5568; }
+  .pn-class-block.challenge .blk-meta { color: #9a3412; }
+  .pn-class-block .blk-action { background: rgba(255,255,255,0.7);
+                                    border-radius: 6px; padding: 0.4rem 0.55rem;
+                                    font-size: 0.78rem; line-height: 1.5; margin-top: 0.4rem;
+                                    color: #1a202c; }
+  .pn-class-block .blk-action b { color: #7c2d12; }
+
+  @media (max-width: 720px) {
+    .pn-dash-stats { grid-template-columns: repeat(2, 1fr); }
+    .pn-class-grid { grid-template-columns: 1fr; }
+    .pn-topic-row { grid-template-columns: 22px 1fr 90px; }
+  }
+</style>
+
 <div class="row justify-content-center">
   <div class="col-lg-9">
 
@@ -22,6 +186,48 @@ slug: partners.html
 
 <p>미트라는 집중이 어렵고 산만함으로 학습에 어려움을 겪는 아이들, 즉 ADHD 학생들을 염두에 두고 설계되었습니다. 인내심 있고, 판단하지 않으며, 일반적인 학습 도구로는 닿기 어려운 방식의 몰입을 끌어내도록 만들어졌습니다.</p>
 
+<div class="accordion pn-accordion" id="studentSamples">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#studentSamplesPanel" aria-expanded="false" aria-controls="studentSamplesPanel">
+        샘플 학생 순간 세 가지 보기
+      </button>
+    </h2>
+    <div id="studentSamplesPanel" class="accordion-collapse collapse" data-bs-parent="#studentSamples">
+      <div class="accordion-body">
+
+        <div class="pn-chat">
+          <div class="pn-chat-title">토요일 밤 9시 — 워크시트가 막힘</div>
+          <div class="pn-msg from-student"><div class="pn-bubble">미트라 잠깐 시간 있어? 수학 숙제 막혔어 😣</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">물론이지. 어떤 거야?</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">음수 계산이야. -3 - 5 같은 거</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">수직선을 떠올려 봐. -3에서 시작해서 빼기는 왼쪽으로 5칸. 어디에 도착해?</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">-8?</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">맞아. 나머지도 같이 해볼래?</div></div>
+          <p class="pn-sample-caption">미트라는 수업과 수업 사이에 항상 함께합니다. 저녁이든 주말이든. 학생들이 다음 수업에 덜 막힌 채로 옵니다.</p>
+        </div>
+
+        <div class="pn-chat">
+          <div class="pn-chat-title">선생님의 커리큘럼을 알아요</div>
+          <div class="pn-msg from-student"><div class="pn-bubble">박 선생님이 시험 준비로 3단원 보라고 했는데 같이 봐줄 수 있어?</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">물론. 박 선생님께서 올려주신 자료의 3단원을 열고 있어. 문제 세트가 8개 있는데, 지난번에 어렵다고 표시한 비율 문제부터 시작할까?</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">응, 그거</div></div>
+          <p class="pn-sample-caption">미트라는 선생님의 커리큘럼을 가르칩니다. 일반적인 콘텐츠가 아닌, 선생님의 교재와 워크시트, 진도에 맞춰서요.</p>
+        </div>
+
+        <div class="pn-chat">
+          <div class="pn-chat-title">애니에 정신 팔렸지만, 야단치지 않고 다시 데려오기</div>
+          <div class="pn-msg from-student"><div class="pn-bubble">잠깐 미트라 새 JJK 에피소드 봤어??</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">아직! 무슨 일이야? (그런데 문제 하나 남았어, 10초 요약 부탁해 😄)</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">ㅇㅋ ㅇㅋ 유지가 진짜 미친 장면 나와 그만할게. 다음 문제는</div></div>
+          <p class="pn-sample-caption">ADHD를 위해 설계되었습니다. 산만함에 인내심을 가지면서도, 할 일은 끝납니다. 일반 도구로는 닿기 어려운 방식의 몰입입니다.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <h3 class="mt-5">파트너로서 받으시는 것</h3>
 
 <ul>
@@ -30,6 +236,168 @@ slug: partners.html
   <li>전체 학습 현황 분석: 학생들이 어떤 부분에서 잘 따라오고 있는지, 어디에서 공통적으로 막히는지, 다음 수업에서 어디에 집중하시면 좋을지.</li>
   <li><strong>교육자를 위한 사고 파트너.</strong> 미트라에는 학생용과는 별도로, 교육자를 위한 동료 모드가 있습니다. 미트라가 알고 있는 것, 즉 ADHD 학습자에 관한 연구, 선생님의 학생들로부터 모인 학습 패턴, 그리고 수업 설계와 학습자 프로파일링에 대한 체계적인 접근을 함께 나눕니다. 관련 연구를 모두 읽으면서 동시에 이런 아이들에게 실제로 무엇이 효과가 있는지 지켜본 동료를 곁에 두기란 쉽지 않습니다. 미트라가 그런 동료가 되어드립니다.</li>
 </ul>
+
+<div class="accordion pn-accordion" id="partnerDashSample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#partnerDashPanel" aria-expanded="false" aria-controls="partnerDashPanel">
+        샘플 파트너 대시보드 보기
+      </button>
+    </h2>
+    <div id="partnerDashPanel" class="accordion-collapse collapse" data-bs-parent="#partnerDashSample">
+      <div class="accordion-body">
+
+        <div class="pn-dash">
+
+          <!-- Hero -->
+          <div class="pn-dash-hero">
+            <div class="head">
+              <div>
+                <h4>샘플 학원</h4>
+                <div class="sub">최근 30일 &middot; 활성 학생 16명 &middot; 반 2개</div>
+              </div>
+              <div class="health">
+                <div class="score">87</div>
+                <div>
+                  <div class="lab">참여도</div>
+                  <span class="badge">건강함</span>
+                </div>
+              </div>
+            </div>
+            <div class="pn-dash-stats">
+              <div class="pn-dash-stat"><div class="v">16</div><div class="l">활성 학생</div></div>
+              <div class="pn-dash-stat"><div class="v">107</div><div class="l">세션 (30일)</div></div>
+              <div class="pn-dash-stat"><div class="v">982</div><div class="l">주고받은 메시지</div></div>
+              <div class="pn-dash-stat"><div class="v">29</div><div class="l">활동 일수</div></div>
+            </div>
+          </div>
+
+          <!-- Heatmap -->
+          <div class="pn-heatmap-card">
+            <div class="pn-panel-h">활동</div>
+            <p class="text-muted small mb-2" style="font-size:0.78rem;">최근 42일 &middot; 진할수록 더 많은 세션</p>
+            <div class="pn-heat-wrap">
+              <div class="pn-heat-labels">
+                <span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span>
+              </div>
+              <div class="pn-heat-grid">
+                <div class="pn-heat-cell l1"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div>
+                <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top topics -->
+          <div class="pn-card">
+            <div class="pn-panel-h">학생들이 다루고 있는 주제</div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">1</div>
+              <div>
+                <div class="pn-topic-name">일차방정식</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>39</strong>학생 8명</div>
+            </div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">2</div>
+              <div>
+                <div class="pn-topic-name">주제 찾기</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>39</strong>학생 7명</div>
+            </div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">3</div>
+              <div>
+                <div class="pn-topic-name">주제문 + 뒷받침 문장</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:97%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>38</strong>학생 6명</div>
+            </div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">4</div>
+              <div>
+                <div class="pn-topic-name">대입법</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:72%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>28</strong>학생 5명</div>
+            </div>
+          </div>
+
+          <!-- Top challenge -->
+          <div class="pn-card">
+            <div class="pn-panel-h">학생들이 막히는 지점과 해결법</div>
+            <div class="pn-challenge">
+              <div class="pn-challenge-icon">!</div>
+              <div>
+                <div class="ch-title">연립방정식의 평행선 경우</div>
+                <div class="ch-meta"><strong>11</strong>회 세션 &middot; <strong>5</strong>명 영향</div>
+                <div class="ch-action"><b>해보세요:</b> 그래프부터 그려 평행한 기울기가 왜 만나지 않는지 보여주세요. 격자 기반의 흥미 연결(마인크래프트, 레고 테크닉)과 함께 사용하면 효과적입니다. 두 가지 모두 학원 데이터에서 효과적인 연결고리로 나타났습니다.</div>
+              </div>
+            </div>
+            <div class="pn-challenge">
+              <div class="pn-challenge-icon">!</div>
+              <div>
+                <div class="ch-title">주제문 vs 뒷받침 문장</div>
+                <div class="ch-meta"><strong>13</strong>회 세션 &middot; <strong>6</strong>명 영향</div>
+                <div class="ch-action"><b>해보세요:</b> 한 문장 요약 훈련을 사용하세요. 학생이 한 단락을 한 문장으로 압축하게 합니다. 그 요약이 곧 주제문입니다.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Per-class -->
+          <div class="pn-class">
+            <div class="pn-class-head">
+              <h5 class="pn-class-name">대수 기초<span class="pn-class-pill">수학</span></h5>
+              <div class="pn-class-counts"><strong>8</strong>명 &middot; <strong>53</strong>회 세션 &middot; <strong>25</strong>일 활동</div>
+            </div>
+            <div class="pn-class-grid">
+              <div class="pn-class-block topic">
+                <div class="blk-h">대표 주제</div>
+                <div class="blk-main">일차방정식</div>
+                <div class="blk-meta"><strong>39</strong>회 시도 &middot; <strong>8</strong>명</div>
+              </div>
+              <div class="pn-class-block challenge">
+                <div class="blk-h">대표 어려움</div>
+                <div class="blk-main">괄호 분배</div>
+                <div class="blk-meta"><strong>12</strong>회 &middot; <strong>8</strong>명</div>
+                <div class="blk-action"><b>해보세요:</b> 무지개 화살표 훈련을 사용하세요. 바깥의 수에서 괄호 안 각 항으로 호를 그립니다. 시각적인 흥미 연결(레고 스케일링, 스포츠 통계 표)과 함께 사용하면 가장 효과적입니다.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pn-class">
+            <div class="pn-class-head">
+              <h5 class="pn-class-name">영어 읽기·쓰기 6&ndash;7학년<span class="pn-class-pill">영어</span></h5>
+              <div class="pn-class-counts"><strong>8</strong>명 &middot; <strong>54</strong>회 세션 &middot; <strong>26</strong>일 활동</div>
+            </div>
+            <div class="pn-class-grid">
+              <div class="pn-class-block topic">
+                <div class="blk-h">대표 주제</div>
+                <div class="blk-main">주제 찾기</div>
+                <div class="blk-meta"><strong>39</strong>회 시도 &middot; <strong>7</strong>명</div>
+              </div>
+              <div class="pn-class-block challenge">
+                <div class="blk-h">대표 어려움</div>
+                <div class="blk-main">주제문 vs 뒷받침 문장</div>
+                <div class="blk-meta"><strong>13</strong>회 &middot; <strong>6</strong>명</div>
+                <div class="blk-action"><b>해보세요:</b> 한 문장 요약 훈련. 학생이 한 단락을 한 문장으로 압축합니다. 그 요약이 곧 주제문입니다.</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-muted small mt-3 mb-0" style="font-size:0.82rem; font-style:italic;">샘플입니다. 실제 파트너 학원의 데이터 형태를 기반으로 한 대표 데이터입니다. 개인정보 보호 기준: 학생별 세부 정보, 주제 빈도, 어려움 패턴은 활성 학생이 5명을 초과할 때만 표시됩니다.</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <h3 class="mt-5">선생님께 드는 비용: 없습니다</h3>
 
