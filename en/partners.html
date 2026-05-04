@@ -93,6 +93,170 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <main class="container py-4">
+<style>
+  /* ===== Partner-page accordion samples ===== */
+  .pn-accordion { margin: 1.25rem 0 0; }
+  .pn-accordion .accordion-button { font-weight: 600; font-size: 1rem;
+                                      background: #f0f7f4; color: #1a202c; }
+  .pn-accordion .accordion-button:not(.collapsed) { background: #d9ebe2;
+                                                      color: #1a202c; box-shadow: none; }
+  .pn-accordion .accordion-button:focus { box-shadow: 0 0 0 0.15rem rgba(42,157,143,0.25); }
+  .pn-accordion .accordion-body { background: #fafbfc; padding: 1.25rem 1.25rem; }
+  .pn-sample-caption { font-size: 0.88rem; color: #4a5568; font-style: italic;
+                        margin-top: 0.75rem; padding-top: 0.6rem;
+                        border-top: 1px dashed #cbd5e0; }
+
+  /* ===== Sample chats ===== */
+  .pn-chat { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+              padding: 0.85rem 0.95rem; }
+  .pn-chat + .pn-chat { margin-top: 1rem; }
+  .pn-chat .pn-chat-title { font-weight: 700; font-size: 0.92rem; color: #2B4C7E;
+                              margin-bottom: 0.6rem; }
+  .pn-msg { display: flex; gap: 0.5rem; margin-bottom: 0.4rem; align-items: flex-start; }
+  .pn-msg.from-mitra { justify-content: flex-start; }
+  .pn-msg.from-student { justify-content: flex-end; flex-direction: row-reverse; }
+  .pn-bubble { padding: 0.5rem 0.75rem; border-radius: 14px; font-size: 0.9rem;
+                line-height: 1.45; max-width: 80%; }
+  .pn-msg.from-mitra .pn-bubble { background: #eef2f7; color: #1a202c;
+                                     border-bottom-left-radius: 4px; }
+  .pn-msg.from-student .pn-bubble { background: #2A9D8F; color: #fff;
+                                       border-bottom-right-radius: 4px; }
+  .pn-avatar { width: 24px; height: 24px; border-radius: 50%; background: #2B4C7E;
+                color: #fff; font-size: 11px; font-weight: 700;
+                display: inline-flex; align-items: center; justify-content: center;
+                flex-shrink: 0; overflow: hidden; }
+  .pn-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ===== Sample dashboard mock ===== */
+  .pn-dash { font-family: 'Inter', -apple-system, sans-serif; }
+  .pn-dash-hero { background: linear-gradient(135deg, #1B3A5C 0%, #2B4C7E 60%, #2A9D8F 140%);
+                    color: #fff; padding: 1.25rem 1.4rem; border-radius: 12px; margin-bottom: 1rem; }
+  .pn-dash-hero .head { display: flex; justify-content: space-between;
+                          flex-wrap: wrap; gap: 0.6rem; align-items: flex-start;
+                          margin-bottom: 0.9rem; }
+  .pn-dash-hero h4 { color: #fff; margin: 0 0 0.2rem; font-weight: 700; font-size: 1.25rem; }
+  .pn-dash-hero .sub { font-size: 0.86rem; opacity: 0.85; }
+  .pn-dash-hero .health { background: rgba(255,255,255,0.12);
+                            border: 1px solid rgba(255,255,255,0.3);
+                            border-radius: 10px; padding: 0.45rem 0.8rem;
+                            display: flex; align-items: center; gap: 0.6rem; }
+  .pn-dash-hero .health .score { font-family: 'DM Sans', sans-serif;
+                                    font-size: 1.6rem; font-weight: 700; line-height: 1; }
+  .pn-dash-hero .health .lab { font-size: 0.72rem; opacity: 0.85;
+                                  text-transform: uppercase; letter-spacing: 0.05em; }
+  .pn-dash-hero .health .badge { background: #2A9D8F; color: #fff;
+                                    padding: 2px 8px; border-radius: 999px;
+                                    font-size: 0.68rem; font-weight: 700;
+                                    text-transform: uppercase; letter-spacing: 0.05em;
+                                    display: inline-block; margin-top: 2px; }
+  .pn-dash-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+  .pn-dash-stat { background: rgba(255,255,255,0.1); border-radius: 8px;
+                    padding: 0.55rem 0.7rem; }
+  .pn-dash-stat .v { font-family: 'DM Sans', sans-serif; font-size: 1.35rem;
+                       font-weight: 700; line-height: 1.05; color: #fff; }
+  .pn-dash-stat .l { font-size: 0.65rem; opacity: 0.78;
+                       text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+
+  /* Heatmap */
+  .pn-heatmap-card { background: #fff; border: 1px solid #e2e8f0;
+                      border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .pn-panel-h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+                  text-transform: uppercase; color: #2B4C7E; margin: 0 0 0.5rem; }
+  .pn-heat-wrap { display: flex; gap: 0.4rem; align-items: flex-start; }
+  .pn-heat-labels { display: flex; flex-direction: column; gap: 2px;
+                      font-size: 0.65rem; color: #4a5568; }
+  .pn-heat-labels span { height: 18px; line-height: 18px; }
+  .pn-heat-grid { display: grid; grid-template-rows: repeat(7, 18px);
+                    grid-auto-flow: column; grid-auto-columns: 18px; gap: 2px; }
+  .pn-heat-cell { width: 18px; height: 18px; border-radius: 3px; background: #eef2f7; }
+  .pn-heat-cell.l1 { background: #c8d8eb; }
+  .pn-heat-cell.l2 { background: #93b6dd; }
+  .pn-heat-cell.l3 { background: #5b8fcc; }
+  .pn-heat-cell.l4 { background: #2B4C7E; }
+  .pn-heat-cell.l5 { background: #1B3A5C; }
+
+  /* Topics */
+  .pn-card { background: #fff; border: 1px solid #e2e8f0;
+              border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .pn-topic-row { display: grid; grid-template-columns: 24px 1fr 100px;
+                    gap: 0.75rem; align-items: center; padding: 0.55rem 0;
+                    border-bottom: 1px solid #e2e8f0; }
+  .pn-topic-row:last-child { border-bottom: none; }
+  .pn-topic-rank { width: 24px; height: 24px; border-radius: 50%;
+                     background: #d6e1ee; color: #2B4C7E; font-weight: 700;
+                     font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+                     text-align: center; line-height: 24px; }
+  .pn-topic-name { font-weight: 600; font-size: 0.92rem; color: #1a202c; }
+  .pn-topic-bar { height: 7px; background: #eef2f7; border-radius: 4px;
+                    overflow: hidden; margin-top: 0.3rem; }
+  .pn-topic-fill { height: 100%; border-radius: 4px;
+                     background: linear-gradient(90deg, #2A9D8F 0%, #2B4C7E 100%); }
+  .pn-topic-meta { font-size: 0.78rem; color: #4a5568; text-align: right;
+                     font-variant-numeric: tabular-nums; }
+  .pn-topic-meta strong { display: block; color: #1a202c;
+                            font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
+
+  /* Challenge */
+  .pn-challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
+                    border: 1px solid #fed7aa; border-left: 4px solid #f97316;
+                    border-radius: 10px; padding: 0.95rem 1.1rem;
+                    display: grid; grid-template-columns: 36px 1fr; gap: 0.85rem;
+                    margin-bottom: 1rem; }
+  .pn-challenge-icon { width: 36px; height: 36px; border-radius: 8px;
+                          background: #f97316; color: #fff; font-weight: 700;
+                          display: flex; align-items: center; justify-content: center;
+                          font-size: 1.1rem; }
+  .pn-challenge .ch-title { font-weight: 700; color: #7c2d12; font-size: 1rem;
+                              margin-bottom: 0.15rem; }
+  .pn-challenge .ch-meta { font-size: 0.78rem; color: #9a3412; margin-bottom: 0.4rem; }
+  .pn-challenge .ch-meta strong { font-weight: 700; }
+  .pn-challenge .ch-action { background: rgba(255,255,255,0.7);
+                                border-radius: 6px; padding: 0.55rem 0.7rem;
+                                font-size: 0.85rem; line-height: 1.5; color: #1a202c; }
+  .pn-challenge .ch-action b { color: #7c2d12; }
+
+  /* Per-class tile */
+  .pn-class { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+               padding: 1rem 1.15rem; margin-bottom: 0.85rem; }
+  .pn-class-head { display: flex; justify-content: space-between; align-items: baseline;
+                      flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.85rem;
+                      padding-bottom: 0.7rem; border-bottom: 1px solid #e2e8f0; }
+  .pn-class-name { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 700;
+                      color: #2B4C7E; margin: 0; }
+  .pn-class-pill { background: #d6e1ee; color: #2B4C7E; padding: 1px 8px; border-radius: 999px;
+                      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+                      letter-spacing: 0.05em; margin-left: 0.4rem; }
+  .pn-class-counts { font-size: 0.78rem; color: #4a5568; }
+  .pn-class-counts strong { color: #1a202c; }
+  .pn-class-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .pn-class-block { padding: 0.75rem 0.85rem; border-radius: 8px; }
+  .pn-class-block.topic { background: linear-gradient(135deg, #f0f7f4 0%, #e7f3ee 100%);
+                              border: 1px solid #b6d8c9; }
+  .pn-class-block.challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
+                                  border: 1px solid #fed7aa; }
+  .pn-class-block .blk-h { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+                              text-transform: uppercase; margin-bottom: 0.3rem; }
+  .pn-class-block.topic .blk-h { color: #2A9D8F; }
+  .pn-class-block.challenge .blk-h { color: #9a3412; }
+  .pn-class-block .blk-main { font-family: 'DM Sans', sans-serif; font-size: 0.98rem;
+                                 font-weight: 700; line-height: 1.2; color: #1a202c;
+                                 margin-bottom: 0.25rem; }
+  .pn-class-block.challenge .blk-main { color: #7c2d12; }
+  .pn-class-block .blk-meta { font-size: 0.74rem; color: #4a5568; }
+  .pn-class-block.challenge .blk-meta { color: #9a3412; }
+  .pn-class-block .blk-action { background: rgba(255,255,255,0.7);
+                                    border-radius: 6px; padding: 0.4rem 0.55rem;
+                                    font-size: 0.78rem; line-height: 1.5; margin-top: 0.4rem;
+                                    color: #1a202c; }
+  .pn-class-block .blk-action b { color: #7c2d12; }
+
+  @media (max-width: 720px) {
+    .pn-dash-stats { grid-template-columns: repeat(2, 1fr); }
+    .pn-class-grid { grid-template-columns: 1fr; }
+    .pn-topic-row { grid-template-columns: 22px 1fr 90px; }
+  }
+</style>
+
 <div class="row justify-content-center">
   <div class="col-lg-9">
 
@@ -112,6 +276,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Mitra was purpose-built for students with ADHD: patient, non-judgmental, and tuned for the kind of engagement conventional tutoring tools aren't designed for.</p>
 
+<div class="accordion pn-accordion" id="studentSamples">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#studentSamplesPanel" aria-expanded="false" aria-controls="studentSamplesPanel">
+        See three sample student moments
+      </button>
+    </h2>
+    <div id="studentSamplesPanel" class="accordion-collapse collapse" data-bs-parent="#studentSamples">
+      <div class="accordion-body">
+
+        <div class="pn-chat">
+          <div class="pn-chat-title">Saturday 9pm — stuck on a worksheet</div>
+          <div class="pn-msg from-student"><div class="pn-bubble">hi mitra do u have a min? im stuck on math hw 😣</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Of course. What's it on?</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">negative numbers like -3 - 5</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Picture a number line. Start at -3, then move left 5 steps for subtraction. Where do you land?</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">-8?</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Yes. Want to do the rest together?</div></div>
+          <p class="pn-sample-caption">Mitra is available between your sessions, including evenings and weekends. Your students arrive at the next session less stuck.</p>
+        </div>
+
+        <div class="pn-chat">
+          <div class="pn-chat-title">Knows your curriculum</div>
+          <div class="pn-msg from-student"><div class="pn-bubble">mr park said study chapter 3 for the quiz can u help me prep</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Got it. Pulling chapter 3 from the materials Mr. Park uploaded. There are 8 problem sets. Want to start with the proportions ones you marked tricky last time?</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">yeah those</div></div>
+          <p class="pn-sample-caption">Mitra teaches your curriculum, your textbooks, your worksheets, your pacing. Not generic content.</p>
+        </div>
+
+        <div class="pn-chat">
+          <div class="pn-chat-title">Distracted by anime, brought back without scolding</div>
+          <div class="pn-msg from-student"><div class="pn-bubble">WAIT mitra did u see the new jjk episode??</div></div>
+          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">I haven't! What happened? (You have one more problem left, give me the 10-second version 😄)</div></div>
+          <div class="pn-msg from-student"><div class="pn-bubble">ok ok yuji had the most insane scene ever ill stop. ok next problem</div></div>
+          <p class="pn-sample-caption">Built for ADHD. Patient with the pivot, but the work still gets done. The kind of engagement conventional tools aren't designed for.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <h3 class="mt-5">What you get as a partner</h3>
 
 <ul>
@@ -120,6 +326,168 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <li>Aggregate curriculum analytics: where your cohort is thriving, where they're getting stuck, what to focus on next session.</li>
   <li><strong>A pedagogical thinking partner.</strong> Mitra has a peer mode built for educators, distinct from the student-facing version. She brings what she knows: research on how ADHD learners engage, aggregate patterns from across your cohort, and a structured way to think through lesson design, learner profiles, and instructional sequencing. Most program directors and tutors don't have a colleague who's both read the research and seen what's actually working with these specific kids. Mitra is that colleague.</li>
 </ul>
+
+<div class="accordion pn-accordion" id="partnerDashSample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#partnerDashPanel" aria-expanded="false" aria-controls="partnerDashPanel">
+        See a sample partner dashboard
+      </button>
+    </h2>
+    <div id="partnerDashPanel" class="accordion-collapse collapse" data-bs-parent="#partnerDashSample">
+      <div class="accordion-body">
+
+        <div class="pn-dash">
+
+          <!-- Hero -->
+          <div class="pn-dash-hero">
+            <div class="head">
+              <div>
+                <h4>Sample Tutoring Center</h4>
+                <div class="sub">Last 30 days &middot; 16 active students &middot; 2 classes</div>
+              </div>
+              <div class="health">
+                <div class="score">87</div>
+                <div>
+                  <div class="lab">Engagement</div>
+                  <span class="badge">Healthy</span>
+                </div>
+              </div>
+            </div>
+            <div class="pn-dash-stats">
+              <div class="pn-dash-stat"><div class="v">16</div><div class="l">Active students</div></div>
+              <div class="pn-dash-stat"><div class="v">107</div><div class="l">Sessions (30d)</div></div>
+              <div class="pn-dash-stat"><div class="v">982</div><div class="l">Messages exchanged</div></div>
+              <div class="pn-dash-stat"><div class="v">29</div><div class="l">Active days</div></div>
+            </div>
+          </div>
+
+          <!-- Heatmap -->
+          <div class="pn-heatmap-card">
+            <div class="pn-panel-h">Activity</div>
+            <p class="text-muted small mb-2" style="font-size:0.78rem;">Last 42 days &middot; darker = more sessions</p>
+            <div class="pn-heat-wrap">
+              <div class="pn-heat-labels">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
+              <div class="pn-heat-grid">
+                <div class="pn-heat-cell l1"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div>
+                <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+                <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top topics -->
+          <div class="pn-card">
+            <div class="pn-panel-h">What students are working on</div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">1</div>
+              <div>
+                <div class="pn-topic-name">Linear equations</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>39</strong>8 students</div>
+            </div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">2</div>
+              <div>
+                <div class="pn-topic-name">Main idea identification</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>39</strong>7 students</div>
+            </div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">3</div>
+              <div>
+                <div class="pn-topic-name">Topic sentence + detail</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:97%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>38</strong>6 students</div>
+            </div>
+            <div class="pn-topic-row">
+              <div class="pn-topic-rank">4</div>
+              <div>
+                <div class="pn-topic-name">Substitution method</div>
+                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:72%;"></div></div>
+              </div>
+              <div class="pn-topic-meta"><strong>28</strong>5 students</div>
+            </div>
+          </div>
+
+          <!-- Top challenge -->
+          <div class="pn-card">
+            <div class="pn-panel-h">Where students get stuck and what to do</div>
+            <div class="pn-challenge">
+              <div class="pn-challenge-icon">!</div>
+              <div>
+                <div class="ch-title">Parallel lines case in systems</div>
+                <div class="ch-meta"><strong>11</strong> sessions &middot; <strong>5</strong> students affected</div>
+                <div class="ch-action"><b>Try:</b> Switch to graphing first to show why parallel slopes never intersect. Pair with a grid-based interest hook (Minecraft, LEGO Technic), both surface as engaged bridges in your data.</div>
+              </div>
+            </div>
+            <div class="pn-challenge">
+              <div class="pn-challenge-icon">!</div>
+              <div>
+                <div class="ch-title">Topic sentence vs supporting detail</div>
+                <div class="ch-meta"><strong>13</strong> sessions &middot; <strong>6</strong> students affected</div>
+                <div class="ch-action"><b>Try:</b> Use the one-sentence-summary drill: compress the paragraph to one sentence. That summary IS the topic sentence.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Per-class -->
+          <div class="pn-class">
+            <div class="pn-class-head">
+              <h5 class="pn-class-name">Algebra Foundations<span class="pn-class-pill">math</span></h5>
+              <div class="pn-class-counts"><strong>8</strong> students &middot; <strong>53</strong> sessions &middot; <strong>25</strong> active days</div>
+            </div>
+            <div class="pn-class-grid">
+              <div class="pn-class-block topic">
+                <div class="blk-h">Top topic</div>
+                <div class="blk-main">Linear equations</div>
+                <div class="blk-meta"><strong>39</strong> attempts &middot; <strong>8</strong> students</div>
+              </div>
+              <div class="pn-class-block challenge">
+                <div class="blk-h">Top challenge</div>
+                <div class="blk-main">Distributing across parentheses</div>
+                <div class="blk-meta"><strong>12</strong> times &middot; <strong>8</strong> students</div>
+                <div class="blk-action"><b>Try:</b> Rainbow-arrow drill: draw arcs from the outside number to each inside term. Most effective paired with a visual hook (LEGO scaling, sports-stat tables).</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pn-class">
+            <div class="pn-class-head">
+              <h5 class="pn-class-name">Brightline ELA 6&ndash;7<span class="pn-class-pill">english language arts</span></h5>
+              <div class="pn-class-counts"><strong>8</strong> students &middot; <strong>54</strong> sessions &middot; <strong>26</strong> active days</div>
+            </div>
+            <div class="pn-class-grid">
+              <div class="pn-class-block topic">
+                <div class="blk-h">Top topic</div>
+                <div class="blk-main">Main idea identification</div>
+                <div class="blk-meta"><strong>39</strong> attempts &middot; <strong>7</strong> students</div>
+              </div>
+              <div class="pn-class-block challenge">
+                <div class="blk-h">Top challenge</div>
+                <div class="blk-main">Topic sentence vs supporting detail</div>
+                <div class="blk-meta"><strong>13</strong> times &middot; <strong>6</strong> students</div>
+                <div class="blk-action"><b>Try:</b> One-sentence-summary drill: compress the paragraph to one sentence. That summary IS the topic sentence.</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-muted small mt-3 mb-0" style="font-size:0.82rem; font-style:italic;">Sample. Representative shape based on real partner-cohort data. Privacy floor: per-student detail, topic frequency, and challenge patterns render only when more than 5 active students are in scope.</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <h3 class="mt-5">What it costs you: nothing</h3>
 
