@@ -21,7 +21,7 @@
     {
       "label": {"en": "About", "ko": "소개"},
       "children": [
-        {"label": {"en": "Principles & Practice", "ko": "원칙과 실천"}, "href": "/{{lang}}/principles.html", "lang": ["en"]},
+        {"label": {"en": "Principles & Practice", "ko": "원칙과 실천"}, "href": "/{{lang}}/principles.html"},
         {"label": {"en": "How to work with Mitra", "ko": "미트라와 함께하는 법"}, "href": "/{{lang}}/how-to-work-with-mitra.html"},
         {"label": {"en": "For Parents", "ko": "학부모 안내"}, "href": "/{{lang}}/for-parents.html"},
         {"label": {"en": "For Students", "ko": "학생 안내"}, "href": "/{{lang}}/for-students.html"},

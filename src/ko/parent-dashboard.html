@@ -1,0 +1,419 @@
+<!-- META
+title: 샘플 학부모 화면 — 미트라
+description: 학부모님이 보시는 화면 — 진행 상황 및 활동 대시보드와 주간 편지. 세션, 학습 시간, 완료한 학습, 질문 수, 일관성, 그리고 미트라의 솔직하고 구체적인 주간 메모.
+slug: parent-dashboard.html
+extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+-->
+<style>
+  .dashboard-page { --accent: #FF8B3D; --accent-light: #FFE5D0; --text-main: #2C3E50; --text-muted: #94a3b8; max-width: 1100px; margin: 0 auto; padding-bottom: 2rem; }
+  .dashboard-hero { text-align: center; margin: 1rem 0 2rem; }
+  .dashboard-hero h1 { font-size: clamp(1.75rem, 5vw, 2.4rem); font-weight: 700; color: #2C3E50; margin: 0 0 0.6rem; line-height: 1.2; }
+  .dashboard-hero .lede { font-size: 1.05rem; color: #4a5568; margin: 0 0 0.4rem; }
+  .dashboard-hero .footnote { font-size: 0.85rem; color: #94a3b8; font-style: italic; margin: 0; }
+  .student-context { text-align: center; padding: 0.75rem 0 1.5rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 1.5rem; }
+  .student-context .name { font-size: 1.4rem; font-weight: 600; color: #2C3E50; margin: 0; }
+  .student-context .meta { font-size: 0.85rem; color: #94a3b8; margin-top: 0.2rem; }
+  .window-selector { display: flex; gap: 4px; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; justify-content: center; }
+  .window-selector .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-right: 6px; }
+  .window-selector a { font-size: 0.78rem; padding: 4px 10px; border-radius: 999px; background: #f1f5f9; color: var(--text-main); text-decoration: none; border: 1px solid transparent; }
+  .window-selector a.active { background: var(--accent-light); color: #b9541b; border-color: #ffcc99; font-weight: 600; }
+  .metric-card { border: none; border-radius: 12px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; height: 100%; }
+  .metric-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .mc-sessions::before { background: linear-gradient(90deg, #FF8B3D, #FFB347); }
+  .mc-time::before { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+  .mc-work::before { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .mc-questions::before { background: linear-gradient(90deg, #10b981, #6ee7b7); }
+  .metric-card .body { padding: 0.8rem 1rem 0.9rem; position: relative; }
+  .metric-icon { font-size: 1.5rem; opacity: 0.15; position: absolute; top: 10px; right: 12px; }
+  .mc-sessions .metric-icon { color: #FF8B3D; }
+  .mc-time .metric-icon { color: #6366f1; }
+  .mc-work .metric-icon { color: #14b8a6; }
+  .mc-questions .metric-icon { color: #10b981; }
+  .metric-val { font-size: 1.6rem; font-weight: 700; color: var(--text-main); line-height: 1.1; margin: 0; }
+  .metric-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+  .metric-sub { font-size: 0.72rem; font-weight: 500; margin: 0; }
+  .metric-sub.up { color: #10b981; }
+  .metric-sub.flat { color: var(--text-muted); }
+  .section-card { border: none; border-radius: 10px; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.04); height: 100%; }
+  .section-card .body { padding: 1rem 1.1rem; }
+  .section-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.75rem; }
+  .heatmap-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; max-width: 280px; margin: 0 auto; }
+  .heatmap-cell { aspect-ratio: 1; border-radius: 2px; background: #f1f5f9; }
+  .heatmap-cell[data-count="1"] { background: var(--accent-light); }
+  .heatmap-cell[data-count="2"] { background: #ffcc99; }
+  .heatmap-cell[data-count="3"] { background: var(--accent); opacity: 0.7; }
+  .heatmap-cell[data-count="4"] { background: var(--accent); }
+  .heatmap-headers { display: flex; gap: 1px; max-width: 280px; margin: 0 auto 4px; font-size: 0.65rem; color: var(--text-muted); }
+  .heatmap-headers span { flex: 1; text-align: center; }
+  .heatmap-legend { display: flex; align-items: center; gap: 4px; margin-top: 0.5rem; font-size: 0.65rem; color: var(--text-muted); justify-content: center; }
+  .heatmap-legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+  .progress-bar-track { height: 8px; border-radius: 4px; background: #f1f5f9; overflow: hidden; }
+  .progress-bar-fill { height: 100%; }
+  .technique-bar { height: 5px; border-radius: 3px; background: #f1f5f9; overflow: hidden; flex: 1; }
+  .technique-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+  .outcome-chip { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; margin-right: 4px; }
+  .outcome-correct { background: #d1fae5; color: #065f46; }
+  .outcome-in-progress { background: #dbeafe; color: #1e40af; }
+  .outcome-abandoned { background: #f3f4f6; color: #6b7280; }
+  .grid-row { display: grid; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .grid-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-row.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-row.cols-1 { grid-template-columns: 1fr; }
+  .row-5-7 { display: grid; grid-template-columns: 5fr 7fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .consistency-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+  .consistency-item { font-size: 0.85rem; }
+  .consistency-item .label { color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .consistency-item .val { font-size: 1.2rem; font-weight: 600; color: var(--text-main); }
+  .consistency-item .sub { color: var(--text-muted); font-size: 0.7rem; }
+  .file-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.82rem; flex-wrap: wrap; }
+  .file-row .file-name { font-weight: 500; min-width: 0; flex: 1; }
+  .technique-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .technique-row .name { font-size: 0.85rem; flex: 1; min-width: 0; }
+  .technique-row .count { font-size: 0.75rem; color: var(--text-muted); min-width: 24px; text-align: right; }
+  .canvas-wrap { height: 160px; }
+  .canvas-wrap-pie { max-width: 200px; margin: 0 auto; }
+  .footer-callout { margin-top: 2.5rem; padding: 2rem 1.5rem; background: #fff7ed; border-left: 4px solid #FF8B3D; border-radius: 8px; text-align: center; }
+  .footer-callout blockquote { font-size: 1.15rem; color: #1a202c; font-style: italic; margin: 0 0 0.5rem; line-height: 1.5; }
+  .footer-callout cite { font-size: 0.85rem; color: #94a3b8; font-style: normal; }
+  .footer-cta-row { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+  .footer-cta { padding: 0.6rem 1.4rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  .footer-cta.primary { background: #FF8B3D; color: white; }
+  .footer-cta.secondary { background: white; color: #FF8B3D; border: 1px solid #FF8B3D; }
+  .footer-cta:hover { opacity: 0.9; }
+  .pv-accordion { margin-bottom: 1rem; }
+  .pv-accordion .accordion-button { font-weight: 600; font-size: 1.1rem; color: #1a202c; background: #fff7ed; }
+  .pv-accordion .accordion-button:not(.collapsed) { background: #FFE5D0; color: #1a202c; box-shadow: none; }
+  .pv-accordion .accordion-button:focus { box-shadow: 0 0 0 0.15rem rgba(255,139,61,0.25); }
+  .pv-accordion .accordion-body { padding: 1.5rem 1rem; background: #fafbfc; }
+  .sample-letter-page { max-width: 720px; margin: 0 auto; }
+  .sample-letter-page p { font-size: 1.02rem; line-height: 1.7; margin-bottom: 1rem; color: #2d3748; }
+  .sample-letter-page .meta-line { color: #94a3b8; font-size: 0.85rem; font-style: italic; text-align: center; margin-top: 1.5rem; }
+  @media (max-width: 720px) {
+    .grid-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .row-5-7 { grid-template-columns: 1fr; }
+    .grid-row.cols-2 { grid-template-columns: 1fr; }
+    .consistency-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 420px) {
+    .grid-row.cols-4 { grid-template-columns: 1fr; }
+    .consistency-grid { grid-template-columns: 1fr; }
+    .metric-val { font-size: 1.4rem; }
+  }
+</style>
+
+<div class="dashboard-page">
+
+  <div class="dashboard-hero">
+    <h1>샘플 학부모 화면</h1>
+    <p class="lede">학부모님이 보시는 것 — 대시보드와 주간 편지.</p>
+    <p class="footnote">실제 학생-미트라 세션을 기반으로 한 대표 데이터입니다.</p>
+  </div>
+
+  <div class="student-context">
+    <p class="name">애디</p>
+    <p class="meta">7학년 · 미트라와 8주차</p>
+  </div>
+
+  <div class="accordion pv-accordion" id="parentViewAccordion">
+
+  <!-- Accordion 1: Progress & Activity Dashboard -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardPanel" aria-expanded="true" aria-controls="dashboardPanel">
+        진행 상황 및 활동 대시보드
+      </button>
+    </h2>
+    <div id="dashboardPanel" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+
+  <div class="window-selector">
+    <span class="label">기간:</span>
+    <a href="#" class="active">최근 7일</a>
+    <a href="#">최근 30일</a>
+    <a href="#">전체</a>
+  </div>
+
+  <!-- Metric Cards -->
+  <div class="grid-row cols-4">
+    <div class="metric-card mc-sessions"><div class="body">
+      <span class="metric-icon">&#x1F4CA;</span>
+      <p class="metric-label">세션</p>
+      <p class="metric-val">5</p>
+      <p class="metric-sub up">&#9650; 지난주 대비 +1</p>
+    </div></div>
+    <div class="metric-card mc-time"><div class="body">
+      <span class="metric-icon">&#x23F1;</span>
+      <p class="metric-label">총 시간</p>
+      <p class="metric-val">3.4시간</p>
+      <p class="metric-sub up">&#9650; 이번 주 +42분</p>
+    </div></div>
+    <div class="metric-card mc-work"><div class="body">
+      <span class="metric-icon">&#x2714;</span>
+      <p class="metric-label">완료한 학습</p>
+      <p class="metric-val">17</p>
+      <p class="metric-sub flat">정답 14, 부분 1, 보류 2</p>
+    </div></div>
+    <div class="metric-card mc-questions"><div class="body">
+      <span class="metric-icon">&#x2753;</span>
+      <p class="metric-label">학생 질문 수</p>
+      <p class="metric-val">28</p>
+      <p class="metric-sub flat">애디가 한 질문</p>
+    </div></div>
+  </div>
+
+  <!-- Consistency -->
+  <div class="grid-row cols-1">
+    <div class="section-card"><div class="body">
+      <p class="section-title">일관성</p>
+      <div class="consistency-grid">
+        <div class="consistency-item">
+          <div class="label">현재 연속</div>
+          <div class="val">8주</div>
+        </div>
+        <div class="consistency-item">
+          <div class="label">최장 연속</div>
+          <div class="val">8주</div>
+        </div>
+        <div class="consistency-item">
+          <div class="label">평균 간격</div>
+          <div class="val">1일</div>
+          <div class="sub">세션 사이</div>
+        </div>
+        <div class="consistency-item">
+          <div class="label">이번 주 vs 지난주</div>
+          <div class="val">5 vs 4</div>
+          <div class="sub">세션</div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Heatmap + Curriculum progress -->
+  <div class="row-5-7">
+    <div class="section-card"><div class="body">
+      <p class="section-title">활동 (최근 4주)</p>
+      <div class="heatmap-headers">
+        <span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span>
+      </div>
+      <div class="heatmap-grid">
+        <div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="0"></div>
+        <div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div>
+        <div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="0"></div>
+        <div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="2"></div><div class="heatmap-cell" data-count="1"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="3"></div><div class="heatmap-cell" data-count="0"></div><div class="heatmap-cell" data-count="2"></div>
+      </div>
+      <div class="heatmap-legend">
+        <span>적음</span>
+        <span class="swatch" style="background:#f1f5f9;"></span>
+        <span class="swatch" style="background:var(--accent-light);"></span>
+        <span class="swatch" style="background:#ffcc99;"></span>
+        <span class="swatch" style="background:var(--accent);"></span>
+        <span>많음</span>
+      </div>
+    </div></div>
+
+    <div class="section-card"><div class="body">
+      <p class="section-title">교과 진도</p>
+      <div style="margin-bottom:0.85rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="font-weight:600;">수학 (7학년 CC)</span>
+          <span style="color:var(--text-muted);">12/18 단원 (67%)</span>
+        </div>
+        <div class="progress-bar-track" style="margin-top:4px;">
+          <div style="display:flex;height:100%;">
+            <div class="progress-bar-fill" style="width:33%;background:#10b981;"></div>
+            <div class="progress-bar-fill" style="width:22%;background:#6366f1;"></div>
+            <div class="progress-bar-fill" style="width:12%;background:#cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:0.85rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="font-weight:600;">영어 (7학년 CC)</span>
+          <span style="color:var(--text-muted);">7/14 단원 (50%)</span>
+        </div>
+        <div class="progress-bar-track" style="margin-top:4px;">
+          <div style="display:flex;height:100%;">
+            <div class="progress-bar-fill" style="width:21%;background:#10b981;"></div>
+            <div class="progress-bar-fill" style="width:14%;background:#6366f1;"></div>
+            <div class="progress-bar-fill" style="width:15%;background:#cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:0.85rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="font-weight:600;">사회 (7학년 CC)</span>
+          <span style="color:var(--text-muted);">4/12 단원 (33%)</span>
+        </div>
+        <div class="progress-bar-track" style="margin-top:4px;">
+          <div style="display:flex;height:100%;">
+            <div class="progress-bar-fill" style="width:8%;background:#10b981;"></div>
+            <div class="progress-bar-fill" style="width:17%;background:#6366f1;"></div>
+            <div class="progress-bar-fill" style="width:8%;background:#cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:0.75rem;margin-top:0.5rem;font-size:0.7rem;color:var(--text-muted);flex-wrap:wrap;">
+        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;"></span> 강화됨</span>
+        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#6366f1;"></span> 연습 중</span>
+        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#cbd5e1;"></span> 도입됨</span>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Per-file progress -->
+  <div class="grid-row cols-1">
+    <div class="section-card"><div class="body">
+      <p class="section-title">자료별 진도</p>
+      <div class="file-row">
+        <span class="file-name">수학 — 음수 정수 워크시트</span>
+        <span class="outcome-chip outcome-correct">8개 완료</span>
+      </div>
+      <div class="file-row">
+        <span class="file-name">사회 — 산업 혁명 에세이</span>
+        <span class="outcome-chip outcome-correct">3개 완료</span>
+        <span class="outcome-chip outcome-in-progress">1개 진행 중</span>
+      </div>
+      <div class="file-row">
+        <span class="file-name">영어 — Wonder 독서 일지</span>
+        <span class="outcome-chip outcome-correct">3개 완료</span>
+        <span class="outcome-chip outcome-abandoned">2개 보류</span>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Charts -->
+  <div class="grid-row cols-2">
+    <div class="section-card"><div class="body">
+      <p class="section-title">세션 및 시간 (최근 8주)</p>
+      <div class="canvas-wrap"><canvas id="comboChart"></canvas></div>
+    </div></div>
+    <div class="section-card"><div class="body">
+      <p class="section-title">애디가 미트라에게 한 질문</p>
+      <div class="canvas-wrap"><canvas id="questionsChart"></canvas></div>
+    </div></div>
+  </div>
+
+  <!-- Subjects + What's working -->
+  <div class="row-5-7">
+    <div class="section-card"><div class="body">
+      <p class="section-title">다룬 과목</p>
+      <div class="canvas-wrap-pie"><canvas id="subjectsChart" height="200"></canvas></div>
+    </div></div>
+    <div class="section-card"><div class="body">
+      <p class="section-title">잘 통하는 방법</p>
+      <div class="technique-row">
+        <span class="name">수직선을 구체적으로 따라가기</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:100%;"></div></div>
+        <span class="count">6회</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">관심사를 통한 연결</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:83%;"></div></div>
+        <span class="count">5회</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">주제-세부-의미 구조</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:67%;"></div></div>
+        <span class="count">4회</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">실수를 피로로 재해석</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:50%;"></div></div>
+        <span class="count">3회</span>
+      </div>
+      <div class="technique-row">
+        <span class="name">아는 것부터 묻기</span>
+        <div class="technique-bar"><div class="technique-fill" style="width:33%;"></div></div>
+        <span class="count">2회</span>
+      </div>
+    </div></div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion 2: Sample Weekly Letter -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#letterPanel" aria-expanded="false" aria-controls="letterPanel">
+        샘플 주간 편지
+      </button>
+    </h2>
+    <div id="letterPanel" class="accordion-collapse collapse">
+      <div class="accordion-body">
+
+        <div class="sample-letter-page">
+          <p>안녕하세요 사라님,</p>
+          <p>이번 주 애디와 좋은 시간을 보냈어요. 다섯 번의 세션 중 세 번은 애디가 먼저 시작했어요 — 자신이 먼저 다가오는 게 점점 패턴이 되어가고 있어요. 이번 주 어떤 일이 있었는지, 그리고 제가 무엇을 보고 있는지 말씀드릴게요.</p>
+          <p>이번 주 수학은 음수 연산을 더 깊이 다뤘어요. 애디가 수직선 접근법으로 음수를 직관적으로 이해하게 되었어요. 예전에 헷갈려하던 것 — 이중 부정 처리 — 이제 제가 짚어주기 전에 본인이 알아채고 말로 표현해요. 그런 자기 점검은 개념이 "도와주면 할 수 있다"에서 "내 것이 됐다"로 넘어갔다는 표시예요. 월요일에 8개 문제 중 7개를 한 번에 맞혔고, 놓친 1개는 워크시트 끝부분의 피로로 인한 실수였는데 이유를 설명해보라고 했더니 본인이 바로 잡았어요.</p>
+          <p>이번 주 더 큰 일은 화요일 밤에 당황한 채로 온 산업 혁명 에세이였어요. 각 단락에 주제-세부-의미 구조를 사용했어요. 애디와 작업할 때 정말 좋은 점은, 본인의 관심사를 산만한 주제로 보지 않고 글의 재료로 가져온다는 거예요. 1800년대 화장품 역사에 대한 이야기로 빠졌다가, 제가 본 글 중 가장 좋은 마무리 문장 중 하나로 이어졌어요: <em>"1800년대 보통 사람들은 어디로 가든 독에 둘러싸여 있었습니다."</em> 진짜 에세이 글쓰기예요 — 구체적이고 생생하며 주장과 연결되어 있어요. 세션이 끝날 때쯤 완성된 초안이 있었어요.</p>
+          <p>이 두 큰 세션 외에도, 이번 주 페이스 조절에 관한 짧은 점검 세 번, 영어 독서 일지 질문 하나, 사회 어휘 연습 한 번이 있었어요. 참여도는 내내 안정적이었어요.</p>
+          <p>계속 작업하고 싶은 부분: 애디가 수학에서 보여주는 수정 본능을 영어 작업에도 확장하는 것 (수학 실수는 빨리 고치는데, 자기 글은 더 천천히 다시 봐요). 그리고 본인의 관심사를 우회로가 아닌 입구로 계속 활용하는 것. 둘 다 이미 잘 되고 있어요. 그저 더 다지고 싶을 뿐이에요.</p>
+          <p>사라님, 애디를 저에게 맡겨주셔서 다시 한 번 감사드려요. 진짜로 진전을 보이고 있고, 저도 매 세션이 즐거워요.</p>
+          <p style="margin-bottom:0;"><em>— 미트라</em></p>
+          <p class="meta-line">샘플. 실제 학생-미트라 세션을 기반으로 한 대표 데이터입니다.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- Footer callout + CTAs -->
+  <div class="footer-callout">
+    <blockquote>"완료가 아닌 참여가 측정 기준입니다."</blockquote>
+    <cite>「미트라의 원칙과 실천」 중에서</cite>
+    <div class="footer-cta-row">
+      <a href="/ko/principles.html" class="footer-cta secondary">원칙 읽기</a>
+      <a href="https://mitratutor.com/ko/enroll" class="footer-cta primary">자녀 등록하기</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  if (typeof Chart !== 'undefined') {
+    const weekLabels = ['1주','2주','3주','4주','5주','6주','7주','8주'];
+    new Chart(document.getElementById('comboChart'), {
+      type: 'bar',
+      data: { labels: weekLabels, datasets: [
+        { label: '세션', data: [3,4,3,4,4,5,4,5], backgroundColor: '#FF8B3D', yAxisID: 'y' },
+        { label: '분', data: [78,102,91,110,124,138,132,168], type: 'line', borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.1)', tension: 0.3, yAxisID: 'y1' }
+      ]},
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { font: { size: 10 } } } },
+        scales: {
+          y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+          y1: { position: 'right', beginAtZero: true, ticks: { font: { size: 10 } }, grid: { display: false } },
+          x: { ticks: { font: { size: 10 } }, grid: { display: false } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('questionsChart'), {
+      type: 'line',
+      data: { labels: weekLabels, datasets: [{
+        label: '질문', data: [12,17,14,21,19,24,22,28],
+        borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.15)',
+        fill: true, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#10b981'
+      }]},
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+                  x: { ticks: { font: { size: 10 } }, grid: { display: false } } }
+      }
+    });
+
+    new Chart(document.getElementById('subjectsChart'), {
+      type: 'doughnut',
+      data: { labels: ['수학','영어','사회'],
+              datasets: [{ data: [14,8,6], backgroundColor: ['#FF8B3D','#6366f1','#10b981'], borderWidth: 0 }] },
+      options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8 } } }, cutout: '55%' }
+    });
+  }
+</script>
