@@ -8,9 +8,11 @@ description: |
   - Landing (/)
   - Why Build Mitra (about.html) — founder narrative
   - For Parents, For Students, For Academies/Hagwons/Schools/Tutors (partners.html)
-  - How to Work With Mitra — Mitra's letter to families, in her voice
-    (EN: translation; KO: Mitra's own adaptation via /coach relay, with
-    register shift to 반말 for students)
+  - How to Work With Mitra (how-to-work-with-mitra.html) — Mitra's letter to
+    families, in her voice. Two registers: 반말 (informal) for the student
+    section, 존댓말 (polite) for the parent section. EN and KO at structural
+    parity (both 151 lines as of 2026-05-04 — KO was previously the older
+    short-letter format and was rewritten to match the EN structured doc).
   - FAQ — 31 questions across parents, students, partners
   - Compliance — AI Basic Act / PIPA / safety architecture (live counters
     deferred; see backlog item compliance-live-counters)
@@ -23,8 +25,17 @@ description: |
   consumed both by build.py here and by portal/nav.py in the Railway app so
   the two surfaces stay in sync.
 
-  Partners page intentionally diverges EN vs KO (Warmly wrote them
-  separately for each audience).
+  Partners page (partners.html) carries two embedded accordion samples
+  (added 2026-05-04, EN + KO):
+    - "See three sample student moments" — chat-bubble snippets under
+      "What changes for your students": Saturday-9pm-stuck (always-available),
+      knows-your-curriculum (your textbooks not generic), JJK-pivot-recovery
+      (ADHD-tuned). Each tied back to a bullet from the section.
+    - "See a sample partner dashboard" — native HTML/CSS recreation of the
+      portal's /org/analytics curriculum dashboard (gradient hero with
+      health badge, GitHub-style activity heatmap, ranked top topics,
+      amber challenge cards with Try: actions, per-class tiles). Plausible
+      Brightline-style fixture numbers; static, not live-pulled.
 
   Enrollment and authenticated areas (admin, parent portal) remain on the
   main portal at mitratutor.com.
