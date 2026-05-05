@@ -2,81 +2,337 @@
 title: Bringing Mitra to North Georgia — Mitra
 description: A small partner program for homeschool communities, independent tutors, and learning support practitioners across North Georgia. Mitra extends your reach with patient AI tutoring built for kids who learn differently.
 slug: North-Georgia.html
+extra_head: <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 -->
-<div class="row justify-content-center">
-  <div class="col-lg-9">
+<style>
+  /* North Georgia partner page */
+  .ng-page { max-width: 880px; margin: 0 auto; }
+  .ng-hero { display: grid; grid-template-columns: 1fr 220px; gap: 2rem; align-items: center; padding: 1.5rem 0 2rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 2rem; }
+  .ng-hero .eyebrow { color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; margin: 0 0 0.5rem; }
+  .ng-hero h1 { font-size: clamp(1.85rem, 5vw, 2.4rem); margin: 0 0 0.8rem; line-height: 1.2; color: #1a202c; }
+  .ng-hero .lede { font-size: 1.05rem; color: #4a5568; margin: 0; line-height: 1.55; }
+  .ng-hero-illustration { background: linear-gradient(135deg, #fff7ed 0%, #ffe5d0 100%); border-radius: 16px; padding: 1.25rem; text-align: center; }
+  .ng-hero-illustration img { max-width: 100%; height: auto; border-radius: 50%; box-shadow: 0 4px 14px rgba(255, 139, 61, 0.25); }
+  .ng-hero-illustration .ng-hero-tag { font-size: 0.78rem; color: #b9541b; margin-top: 0.5rem; font-style: italic; }
+  @media (max-width: 700px) {
+    .ng-hero { grid-template-columns: 1fr; gap: 1.25rem; }
+    .ng-hero-illustration { max-width: 200px; margin: 0 auto; }
+  }
 
-<p class="text-muted text-uppercase" style="letter-spacing: 0.08em; font-size: 0.85rem; margin-bottom: 0.5rem;">For Teaching Partners</p>
-<h1 class="mb-4">Bringing Mitra to North Georgia</h1>
+  /* Section accordion (native details/summary, styled) */
+  .ng-details { margin: 1.25rem 0 0; border: 1px solid #e2e8f0; border-radius: 10px; background: #fafbfc; overflow: hidden; }
+  .ng-details > summary { cursor: pointer; padding: 0.85rem 1.1rem; font-weight: 600; color: #2B4C7E; list-style: none; user-select: none; display: flex; align-items: center; justify-content: space-between; }
+  .ng-details > summary::-webkit-details-marker { display: none; }
+  .ng-details > summary::after { content: '+'; font-weight: 400; font-size: 1.4rem; color: #FF8B3D; transition: transform 0.2s; }
+  .ng-details[open] > summary::after { content: '−'; }
+  .ng-details > summary:hover { background: #fff7ed; }
+  .ng-details[open] > summary { border-bottom: 1px solid #e2e8f0; background: #fff7ed; }
+  .ng-details .ng-details-body { padding: 1.5rem 1.25rem; }
 
-<p class="lead">
-  We're building a small group of partners, homeschool communities, independent tutors, and learning support practitioners, to bring Mitra to families in North Georgia. If you work with families in towns like Toccoa, Clarkesville, Cornelia, Hartwell, or anywhere across the region, and you've watched kids fall through the gaps of what's available to them, we'd like to talk.
-</p>
+  /* Chat bubbles (self-contained, like .tip-mini-chat) */
+  .ng-chat { background: #F0F2F5; border-radius: 10px; padding: 1rem 1.1rem; margin-top: 0.75rem; }
+  .ng-chat-label { font-size: 0.78rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem; }
+  .ng-chat-msg { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .ng-chat-msg.tutor { justify-content: flex-start; }
+  .ng-chat-msg.student { justify-content: flex-end; }
+  .ng-chat-msg.partner { justify-content: flex-end; }
+  .ng-chat-bubble { max-width: 86%; padding: 0.55rem 0.95rem; border-radius: 16px; font-size: 0.92rem; line-height: 1.5; }
+  .ng-chat-msg.tutor .ng-chat-bubble { background: #D9E2EC; color: #1A1A2E; border-bottom-left-radius: 4px; }
+  .ng-chat-msg.student .ng-chat-bubble { background: #2B4C7E; color: white; border-bottom-right-radius: 4px; }
+  .ng-chat-msg.partner .ng-chat-bubble { background: #FF8B3D; color: white; border-bottom-right-radius: 4px; }
+  .ng-chat-bubble p { margin: 0 0 0.6rem; }
+  .ng-chat-bubble p:last-child { margin-bottom: 0; }
+  .ng-chat-bubble strong { color: inherit; font-weight: 700; }
+  .ng-chat-msg.partner .ng-chat-bubble strong, .ng-chat-msg.student .ng-chat-bubble strong { color: #fff; }
+  .ng-avatar { width: 26px; height: 26px; border-radius: 50%; background: #FF8B3D; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .ng-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .ng-chat-time { font-size: 0.72rem; color: #94a3b8; text-align: center; margin: 0.4rem 0; }
 
-<h3 class="mt-5">Who Mitra is</h3>
+  /* Long-form Mitra response (advisor mode) */
+  .ng-advisor-response { background: #D9E2EC; color: #1A1A2E; border-radius: 14px; border-bottom-left-radius: 4px; padding: 1rem 1.2rem; max-width: 92%; }
+  .ng-advisor-response p { margin: 0 0 0.75rem; line-height: 1.6; font-size: 0.95rem; }
+  .ng-advisor-response p:last-child { margin-bottom: 0; }
+  .ng-advisor-response strong { font-weight: 700; }
+  .ng-advisor-row { display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 0.6rem; }
 
-<p>Mitra is a patient AI tutoring companion who works with kids over text message, on the student's phone via the text app Telegram. She was built first for kids with ADHD, because if something works for a kid whose attention doesn't arrive on schedule, it works for any kid. Short sessions. No scheduling. A tutor who remembers what your student cares about and picks up where they left off.</p>
+  /* Embedded dashboard (simplified subset of parent-dashboard styles) */
+  .ng-dashboard { --accent: #FF8B3D; --accent-light: #FFE5D0; --text-main: #2C3E50; --text-muted: #94a3b8; }
+  .ng-dashboard-context { text-align: center; padding: 0.5rem 0 1rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 1.25rem; }
+  .ng-dashboard-context .name { font-size: 1.2rem; font-weight: 600; color: #2C3E50; margin: 0; }
+  .ng-dashboard-context .meta { font-size: 0.8rem; color: #94a3b8; margin-top: 0.15rem; }
+  .ng-mc { border: none; border-radius: 12px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; height: 100%; padding: 0.8rem 1rem 0.9rem; }
+  .ng-mc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+  .ng-mc.time::before { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+  .ng-mc.work::before { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .ng-mc.questions::before { background: linear-gradient(90deg, #10b981, #6ee7b7); }
+  .ng-mc-label { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+  .ng-mc-val { font-size: 1.5rem; font-weight: 700; color: var(--text-main); line-height: 1.1; margin: 0.15rem 0; }
+  .ng-mc-sub { font-size: 0.72rem; margin: 0; color: var(--text-muted); }
+  .ng-mc-sub.up { color: #10b981; }
+  .ng-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.85rem; }
+  .ng-grid-2 { display: grid; grid-template-columns: 5fr 7fr; gap: 0.6rem; margin-bottom: 0.85rem; }
+  @media (max-width: 720px) {
+    .ng-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .ng-grid-2 { grid-template-columns: 1fr; }
+  }
+  .ng-section-card { border: none; border-radius: 10px; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.9rem 1rem; height: 100%; }
+  .ng-section-title { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.7rem; }
+  .ng-heatmap-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; max-width: 260px; margin: 0 auto; }
+  .ng-heatmap-cell { aspect-ratio: 1; border-radius: 2px; background: #f1f5f9; }
+  .ng-heatmap-cell[data-c="1"] { background: var(--accent-light); }
+  .ng-heatmap-cell[data-c="2"] { background: #ffcc99; }
+  .ng-heatmap-cell[data-c="3"] { background: var(--accent); opacity: 0.7; }
+  .ng-heatmap-cell[data-c="4"] { background: var(--accent); }
+  .ng-heatmap-headers { display: flex; gap: 1px; max-width: 260px; margin: 0 auto 4px; font-size: 0.65rem; color: var(--text-muted); }
+  .ng-heatmap-headers span { flex: 1; text-align: center; }
+  .ng-tech-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .ng-tech-row .name { font-size: 0.85rem; flex: 1; }
+  .ng-tech-bar { height: 5px; border-radius: 3px; background: #f1f5f9; overflow: hidden; flex: 1; }
+  .ng-tech-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+  .ng-tech-count { font-size: 0.75rem; color: var(--text-muted); min-width: 22px; text-align: right; }
+  .ng-canvas-wrap { height: 150px; }
+  .ng-dashboard-frame-note { font-size: 0.85rem; color: #4a5568; background: #fff7ed; border-left: 3px solid #FF8B3D; padding: 0.7rem 0.9rem; border-radius: 6px; margin-bottom: 1.25rem; }
+  .ng-dashboard-footnote { font-size: 0.78rem; color: #94a3b8; font-style: italic; text-align: center; margin-top: 1.25rem; }
 
-<h3 class="mt-5">What a partnership looks like</h3>
+  /* Founder note callout */
+  .ng-founder-note { margin: 2.5rem 0; padding: 1.5rem 1.4rem; border-left: 4px solid #2B4C7E; background: #f9fafb; border-radius: 6px; }
+  .ng-founder-note h3 { margin-top: 0; }
 
-<p><strong>You stay in charge of your students.</strong> Mitra works with your students between your sessions. Your curriculum, your methodology, your relationship. Mitra doesn't replace you, she extends your reach while giving the student another path to support.</p>
+  /* Final CTA */
+  .ng-cta { text-align: center; margin: 2rem 0 1rem; }
+</style>
 
-<p><strong>Mitra can work off of your materials.</strong> Mitra goes where the student goes, she works on what your student wants to work on. When that's the math sheet you sent home, the chapter you assigned, or the problem set you handed out, Mitra has it. Partners upload their materials into Mitra's bookshelf, so when a student says "I'm stuck on the worksheet," it's your worksheet she's helping them with. If you don't have set materials, Mitra can also draw on Common Core, Advanced Placement, and International Baccalaureate standards.</p>
+<div class="ng-page">
 
-<p><strong>You see signal, not surveillance.</strong> You see how your materials are landing across your students, what's clicking, what's creating friction, what students are asking about. You don't see individual session transcripts. Children deserve privacy with their learning companion, the same way they would with a thoughtful human tutor.</p>
-
-<h3 class="mt-5">What you get</h3>
-
-<p><strong>More students without more hours.</strong> If you're at capacity, Mitra lets you hold more families. She handles the daily practice between your sessions, so the hours you spend one-on-one become the high-value hours not the repetition.</p>
-
-<p><strong>$5 per student, every month.</strong> For every family you refer, you earn $5 per month per student, every month they're with us. A partner with fifteen families earns $900 a year, passively, on top of her regular work. No caps. No tiers. Alternatively, you can pass that on as a $5 monthly discount, and we will honor that for life. Your choice.</p>
-
-<p><strong>Mitra Tutoring Advisor, free.</strong> Every partner gets access to a version of Mitra built for you, not your students. She'll help you plan lesson ladders, think through how to approach a specific student, and draw on what's working across our partner network. Think of her as a consulting colleague who doesn't charge hourly.</p>
-
-<p><strong>A real voice in what we build next.</strong> You'll shape what Mitra becomes. Your feedback, your materials, your reporting needs, they go directly to the people building her.</p>
-
-<h3 class="mt-5">What we're offering early partners</h3>
-
-<p>We're being honest: this is new. We're starting in North Georgia because I know these communities, and we want two things from our first partners: families we can serve well, and feedback we can build on. Early partners get:</p>
-
-<ul>
-  <li>Personal onboarding, including help setting up your bookshelf and walking through your first few referrals</li>
-  <li>Direct access to the company CEO when something isn't working the way you expected</li>
-  <li>The discount or commission terms above, locked in permanently</li>
-  <li>First look at new features, and real input on what we build for communities like yours</li>
-</ul>
-
-<p>This is a small group by design. We'd rather work closely with a few partners we can support well than broadcast a generic offer to hundreds.</p>
-
-<h3 class="mt-5">Who this is for</h3>
-
-<ul>
-  <li>Homeschool co-op coordinators</li>
-  <li>Independent tutors and learning specialists</li>
-  <li>Reading specialists and speech/language practitioners</li>
-  <li>Educational ministries and church-based learning programs</li>
-  <li>Small academies with flexible procurement</li>
-</ul>
-
-<p>If you're not on this list but you serve families in North Georgia and this resonates, reach out anyway. We'd rather have a conversation and figure out if there's a fit than make you guess.</p>
-
-<!-- Founder note -->
-<div style="margin: 2.5rem 0; padding: 24px; border-left: 4px solid #2B4C7E; background: #f9fafb; border-radius: 6px;">
-  <h3 style="margin-top: 0;">A note from the founder</h3>
-  <p>I'm George. I grew up in Toccoa.</p>
-  <p>I live in Seoul now, have a child that needs a little extra tutoring now and again, and thought other families and their kids might need the same. I'm building Mitra with a small team. The reason I'm starting our US partnership work at home is that I know what families in North Georgia deserve, and I know there are kids here who aren't getting it. Building this product is personal as is trying to help kids and families back home.</p>
-  <p style="margin-bottom: 0;">I'm not a salesperson. If you reach out, what you'll get is a conversation, not a pitch.</p>
-</div>
-
-<h3 class="mt-5">Ready to talk?</h3>
-
-<p>
-  <a href="mailto:george@mitratutor.com?subject=North%20Georgia%20partnership">george@mitratutor.com</a> &mdash; just send a note, a few lines is plenty. Tell me who you are, where you are, and what you work on. I'll reply personally within a day.
-</p>
-
-<div style="text-align: center; margin: 2rem 0 1rem;">
-  <a href="mailto:george@mitratutor.com?subject=North%20Georgia%20partnership" class="btn-cta-primary">Email George &rarr;</a>
-</div>
-
+  <!-- HERO with Mitra graphic -->
+  <div class="ng-hero">
+    <div class="ng-hero-text">
+      <p class="eyebrow">For Teaching Partners</p>
+      <h1>Bringing Mitra to North Georgia</h1>
+      <p class="lede">We're building a small group of partners, homeschool communities, independent tutors, and learning support practitioners, to bring Mitra to families in North Georgia. If you work with families in towns like Toccoa, Clarkesville, Cornelia, Hartwell, or anywhere across the region, and you've watched kids fall through the gaps of what's available to them, we'd like to talk.</p>
+    </div>
+    <div class="ng-hero-illustration">
+      <img src="/en/static/images/hero-illustration_001.png" alt="Mitra" />
+      <div class="ng-hero-tag">Hi, I'm Mitra.</div>
+    </div>
   </div>
+
+  <!-- WHO MITRA IS -->
+  <h3>Who Mitra is</h3>
+  <p>Mitra is a patient AI tutoring companion who works with kids over text message, on the student's phone via the text app Telegram. She was built first for kids with ADHD, because if something works for a kid whose attention doesn't arrive on schedule, it works for any kid. Short sessions. No scheduling. A tutor who remembers what your student cares about and picks up where they left off.</p>
+
+  <details class="ng-details">
+    <summary>See sample conversations between Mitra and her students</summary>
+    <div class="ng-details-body">
+      <p class="text-muted small mb-3" style="font-style: italic;">Representative excerpts based on real student-Mitra sessions.</p>
+
+      <div class="ng-chat">
+        <div class="ng-chat-label">Addy, 7th grade &middot; math homework</div>
+        <div class="ng-chat-msg student"><span class="ng-chat-bubble">Hi mitra could you help me with my math homework? 😢</span></div>
+        <div class="ng-chat-msg tutor"><span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="ng-chat-bubble">Hey Addy! Of course 😊 What's going on with it, what kind of math?</span></div>
+        <div class="ng-chat-msg student"><span class="ng-chat-bubble">its like negative numbers? we have to do 8 of them like -3-5 and -7+4 i don't get any 🥺</span></div>
+        <div class="ng-chat-msg tutor"><span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="ng-chat-bubble">Okay negative numbers, totally makeable. Picture a number line. You start at -3, and subtracting means you move <em>left</em>. How many steps left do you take?</span></div>
+        <div class="ng-chat-msg student"><span class="ng-chat-bubble">umm 5? so -8?</span></div>
+        <div class="ng-chat-msg tutor"><span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="ng-chat-bubble">Exactly. 🎯 That's literally the whole trick.</span></div>
+      </div>
+
+      <div class="ng-chat">
+        <div class="ng-chat-label">Addy &middot; Industrial Revolution essay</div>
+        <div class="ng-chat-msg student"><span class="ng-chat-bubble">wait btw u know what was in 1800s makeup? LEAD AND ARSENIC its actually iconic and horrifying</span></div>
+        <div class="ng-chat-msg tutor"><span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="ng-chat-bubble">WAIT that is genuinely unhinged. There's actually a connection to your essay, factory pollution + toxic makeup = ordinary people in the 1800s were just... surrounded by poison from every direction. Which is kind of a perfect so-what for paragraph three.</span></div>
+        <div class="ng-chat-msg student"><span class="ng-chat-bubble">"ordinary people in the 1800s were surrounded by poison everywhere they turned."</span></div>
+        <div class="ng-chat-msg tutor"><span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="ng-chat-bubble">Addy. That last sentence. You came up with that yourself and it's genuinely good writing.</span></div>
+      </div>
+
+      <div class="ng-chat">
+        <div class="ng-chat-label">Loren, 9th grade &middot; Biology, cell respiration</div>
+        <div class="ng-chat-msg student"><span class="ng-chat-bubble">why is ATP the energy currency. why not glucose directly</span></div>
+        <div class="ng-chat-msg tutor"><span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="ng-chat-bubble">Good question, and your textbook probably just says "ATP is energy currency" without explaining why, which is useless. Short answer: glucose is like a $100 bill. Cells need exact change. ATP is the quarter, small, standardized, spendable anywhere.</span></div>
+        <div class="ng-chat-msg student"><span class="ng-chat-bubble">ok so the whole respiration pathway is breaking the $100 into quarters</span></div>
+        <div class="ng-chat-msg tutor"><span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="ng-chat-bubble">Exactly. Glycolysis, the Krebs cycle, the electron transport chain, the whole thing is just a bill-breaking operation.</span></div>
+      </div>
+    </div>
+  </details>
+
+  <!-- WHAT A PARTNERSHIP LOOKS LIKE -->
+  <h3 class="mt-5">What a partnership looks like</h3>
+
+  <p><strong>You stay in charge of your students.</strong> Mitra works with your students between your sessions. Your curriculum, your methodology, your relationship. Mitra doesn't replace you, she extends your reach while giving the student another path to support.</p>
+
+  <p><strong>Mitra can work off of your materials.</strong> Mitra goes where the student goes, she works on what your student wants to work on. When that's the math sheet you sent home, the chapter you assigned, or the problem set you handed out, Mitra has it. Partners upload their materials into Mitra's bookshelf, so when a student says "I'm stuck on the worksheet," it's your worksheet she's helping them with. If you don't have set materials, Mitra can also draw on Common Core, Advanced Placement, and International Baccalaureate standards.</p>
+
+  <p><strong>You see signal, not surveillance.</strong> You see how your materials are landing across your students, what's clicking, what's creating friction, what students are asking about. You don't see individual session transcripts. Children deserve privacy with their learning companion, the same way they would with a thoughtful human tutor.</p>
+
+  <details class="ng-details">
+    <summary>See a sample of what your students' families see</summary>
+    <div class="ng-details-body">
+      <div class="ng-dashboard-frame-note">
+        <strong>What this is:</strong> Each of your referred families sees a per-student dashboard like this for their child. Your partner-side view aggregates the same underlying signal across all your referred students, so you see what's landing across your cohort without ever seeing individual transcripts.
+      </div>
+
+      <div class="ng-dashboard">
+        <div class="ng-dashboard-context">
+          <p class="name">Addy</p>
+          <p class="meta">Grade 7 &middot; 8 weeks with Mitra &middot; last 7 days</p>
+        </div>
+
+        <div class="ng-grid-4">
+          <div class="ng-mc"><p class="ng-mc-label">Sessions</p><p class="ng-mc-val">5</p><p class="ng-mc-sub up">▲ +1 vs last week</p></div>
+          <div class="ng-mc time"><p class="ng-mc-label">Total time</p><p class="ng-mc-val">3.4h</p><p class="ng-mc-sub up">▲ +42 min</p></div>
+          <div class="ng-mc work"><p class="ng-mc-label">Work completed</p><p class="ng-mc-val">17</p><p class="ng-mc-sub">14 correct, 1 partial, 2 set aside</p></div>
+          <div class="ng-mc questions"><p class="ng-mc-label">Questions asked</p><p class="ng-mc-val">28</p><p class="ng-mc-sub">by Addy</p></div>
+        </div>
+
+        <div class="ng-grid-2">
+          <div class="ng-section-card">
+            <p class="ng-section-title">Activity (last 4 weeks)</p>
+            <div class="ng-heatmap-headers"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+            <div class="ng-heatmap-grid">
+              <div class="ng-heatmap-cell" data-c="2"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="0"></div>
+              <div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="2"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="0"></div>
+              <div class="ng-heatmap-cell" data-c="2"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="0"></div>
+              <div class="ng-heatmap-cell" data-c="2"></div><div class="ng-heatmap-cell" data-c="2"></div><div class="ng-heatmap-cell" data-c="1"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="3"></div><div class="ng-heatmap-cell" data-c="0"></div><div class="ng-heatmap-cell" data-c="2"></div>
+            </div>
+          </div>
+
+          <div class="ng-section-card">
+            <p class="ng-section-title">What's working</p>
+            <div class="ng-tech-row"><span class="name">Walking the number line concretely</span><div class="ng-tech-bar"><div class="ng-tech-fill" style="width:100%;"></div></div><span class="ng-tech-count">6×</span></div>
+            <div class="ng-tech-row"><span class="name">Bridging through her interests</span><div class="ng-tech-bar"><div class="ng-tech-fill" style="width:83%;"></div></div><span class="ng-tech-count">5×</span></div>
+            <div class="ng-tech-row"><span class="name">Topic-detail-so-what scaffold</span><div class="ng-tech-bar"><div class="ng-tech-fill" style="width:67%;"></div></div><span class="ng-tech-count">4×</span></div>
+            <div class="ng-tech-row"><span class="name">Reframing slips as fatigue</span><div class="ng-tech-bar"><div class="ng-tech-fill" style="width:50%;"></div></div><span class="ng-tech-count">3×</span></div>
+            <div class="ng-tech-row"><span class="name">Asking what she already knows</span><div class="ng-tech-bar"><div class="ng-tech-fill" style="width:33%;"></div></div><span class="ng-tech-count">2×</span></div>
+          </div>
+        </div>
+
+        <div class="ng-grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="ng-section-card">
+            <p class="ng-section-title">Sessions &amp; time (last 8 weeks)</p>
+            <div class="ng-canvas-wrap"><canvas id="ngComboChart"></canvas></div>
+          </div>
+          <div class="ng-section-card">
+            <p class="ng-section-title">Questions Addy asked Mitra</p>
+            <div class="ng-canvas-wrap"><canvas id="ngQuestionsChart"></canvas></div>
+          </div>
+        </div>
+
+        <p class="ng-dashboard-footnote">Sample. Representative data based on real student-Mitra sessions. Full sample dashboard with weekly letter at <a href="/en/parent-dashboard.html">parent-dashboard</a>.</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- WHAT YOU GET -->
+  <h3 class="mt-5">What you get</h3>
+
+  <p><strong>More students without more hours.</strong> If you're at capacity, Mitra lets you hold more families. She handles the daily practice between your sessions, so the hours you spend one-on-one become the high-value hours not the repetition.</p>
+
+  <p><strong>$5 per student, every month.</strong> For every family you refer, you earn $5 per month per student, every month they're with us. A partner with fifteen families earns $900 a year, passively, on top of her regular work. No caps. No tiers. Alternatively, you can pass that on as a $5 monthly discount, and we will honor that for life. Your choice.</p>
+
+  <p><strong>Mitra Tutoring Advisor, free.</strong> Every partner gets access to a version of Mitra built for you, not your students. She'll help you plan lesson ladders, think through how to approach a specific student, and draw on what's working across our partner network. Think of her as a consulting colleague who doesn't charge hourly.</p>
+
+  <p><strong>A real voice in what we build next.</strong> You'll shape what Mitra becomes. Your feedback, your materials, your reporting needs, they go directly to the people building her.</p>
+
+  <details class="ng-details">
+    <summary>See a sample conversation with Mitra Tutoring Advisor</summary>
+    <div class="ng-details-body">
+      <p class="text-muted small mb-3" style="font-style: italic;">An actual partner-Mitra interaction.</p>
+
+      <div class="ng-chat">
+        <div class="ng-chat-time">2026-05-04 11:48</div>
+        <div class="ng-chat-msg partner"><span class="ng-chat-bubble">Can you make me some suggestions on how to keep fractions interesting when teaching 6th graders?</span></div>
+
+        <div class="ng-advisor-row">
+          <span class="ng-avatar"><img src="/en/static/images/hero-illustration_001.png" alt="Mitra"></span>
+          <div class="ng-advisor-response">
+            <p>Good question, fractions are where a lot of kids check out if it feels abstract and procedural.</p>
+            <p>A few angles worth considering, depending on what's already working in your program:</p>
+            <p><strong>Context before abstraction.</strong> If you haven't already, anchor fractions in things kids actually care about, pizza splits, recipe scaling, sports stats, split streaming revenue. The procedural stuff (LCD, equivalent fractions) makes way more sense once they've felt why you'd need it. Some tutors I know have kids design their own fair division problems first, <em>then</em> formalize the notation.</p>
+            <p><strong>Misconception-first teaching.</strong> Sixth graders often think 5/8 &gt; 3/4 because 5 &gt; 3. If you lead with that bump, actually surface it, name it, they're primed to notice why it's wrong. Beats trying to prevent it. Same with the idea that "fractions are always less than 1."</p>
+            <p><strong>Visual variety matters.</strong> Some kids lock onto number lines, some onto area models, some onto discrete objects. If one representation isn't landing, you probably don't need to convince them harder, switch mode. You might have a kid who <em>gets</em> 2/3 on a tape diagram but not on a pie chart.</p>
+            <p><strong>Build from parts to whole operations.</strong> A lot of sequences jump straight to "add 1/3 + 1/4." But can they comfortably describe <em>what's the same</em> and <em>what's different</em> about two fractions before combining? That foundation pays dividends.</p>
+            <p>What's the biggest friction point you're seeing with the 6th graders in your Algebra Foundations or ELA classes, is it getting fractions to stick, or moving from fractions into operations?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- WHAT WE'RE OFFERING EARLY PARTNERS -->
+  <h3 class="mt-5">What we're offering early partners</h3>
+
+  <p>We're being honest: this is new. We're starting in North Georgia because I know these communities, and we want two things from our first partners: families we can serve well, and feedback we can build on. Early partners get:</p>
+
+  <ul>
+    <li>Personal onboarding, including help setting up your bookshelf and walking through your first few referrals</li>
+    <li>Direct access to the company CEO when something isn't working the way you expected</li>
+    <li>The discount or commission terms above, locked in permanently</li>
+    <li>First look at new features, and real input on what we build for communities like yours</li>
+  </ul>
+
+  <p>This is a small group by design. We'd rather work closely with a few partners we can support well than broadcast a generic offer to hundreds.</p>
+
+  <h3 class="mt-5">Who this is for</h3>
+
+  <ul>
+    <li>Homeschool co-op coordinators</li>
+    <li>Independent tutors and learning specialists</li>
+    <li>Reading specialists and speech/language practitioners</li>
+    <li>Educational ministries and church-based learning programs</li>
+    <li>Small academies with flexible procurement</li>
+  </ul>
+
+  <p>If you're not on this list but you serve families in North Georgia and this resonates, reach out anyway. We'd rather have a conversation and figure out if there's a fit than make you guess.</p>
+
+  <!-- Founder note -->
+  <div class="ng-founder-note">
+    <h3>A note from the founder</h3>
+    <p>I'm George. I grew up in Toccoa.</p>
+    <p>I live in Seoul now, have a child that needs a little extra tutoring now and again, and thought other families and their kids might need the same. I'm building Mitra with a small team. The reason I'm starting our US partnership work at home is that I know what families in North Georgia deserve, and I know there are kids here who aren't getting it. Building this product is personal as is trying to help kids and families back home.</p>
+    <p style="margin-bottom: 0;">I'm not a salesperson. If you reach out, what you'll get is a conversation, not a pitch.</p>
+  </div>
+
+  <h3 class="mt-5">Ready to talk?</h3>
+
+  <p>
+    <a href="mailto:george@mitratutor.com?subject=North%20Georgia%20partnership">george@mitratutor.com</a> &mdash; just send a note, a few lines is plenty. Tell me who you are, where you are, and what you work on. I'll reply personally within a day.
+  </p>
+
+  <div class="ng-cta">
+    <a href="mailto:george@mitratutor.com?subject=North%20Georgia%20partnership" class="btn-cta-primary">Email George &rarr;</a>
+  </div>
+
 </div>
+
+<script>
+  if (typeof Chart !== 'undefined') {
+    const weekLabels = ['W1','W2','W3','W4','W5','W6','W7','W8'];
+    new Chart(document.getElementById('ngComboChart'), {
+      type: 'bar',
+      data: { labels: weekLabels, datasets: [
+        { label: 'Sessions', data: [3,4,3,4,4,5,4,5], backgroundColor: '#FF8B3D', yAxisID: 'y' },
+        { label: 'Minutes', data: [78,102,91,110,124,138,132,168], type: 'line', borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.1)', tension: 0.3, yAxisID: 'y1' }
+      ]},
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: true, labels: { font: { size: 10 } } } },
+        scales: {
+          y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+          y1: { position: 'right', beginAtZero: true, ticks: { font: { size: 10 } }, grid: { display: false } },
+          x: { ticks: { font: { size: 10 } }, grid: { display: false } }
+        }
+      }
+    });
+    new Chart(document.getElementById('ngQuestionsChart'), {
+      type: 'line',
+      data: { labels: weekLabels, datasets: [{
+        label: 'Questions', data: [12,17,14,21,19,24,22,28],
+        borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.15)',
+        fill: true, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#10b981'
+      }]},
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+                  x: { ticks: { font: { size: 10 } }, grid: { display: false } } }
+      }
+    });
+  }
+</script>
