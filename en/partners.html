@@ -255,6 +255,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .pn-class-grid { grid-template-columns: 1fr; }
     .pn-topic-row { grid-template-columns: 22px 1fr 90px; }
   }
+
+  /* ===== Parent-side dashboard sample (single-student view) ===== */
+  .pn-pd { --accent: #FF8B3D; --accent-light: #FFE5D0; --tx-main: #2C3E50; --tx-muted: #94a3b8; }
+  .pn-pd-context { text-align: center; padding: 0.5rem 0 1rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 1.25rem; }
+  .pn-pd-context .name { font-size: 1.2rem; font-weight: 600; color: #2C3E50; margin: 0; }
+  .pn-pd-context .meta { font-size: 0.8rem; color: #94a3b8; margin-top: 0.15rem; }
+  .pn-pd-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.85rem; }
+  .pn-pd-grid-2 { display: grid; grid-template-columns: 5fr 7fr; gap: 0.6rem; margin-bottom: 0.85rem; }
+  @media (max-width: 720px) { .pn-pd-grid-4 { grid-template-columns: repeat(2, 1fr); } .pn-pd-grid-2 { grid-template-columns: 1fr; } }
+  .pn-pd-mc { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; padding: 0.8rem 1rem 0.9rem; }
+  .pn-pd-mc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+  .pn-pd-mc.time::before { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+  .pn-pd-mc.work::before { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .pn-pd-mc.q::before { background: linear-gradient(90deg, #10b981, #6ee7b7); }
+  .pn-pd-mc-l { font-size: 0.72rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+  .pn-pd-mc-v { font-size: 1.5rem; font-weight: 700; color: var(--tx-main); line-height: 1.1; margin: 0.15rem 0; }
+  .pn-pd-mc-s { font-size: 0.72rem; margin: 0; color: var(--tx-muted); }
+  .pn-pd-mc-s.up { color: #10b981; }
+  .pn-pd-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.9rem 1rem; }
+  .pn-pd-section-title { font-size: 0.78rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.7rem; }
+  .pn-pd-heat-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; max-width: 260px; margin: 0 auto; }
+  .pn-pd-heat-cell { aspect-ratio: 1; border-radius: 2px; background: #f1f5f9; }
+  .pn-pd-heat-cell[data-c="1"] { background: var(--accent-light); }
+  .pn-pd-heat-cell[data-c="2"] { background: #ffcc99; }
+  .pn-pd-heat-cell[data-c="3"] { background: var(--accent); opacity: 0.7; }
+  .pn-pd-heat-cell[data-c="4"] { background: var(--accent); }
+  .pn-pd-heat-headers { display: flex; gap: 1px; max-width: 260px; margin: 0 auto 4px; font-size: 0.65rem; color: var(--tx-muted); }
+  .pn-pd-heat-headers span { flex: 1; text-align: center; }
+  .pn-pd-tech-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .pn-pd-tech-row .name { font-size: 0.85rem; flex: 1; }
+  .pn-pd-tech-bar { height: 5px; border-radius: 3px; background: #f1f5f9; overflow: hidden; flex: 1; }
+  .pn-pd-tech-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+  .pn-pd-tech-count { font-size: 0.75rem; color: var(--tx-muted); min-width: 22px; text-align: right; }
+  .pn-pd-frame-note { font-size: 0.85rem; color: #4a5568; background: #fff7ed; border-left: 3px solid #FF8B3D; padding: 0.7rem 0.9rem; border-radius: 6px; margin-bottom: 1.25rem; }
+  .pn-pd-footnote { font-size: 0.78rem; color: #94a3b8; font-style: italic; text-align: center; margin-top: 1.25rem; }
+
+  /* ===== Advisor conversation (long-form) ===== */
+  .pn-adv-time { font-size: 0.72rem; color: #94a3b8; text-align: center; margin: 0.4rem 0; }
+  .pn-msg.from-partner { justify-content: flex-end; flex-direction: row-reverse; }
+  .pn-msg.from-partner .pn-bubble { background: #FF8B3D; color: #fff; border-bottom-right-radius: 4px; }
+  .pn-adv-row { display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 0.6rem; }
+  .pn-adv-response { background: #eef2f7; color: #1A1A2E; border-radius: 14px; border-bottom-left-radius: 4px; padding: 1rem 1.2rem; max-width: 92%; }
+  .pn-adv-response p { margin: 0 0 0.75rem; line-height: 1.6; font-size: 0.95rem; }
+  .pn-adv-response p:last-child { margin-bottom: 0; }
+  .pn-adv-response strong { font-weight: 700; }
 </style>
 
 <div class="row justify-content-center">
@@ -482,6 +527,96 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <p class="text-muted small mt-3 mb-0" style="font-size:0.82rem; font-style:italic;">Sample. Representative shape based on real partner-cohort data. Privacy floor: per-student detail, topic frequency, and challenge patterns render only when more than 5 active students are in scope.</p>
 
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion pn-accordion" id="parentDashSample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parentDashPanel" aria-expanded="false" aria-controls="parentDashPanel">
+        See a sample of what your students' families see
+      </button>
+    </h2>
+    <div id="parentDashPanel" class="accordion-collapse collapse" data-bs-parent="#parentDashSample">
+      <div class="accordion-body">
+
+        <div class="pn-pd-frame-note">
+          <strong>Two views, one source of truth.</strong> The cohort dashboard above is what you see as a partner. Each family separately sees a per-child dashboard like this one for their own kid. Partners never see this view; parents never see your cohort view. The transcripts themselves stay private to the student-Mitra relationship.
+        </div>
+
+        <div class="pn-pd">
+          <div class="pn-pd-context">
+            <p class="name">Addy</p>
+            <p class="meta">Grade 7 &middot; 8 weeks with Mitra &middot; last 7 days</p>
+          </div>
+
+          <div class="pn-pd-grid-4">
+            <div class="pn-pd-mc"><p class="pn-pd-mc-l">Sessions</p><p class="pn-pd-mc-v">5</p><p class="pn-pd-mc-s up">▲ +1 vs last week</p></div>
+            <div class="pn-pd-mc time"><p class="pn-pd-mc-l">Total time</p><p class="pn-pd-mc-v">3.4h</p><p class="pn-pd-mc-s up">▲ +42 min</p></div>
+            <div class="pn-pd-mc work"><p class="pn-pd-mc-l">Work completed</p><p class="pn-pd-mc-v">17</p><p class="pn-pd-mc-s">14 correct, 1 partial, 2 set aside</p></div>
+            <div class="pn-pd-mc q"><p class="pn-pd-mc-l">Questions asked</p><p class="pn-pd-mc-v">28</p><p class="pn-pd-mc-s">by Addy</p></div>
+          </div>
+
+          <div class="pn-pd-grid-2">
+            <div class="pn-pd-card">
+              <p class="pn-pd-section-title">Activity (last 4 weeks)</p>
+              <div class="pn-pd-heat-headers"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+              <div class="pn-pd-heat-grid">
+                <div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="0"></div>
+                <div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div>
+                <div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="0"></div>
+                <div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="3"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="2"></div>
+              </div>
+            </div>
+            <div class="pn-pd-card">
+              <p class="pn-pd-section-title">What's working</p>
+              <div class="pn-pd-tech-row"><span class="name">Walking the number line concretely</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:100%;"></div></div><span class="pn-pd-tech-count">6×</span></div>
+              <div class="pn-pd-tech-row"><span class="name">Bridging through her interests</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:83%;"></div></div><span class="pn-pd-tech-count">5×</span></div>
+              <div class="pn-pd-tech-row"><span class="name">Topic-detail-so-what scaffold</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:67%;"></div></div><span class="pn-pd-tech-count">4×</span></div>
+              <div class="pn-pd-tech-row"><span class="name">Reframing slips as fatigue</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:50%;"></div></div><span class="pn-pd-tech-count">3×</span></div>
+              <div class="pn-pd-tech-row"><span class="name">Asking what she already knows</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:33%;"></div></div><span class="pn-pd-tech-count">2×</span></div>
+            </div>
+          </div>
+
+          <p class="pn-pd-footnote">Sample. Representative data based on real student-Mitra sessions. Full sample dashboard with weekly letter at <a href="/en/parent-dashboard.html">parent-dashboard</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion pn-accordion" id="advisorSample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#advisorPanel" aria-expanded="false" aria-controls="advisorPanel">
+        See a sample conversation with the Mitra Tutoring Advisor
+      </button>
+    </h2>
+    <div id="advisorPanel" class="accordion-collapse collapse" data-bs-parent="#advisorSample">
+      <div class="accordion-body">
+        <p class="text-muted small mb-3" style="font-style: italic;">An actual partner-Mitra interaction. The Advisor mode is a peer mode for educators, distinct from the student-facing Mitra.</p>
+
+        <div class="pn-chat">
+          <div class="pn-adv-time">2026-05-04 11:48</div>
+          <div class="pn-msg from-partner"><div class="pn-bubble">Can you make me some suggestions on how to keep fractions interesting when teaching 6th graders?</div></div>
+
+          <div class="pn-adv-row">
+            <div class="pn-avatar">M</div>
+            <div class="pn-adv-response">
+              <p>Good question, fractions are where a lot of kids check out if it feels abstract and procedural.</p>
+              <p>A few angles worth considering, depending on what's already working in your program:</p>
+              <p><strong>Context before abstraction.</strong> If you haven't already, anchor fractions in things kids actually care about, pizza splits, recipe scaling, sports stats, split streaming revenue. The procedural stuff (LCD, equivalent fractions) makes way more sense once they've felt why you'd need it. Some tutors I know have kids design their own fair division problems first, <em>then</em> formalize the notation.</p>
+              <p><strong>Misconception-first teaching.</strong> Sixth graders often think 5/8 &gt; 3/4 because 5 &gt; 3. If you lead with that bump, actually surface it, name it, they're primed to notice why it's wrong. Beats trying to prevent it. Same with the idea that "fractions are always less than 1."</p>
+              <p><strong>Visual variety matters.</strong> Some kids lock onto number lines, some onto area models, some onto discrete objects. If one representation isn't landing, you probably don't need to convince them harder, switch mode. You might have a kid who <em>gets</em> 2/3 on a tape diagram but not on a pie chart.</p>
+              <p><strong>Build from parts to whole operations.</strong> A lot of sequences jump straight to "add 1/3 + 1/4." But can they comfortably describe <em>what's the same</em> and <em>what's different</em> about two fractions before combining? That foundation pays dividends.</p>
+              <p>What's the biggest friction point you're seeing with the 6th graders in your Algebra Foundations or ELA classes, is it getting fractions to stick, or moving from fractions into operations?</p>
+            </div>
+          </div>
         </div>
 
       </div>
