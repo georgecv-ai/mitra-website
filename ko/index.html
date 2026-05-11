@@ -510,8 +510,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .home-2026 .pricing-block .checks { list-style: none; padding: 0; margin: 18px 0 0; }
   .home-2026 .pricing-block .checks li { padding: 6px 0 6px 26px; position: relative; color: #2C3E50; }
   .home-2026 .pricing-block .checks li::before { content: "✓"; position: absolute; left: 0; color: #2A9D8F; font-weight: 800; font-size: 1.1rem; }
-  .home-2026 .pricing-block .mock-frame { background: #1a202c; border-radius: 28px; padding: 12px; max-width: 280px; margin: 0 auto; aspect-ratio: 9 / 19.5; display: flex; align-items: center; justify-content: center; color: #cbd5e0; font-size: 0.85rem; text-align: center; }
-  .home-2026 .pricing-block .mock-frame .mock-inner { background: #fff; width: 100%; height: 100%; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #4a5568; padding: 20px; }
+  .home-2026 .pricing-block .mock-frame { background: #1a202c; border-radius: 28px; padding: 10px; max-width: 280px; margin: 0 auto; aspect-ratio: 9 / 19.5; }
+  .home-2026 .pricing-block .mock-inner { background: #B2C7DA; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; position: relative; }
+  .home-2026 .pricing-block .mock-header { background: #f7fafc; padding: 10px 12px; border-top-left-radius: 20px; border-top-right-radius: 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #e2e8f0; position: relative; z-index: 2; }
+  .home-2026 .pricing-block .mock-header img { width: 28px; height: 28px; border-radius: 50%; }
+  .home-2026 .pricing-block .mock-header .mock-title { font-weight: 700; font-size: 0.85rem; color: #1a202c; }
+  .home-2026 .pricing-block .mock-header .mock-title small { display: block; font-weight: 400; font-size: 0.7rem; color: #718096; }
+  .home-2026 .pricing-block .chat-viewport { position: absolute; top: 50px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 12px 10px; }
+  .home-2026 .pricing-block .chat-viewport::before,
+  .home-2026 .pricing-block .chat-viewport::after { content: ""; position: absolute; left: 0; right: 0; height: 24px; z-index: 3; pointer-events: none; }
+  .home-2026 .pricing-block .chat-viewport::before { top: 0; background: linear-gradient(to bottom, #B2C7DA, transparent); }
+  .home-2026 .pricing-block .chat-viewport::after { bottom: 0; background: linear-gradient(to top, #B2C7DA, transparent); }
+  .home-2026 .pricing-block .chat-track { display: flex; flex-direction: column; gap: 7px; animation: scrollChat 36s linear infinite; }
+  .home-2026 .pricing-block .chat-msg { max-width: 78%; padding: 7px 10px; border-radius: 12px; font-size: 0.72rem; line-height: 1.4; word-wrap: break-word; }
+  .home-2026 .pricing-block .chat-msg.from-mitra { background: #ffffff; align-self: flex-start; color: #1a202c; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .home-2026 .pricing-block .chat-msg.from-student { background: #FEE500; align-self: flex-end; color: #1a202c; }
+  .home-2026 .pricing-block .chat-name { font-size: 0.62rem; color: #4a5568; margin-bottom: -3px; padding-left: 4px; }
+  @keyframes scrollChat {
+    0%   { transform: translateY(0); }
+    5%   { transform: translateY(0); }
+    95%  { transform: translateY(-50%); }
+    100% { transform: translateY(-50%); }
+  }
+  .home-2026 .pricing-block .mock-frame:hover .chat-track { animation-play-state: paused; }
 
   /* CTA buttons */
   .home-2026 .btn-primary-cta { display: inline-block; padding: 14px 30px; background: #2A9D8F; color: #fff; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1.05rem; transition: background 0.15s; }
@@ -829,10 +850,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <div class="mock-frame">
           <div class="mock-inner">
-            <video autoplay muted loop playsinline style="max-width:100%; max-height:100%; border-radius:14px;" poster="/ko/static/images/hero-illustration_001.png">
-              <source src="/ko/static/images/hero-animation.mp4" type="video/mp4">
-              <img src="/ko/static/images/hero-illustration_001.png" alt="미트라 대화 화면" style="max-width:100%;">
-            </video>
+            <div class="mock-header">
+              <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+              <div class="mock-title">
+                미트라
+                <small>온라인 · 보통 1분 내 답장</small>
+              </div>
+            </div>
+            <div class="chat-viewport">
+              <!-- chat-track is duplicated to allow seamless scroll loop via translateY(-50%) -->
+              <div class="chat-track">
+
+                <!-- Loop A -->
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">준호 왔어?? 학원 고생했다 ㅠㅠ</div>
+
+                <div class="chat-msg from-student">미트라!! 나 왔어!!</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">공룡 수학!! 예를 들면 이런 거야 👇</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">티라노 1마리가 하루에 고기 50kg 먹어. 그럼 준호 방에 있는 티라노 피규어 10마리는 몇 kg? ㅋㅋ 🦖</div>
+
+                <div class="chat-msg from-student">오오 해볼래!! 50이 10번이지??</div>
+                <div class="chat-msg from-student">50, 100, 150… 어 잠깐</div>
+                <div class="chat-msg from-student">아!! 50 뒤에 0 붙이면 되는거 같아!! 500??? 맞아??</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">맞아!!!! 🎉 50 × 10 = 500kg!!</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">그리고 준호가 엄청 똑똑한 거 발견한 거야 — 10 곱하면 0 붙이면 된다는 거!! 그거 진짜 수학 꿀팁이야</div>
+
+                <div class="chat-msg from-student">와!! 진짜??</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">참고로 실제 T-Rex는 하루 22~50kg 먹었대. 준호 방 피규어 10마리면 매일 500kg 해치우는 거ㅋㅋㅋ 😱</div>
+
+                <div class="chat-msg from-student">미트라 진짜 재밌어!! 학원은 진짜 지루한데…</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">나도 준호랑 공부하고 싶어 😄 공룡 얘기하면서 수학도 하고, 국어도 할 수 있어!!</div>
+
+                <!-- Loop B (duplicate of A for seamless scroll) -->
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">준호 왔어?? 학원 고생했다 ㅠㅠ</div>
+
+                <div class="chat-msg from-student">미트라!! 나 왔어!!</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">공룡 수학!! 예를 들면 이런 거야 👇</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">티라노 1마리가 하루에 고기 50kg 먹어. 그럼 준호 방에 있는 티라노 피규어 10마리는 몇 kg? ㅋㅋ 🦖</div>
+
+                <div class="chat-msg from-student">오오 해볼래!! 50이 10번이지??</div>
+                <div class="chat-msg from-student">50, 100, 150… 어 잠깐</div>
+                <div class="chat-msg from-student">아!! 50 뒤에 0 붙이면 되는거 같아!! 500??? 맞아??</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">맞아!!!! 🎉 50 × 10 = 500kg!!</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">그리고 준호가 엄청 똑똑한 거 발견한 거야 — 10 곱하면 0 붙이면 된다는 거!! 그거 진짜 수학 꿀팁이야</div>
+
+                <div class="chat-msg from-student">와!! 진짜??</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">참고로 실제 T-Rex는 하루 22~50kg 먹었대. 준호 방 피규어 10마리면 매일 500kg 해치우는 거ㅋㅋㅋ 😱</div>
+
+                <div class="chat-msg from-student">미트라 진짜 재밌어!! 학원은 진짜 지루한데…</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">나도 준호랑 공부하고 싶어 😄 공룡 얘기하면서 수학도 하고, 국어도 할 수 있어!!</div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
