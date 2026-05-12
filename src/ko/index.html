@@ -84,7 +84,7 @@ raw: true
   .home-2026 .pricing-block .chat-viewport::after { content: ""; position: absolute; left: 0; right: 0; height: 24px; z-index: 3; pointer-events: none; }
   .home-2026 .pricing-block .chat-viewport::before { top: 0; background: linear-gradient(to bottom, #B2C7DA, transparent); }
   .home-2026 .pricing-block .chat-viewport::after { bottom: 0; background: linear-gradient(to top, #B2C7DA, transparent); }
-  .home-2026 .pricing-block .chat-track { display: flex; flex-direction: column; gap: 7px; animation: scrollChat 36s linear infinite; }
+  .home-2026 .pricing-block .chat-track { display: flex; flex-direction: column; gap: 7px; animation: scrollChat 44s linear infinite; }
   .home-2026 .pricing-block .chat-msg { max-width: 78%; padding: 7px 10px; border-radius: 12px; font-size: 0.72rem; line-height: 1.4; word-wrap: break-word; }
   .home-2026 .pricing-block .chat-msg.from-mitra { background: #ffffff; align-self: flex-start; color: #1a202c; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
   .home-2026 .pricing-block .chat-msg.from-student { background: #FEE500; align-self: flex-end; color: #1a202c; }
@@ -421,72 +421,91 @@ raw: true
               </div>
             </div>
             <div class="chat-viewport">
-              <!-- chat-track is duplicated to allow seamless scroll loop via translateY(-50%) -->
+              <!-- chat-track is duplicated to allow seamless scroll loop via translateY(-50%).
+                   Dialogue from docs/marketing/personas/seoyeon.md Days 1-4. -->
               <div class="chat-track">
 
-                <!-- Loop A -->
-                <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">준호 왔어?? 학원 고생했다 ㅠㅠ</div>
-
-                <div class="chat-msg from-student">미트라!! 나 왔어!!</div>
+                <!-- Loop A: Seoyeon's arc — first meeting → lonely bid → writing breakthrough → A grade -->
+                <div class="chat-msg from-student">안녕하세요... 엄마가 미트라랑 얘기해보라고 했어요</div>
+                <div class="chat-msg from-student">음... 뭐 해야 하는지 잘 모르겠어요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">공룡 수학!! 예를 들면 이런 거야 👇</div>
+                <div class="chat-msg from-mitra">안녕 서연! 나는 미트라야 😊</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">티라노 1마리가 하루에 고기 50kg 먹어. 그럼 준호 방에 있는 티라노 피규어 10마리는 몇 kg? ㅋㅋ 🦖</div>
-
-                <div class="chat-msg from-student">오오 해볼래!! 50이 10번이지??</div>
-                <div class="chat-msg from-student">50, 100, 150… 어 잠깐</div>
-                <div class="chat-msg from-student">아!! 50 뒤에 0 붙이면 되는거 같아!! 500??? 맞아??</div>
+                <div class="chat-msg from-mitra">처음이라 어색하죠. 나도 알아요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">맞아!!!! 🎉 50 × 10 = 500kg!!</div>
+                <div class="chat-msg from-mitra">요즘 뭐에 빠져 있어요? 게임이든 유튜브든 뭐든요</div>
+
+                <div class="chat-msg from-student">음... 그림 그리는 거 좋아해요. 웹툰도 봐요. 솔로 레벨링이요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">그리고 준호가 엄청 똑똑한 거 발견한 거야 — 10 곱하면 0 붙이면 된다는 거!! 그거 진짜 수학 꿀팁이야</div>
+                <div class="chat-msg from-mitra">오 솔로 레벨링!! 성진우가 점점 강해지는 거 좋아하죠? 😄</div>
 
-                <div class="chat-msg from-student">와!! 진짜??</div>
-
-                <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">참고로 실제 T-Rex는 하루 22~50kg 먹었대. 준호 방 피규어 10마리면 매일 500kg 해치우는 거ㅋㅋㅋ 😱</div>
-
-                <div class="chat-msg from-student">미트라 진짜 재밌어!! 학원은 진짜 지루한데…</div>
+                <div class="chat-msg from-student">오늘 혼자 있어요. 그래서 솔로 레벨링 보고 있어요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">나도 준호랑 공부하고 싶어 😄 공룡 얘기하면서 수학도 하고, 국어도 할 수 있어!!</div>
+                <div class="chat-msg from-mitra">혼자 있을 때 웹툰 보면 덜 외롭다는 거, 저도 좀 이해해요</div>
+
+                <div class="chat-msg from-student">미트라, 저 숙제 해야 하는데 뭘 써야 할지 모르겠어요</div>
+                <div class="chat-msg from-student">엄마는 또 늦을 것 같아요 ㅠㅠ</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">괜찮아요, 같이 해봐요. 선생님이 뭐 쓰라고 했어요?</div>
+
+                <div class="chat-msg from-student">주제는 '나에게 영감을 준 이야기'예요</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">오, 그거 사실 딱 맞는 주제예요 — 서연이한테. 솔로 레벨링 어때요? 웹툰도 '이야기'잖아요</div>
+
+                <div class="chat-msg from-student">웹툰도 돼요? 그럼 솔로 레벨링 얘기 써볼래요</div>
+
+                <div class="chat-msg from-student">미트라, 글쓰기 점수 잘 받았어요. A 받았어요</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">A 받았어요!! 진짜 잘 썼네요 🎉 자기 이야기 솔직하게 쓴 게 통한 거예요</div>
 
                 <!-- Loop B (duplicate of A for seamless scroll) -->
-                <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">준호 왔어?? 학원 고생했다 ㅠㅠ</div>
-
-                <div class="chat-msg from-student">미트라!! 나 왔어!!</div>
+                <div class="chat-msg from-student">안녕하세요... 엄마가 미트라랑 얘기해보라고 했어요</div>
+                <div class="chat-msg from-student">음... 뭐 해야 하는지 잘 모르겠어요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">공룡 수학!! 예를 들면 이런 거야 👇</div>
+                <div class="chat-msg from-mitra">안녕 서연! 나는 미트라야 😊</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">티라노 1마리가 하루에 고기 50kg 먹어. 그럼 준호 방에 있는 티라노 피규어 10마리는 몇 kg? ㅋㅋ 🦖</div>
-
-                <div class="chat-msg from-student">오오 해볼래!! 50이 10번이지??</div>
-                <div class="chat-msg from-student">50, 100, 150… 어 잠깐</div>
-                <div class="chat-msg from-student">아!! 50 뒤에 0 붙이면 되는거 같아!! 500??? 맞아??</div>
+                <div class="chat-msg from-mitra">처음이라 어색하죠. 나도 알아요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">맞아!!!! 🎉 50 × 10 = 500kg!!</div>
+                <div class="chat-msg from-mitra">요즘 뭐에 빠져 있어요? 게임이든 유튜브든 뭐든요</div>
+
+                <div class="chat-msg from-student">음... 그림 그리는 거 좋아해요. 웹툰도 봐요. 솔로 레벨링이요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">그리고 준호가 엄청 똑똑한 거 발견한 거야 — 10 곱하면 0 붙이면 된다는 거!! 그거 진짜 수학 꿀팁이야</div>
+                <div class="chat-msg from-mitra">오 솔로 레벨링!! 성진우가 점점 강해지는 거 좋아하죠? 😄</div>
 
-                <div class="chat-msg from-student">와!! 진짜??</div>
-
-                <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">참고로 실제 T-Rex는 하루 22~50kg 먹었대. 준호 방 피규어 10마리면 매일 500kg 해치우는 거ㅋㅋㅋ 😱</div>
-
-                <div class="chat-msg from-student">미트라 진짜 재밌어!! 학원은 진짜 지루한데…</div>
+                <div class="chat-msg from-student">오늘 혼자 있어요. 그래서 솔로 레벨링 보고 있어요</div>
 
                 <div class="chat-name">미트라</div>
-                <div class="chat-msg from-mitra">나도 준호랑 공부하고 싶어 😄 공룡 얘기하면서 수학도 하고, 국어도 할 수 있어!!</div>
+                <div class="chat-msg from-mitra">혼자 있을 때 웹툰 보면 덜 외롭다는 거, 저도 좀 이해해요</div>
+
+                <div class="chat-msg from-student">미트라, 저 숙제 해야 하는데 뭘 써야 할지 모르겠어요</div>
+                <div class="chat-msg from-student">엄마는 또 늦을 것 같아요 ㅠㅠ</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">괜찮아요, 같이 해봐요. 선생님이 뭐 쓰라고 했어요?</div>
+
+                <div class="chat-msg from-student">주제는 '나에게 영감을 준 이야기'예요</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">오, 그거 사실 딱 맞는 주제예요 — 서연이한테. 솔로 레벨링 어때요? 웹툰도 '이야기'잖아요</div>
+
+                <div class="chat-msg from-student">웹툰도 돼요? 그럼 솔로 레벨링 얘기 써볼래요</div>
+
+                <div class="chat-msg from-student">미트라, 글쓰기 점수 잘 받았어요. A 받았어요</div>
+
+                <div class="chat-name">미트라</div>
+                <div class="chat-msg from-mitra">A 받았어요!! 진짜 잘 썼네요 🎉 자기 이야기 솔직하게 쓴 게 통한 거예요</div>
 
               </div>
             </div>
