@@ -183,6 +183,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .ng-dashboard-frame-note { font-size: 0.85rem; color: #4a5568; background: #fff7ed; border-left: 3px solid #FF8B3D; padding: 0.7rem 0.9rem; border-radius: 6px; margin-bottom: 1.25rem; }
   .ng-dashboard-footnote { font-size: 0.78rem; color: #94a3b8; font-style: italic; text-align: center; margin-top: 1.25rem; }
 
+  /* ===== Partner cohort dashboard (mirrors partners.html .pn-dash) ===== */
+  .pn-dash { font-family: 'Inter', -apple-system, sans-serif; }
+  .pn-dash-hero { background: linear-gradient(135deg, #1B3A5C 0%, #2B4C7E 60%, #2A9D8F 140%); color: #fff; padding: 1.25rem 1.4rem; border-radius: 12px; margin-bottom: 1rem; }
+  .pn-dash-hero .head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem; align-items: flex-start; margin-bottom: 0.9rem; }
+  .pn-dash-hero h4 { color: #fff; margin: 0 0 0.2rem; font-weight: 700; font-size: 1.25rem; }
+  .pn-dash-hero .sub { font-size: 0.86rem; opacity: 0.85; }
+  .pn-dash-hero .health { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; padding: 0.45rem 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+  .pn-dash-hero .health .score { font-family: 'DM Sans', sans-serif; font-size: 1.6rem; font-weight: 700; line-height: 1; }
+  .pn-dash-hero .health .lab { font-size: 0.72rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pn-dash-hero .health .badge { background: #2A9D8F; color: #fff; padding: 2px 8px; border-radius: 999px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-top: 2px; }
+  .pn-dash-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+  .pn-dash-stat { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 0.55rem 0.7rem; }
+  .pn-dash-stat .v { font-family: 'DM Sans', sans-serif; font-size: 1.35rem; font-weight: 700; line-height: 1.05; color: #fff; }
+  .pn-dash-stat .l { font-size: 0.65rem; opacity: 0.78; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  .pn-heatmap-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .pn-panel-h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2B4C7E; margin: 0 0 0.5rem; }
+  .pn-heat-wrap { display: flex; gap: 0.4rem; align-items: flex-start; }
+  .pn-heat-labels { display: flex; flex-direction: column; gap: 2px; font-size: 0.65rem; color: #4a5568; }
+  .pn-heat-labels span { height: 18px; line-height: 18px; }
+  .pn-heat-grid { display: grid; grid-template-rows: repeat(7, 18px); grid-auto-flow: column; grid-auto-columns: 18px; gap: 2px; }
+  .pn-heat-cell { width: 18px; height: 18px; border-radius: 3px; background: #eef2f7; }
+  .pn-heat-cell.l1 { background: #c8d8eb; }
+  .pn-heat-cell.l2 { background: #93b6dd; }
+  .pn-heat-cell.l3 { background: #5b8fcc; }
+  .pn-heat-cell.l4 { background: #2B4C7E; }
+  .pn-heat-cell.l5 { background: #1B3A5C; }
+  .pn-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .pn-topic-row { display: grid; grid-template-columns: 24px 1fr 100px; gap: 0.75rem; align-items: center; padding: 0.55rem 0; border-bottom: 1px solid #e2e8f0; }
+  .pn-topic-row:last-child { border-bottom: none; }
+  .pn-topic-rank { width: 24px; height: 24px; border-radius: 50%; background: #d6e1ee; color: #2B4C7E; font-weight: 700; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; text-align: center; line-height: 24px; }
+  .pn-topic-name { font-weight: 600; font-size: 0.92rem; color: #1a202c; }
+  .pn-topic-bar { height: 7px; background: #eef2f7; border-radius: 4px; overflow: hidden; margin-top: 0.3rem; }
+  .pn-topic-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #2A9D8F 0%, #2B4C7E 100%); }
+  .pn-topic-meta { font-size: 0.78rem; color: #4a5568; text-align: right; font-variant-numeric: tabular-nums; }
+  .pn-topic-meta strong { display: block; color: #1a202c; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
+  .pn-challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%); border: 1px solid #fed7aa; border-left: 4px solid #f97316; border-radius: 10px; padding: 0.95rem 1.1rem; display: grid; grid-template-columns: 36px 1fr; gap: 0.85rem; margin-bottom: 1rem; }
+  .pn-challenge-icon { width: 36px; height: 36px; border-radius: 8px; background: #f97316; color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+  .pn-challenge .ch-title { font-weight: 700; color: #7c2d12; font-size: 1rem; margin-bottom: 0.15rem; }
+  .pn-challenge .ch-meta { font-size: 0.78rem; color: #9a3412; margin-bottom: 0.4rem; }
+  .pn-challenge .ch-meta strong { font-weight: 700; }
+  .pn-challenge .ch-action { background: rgba(255,255,255,0.7); border-radius: 6px; padding: 0.55rem 0.7rem; font-size: 0.85rem; line-height: 1.5; color: #1a202c; }
+  .pn-challenge .ch-action b { color: #7c2d12; }
+  .pn-class { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem 1.15rem; margin-bottom: 0.85rem; }
+  .pn-class-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.85rem; padding-bottom: 0.7rem; border-bottom: 1px solid #e2e8f0; }
+  .pn-class-name { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: #2B4C7E; margin: 0; }
+  .pn-class-pill { background: #d6e1ee; color: #2B4C7E; padding: 1px 8px; border-radius: 999px; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.4rem; }
+  .pn-class-counts { font-size: 0.78rem; color: #4a5568; }
+  .pn-class-counts strong { color: #1a202c; }
+  .pn-class-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .pn-class-block { padding: 0.75rem 0.85rem; border-radius: 8px; }
+  .pn-class-block.topic { background: linear-gradient(135deg, #f0f7f4 0%, #e7f3ee 100%); border: 1px solid #b6d8c9; }
+  .pn-class-block.challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%); border: 1px solid #fed7aa; }
+  .pn-class-block .blk-h { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .pn-class-block.topic .blk-h { color: #2A9D8F; }
+  .pn-class-block.challenge .blk-h { color: #9a3412; }
+  .pn-class-block .blk-main { font-family: 'DM Sans', sans-serif; font-size: 0.98rem; font-weight: 700; line-height: 1.2; color: #1a202c; margin-bottom: 0.25rem; }
+  .pn-class-block.challenge .blk-main { color: #7c2d12; }
+  .pn-class-block .blk-meta { font-size: 0.74rem; color: #4a5568; }
+  .pn-class-block.challenge .blk-meta { color: #9a3412; }
+  .pn-class-block .blk-action { background: rgba(255,255,255,0.7); border-radius: 6px; padding: 0.4rem 0.55rem; font-size: 0.78rem; line-height: 1.5; margin-top: 0.4rem; color: #1a202c; }
+  .pn-class-block .blk-action b { color: #7c2d12; }
+  @media (max-width: 720px) {
+    .pn-dash-stats { grid-template-columns: repeat(2, 1fr); }
+    .pn-class-grid { grid-template-columns: 1fr; }
+    .pn-topic-row { grid-template-columns: 22px 1fr 90px; }
+  }
+
   /* Founder note callout */
   .ng-founder-note { margin: 2.5rem 0; padding: 1.5rem 1.4rem; border-left: 4px solid #2B4C7E; background: #f9fafb; border-radius: 6px; }
   .ng-founder-note h3 { margin-top: 0; }
@@ -306,6 +373,162 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <p class="ng-dashboard-footnote">Sample. Representative data based on real student-Mitra sessions. Full sample dashboard with weekly letter at <a href="/en/parent-dashboard.html">parent-dashboard</a>.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="ng-details">
+    <summary>Partner Dashboard</summary>
+    <div class="ng-details-body">
+      <div class="ng-dashboard-frame-note">
+        <strong>What you see as a partner:</strong> the cohort view above your referred families. You see what's landing across your students without ever seeing individual transcripts. The privacy floor renders per-student detail, topic frequency, and challenge patterns only when more than 5 active students are in scope.
+      </div>
+
+      <div class="pn-dash">
+
+        <!-- Hero -->
+        <div class="pn-dash-hero">
+          <div class="head">
+            <div>
+              <h4>Sample Tutoring Center</h4>
+              <div class="sub">Last 30 days &middot; 16 active students &middot; 2 classes</div>
+            </div>
+            <div class="health">
+              <div class="score">87</div>
+              <div>
+                <div class="lab">Engagement</div>
+                <span class="badge">Healthy</span>
+              </div>
+            </div>
+          </div>
+          <div class="pn-dash-stats">
+            <div class="pn-dash-stat"><div class="v">16</div><div class="l">Active students</div></div>
+            <div class="pn-dash-stat"><div class="v">107</div><div class="l">Sessions (30d)</div></div>
+            <div class="pn-dash-stat"><div class="v">982</div><div class="l">Messages exchanged</div></div>
+            <div class="pn-dash-stat"><div class="v">29</div><div class="l">Active days</div></div>
+          </div>
+        </div>
+
+        <!-- Heatmap -->
+        <div class="pn-heatmap-card">
+          <div class="pn-panel-h">Activity</div>
+          <p class="text-muted small mb-2" style="font-size:0.78rem;">Last 42 days &middot; darker = more sessions</p>
+          <div class="pn-heat-wrap">
+            <div class="pn-heat-labels">
+              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            </div>
+            <div class="pn-heat-grid">
+              <div class="pn-heat-cell l1"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
+              <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+              <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+              <div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div>
+              <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
+              <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top topics -->
+        <div class="pn-card">
+          <div class="pn-panel-h">What students are working on</div>
+          <div class="pn-topic-row">
+            <div class="pn-topic-rank">1</div>
+            <div>
+              <div class="pn-topic-name">Linear equations</div>
+              <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
+            </div>
+            <div class="pn-topic-meta"><strong>39</strong>8 students</div>
+          </div>
+          <div class="pn-topic-row">
+            <div class="pn-topic-rank">2</div>
+            <div>
+              <div class="pn-topic-name">Main idea identification</div>
+              <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
+            </div>
+            <div class="pn-topic-meta"><strong>39</strong>7 students</div>
+          </div>
+          <div class="pn-topic-row">
+            <div class="pn-topic-rank">3</div>
+            <div>
+              <div class="pn-topic-name">Topic sentence + detail</div>
+              <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:97%;"></div></div>
+            </div>
+            <div class="pn-topic-meta"><strong>38</strong>6 students</div>
+          </div>
+          <div class="pn-topic-row">
+            <div class="pn-topic-rank">4</div>
+            <div>
+              <div class="pn-topic-name">Substitution method</div>
+              <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:72%;"></div></div>
+            </div>
+            <div class="pn-topic-meta"><strong>28</strong>5 students</div>
+          </div>
+        </div>
+
+        <!-- Top challenge -->
+        <div class="pn-card">
+          <div class="pn-panel-h">Where students get stuck and what to do</div>
+          <div class="pn-challenge">
+            <div class="pn-challenge-icon">!</div>
+            <div>
+              <div class="ch-title">Parallel lines case in systems</div>
+              <div class="ch-meta"><strong>11</strong> sessions &middot; <strong>5</strong> students affected</div>
+              <div class="ch-action"><b>Try:</b> Switch to graphing first to show why parallel slopes never intersect. Pair with a grid-based interest hook (Minecraft, LEGO Technic), both surface as engaged bridges in your data.</div>
+            </div>
+          </div>
+          <div class="pn-challenge">
+            <div class="pn-challenge-icon">!</div>
+            <div>
+              <div class="ch-title">Topic sentence vs supporting detail</div>
+              <div class="ch-meta"><strong>13</strong> sessions &middot; <strong>6</strong> students affected</div>
+              <div class="ch-action"><b>Try:</b> Use the one-sentence-summary drill: compress the paragraph to one sentence. That summary IS the topic sentence.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Per-class -->
+        <div class="pn-class">
+          <div class="pn-class-head">
+            <h5 class="pn-class-name">Algebra Foundations<span class="pn-class-pill">math</span></h5>
+            <div class="pn-class-counts"><strong>8</strong> students &middot; <strong>53</strong> sessions &middot; <strong>25</strong> active days</div>
+          </div>
+          <div class="pn-class-grid">
+            <div class="pn-class-block topic">
+              <div class="blk-h">Top topic</div>
+              <div class="blk-main">Linear equations</div>
+              <div class="blk-meta"><strong>39</strong> attempts &middot; <strong>8</strong> students</div>
+            </div>
+            <div class="pn-class-block challenge">
+              <div class="blk-h">Top challenge</div>
+              <div class="blk-main">Distributing across parentheses</div>
+              <div class="blk-meta"><strong>12</strong> times &middot; <strong>8</strong> students</div>
+              <div class="blk-action"><b>Try:</b> Rainbow-arrow drill: draw arcs from the outside number to each inside term. Most effective paired with a visual hook (LEGO scaling, sports-stat tables).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn-class">
+          <div class="pn-class-head">
+            <h5 class="pn-class-name">Brightline ELA 6&ndash;7<span class="pn-class-pill">english language arts</span></h5>
+            <div class="pn-class-counts"><strong>8</strong> students &middot; <strong>54</strong> sessions &middot; <strong>26</strong> active days</div>
+          </div>
+          <div class="pn-class-grid">
+            <div class="pn-class-block topic">
+              <div class="blk-h">Top topic</div>
+              <div class="blk-main">Main idea identification</div>
+              <div class="blk-meta"><strong>39</strong> attempts &middot; <strong>7</strong> students</div>
+            </div>
+            <div class="pn-class-block challenge">
+              <div class="blk-h">Top challenge</div>
+              <div class="blk-main">Topic sentence vs supporting detail</div>
+              <div class="blk-meta"><strong>13</strong> times &middot; <strong>6</strong> students</div>
+              <div class="blk-action"><b>Try:</b> One-sentence-summary drill: compress the paragraph to one sentence. That summary IS the topic sentence.</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-muted small mt-3 mb-0" style="font-size:0.82rem; font-style:italic;">Sample. Representative shape based on real partner-cohort data. Privacy floor: per-student detail, topic frequency, and challenge patterns render only when more than 5 active students are in scope.</p>
+
       </div>
     </div>
   </details>
