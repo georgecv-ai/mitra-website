@@ -128,7 +128,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>How it works</h3>
         <ol>
           <li><strong>Sign up below.</strong> No payment information needed.</li>
-          <li><strong>Your child starts chatting with Mitra</strong> on Telegram or KakaoTalk. Mitra builds a relationship first, then weaves in learning.</li>
+          <li><strong>Your child starts chatting with Mitra</strong> on Telegram, KakaoTalk, or WhatsApp. Mitra builds a relationship first, then weaves in learning.</li>
           <li><strong>After one month, we check in.</strong> If it's working well for your family (and for us), we extend to a full 3-month trial. If not, no hard feelings.</li>
         </ol>
       </div>
@@ -180,12 +180,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <select name="platform" class="form-select" required>
             <option value="telegram">Telegram</option>
             <option value="kakaotalk">KakaoTalk</option>
+            <option value="whatsapp">WhatsApp</option>
           </select>
         </div>
         <div class="mb-3" id="platform-id-group">
-          <label class="form-label">Telegram username or phone <span class="text-danger">*</span></label>
+          <label class="form-label" id="platform-id-label">Telegram username or phone <span class="text-danger">*</span></label>
           <input type="text" name="platform_id" class="form-control" placeholder="@username or phone number" />
-          <div class="form-text">Your child's Telegram username so Mitra can find them.</div>
+          <div class="form-text" id="platform-id-help">Your child's Telegram username so Mitra can find them.</div>
         </div>
 
         <div class="consent-box">
@@ -272,12 +273,24 @@ fetch(API_BASE + "/api/trial/status")
 
 document.querySelector('[name="platform"]').addEventListener("change", function() {
   const group = document.getElementById("platform-id-group");
+  const label = document.getElementById("platform-id-label");
+  const help = document.getElementById("platform-id-help");
+  const input = group.querySelector("input");
   if (this.value === "kakaotalk") {
     group.style.display = "none";
-    group.querySelector("input").required = false;
+    input.required = false;
+  } else if (this.value === "whatsapp") {
+    group.style.display = "block";
+    input.required = true;
+    label.innerHTML = 'WhatsApp phone number <span class="text-danger">*</span>';
+    help.textContent = "Include country code (e.g., +1 555 123 4567) so Mitra can match incoming messages to your child.";
+    input.placeholder = "+1 555 123 4567";
   } else {
     group.style.display = "block";
-    group.querySelector("input").required = true;
+    input.required = true;
+    label.innerHTML = 'Telegram username or phone <span class="text-danger">*</span>';
+    help.textContent = "Your child's Telegram username so Mitra can find them.";
+    input.placeholder = "@username or phone number";
   }
 });
 
