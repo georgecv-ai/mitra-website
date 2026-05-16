@@ -1,0 +1,222 @@
+<style>
+  /* ===== Mitra home-v2 (2e parent variant) ===== */
+  .hv2-page {
+    --navy: #2B4C7E;
+    --indigo: #4f46e5;
+    --indigo-dark: #4338ca;
+    --lavender: #f8f7ff;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .hv2-page section { padding: 5rem 1.25rem; }
+  .hv2-wrap { max-width: 1040px; margin: 0 auto; }
+  .hv2-narrow { max-width: 680px; }
+  .hv2-center { text-align: center; }
+
+  .hv2-h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--navy);
+    margin: 0 0 1.25rem;
+  }
+  .hv2-sub { font-size: 1.15rem; color: var(--muted); margin: 0 0 2rem; }
+
+  /* CTA button */
+  .hv2-cta {
+    display: inline-block;
+    background: var(--indigo);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.9rem 2.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .hv2-cta:hover { background: var(--indigo-dark); color: #fff; transform: translateY(-1px); }
+
+  /* 1. Hero */
+  .hv2-hero {
+    background: linear-gradient(180deg, #f3f1ff 0%, var(--lavender) 100%);
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .hv2-hero-quote {
+    margin: 0 auto 2.25rem;
+    max-width: 720px;
+    border: 0;
+    padding: 0;
+  }
+  .hv2-hero-quote p {
+    font-size: 1.9rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--navy);
+    margin: 0;
+  }
+  .hv2-hero-promise {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--ink);
+    max-width: 760px;
+    margin: 0 auto 1rem;
+  }
+  .hv2-hero-desc {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 2.25rem;
+  }
+
+  /* 2. Problem */
+  .hv2-problem { background: #fff; }
+  .hv2-problem p { font-size: 1.2rem; margin: 0 0 1.25rem; }
+  .hv2-problem-close {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1.3rem !important;
+    margin-top: 1.75rem !important;
+  }
+
+  /* 3. Recognition */
+  .hv2-recognition { background: var(--navy); }
+  .hv2-recognition .hv2-h2 { color: #fff; }
+  .hv2-recognition .hv2-sub { color: #c7d2e8; margin-bottom: 2.75rem; }
+  .hv2-vignettes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .hv2-vignette {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+    padding: 1.75rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  /* 4. What Mitra does */
+  .hv2-does { background: var(--lavender); }
+  .hv2-does .hv2-h2 { margin-bottom: 2.75rem; }
+  .hv2-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .hv2-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 2px 16px rgba(43,76,126,0.07);
+  }
+  .hv2-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.75rem;
+  }
+  .hv2-card p { margin: 0; color: var(--ink); }
+
+  /* 5. Why it works */
+  .hv2-why { background: #fff; }
+  .hv2-why .hv2-h2 { margin-bottom: 2.75rem; }
+  .hv2-points { display: flex; flex-direction: column; gap: 1.75rem; }
+  .hv2-point { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .hv2-point-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--indigo);
+    flex: 0 0 auto;
+    line-height: 1.2;
+  }
+  .hv2-point h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.35rem;
+  }
+  .hv2-point p { margin: 0; color: var(--muted); }
+
+  /* 6. How to start */
+  .hv2-start { background: var(--lavender); }
+  .hv2-start .hv2-h2 { margin-bottom: 2rem; }
+  .hv2-steps {
+    counter-reset: hv2step;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+  }
+  .hv2-steps li {
+    counter-increment: hv2step;
+    position: relative;
+    padding: 0.9rem 0 0.9rem 3rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #e6e3f5;
+  }
+  .hv2-steps li:last-child { border-bottom: 0; }
+  .hv2-steps li::before {
+    content: counter(hv2step);
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--indigo);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .hv2-mechanic {
+    background: #fff;
+    border: 1px solid #e6e3f5;
+    border-radius: 10px;
+    padding: 1.1rem 1.35rem;
+    font-size: 0.98rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* 7. FAQ */
+  .hv2-faq { background: #fff; }
+  .hv2-faq .hv2-h2 { margin-bottom: 2.25rem; }
+  .hv2-qa { padding: 1.25rem 0; border-bottom: 1px solid #ececf3; }
+  .hv2-qa:last-child { border-bottom: 0; }
+  .hv2-qa h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.4rem;
+  }
+  .hv2-qa p { margin: 0; color: var(--ink); }
+
+  /* 8. Final CTA */
+  .hv2-final {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+  }
+  .hv2-final .hv2-h2 { color: #fff; }
+  .hv2-final .hv2-sub { color: #dfe3f4; }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .hv2-page section { padding: 3.5rem 1.1rem; }
+    .hv2-hero { padding-top: 4rem; padding-bottom: 4rem; }
+    .hv2-hero-quote p { font-size: 1.4rem; }
+    .hv2-hero-promise { font-size: 1.85rem; }
+    .hv2-h2 { font-size: 1.6rem; }
+    .hv2-vignettes { grid-template-columns: 1fr; }
+    .hv2-cards { grid-template-columns: 1fr; }
+    .hv2-point { gap: 1rem; }
+  }
+</style>

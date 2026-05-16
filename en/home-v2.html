@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mitra is a tutor for the twice-exceptional kid: years ahead in their head, stuck on the worksheet. Built for the kid everyone keeps getting wrong." />
+  <title>Misread, then mistaught — Mitra for twice-exceptional kids</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/en/static/style.css" />
+  <link rel="icon" type="image/png" href="/en/static/images/mitra-logo-icon-v2_003.png">
+  <link rel="canonical" href="https://www.mitratutor.com/en/home-v2" />
+  <meta property="og:title" content="Misread, then mistaught — Mitra for twice-exceptional kids" />
+  <meta property="og:description" content="Mitra is a tutor for the twice-exceptional kid: years ahead in their head, stuck on the worksheet. Built for the kid everyone keeps getting wrong." />
+  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mitratutor.com/en/home-v2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Misread, then mistaught — Mitra for twice-exceptional kids" />
+  <meta name="twitter:description" content="Mitra is a tutor for the twice-exceptional kid: years ahead in their head, stuck on the worksheet. Built for the kid everyone keeps getting wrong." />
+  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <link rel="alternate" hreflang="en" href="https://www.mitratutor.com/en/home-v2" />
+  <link rel="alternate" hreflang="ko" href="https://www.mitratutor.com/ko/home-v2" />
+  <link rel="alternate" hreflang="x-default" href="https://www.mitratutor.com/en/home-v2" />
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-LsAoaHD8Mux3yrUonjE7S.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5S43DC8L');</script>
+<!-- End Google Tag Manager -->
+<style>
+  /* ===== Mitra home-v2 (2e parent variant) ===== */
+  .hv2-page {
+    --navy: #2B4C7E;
+    --indigo: #4f46e5;
+    --indigo-dark: #4338ca;
+    --lavender: #f8f7ff;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .hv2-page section { padding: 5rem 1.25rem; }
+  .hv2-wrap { max-width: 1040px; margin: 0 auto; }
+  .hv2-narrow { max-width: 680px; }
+  .hv2-center { text-align: center; }
+
+  .hv2-h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--navy);
+    margin: 0 0 1.25rem;
+  }
+  .hv2-sub { font-size: 1.15rem; color: var(--muted); margin: 0 0 2rem; }
+
+  /* CTA button */
+  .hv2-cta {
+    display: inline-block;
+    background: var(--indigo);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.9rem 2.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .hv2-cta:hover { background: var(--indigo-dark); color: #fff; transform: translateY(-1px); }
+
+  /* 1. Hero */
+  .hv2-hero {
+    background: linear-gradient(180deg, #f3f1ff 0%, var(--lavender) 100%);
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .hv2-hero-quote {
+    margin: 0 auto 2.25rem;
+    max-width: 720px;
+    border: 0;
+    padding: 0;
+  }
+  .hv2-hero-quote p {
+    font-size: 1.9rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--navy);
+    margin: 0;
+  }
+  .hv2-hero-promise {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--ink);
+    max-width: 760px;
+    margin: 0 auto 1rem;
+  }
+  .hv2-hero-desc {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 2.25rem;
+  }
+
+  /* 2. Problem */
+  .hv2-problem { background: #fff; }
+  .hv2-problem p { font-size: 1.2rem; margin: 0 0 1.25rem; }
+  .hv2-problem-close {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1.3rem !important;
+    margin-top: 1.75rem !important;
+  }
+
+  /* 3. Recognition */
+  .hv2-recognition { background: var(--navy); }
+  .hv2-recognition .hv2-h2 { color: #fff; }
+  .hv2-recognition .hv2-sub { color: #c7d2e8; margin-bottom: 2.75rem; }
+  .hv2-vignettes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .hv2-vignette {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+    padding: 1.75rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  /* 4. What Mitra does */
+  .hv2-does { background: var(--lavender); }
+  .hv2-does .hv2-h2 { margin-bottom: 2.75rem; }
+  .hv2-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .hv2-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 2px 16px rgba(43,76,126,0.07);
+  }
+  .hv2-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.75rem;
+  }
+  .hv2-card p { margin: 0; color: var(--ink); }
+
+  /* 5. Why it works */
+  .hv2-why { background: #fff; }
+  .hv2-why .hv2-h2 { margin-bottom: 2.75rem; }
+  .hv2-points { display: flex; flex-direction: column; gap: 1.75rem; }
+  .hv2-point { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .hv2-point-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--indigo);
+    flex: 0 0 auto;
+    line-height: 1.2;
+  }
+  .hv2-point h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.35rem;
+  }
+  .hv2-point p { margin: 0; color: var(--muted); }
+
+  /* 6. How to start */
+  .hv2-start { background: var(--lavender); }
+  .hv2-start .hv2-h2 { margin-bottom: 2rem; }
+  .hv2-steps {
+    counter-reset: hv2step;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+  }
+  .hv2-steps li {
+    counter-increment: hv2step;
+    position: relative;
+    padding: 0.9rem 0 0.9rem 3rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #e6e3f5;
+  }
+  .hv2-steps li:last-child { border-bottom: 0; }
+  .hv2-steps li::before {
+    content: counter(hv2step);
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--indigo);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .hv2-mechanic {
+    background: #fff;
+    border: 1px solid #e6e3f5;
+    border-radius: 10px;
+    padding: 1.1rem 1.35rem;
+    font-size: 0.98rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* 7. FAQ */
+  .hv2-faq { background: #fff; }
+  .hv2-faq .hv2-h2 { margin-bottom: 2.25rem; }
+  .hv2-qa { padding: 1.25rem 0; border-bottom: 1px solid #ececf3; }
+  .hv2-qa:last-child { border-bottom: 0; }
+  .hv2-qa h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.4rem;
+  }
+  .hv2-qa p { margin: 0; color: var(--ink); }
+
+  /* 8. Final CTA */
+  .hv2-final {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+  }
+  .hv2-final .hv2-h2 { color: #fff; }
+  .hv2-final .hv2-sub { color: #dfe3f4; }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .hv2-page section { padding: 3.5rem 1.1rem; }
+    .hv2-hero { padding-top: 4rem; padding-bottom: 4rem; }
+    .hv2-hero-quote p { font-size: 1.4rem; }
+    .hv2-hero-promise { font-size: 1.85rem; }
+    .hv2-h2 { font-size: 1.6rem; }
+    .hv2-vignettes { grid-template-columns: 1fr; }
+    .hv2-cards { grid-template-columns: 1fr; }
+    .hv2-point { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S43DC8L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/en/"><img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown1" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown1">
+            <li><a class="dropdown-item" href="/en/principles.html">Principles & Practice</a></li>
+            <li><a class="dropdown-item" href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+            <li><a class="dropdown-item" href="/en/for-parents.html">For Parents</a></li>
+            <li><a class="dropdown-item" href="/en/for-students.html">For Students</a></li>
+            <li><a class="dropdown-item" href="/en/partners.html">For Academies, Hagwons, Schools & Tutors</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown2">
+            <li><a class="dropdown-item" href="/en/faq.html">FAQ</a></li>
+            <li><a class="dropdown-item" href="/en/compliance.html">Compliance</a></li>
+            <li><a class="dropdown-item" href="/en/about.html">Why Build Mitra</a></li>
+            <li><a class="dropdown-item" href="/en/blog/">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/en/parent/login">Parent Login</a></li>
+        <!-- Language toggle -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" style="border-radius:2px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item active" href="/en/home-v2.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
+            <li><a class="dropdown-item " href="/ko/home-v2.html"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+<div class="hv2-page">
+
+  <!-- 1. HERO -->
+  <section class="hv2-hero">
+    <div class="hv2-wrap">
+      <blockquote class="hv2-hero-quote">
+        <p>"Her IEP says she 'doesn't apply effort.'</p>
+        <p>She built a working drone last weekend."</p>
+      </blockquote>
+      <h1 class="hv2-hero-promise">Mitra is a tutor for the kid everyone keeps getting wrong.</h1>
+      <p class="hv2-hero-desc">An AI tutor your kid talks with, right in the messaging app you already use.</p>
+      <a class="hv2-cta" href="/en/free-trial.html">Start your free week</a>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEM -->
+  <section class="hv2-problem">
+    <div class="hv2-wrap hv2-narrow">
+      <h2 class="hv2-h2">Misread, then mistaught.</h2>
+      <p>Your kid pours everything into what grips them and has little left for what doesn't. That isn't a character flaw. It's how a twice-exceptional mind is wired.</p>
+      <p>But it is easy to read wrong, so it gets read wrong: as lazy, as defiant, as "not applying effort." And a kid who's been read wrong gets taught wrong. Not from malice. An honest mistake, repeated by every worksheet and report card built for a different kid.</p>
+      <p class="hv2-problem-close">None of it was their fault. And it can be fixed.</p>
+    </div>
+  </section>
+
+  <!-- 3. RECOGNITION -->
+  <section class="hv2-recognition">
+    <div class="hv2-wrap">
+      <h2 class="hv2-h2 hv2-center">You already know this kid.</h2>
+      <p class="hv2-sub hv2-center">Maybe they're yours.</p>
+      <div class="hv2-vignettes">
+        <div class="hv2-vignette">He reads three grades ahead. He won't write one sentence.</div>
+        <div class="hv2-vignette">He can solve a Rubik's cube in 90 seconds. He can't get his shoes on.</div>
+        <div class="hv2-vignette">She's the smartest kid in the room. She failed the test.</div>
+        <div class="hv2-vignette">He can tell you everything about the deep sea. The worksheet is about apples.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHAT MITRA DOES -->
+  <section class="hv2-does">
+    <div class="hv2-wrap">
+      <h2 class="hv2-h2 hv2-center">A tutor that starts with who they are.</h2>
+      <div class="hv2-cards">
+        <div class="hv2-card">
+          <h3>Meets them through what they love.</h3>
+          <p>Mitra finds the line between the drone and the physics, the deep sea and the paragraph. The interest isn't a distraction from the work. It's the way in.</p>
+        </div>
+        <div class="hv2-card">
+          <h3>Meets each subject at its real level.</h3>
+          <p>A 2e kid isn't "ahead" or "behind." They're both, in different subjects, on the same day. Mitra teaches each one where it actually is, so they're never bored and never drowning.</p>
+        </div>
+        <div class="hv2-card">
+          <h3>No judgment, ever.</h3>
+          <p>Mitra has infinite patience and no history with the word "lazy." A kid who feels safe stops bracing and starts working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WHY IT WORKS -->
+  <section class="hv2-why">
+    <div class="hv2-wrap hv2-narrow">
+      <h2 class="hv2-h2 hv2-center">Why this works when other things haven't.</h2>
+      <div class="hv2-points">
+        <div class="hv2-point">
+          <span class="hv2-point-num">01</span>
+          <div>
+            <h3>A kid engages when they're known, not managed.</h3>
+            <p>Mitra builds the relationship before she builds the lesson.</p>
+          </div>
+        </div>
+        <div class="hv2-point">
+          <span class="hv2-point-num">02</span>
+          <div>
+            <h3>Interest is the engine, not the reward.</h3>
+            <p>School treats a kid's passion as a treat for finishing the boring part. Mitra runs the lesson on it.</p>
+          </div>
+        </div>
+        <div class="hv2-point">
+          <span class="hv2-point-num">03</span>
+          <div>
+            <h3>Help in the moment it's needed.</h3>
+            <p>The worksheet meltdown happens at 9pm, not in a tutoring slot on Tuesday. Mitra is there at 9pm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. HOW TO START -->
+  <section class="hv2-start">
+    <div class="hv2-wrap hv2-narrow">
+      <h2 class="hv2-h2 hv2-center">Starting takes about five minutes.</h2>
+      <ol class="hv2-steps">
+        <li>Tell us a little about your kid.</li>
+        <li>Pick the app you already use: KakaoTalk, Telegram, or WhatsApp.</li>
+        <li>Your kid sends Mitra a first hello.</li>
+        <li>Mitra spends the first sessions getting to know them, not testing them.</li>
+        <li>The first week is free. If it's working, keep going.</li>
+      </ol>
+      <p class="hv2-mechanic">Starting the free week sets up your subscription, so there's no second sign-up later. If Mitra isn't right for your kid, cancel any time in that first week and you won't be charged.</p>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="hv2-faq">
+    <div class="hv2-wrap hv2-narrow">
+      <h2 class="hv2-h2 hv2-center">Questions parents ask.</h2>
+      <div class="hv2-qa">
+        <h3>Is this AI just doing his homework for him?</h3>
+        <p>No. Mitra doesn't hand over answers. She does what a good tutor does: gets them to the answer themselves.</p>
+      </div>
+      <div class="hv2-qa">
+        <h3>My kid won't talk to a tutor.</h3>
+        <p>Mitra isn't a stranger with a worksheet. She opens by being interested in them. Most kids talk back.</p>
+      </div>
+      <div class="hv2-qa">
+        <h3>He's years ahead in some things, behind in others. Can it handle that?</h3>
+        <p>That contradiction is the exact kid Mitra was built for.</p>
+      </div>
+      <div class="hv2-qa">
+        <h3>Does this replace his school or his IEP?</h3>
+        <p>No. It works alongside both.</p>
+      </div>
+      <div class="hv2-qa">
+        <h3>What ages is this for?</h3>
+        <p>Mitra works with kids in grades 6 through 12.</p>
+      </div>
+      <div class="hv2-qa">
+        <h3>What if it doesn't work for him?</h3>
+        <p>The first week is free, and you can stop within that week with no charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL CTA -->
+  <section class="hv2-final">
+    <div class="hv2-wrap hv2-center">
+      <h2 class="hv2-h2">Your kid was never the problem.</h2>
+      <p class="hv2-sub">Give them a tutor who starts there.</p>
+      <a class="hv2-cta" href="/en/free-trial.html">Start your free week</a>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand mb-4">
+      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
+      <span class="footer-logo">Mitra AI Tutor</span>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Learn</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+          <li><a href="/en/for-parents.html">For Parents</a></li>
+          <li><a href="/en/for-students.html">For Students</a></li>
+          <li><a href="/en/partners.html">For Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Resources</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/faq.html">FAQ</a></li>
+          <li><a href="/en/compliance.html">Compliance</a></li>
+          <li><a href="/en/about.html">Why Build Mitra</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Legal</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/privacy.html">Privacy</a></li>
+          <li><a href="/en/terms.html">Terms</a></li>
+          <li><a href="/en/refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Get started</h6>
+        <ul class="footer-col-links">
+          <li><a href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+          <li><a href="https://staging.mitratutor.com/en/parent/login">Parent Login</a></li>
+          <li><a href="https://staging.mitratutor.com/en/org/login">Partner Login</a></li>
+          <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
+        </ul>
+      </div>
+    <div class="footer-muted small text-muted text-center mt-3"><a href="https://staging.mitratutor.com/admin/login" class="text-muted">Admin</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
+      <div class="small text-muted">
+        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
