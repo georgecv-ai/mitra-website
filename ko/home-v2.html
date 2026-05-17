@@ -266,7 +266,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .kv2-sol-point h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin: 0 0 0.5rem; }
   .kv2-sol-point p { margin: 0; color: var(--muted); font-size: 0.92rem; }
-  .kv2-table-ph { min-height: 220px; }
+  .kv2-compare-title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.9rem;
+  }
+  .kv2-compare-scroll { overflow-x: auto; }
+  .kv2-compare {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .kv2-compare th, .kv2-compare td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 0.95rem;
+  }
+  .kv2-compare th { background: #f7fafc; font-weight: 700; color: var(--ink); }
+  .kv2-compare th.kv2-mitra-col { background: var(--green); color: #fff; }
+  .kv2-compare td.kv2-feature { text-align: left; font-weight: 600; color: var(--ink); }
+  .kv2-compare td.kv2-mitra-cell { background: #e6fffa; font-weight: 700; color: var(--green); }
+  .kv2-check { color: var(--green); font-weight: 700; }
+  .kv2-cross { color: #cbd5e0; }
+  .kv2-partial { color: #ed8936; }
   .kv2-privacy {
     text-align: center;
     margin: 1.75rem 0 0;
@@ -479,7 +507,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>검증된 코퍼스에 기반한 언어 소통 모델.</p>
         </div>
       </div>
-      <div class="kv2-img-ph kv2-table-ph" data-ph="미트라 vs 일반 AI 비교 표 (콘텐츠 미확정)">비교 표</div>
+      <h3 class="kv2-compare-title">미트라의 차별점</h3>
+      <div class="kv2-compare-scroll">
+        <table class="kv2-compare">
+          <thead>
+            <tr>
+              <th></th>
+              <th>ChatGPT</th>
+              <th>과외 선생님</th>
+              <th class="kv2-mitra-col">미트라</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="kv2-feature">전문적인 교과 지식</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            <tr><td class="kv2-feature">남다른 학습 방식 이해</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-partial">◐</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            <tr><td class="kv2-feature">개인별 맞춤 지도</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            <tr><td class="kv2-feature">자유로운 시간 선택</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            <tr><td class="kv2-feature">친근한 메신저 기반 소통</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            <tr><td class="kv2-feature">지속적인 학습 이력 관리</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            <tr><td class="kv2-feature">합리적인 비용</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
       <p class="kv2-privacy">강력한 개인정보보안으로 아이도 부모님도 안심하세요.</p>
     </div>
   </section>
