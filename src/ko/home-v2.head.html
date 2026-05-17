@@ -76,7 +76,73 @@
     margin: 0 0 1.75rem;
   }
   .kv2-hero-h1 em { font-style: normal; color: var(--green); }
-  .kv2-hero-ph { margin-top: 2.75rem; min-height: 320px; }
+  /* Phone mockups (hero 3-up + closing) */
+  .kv2-phones {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .kv2-phone {
+    background: #20242e;
+    border-radius: 30px;
+    padding: 8px;
+    box-shadow: 0 18px 42px rgba(31,42,38,0.28);
+    flex: 0 0 auto;
+  }
+  .kv2-phone-side { width: 214px; }
+  .kv2-phones .kv2-phone:first-child { transform: rotate(-5deg) translateY(26px); }
+  .kv2-phones .kv2-phone:last-child { transform: rotate(5deg) translateY(26px); }
+  .kv2-phone-mid { width: 236px; position: relative; z-index: 2; }
+  .kv2-phone-closing { width: 248px; margin: 0 auto; }
+  .kv2-phone-screen {
+    border-radius: 23px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .kv2-phone-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 14px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--ink);
+  }
+  .kv2-phone-ava { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; background: #eef3f1; }
+  .kv2-phone-body {
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-height: 296px;
+  }
+  .kv2-m { display: flex; align-items: flex-end; gap: 5px; }
+  .kv2-m-them { justify-content: flex-start; }
+  .kv2-m-me { justify-content: flex-end; }
+  .kv2-m-ava { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; background: #fff; flex: 0 0 auto; }
+  .kv2-m-b {
+    max-width: 74%;
+    padding: 7px 10px;
+    border-radius: 13px;
+    font-size: 0.73rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .kv2-m-them .kv2-m-b { background: #fff; color: #1f2937; border-bottom-left-radius: 4px; }
+  .kv2-m-me .kv2-m-b { border-bottom-right-radius: 4px; }
+  .kv2-phone-kakao .kv2-phone-body { background: #b2c7d9; }
+  .kv2-phone-kakao .kv2-m-me .kv2-m-b { background: #fee500; color: #3a2e00; }
+  .kv2-phone-telegram .kv2-phone-body { background: #cfe5f5; }
+  .kv2-phone-telegram .kv2-m-me .kv2-m-b { background: #cce8ff; color: #14405e; }
+  .kv2-phone-whatsapp .kv2-phone-body { background: #e5ddd3; }
+  .kv2-phone-whatsapp .kv2-m-me .kv2-m-b { background: #d9fdd3; color: #1b3a26; }
 
   /* 2. 미트라가 전합니다 */
   .kv2-delivers { background: #fff; }
@@ -274,8 +340,7 @@
   .kv2-closing .kv2-h2 { color: #fff; }
   .kv2-closing .kv2-cta { background: #fff; color: var(--green-dark); margin-bottom: 2.5rem; }
   .kv2-closing .kv2-cta:hover { background: var(--kakao); color: #3a2e00; }
-  .kv2-closing-ph { min-height: 300px; max-width: 360px; margin: 0 auto; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.12); color: #fff; }
-  .kv2-closing-ph::after { color: rgba(255,255,255,0.7); }
+  .kv2-closing .kv2-phone-closing { margin-top: 0.5rem; }
 
   /* Responsive */
   @media (max-width: 760px) {
@@ -289,5 +354,9 @@
     .kv2-kakao-grid { grid-template-columns: 1fr; }
     .kv2-solution-points { grid-template-columns: 1fr; }
     .kv2-bubble { max-width: 90%; }
+    .kv2-phones { gap: 1.5rem; }
+    .kv2-phones .kv2-phone:first-child,
+    .kv2-phones .kv2-phone:last-child { transform: none; }
+    .kv2-phone-side, .kv2-phone-mid { width: 240px; }
   }
 </style>
