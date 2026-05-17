@@ -18,8 +18,9 @@ that George should confirm or override).
 | P3 | §2 성장 대시보드 | Growth-dashboard screen mockup image. Placeholder box. Export from Canva. |
 | P4 | §4 카톡 | Photo of a student with an iPad. Placeholder box. Export from Canva. |
 | P5 | §4 카톡 | KakaoTalk channel QR. Placeholder box. NOTE: a QR may already exist at `static/images/KT/mitra-kakaotalk-qr.png` — confirm and wire it if so. |
-| P6 | §7 솔루션 | "미트라 vs 일반 AI" comparison table. Canva showed a table but content not finalized. Needs the actual rows. |
 | P7 | Header / Footer | "톡상담" button (from the Canva header) — needs the real KakaoTalk channel URL. Not yet wired; current page uses the site's standard nav/footer from the layout. |
+
+*Resolved: ~~P6 comparison table~~ — reused the legacy `src/ko/index.html` table (2026-05-17).*
 
 ## Choices — Praxis decided, confirm or override
 
