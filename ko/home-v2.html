@@ -223,30 +223,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* 3. 이런 고민 */
   .kv2-worries { background: var(--mint); }
+  .kv2-worries-h2 {
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.4;
+    margin: 0 0 3rem;
+  }
+  .kv2-worries-h2 span { color: var(--green); }
   .kv2-worry-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0 1.5rem;
   }
   .kv2-worry {
-    border-radius: 14px;
-    padding: 2.5rem 1rem;
-    text-align: center;
+    width: 210px;
+    min-height: 288px;
+    border-radius: 20px;
+    padding: 1.8rem 1.5rem;
     color: #fff;
-    font-weight: 700;
-    font-size: 1.15rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 130px;
-    transition: transform 0.15s ease;
+    flex-direction: column;
+    box-shadow: 0 14px 32px rgba(31,42,38,0.2);
+    flex: 0 0 auto;
   }
-  .kv2-worry:hover { transform: translateY(-3px); }
-  .kv2-worry-1 { background: #F4A65B; }
-  .kv2-worry-2 { background: #5BB98C; }
-  .kv2-worry-3 { background: #9A8FC9; }
-  .kv2-worry-4 { background: #E8736B; }
+  .kv2-worry-label { font-size: 1.5rem; font-weight: 800; }
+  .kv2-worry-line { display: block; width: 78px; height: 3px; background: rgba(255,255,255,0.85); border-radius: 2px; margin-top: 0.7rem; }
+  .kv2-worry-arrow { width: 54px; height: 54px; margin-top: auto; }
+  .kv2-worry-1 { background: #F2914A; transform: rotate(-3deg); z-index: 1; }
+  .kv2-worry-2 { background: #3E9C7D; transform: rotate(4deg); margin-left: -28px; z-index: 2; }
+  .kv2-worry-3 { background: #9A85D6; transform: rotate(-4deg); margin-left: -28px; z-index: 3; }
+  .kv2-worry-4 { background: #E8534A; transform: rotate(8deg); margin-left: -28px; z-index: 4; }
 
   /* 4. 카톡 */
   .kv2-kakao { background: #fff; }
@@ -391,7 +400,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .kv2-h2 { font-size: 1.45rem; }
     .kv2-delivers-grid { grid-template-columns: 1fr; }
     .kv2-dashboard { grid-template-columns: 1fr; }
-    .kv2-worry-cards { grid-template-columns: repeat(2, 1fr); }
+    .kv2-worries-h2 { font-size: 1.45rem; }
+    .kv2-worry-cards { flex-wrap: wrap; gap: 1rem; }
+    .kv2-worry { transform: none !important; margin-left: 0 !important; width: 152px; min-height: 210px; padding: 1.3rem; }
+    .kv2-worry-label { font-size: 1.2rem; }
     .kv2-kakao-grid { grid-template-columns: 1fr; }
     .kv2-solution-points { grid-template-columns: 1fr; }
     .kv2-bubble { max-width: 90%; }
@@ -553,12 +565,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 3. 이런 고민 해보셨다면 -->
   <section class="kv2-worries">
     <div class="kv2-wrap">
-      <h2 class="kv2-h2 kv2-center">이런 고민 해보셨다면,<br>지금 미트라와 이야기하세요</h2>
+      <h2 class="kv2-worries-h2">이런 고민 해보셨다면, 지금 <span>미트라</span>와 이야기하세요</h2>
       <div class="kv2-worry-cards">
-        <div class="kv2-worry kv2-worry-1"><span>바쁜 가족들</span></div>
-        <div class="kv2-worry kv2-worry-2"><span>ADHD</span></div>
-        <div class="kv2-worry kv2-worry-3"><span>사춘기 학생</span></div>
-        <div class="kv2-worry kv2-worry-4"><span>다문화 가정</span></div>
+        <div class="kv2-worry kv2-worry-1">
+          <div class="kv2-worry-label">바쁜 가족들</div>
+          <span class="kv2-worry-line"></span>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </div>
+        <div class="kv2-worry kv2-worry-2">
+          <div class="kv2-worry-label">ADHD</div>
+          <span class="kv2-worry-line"></span>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </div>
+        <div class="kv2-worry kv2-worry-3">
+          <div class="kv2-worry-label">사춘기 학생</div>
+          <span class="kv2-worry-line"></span>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </div>
+        <div class="kv2-worry kv2-worry-4">
+          <div class="kv2-worry-label">다문화 가정</div>
+          <span class="kv2-worry-line"></span>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </div>
       </div>
     </div>
   </section>
