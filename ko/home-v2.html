@@ -40,144 +40,65 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5S43DC8L');</script>
 <!-- End Google Tag Manager -->
 <style>
-  /* ===== Mitra home-v2 (Korean prototype) ===== */
+  /* ===== Mitra home-v2 (Korean) — faithful rebuild ===== */
   .kv2-page {
     --green: #2A9D8F;
     --green-dark: #1f7a6e;
+    --green-soft: #6BBE9F;
     --mint: #EAF5F0;
     --mint-soft: #F2F9F5;
+    --lav: #EEEFF4;
     --kakao: #FEE500;
+    --coral: #E8736B;
     --ink: #1f2937;
     --muted: #6b7280;
     color: var(--ink);
     line-height: 1.7;
     word-break: keep-all;
   }
-  .kv2-page section { padding: 4.5rem 1.25rem; }
-  .kv2-wrap { max-width: 1040px; margin: 0 auto; }
-  .kv2-narrow { max-width: 680px; }
+  .kv2-page section { padding: 4.5rem 1.5rem; }
+  .kv2-wrap { max-width: 1120px; margin: 0 auto; }
+  .kv2-narrow { max-width: 720px; }
   .kv2-center { text-align: center; }
 
-  .kv2-h2 {
-    font-size: 1.85rem;
-    font-weight: 700;
-    line-height: 1.4;
-    color: var(--ink);
-    margin: 0 0 1.5rem;
-  }
-  .kv2-mitra-en { color: var(--green); letter-spacing: 0.02em; }
-  .kv2-eyebrow { color: var(--green-dark); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.6rem; }
+  .kv2-h2 { font-size: 1.95rem; font-weight: 800; line-height: 1.4; color: var(--ink); margin: 0 0 2rem; }
+  .kv2-h2 span, .kv2-mitra-en { color: var(--green); }
+  .kv2-hl-g { font-style: normal; color: var(--green); }
+  .kv2-hl-c { font-style: normal; color: var(--coral); }
+  .kv2-eyebrow { color: var(--green-dark); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.7rem; }
 
-  /* CTA */
   .kv2-cta {
-    display: inline-block;
-    background: var(--green);
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.05rem;
-    padding: 0.85rem 2.1rem;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: background 0.15s ease, transform 0.15s ease;
+    display: inline-block; background: var(--green); color: #fff; font-weight: 700;
+    font-size: 1.05rem; padding: 0.85rem 2.1rem; border-radius: 999px;
+    text-decoration: none; transition: background 0.15s ease, transform 0.15s ease;
   }
   .kv2-cta:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
 
-  /* Image placeholder blocks */
-  .kv2-img-ph {
-    border: 2px dashed #9cc5ba;
-    background: repeating-linear-gradient(45deg, #f4faf7, #f4faf7 12px, #eaf3ef 12px, #eaf3ef 24px);
-    border-radius: 14px;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--green-dark);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 1.5rem;
-    text-align: center;
-  }
-  .kv2-img-ph::after {
-    content: "[ 자리표시자 ] " attr(data-ph);
-    display: block;
-    font-weight: 400;
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-top: 0.4rem;
-  }
+  /* ---- 1. HERO ---- */
+  .kv2-hero { background: #fff; padding-top: 3.5rem; }
+  .kv2-hero-grid { display: flex; align-items: center; gap: 2rem; }
+  .kv2-hero-text { flex: 1 1 42%; }
+  .kv2-hero-h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.5; margin: 0 0 1.8rem; }
+  .kv2-hero-phones { flex: 1 1 58%; margin-top: 0; }
 
-  /* 1. Hero */
-  .kv2-hero { background: linear-gradient(180deg, #ffffff 0%, var(--mint) 100%); padding-top: 5rem; }
-  .kv2-hero-h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    line-height: 1.45;
-    color: var(--ink);
-    margin: 0 0 1.75rem;
-  }
-  .kv2-hero-h1 em { font-style: normal; color: var(--green); }
-  /* Phone mockups (hero 3-up + closing) */
-  .kv2-phones {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .kv2-phone {
-    background: #20242e;
-    border-radius: 30px;
-    padding: 8px;
-    box-shadow: 0 18px 42px rgba(31,42,38,0.28);
-    flex: 0 0 auto;
-  }
-  .kv2-phone-side { width: 214px; }
-  .kv2-phones .kv2-phone:first-child { transform: rotate(-5deg) translateY(26px); }
-  .kv2-phones .kv2-phone:last-child { transform: rotate(5deg) translateY(26px); }
-  .kv2-phone-mid { width: 236px; position: relative; z-index: 2; }
-  .kv2-phone-closing { width: 248px; margin: 0 auto; }
-  .kv2-phone-screen {
-    border-radius: 23px;
-    overflow: hidden;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-  }
-  .kv2-phone-head {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 11px 14px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    font-weight: 700;
-    font-size: 0.82rem;
-    color: var(--ink);
-  }
-  .kv2-phone-ava { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; background: #eef3f1; }
-  .kv2-phone-body {
-    padding: 12px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    min-height: 296px;
-  }
-  .kv2-m { display: flex; align-items: flex-end; gap: 5px; }
+  /* ---- Phone mockups ---- */
+  .kv2-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap; }
+  .kv2-phone { background: #20242e; border-radius: 26px; padding: 7px; box-shadow: 0 16px 36px rgba(31,42,38,0.26); flex: 0 0 auto; }
+  .kv2-phone-side { width: 174px; }
+  .kv2-hero-phones .kv2-phone:first-child { transform: rotate(-5deg) translateY(22px); }
+  .kv2-hero-phones .kv2-phone:last-child { transform: rotate(5deg) translateY(22px); }
+  .kv2-phone-mid { width: 190px; position: relative; z-index: 2; }
+  .kv2-phone-screen { border-radius: 20px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+  .kv2-phone-head { display: flex; align-items: center; gap: 7px; padding: 9px 12px; background: #fff; border-bottom: 1px solid #eee; font-weight: 700; font-size: 0.72rem; color: var(--ink); }
+  .kv2-phone-ava { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; background: #eef3f1; }
+  .kv2-phone-body { padding: 10px 8px; display: flex; flex-direction: column; gap: 6px; min-height: 250px; }
+  .kv2-m { display: flex; align-items: flex-end; gap: 4px; }
   .kv2-m-them { justify-content: flex-start; }
   .kv2-m-me { justify-content: flex-end; }
-  .kv2-m-ava { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; background: #fff; flex: 0 0 auto; }
-  .kv2-m-b {
-    max-width: 74%;
-    padding: 7px 10px;
-    border-radius: 13px;
-    font-size: 0.73rem;
-    line-height: 1.5;
-    text-align: left;
-  }
-  .kv2-m-them .kv2-m-b { background: #fff; color: #1f2937; border-bottom-left-radius: 4px; }
-  .kv2-m-me .kv2-m-b { border-bottom-right-radius: 4px; }
+  .kv2-m-ava { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; background: #fff; flex: 0 0 auto; }
+  .kv2-m-b { max-width: 76%; padding: 6px 9px; border-radius: 11px; font-size: 0.62rem; line-height: 1.5; text-align: left; }
+  .kv2-m-them .kv2-m-b { background: #fff; color: #1f2937; border-bottom-left-radius: 3px; }
+  .kv2-m-me .kv2-m-b { border-bottom-right-radius: 3px; }
   .kv2-phone-kakao .kv2-phone-body { background: #b2c7d9; }
   .kv2-phone-kakao .kv2-m-me .kv2-m-b { background: #fee500; color: #3a2e00; }
   .kv2-phone-telegram .kv2-phone-body { background: #cfe5f5; }
@@ -185,70 +106,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-phone-whatsapp .kv2-phone-body { background: #e5ddd3; }
   .kv2-phone-whatsapp .kv2-m-me .kv2-m-b { background: #d9fdd3; color: #1b3a26; }
 
-  /* 2. 미트라가 전합니다 */
+  /* ---- 2. 미트라가 전합니다 ---- */
   .kv2-delivers { background: #fff; }
-  .kv2-delivers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    margin-bottom: 1.75rem;
-  }
-  .kv2-card {
-    background: var(--mint-soft);
-    border: 1px solid #dcebe4;
-    border-radius: 14px;
-    padding: 1.6rem;
-  }
-  .kv2-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--green-dark); margin: 0 0 0.5rem; }
-  .kv2-card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-  .kv2-card-link { text-decoration: none; display: block; transition: transform 0.15s ease, box-shadow 0.15s ease; }
-  .kv2-card-link:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(42,157,143,0.12); }
-  .kv2-card-ph { border: 2px dashed #9cc5ba; background: #f4faf7; }
-  .kv2-card-msg { background: var(--green); display: flex; align-items: center; }
-  .kv2-msg-lead { margin: 0; color: #fff; font-size: 1.2rem; line-height: 1.6; }
-  .kv2-msg-lead strong { font-weight: 800; }
+  .kv2-delivers-h2 { font-size: 1.7rem; font-weight: 800; color: var(--green); margin: 0 0 1.6rem; }
+  .kv2-delivers-grid { display: flex; gap: 1.2rem; align-items: stretch; }
+  .kv2-delivers-left { flex: 1 1 64%; display: flex; flex-direction: column; gap: 1.2rem; }
+  .kv2-delivers-right { flex: 1 1 36%; }
+  .kv2-dcard-row { display: flex; gap: 1.2rem; }
+  .kv2-dcard { flex: 1; border-radius: 16px; padding: 1.4rem; }
+  .kv2-dcard-popup { background: var(--green-dark); color: #fff; }
+  .kv2-dcard-popup h3 { margin: 0 0 0.5rem; font-size: 1.05rem; font-weight: 700; }
+  .kv2-dcard-popup p { margin: 0; font-size: 0.82rem; opacity: 0.9; line-height: 1.6; }
+  .kv2-dcard-illus { background: var(--mint-soft); border: 1px solid #e0ede7; text-align: center; display: flex; flex-direction: column; }
+  .kv2-dcard-illus img { width: 100%; max-height: 120px; object-fit: contain; margin-bottom: 0.6rem; }
+  .kv2-dcard-illus h4 { margin: auto 0 0; font-size: 1rem; font-weight: 700; color: var(--green-dark); }
+  .kv2-dash-card { background: var(--green-dark); border-radius: 16px; padding: 1.6rem 1.8rem; display: flex; align-items: center; gap: 1.5rem; color: #fff; }
+  .kv2-dash-stars { color: var(--kakao); font-size: 1.3rem; letter-spacing: 2px; }
+  .kv2-dash-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; font-weight: 700; }
+  .kv2-dash-body p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+  .kv2-delivers-right { background: var(--mint); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+  .kv2-deliver-msg { margin: 0; font-size: 1.4rem; line-height: 1.55; color: var(--ink); }
+  .kv2-deliver-msg strong { font-weight: 800; }
+  .kv2-deliver-chat { margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .kv2-cbubble { width: 130px; height: 26px; background: #fff; border-radius: 13px; }
+  .kv2-cbubble-sm { width: 88px; }
+  .kv2-pdots { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+  .kv2-pdot { width: 24px; height: 24px; border-radius: 50%; }
+  .kv2-pdot-k { background: var(--kakao); }
+  .kv2-pdot-w { background: #25D366; }
+  .kv2-pdot-t { background: #29A9EB; }
 
-  .kv2-dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: center;
-    background: var(--mint);
-    border-radius: 16px;
-    padding: 2rem;
-  }
-  .kv2-dashboard-text h3 { font-size: 1.3rem; font-weight: 700; color: var(--ink); margin: 0 0 0.6rem; }
-  .kv2-dashboard-text p { margin: 0 0 0.75rem; color: var(--muted); }
-  .kv2-stars { color: #F4A65B; font-size: 1.2rem; letter-spacing: 2px; }
-
-  /* 3. 이런 고민 */
+  /* ---- 3. 이런 고민 ---- */
   .kv2-worries { background: var(--mint); }
-  .kv2-worries-h2 {
-    text-align: center;
-    font-size: 1.9rem;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1.4;
-    margin: 0 0 3rem;
-  }
+  .kv2-worries-h2 { text-align: center; font-size: 1.9rem; font-weight: 800; color: var(--ink); line-height: 1.4; margin: 0 0 3rem; }
   .kv2-worries-h2 span { color: var(--green); }
-  .kv2-worry-cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0 1.5rem;
-  }
-  .kv2-worry {
-    width: 210px;
-    min-height: 288px;
-    border-radius: 20px;
-    padding: 1.8rem 1.5rem;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 14px 32px rgba(31,42,38,0.2);
-    flex: 0 0 auto;
-  }
+  .kv2-worry-cards { display: flex; justify-content: center; align-items: center; padding: 1rem 0 1.5rem; }
+  .kv2-worry { width: 210px; min-height: 288px; border-radius: 20px; padding: 1.8rem 1.5rem; color: #fff; display: flex; flex-direction: column; box-shadow: 0 14px 32px rgba(31,42,38,0.2); flex: 0 0 auto; }
   .kv2-worry-label { font-size: 1.5rem; font-weight: 800; }
   .kv2-worry-line { display: block; width: 78px; height: 3px; background: rgba(255,255,255,0.85); border-radius: 2px; margin-top: 0.7rem; }
   .kv2-worry-arrow { width: 54px; height: 54px; margin-top: auto; }
@@ -257,160 +150,112 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-worry-3 { background: #9A85D6; transform: rotate(-4deg); margin-left: -28px; z-index: 3; }
   .kv2-worry-4 { background: #E8534A; transform: rotate(8deg); margin-left: -28px; z-index: 4; }
 
-  /* 4. 카톡 */
-  .kv2-kakao { background: #fff; }
-  .kv2-kakao-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
-  .kv2-kakao-ph { min-height: 280px; }
-  .kv2-kakao-text .kv2-h2 { margin-bottom: 1.75rem; }
-  .kv2-kakao-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-  .kv2-qr-ph { min-height: 110px; width: 110px; flex: 0 0 110px; border-radius: 10px; }
-  .kv2-qr-ph::after { display: none; }
+  /* ---- 4. 카톡 ---- */
+  .kv2-kakao { background: var(--mint); }
+  .kv2-kakao-grid { display: flex; align-items: center; gap: 3rem; }
+  .kv2-kakao-photo { flex: 1 1 44%; position: relative; }
+  .kv2-kakao-photo::before { content: ""; position: absolute; left: 8%; top: 8%; right: 16%; bottom: -8%; background: #F4B6C2; border-radius: 18px; }
+  .kv2-kakao-photo img { position: relative; width: 100%; max-width: 380px; border-radius: 16px; display: block; }
+  .kv2-kakao-text { flex: 1 1 56%; }
+  .kv2-kakao-text .kv2-h2 { margin-bottom: 1.8rem; }
+  .kv2-kakao-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .kv2-qr { width: 116px; height: 116px; border-radius: 10px; background: #fff; padding: 6px; }
 
-  /* 5. 서연이 이야기 */
+  /* ---- 5. 서연이 이야기 ---- */
   .kv2-story { background: var(--mint-soft); }
-  .kv2-story .kv2-h2 { margin-bottom: 2.25rem; }
-  .kv2-chat {
-    background: #B2C7D9;
-    border-radius: 18px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .kv2-bubble {
-    max-width: 80%;
-    padding: 0.7rem 1rem;
-    border-radius: 14px;
-    font-size: 0.97rem;
-    line-height: 1.6;
-  }
-  .kv2-bubble-student {
-    align-self: flex-end;
-    background: var(--kakao);
-    color: #3a2e00;
-    border-bottom-right-radius: 4px;
-  }
-  .kv2-bubble-tutor {
-    align-self: flex-start;
-    background: #fff;
-    color: var(--ink);
-    border-bottom-left-radius: 4px;
-  }
+  .kv2-story-grid { display: flex; gap: 2.5rem; align-items: center; }
+  .kv2-story-h2 { flex: 1 1 46%; font-size: 1.7rem; font-weight: 800; line-height: 1.55; margin: 0; }
+  .kv2-story-h2 span { color: var(--green); }
+  .kv2-thread { flex: 1 1 54%; display: flex; flex-direction: column; gap: 0.7rem; }
+  .kv2-t { display: flex; align-items: flex-end; gap: 0.4rem; }
+  .kv2-t-me { justify-content: flex-end; }
+  .kv2-t-them { justify-content: flex-start; }
+  .kv2-t-b { max-width: 78%; padding: 0.7rem 1rem; font-size: 0.92rem; line-height: 1.55; border-radius: 14px; }
+  .kv2-t-me .kv2-t-b { background: var(--kakao); color: #3a2e00; border-bottom-right-radius: 4px; }
+  .kv2-t-them .kv2-t-b { background: #fff; color: var(--ink); border: 1px solid #e6ebe8; border-bottom-left-radius: 4px; }
+  .kv2-t-time { font-size: 0.68rem; color: var(--muted); flex: 0 0 auto; }
 
-  /* 6. 미트라는 이렇게 배워갑니다 */
+  /* ---- 6. STEP ---- */
   .kv2-learns { background: #fff; }
-  .kv2-learns .kv2-h2 { margin-bottom: 2rem; }
-  .kv2-steps { list-style: none; padding: 0; margin: 0; }
-  .kv2-steps li {
-    display: flex;
-    gap: 1.1rem;
-    align-items: flex-start;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid #e8f1ed;
-  }
-  .kv2-steps li:last-child { border-bottom: 0; }
-  .kv2-step-tag {
-    flex: 0 0 auto;
-    background: var(--mint);
-    color: var(--green-dark);
-    font-weight: 800;
-    font-size: 0.8rem;
-    padding: 0.35rem 0.7rem;
-    border-radius: 6px;
-    min-width: 68px;
-    text-align: center;
-  }
-  .kv2-steps li p { margin: 0.1rem 0 0; }
-  .kv2-step-start .kv2-step-tag { background: var(--green); color: #fff; }
-  .kv2-step-start p { font-weight: 700; }
+  .kv2-learns .kv2-h2 { margin-bottom: 2.5rem; }
+  .kv2-steps { display: flex; flex-direction: column; gap: 1.1rem; }
+  .kv2-step { display: flex; align-items: center; gap: 1.4rem; }
+  .kv2-step-pill { flex: 0 0 auto; width: 104px; text-align: center; background: #FCE6A8; color: #7a5a12; font-weight: 800; font-size: 0.9rem; padding: 0.55rem 0; border-radius: 999px; }
+  .kv2-step-start { background: #20242e; color: var(--kakao); }
+  .kv2-step p { margin: 0; font-size: 1.05rem; }
+  .kv2-step .kv2-hl-g { font-weight: 700; }
 
-  /* 7. 솔루션 */
-  .kv2-solution { background: var(--mint); }
-  .kv2-solution .kv2-h2 { margin-bottom: 2.25rem; }
-  .kv2-solution-points {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin-bottom: 1.75rem;
-  }
-  .kv2-sol-point {
-    background: #fff;
-    border-radius: 14px;
-    padding: 1.6rem;
-    border-top: 4px solid var(--green);
-  }
-  .kv2-sol-point h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin: 0 0 0.5rem; }
-  .kv2-sol-point p { margin: 0; color: var(--muted); font-size: 0.92rem; }
-  .kv2-compare-title {
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 0 0 0.9rem;
-  }
-  .kv2-compare-scroll { overflow-x: auto; }
-  .kv2-compare {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  }
-  .kv2-compare th, .kv2-compare td {
-    padding: 14px 12px;
-    text-align: center;
-    border-bottom: 1px solid #edf2f7;
-    font-size: 0.95rem;
-  }
+  /* ---- 7. 솔루션 ---- */
+  .kv2-solution { background: var(--lav); }
+  .kv2-solution .kv2-h2 { margin-bottom: 2.5rem; }
+  .kv2-sol-grid { display: flex; gap: 2.5rem; align-items: flex-start; }
+  .kv2-sol-points { flex: 1 1 40%; display: flex; flex-direction: column; gap: 1.6rem; }
+  .kv2-sol-point { display: flex; gap: 1rem; align-items: flex-start; }
+  .kv2-sol-point svg { width: 42px; height: 42px; flex: 0 0 auto; }
+  .kv2-sol-point p { margin: 0; font-size: 0.98rem; color: var(--ink); }
+  .kv2-sol-table { flex: 1 1 60%; overflow-x: auto; }
+  .kv2-compare { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+  .kv2-compare th, .kv2-compare td { padding: 12px 10px; text-align: center; border-bottom: 1px solid #edf2f7; font-size: 0.9rem; }
   .kv2-compare th { background: #f7fafc; font-weight: 700; color: var(--ink); }
   .kv2-compare th.kv2-mitra-col { background: var(--green); color: #fff; }
-  .kv2-compare td.kv2-feature { text-align: left; font-weight: 600; color: var(--ink); }
+  .kv2-compare td.kv2-feature { text-align: left; font-weight: 600; }
   .kv2-compare td.kv2-mitra-cell { background: #e6fffa; font-weight: 700; color: var(--green); }
   .kv2-check { color: var(--green); font-weight: 700; }
   .kv2-cross { color: #cbd5e0; }
   .kv2-partial { color: #ed8936; }
-  .kv2-privacy {
-    text-align: center;
-    margin: 1.75rem 0 0;
-    font-weight: 600;
-    color: var(--green-dark);
-  }
+  .kv2-privacy-row { display: flex; align-items: center; justify-content: center; gap: 0.9rem; margin-top: 2.5rem; }
+  .kv2-privacy-row svg { width: 44px; height: 44px; flex: 0 0 auto; }
+  .kv2-privacy-row p { margin: 0; font-weight: 700; color: var(--ink); font-size: 1.1rem; }
 
-  /* 8. FAQ */
-  .kv2-faq { background: #fff; }
+  /* ---- 8. FAQ ---- */
+  .kv2-faq { background: var(--lav); }
+  .kv2-faq-icon { display: block; width: 88px; height: auto; margin: 0 auto 0.8rem; }
   .kv2-faq .kv2-h2 { margin-bottom: 2rem; }
-  .kv2-qa { padding: 1.3rem 0; border-bottom: 1px solid #ececf3; }
-  .kv2-qa:last-child { border-bottom: 0; }
-  .kv2-qa h3 { font-size: 1.1rem; font-weight: 700; color: var(--green-dark); margin: 0 0 0.5rem; }
-  .kv2-qa p { margin: 0; color: var(--ink); }
+  .kv2-faq-item { background: #fff; border-radius: 14px; margin-bottom: 0.8rem; box-shadow: 0 2px 10px rgba(31,42,38,0.05); overflow: hidden; }
+  .kv2-faq-item summary { list-style: none; cursor: pointer; padding: 1.1rem 1.4rem; font-weight: 700; font-size: 1rem; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .kv2-faq-item summary::-webkit-details-marker { display: none; }
+  .kv2-faq-item summary::after { content: "+"; color: var(--green); font-size: 1.4rem; font-weight: 400; flex: 0 0 auto; }
+  .kv2-faq-item[open] summary::after { content: "\00d7"; }
+  .kv2-faq-body { padding: 0 1.4rem 1.3rem; }
+  .kv2-faq-body p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
 
-  /* 9. Closing */
-  .kv2-closing { background: linear-gradient(160deg, var(--green) 0%, var(--green-dark) 100%); }
-  .kv2-closing .kv2-h2 { color: #fff; }
-  .kv2-closing .kv2-cta { background: #fff; color: var(--green-dark); margin-bottom: 2.5rem; }
-  .kv2-closing .kv2-cta:hover { background: var(--kakao); color: #3a2e00; }
-  .kv2-closing .kv2-phone-closing { margin-top: 0.5rem; }
+  /* ---- 9. CLOSING ---- */
+  .kv2-closing { padding: 0; background: linear-gradient(to right, var(--green-soft) 0 50%, #fff 50% 100%); }
+  .kv2-closing-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 3.5rem 1.5rem 1rem; }
+  .kv2-closing-text { flex: 1; font-size: 1.7rem; font-weight: 800; line-height: 1.5; }
+  .kv2-closing-left { text-align: right; color: #fff; }
+  .kv2-closing-right { text-align: left; color: var(--ink); }
+  .kv2-closing-phone { flex: 0 0 auto; }
+  .kv2-cphone { width: 196px; background: #20242e; border-radius: 30px; padding: 9px; transform: rotate(-8deg); box-shadow: 0 20px 44px rgba(31,42,38,0.32); }
+  .kv2-cphone-screen { background: #fff; border-radius: 22px; height: 380px; display: flex; align-items: center; justify-content: center; }
+  .kv2-cphone-screen img { width: 96px; height: auto; }
+  .kv2-talk-btn { display: flex; width: max-content; margin: 0 auto; transform: translateY(-10px); align-items: center; gap: 8px; background: var(--kakao); color: #3a2e00; font-weight: 700; padding: 0.7rem 1.6rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+  .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
+  .kv2-closing { padding-bottom: 2.5rem; }
 
-  /* Responsive */
-  @media (max-width: 760px) {
+  /* ---- Responsive ---- */
+  @media (max-width: 860px) {
     .kv2-page section { padding: 3.25rem 1.1rem; }
-    .kv2-hero { padding-top: 3.5rem; }
-    .kv2-hero-h1 { font-size: 1.65rem; }
-    .kv2-h2 { font-size: 1.45rem; }
-    .kv2-delivers-grid { grid-template-columns: 1fr; }
-    .kv2-dashboard { grid-template-columns: 1fr; }
+    .kv2-h2 { font-size: 1.5rem; }
+    .kv2-hero-grid { flex-direction: column; }
+    .kv2-hero-h1 { font-size: 1.7rem; text-align: center; }
+    .kv2-hero-text { text-align: center; }
+    .kv2-delivers-grid { flex-direction: column; }
+    .kv2-dcard-row { flex-direction: column; }
     .kv2-worries-h2 { font-size: 1.45rem; }
     .kv2-worry-cards { flex-wrap: wrap; gap: 1rem; }
     .kv2-worry { transform: none !important; margin-left: 0 !important; width: 152px; min-height: 210px; padding: 1.3rem; }
     .kv2-worry-label { font-size: 1.2rem; }
-    .kv2-kakao-grid { grid-template-columns: 1fr; }
-    .kv2-solution-points { grid-template-columns: 1fr; }
-    .kv2-bubble { max-width: 90%; }
-    .kv2-phones { gap: 1.5rem; }
-    .kv2-phones .kv2-phone:first-child,
-    .kv2-phones .kv2-phone:last-child { transform: none; }
-    .kv2-phone-side, .kv2-phone-mid { width: 240px; }
+    .kv2-kakao-grid { flex-direction: column; }
+    .kv2-story-grid { flex-direction: column; }
+    .kv2-sol-grid { flex-direction: column; }
+    .kv2-step { gap: 0.9rem; }
+    .kv2-step-pill { width: 86px; font-size: 0.78rem; }
+    .kv2-step p { font-size: 0.95rem; }
+    .kv2-closing { background: var(--green-soft); }
+    .kv2-closing-inner { flex-direction: column; }
+    .kv2-closing-left, .kv2-closing-right { text-align: center; color: #fff; }
+    .kv2-hero-phones .kv2-phone:first-child, .kv2-hero-phones .kv2-phone:last-child { transform: none; }
   }
 </style>
 </head>
@@ -469,49 +314,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 1. HERO -->
   <section class="kv2-hero">
-    <div class="kv2-wrap kv2-center">
-      <h1 class="kv2-hero-h1">아이를 <em>관찰</em>하고, 관심사를 <em>발견</em>하고,<br>매일 우리 아이를 배우는 튜터</h1>
-      <a class="kv2-cta" href="/ko/free-trial.html">7일 체험 신청하기</a>
-      <div class="kv2-phones">
-
+    <div class="kv2-wrap kv2-hero-grid">
+      <div class="kv2-hero-text">
+        <h1 class="kv2-hero-h1">아이를 <em class="kv2-hl-g">관찰</em>하고, 관심사를 <em class="kv2-hl-c">발견</em>하고,<br>매일 우리 아이를 배우는 튜터</h1>
+        <a class="kv2-cta" href="/ko/free-trial.html">7일 체험 신청하기</a>
+      </div>
+      <div class="kv2-phones kv2-hero-phones">
         <!-- Phone: Seoyeon — KakaoTalk -->
         <div class="kv2-phone kv2-phone-kakao kv2-phone-side">
           <div class="kv2-phone-screen">
-            <div class="kv2-phone-head">
-              <img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt="">
-              <span>미트라</span>
-            </div>
+            <div class="kv2-phone-head"><img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span>미트라</span></div>
             <div class="kv2-phone-body">
               <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">안녕 서연! 오늘은 좀 어때요?</span></div>
               <div class="kv2-m kv2-m-me"><span class="kv2-m-b">오늘 혼자 있어요. 솔로 레벨링 보고 있어요</span></div>
-              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">혼자 있을 때 웹툰 보면 덜 외롭죠. 오늘은 그냥 쉴까요, 아니면 같이 뭔가 해볼까요?</span></div>
+              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">혼자 있을 때 웹툰 보면 덜 외롭죠. 같이 뭔가 해볼까요?</span></div>
               <div class="kv2-m kv2-m-me"><span class="kv2-m-b">같이 할래요</span></div>
             </div>
           </div>
         </div>
-
         <!-- Phone: Junho — Telegram -->
         <div class="kv2-phone kv2-phone-telegram kv2-phone-mid">
           <div class="kv2-phone-screen">
-            <div class="kv2-phone-head">
-              <img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt="">
-              <span>미트라</span>
-            </div>
+            <div class="kv2-phone-head"><img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span>미트라</span></div>
             <div class="kv2-phone-body">
               <div class="kv2-m kv2-m-me"><span class="kv2-m-b">미트라!! 티라노랑 트리케라톱스 싸우면 누가 이겨??</span></div>
-              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">오 좋은 질문! 실제로 트리케라톱스 뼈에서 티라노한테 물린 흔적이 발견됐어. 둘이 진짜 싸운 거야!</span></div>
+              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">오 좋은 질문! 트리케라톱스 뼈에서 티라노한테 물린 흔적이 발견됐어. 둘이 진짜 싸운 거야!</span></div>
               <div class="kv2-m kv2-m-me"><span class="kv2-m-b">엥 진짜?? ㅋㅋㅋ</span></div>
             </div>
           </div>
         </div>
-
         <!-- Phone: Yujin — WhatsApp -->
         <div class="kv2-phone kv2-phone-whatsapp kv2-phone-side">
           <div class="kv2-phone-screen">
-            <div class="kv2-phone-head">
-              <img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt="">
-              <span>미트라</span>
-            </div>
+            <div class="kv2-phone-head"><img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span>미트라</span></div>
             <div class="kv2-phone-body">
               <div class="kv2-m kv2-m-me"><span class="kv2-m-b">패션 디자인 학교 정보 찾고 있어요</span></div>
               <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">디자인 창작 중심이면 홍익대, 국민대, 한예종이 핵심이야. 서울 안에서 보고 있어?</span></div>
@@ -519,7 +354,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -527,37 +361,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 2. 미트라가 전합니다 -->
   <section class="kv2-delivers">
     <div class="kv2-wrap">
-      <h2 class="kv2-h2 kv2-center">미트라가 전합니다</h2>
+      <h2 class="kv2-delivers-h2">미트라가 전합니다</h2>
       <div class="kv2-delivers-grid">
-
-        <div class="kv2-card kv2-card-ph" data-ph="POP UP 배너 — 1. 케이스 스터디 영상 연결  2. QR 노출 (콘텐츠 미확정)">
-          <h3>POP UP 배너</h3>
-          <p>케이스 스터디 영상 + QR 노출 영역. 최종 콘텐츠 확정 필요.</p>
+        <div class="kv2-delivers-left">
+          <div class="kv2-dcard-row">
+            <div class="kv2-dcard kv2-dcard-popup">
+              <h3>POP UP Banner</h3>
+              <p>1. connect with case study video recording<br>2. QR display</p>
+            </div>
+            <div class="kv2-dcard kv2-dcard-illus">
+              <img src="/ko/static/images/home-v2/illus-student.png" alt="">
+              <h4>학생들에게</h4>
+            </div>
+            <div class="kv2-dcard kv2-dcard-illus">
+              <img src="/ko/static/images/home-v2/illus-parent.png" alt="">
+              <h4>부모님들에게</h4>
+            </div>
+          </div>
+          <div class="kv2-dash-card">
+            <div class="kv2-dash-quote">
+              <div class="kv2-dash-stars">★★★★★</div>
+            </div>
+            <div class="kv2-dash-body">
+              <h3>우리 아이 성장 대시보드</h3>
+              <p>성적표가 아닌, 미트라와의 대화로 성장해 가는 우리 아이를 지켜봐 주세요.</p>
+            </div>
+          </div>
         </div>
-
-        <a class="kv2-card kv2-card-link" href="/ko/principles.html">
-          <h3>작동 원리 보기</h3>
-          <p>미트라가 어떻게 가르치는지 확인하세요.</p>
-        </a>
-
-        <a class="kv2-card kv2-card-link" href="/ko/for-parents.html">
-          <h3>부모님께 보기</h3>
-          <p>등록 전 부모님이 알아야 할 것들.</p>
-        </a>
-
-        <div class="kv2-card kv2-card-msg">
-          <p class="kv2-msg-lead">답만 얻는 AI 학습 대신,<br><strong>관계를 쌓아 과정을 가르칩니다</strong></p>
+        <div class="kv2-delivers-right">
+          <p class="kv2-deliver-msg">답만 얻는 AI 학습 대신,<br><strong>관계를 쌓아 과정을 가르칩니다</strong></p>
+          <div class="kv2-deliver-chat">
+            <span class="kv2-cbubble"></span>
+            <span class="kv2-cbubble kv2-cbubble-sm"></span>
+            <div class="kv2-pdots">
+              <span class="kv2-pdot kv2-pdot-k"></span>
+              <span class="kv2-pdot kv2-pdot-w"></span>
+              <span class="kv2-pdot kv2-pdot-t"></span>
+            </div>
+          </div>
         </div>
-
-      </div>
-
-      <div class="kv2-dashboard">
-        <div class="kv2-dashboard-text">
-          <h3>우리 아이 성장 대시보드</h3>
-          <p>성적표가 아닌, 미트라와의 대화로 성장해 가는<br>우리 아이를 지켜봐 주세요.</p>
-          <div class="kv2-stars" aria-label="평점">★★★★★</div>
-        </div>
-        <div class="kv2-img-ph" data-ph="성장 대시보드 화면 목업 (Canva에서 내보내기)">성장 대시보드 목업</div>
       </div>
     </div>
   </section>
@@ -594,12 +436,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 4. 카톡으로 먼저 찾아와요 -->
   <section class="kv2-kakao">
     <div class="kv2-wrap kv2-kakao-grid">
-      <div class="kv2-img-ph kv2-kakao-ph" data-ph="아이패드를 보는 학생 사진 (Canva에서 내보내기)">학생 사진</div>
+      <div class="kv2-kakao-photo">
+        <img src="/ko/static/images/home-v2/photo-ipad.jpg" alt="휴대폰을 보는 학생">
+      </div>
       <div class="kv2-kakao-text">
         <p class="kv2-eyebrow">모바일 습관을 바꾸기 어려운 아이패드 키즈들도 걱정 마세요</p>
         <h2 class="kv2-h2">우리 아이를 기억하고<br>카톡으로 먼저 찾아와요</h2>
         <div class="kv2-kakao-actions">
-          <div class="kv2-img-ph kv2-qr-ph" data-ph="카카오톡 채널 QR (static/images/KT/mitra-kakaotalk-qr.png 사용 검토)">QR</div>
+          <img class="kv2-qr" src="/ko/static/images/KT/mitra-kakaotalk-qr.png" alt="카카오톡 QR">
           <a class="kv2-cta" href="/ko/free-trial.html">미트라와 채팅 시작하기</a>
         </div>
       </div>
@@ -608,14 +452,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 5. 서연이 이야기 -->
   <section class="kv2-story">
-    <div class="kv2-wrap kv2-narrow">
-      <h2 class="kv2-h2 kv2-center">혼자 있는 시간이 버거운 서연이는<br>친구같이 함께 공부해주는 미트라를 만났고,</h2>
-      <div class="kv2-chat">
-        <div class="kv2-bubble kv2-bubble-student">안녕하세요 미트라... 음... 저 가이드 점 해봤어요. 좀 나아졌어요.</div>
-        <div class="kv2-bubble kv2-bubble-student">오늘 혼자 있어요. 그래서 솔로 레벨링 보고 있어요</div>
-        <div class="kv2-bubble kv2-bubble-tutor">가이드 점 성공! 🎉 연습해봤다고 알려줘서 고마워요.</div>
-        <div class="kv2-bubble kv2-bubble-tutor">혼자 있을 때 웹툰 보면 덜 외롭다는 거, 저도 좀 이해해요. 좋아하는 이야기 속에 있으면 그런 느낌 있잖아요. 오늘 어때요, 그냥 쉬고 싶어요, 아니면 뭔가 같이 할까요?</div>
-        <div class="kv2-bubble kv2-bubble-student">같이 할래요.</div>
+    <div class="kv2-wrap kv2-story-grid">
+      <h2 class="kv2-story-h2">혼자 있는 시간이 버거운 서연이는<br>친구같이 함께 공부해주는 <span>미트라</span>를 만났고,</h2>
+      <div class="kv2-thread">
+        <div class="kv2-t kv2-t-me"><span class="kv2-t-b">엄마가 미트라랑 얘기해보라고 했어요</span><span class="kv2-t-time">11:02</span></div>
+        <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:03</span><span class="kv2-t-b">안녕 서연! 처음이라 어색하죠. 요즘 뭐에 빠져 있어요?</span></div>
+        <div class="kv2-t kv2-t-me"><span class="kv2-t-b">음... 그림 그리는 거 좋아해요. 솔로 레벨링도 봐요</span><span class="kv2-t-time">11:05</span></div>
+        <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:06</span><span class="kv2-t-b">오 그림 + 웹툰 조합 좋다! 캐릭터 따라 그려요?</span></div>
+        <div class="kv2-t kv2-t-me"><span class="kv2-t-b">네... 근데 눈 그릴 때 한 쪽이 항상 이상해져요 ㅠㅠ</span><span class="kv2-t-time">11:09</span></div>
+        <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:11</span><span class="kv2-t-b">양쪽 눈 사이를 점으로 살짝 찍어두고 그려봐요. 훨씬 달라져요.</span></div>
+        <div class="kv2-t kv2-t-me"><span class="kv2-t-b">오... 다음에 해볼게요. 감사합니다 미트라</span><span class="kv2-t-time">11:14</span></div>
       </div>
     </div>
   </section>
@@ -623,15 +469,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 6. 미트라는 이렇게 계속 배워갑니다 -->
   <section class="kv2-learns">
     <div class="kv2-wrap kv2-narrow">
-      <h2 class="kv2-h2 kv2-center">미트라는 이렇게 계속 배워갑니다</h2>
-      <ol class="kv2-steps">
-        <li><span class="kv2-step-tag">STEP 01</span><p>아이의 기본 정보를 부모님으로부터 전달받아, 최소한의 대화 거리를 준비합니다.</p></li>
-        <li><span class="kv2-step-tag">STEP 02</span><p>기본 정보를 기억하고, 미트라가 먼저 아이에게 말을 겁니다.</p></li>
-        <li><span class="kv2-step-tag">STEP 03</span><p>첫 4일간은 공부 이야기 대신, 관계를 쌓아갑니다.</p></li>
-        <li><span class="kv2-step-tag">STEP 04</span><p>아이의 나이에 맞는 학습 커리큘럼을 바탕으로 학습 수준을 파악합니다.</p></li>
-        <li><span class="kv2-step-tag">STEP 05</span><p>질문의 방향성, 말투, 관심사, 고민거리, 그리고 대화량과 빈도까지 학습합니다.</p></li>
-        <li class="kv2-step-start"><span class="kv2-step-tag">START</span><p>1:1 맞춤형 튜터로의 기반을 다진 뒤, 지치지 않는 학습 동반자가 됩니다.</p></li>
-      </ol>
+      <h2 class="kv2-h2 kv2-center"><span>미트라</span>는 이렇게 계속 배워갑니다</h2>
+      <div class="kv2-steps">
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 01</span><p>아이의 기본 정보를 부모님으로부터 전달받아, 최소한의 대화 거리를 준비합니다</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 02</span><p>기본 <span class="kv2-hl-g">정보를 기억하고 미트라가 먼저 아이에게</span> 말을 겁니다</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 03</span><p>첫 4일간은 공부 이야기 대신, 관계를 쌓아갑니다</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 04</span><p>아이의 <span class="kv2-hl-g">나이에 맞는 학습 커리큘럼</span>을 바탕으로 학습 수준을 파악합니다</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 05</span><p>질문의 방향성 / 말투 / 관심사 / 고민거리 그리고 대화량과 빈도까지 학습합니다</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill kv2-step-start">START</span><p>1:1 맞춤형 튜터로의 기반을 다진 뒤, 지치지 않는 학습 동반자가 됩니다</p></div>
+      </div>
     </div>
   </section>
 
@@ -639,87 +485,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="kv2-solution">
     <div class="kv2-wrap">
       <h2 class="kv2-h2 kv2-center">미트라 <span class="kv2-mitra-en">MITRA</span> 솔루션</h2>
-      <div class="kv2-solution-points">
-        <div class="kv2-sol-point">
-          <h3>대한민국 인공지능 기본법 준수</h3>
+      <div class="kv2-sol-grid">
+        <div class="kv2-sol-points">
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V10m14 11V10M3 10l9-6 9 6M9 21v-6h6v6"/></svg>
+            <p>대한민국 인공지능 기본법 준수</p>
+          </div>
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M12 2l2.5 2 3.5-.5 1 3.4 3 1.6-1.5 3.2 1.5 3.2-3 1.6-1 3.4-3.5-.5L12 22l-2.5-2-3.5.5-1-3.4-3-1.6L3.5 11 2 7.8l3-1.6 1-3.4L9.5 4z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
+            <p>한국 국가교육과정뿐만 아니라, 미국 공통 핵심 교육과정(Common Core)과 국제 바칼로레아(IB)까지 포함한 커리큘럼 학습으로 더 정확하고 체계적인 학습 지도</p>
+          </div>
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7"/></svg>
+            <p>검증된 코퍼스에 기반한 언어 소통 모델</p>
+          </div>
         </div>
-        <div class="kv2-sol-point">
-          <h3>체계적인 커리큘럼 학습</h3>
-          <p>한국 국가교육과정뿐만 아니라, 미국 공통 핵심 교육과정(Common Core)과 국제 바칼로레아(IB)까지 포함한 커리큘럼 학습으로 더 정확하고 체계적인 학습 지도.</p>
-        </div>
-        <div class="kv2-sol-point">
-          <h3>코퍼스 기반 언어 소통 모델</h3>
-          <p>검증된 코퍼스에 기반한 언어 소통 모델.</p>
+        <div class="kv2-sol-table">
+          <table class="kv2-compare">
+            <thead>
+              <tr><th></th><th>ChatGPT</th><th>과외 선생님</th><th class="kv2-mitra-col">미트라</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="kv2-feature">전문적인 교과 지식</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">남다른 학습 방식 이해</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-partial">◐</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">개인별 맞춤 지도</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">자유로운 시간 선택</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">친근한 메신저 기반 소통</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">지속적인 학습 이력 관리</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">합리적인 비용</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <h3 class="kv2-compare-title">미트라의 차별점</h3>
-      <div class="kv2-compare-scroll">
-        <table class="kv2-compare">
-          <thead>
-            <tr>
-              <th></th>
-              <th>ChatGPT</th>
-              <th>과외 선생님</th>
-              <th class="kv2-mitra-col">미트라</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="kv2-feature">전문적인 교과 지식</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">남다른 학습 방식 이해</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-partial">◐</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">개인별 맞춤 지도</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">자유로운 시간 선택</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">친근한 메신저 기반 소통</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">지속적인 학습 이력 관리</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">합리적인 비용</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-          </tbody>
-        </table>
+      <div class="kv2-privacy-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="1.8" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
+        <p>강력한 개인정보보안으로 아이도 부모님도 안심하세요</p>
       </div>
-      <p class="kv2-privacy">강력한 개인정보보안으로 아이도 부모님도 안심하세요.</p>
     </div>
   </section>
 
   <!-- 8. 자주 묻는 질문 -->
   <section class="kv2-faq">
     <div class="kv2-wrap kv2-narrow">
+      <img class="kv2-faq-icon" src="/ko/static/images/home-v2/icon-faq.png" alt="">
       <h2 class="kv2-h2 kv2-center">미트라 <span class="kv2-mitra-en">MITRA</span> 자주 묻는 질문</h2>
-      <div class="kv2-qa">
-        <h3>미트라는 ChatGPT 같은 AI 모델과 어떻게 다른가요?</h3>
-        <p>일반 목적의 AI 모델과 달리, 미트라는 관계 기반의 학습 튜터로 특별히 설계되었습니다. 미트라는 아이를 기억하고, 아이의 말투와 관심사에 맞춰 가며, 답을 던져주는 대신 과정을 함께 풀어갑니다.</p>
-      </div>
-      <div class="kv2-qa">
-        <h3>무료 체험이 있나요?</h3>
-        <p>네, 있습니다. 첫 7일간은 무료입니다. 미트라가 아이에게 맞지 않으면 7일 이내에 취소하시면 요금이 청구되지 않습니다. 의무 약정 기간은 없습니다.</p>
-      </div>
-      <div class="kv2-qa">
-        <h3>미트라는 어떤 과목을 다루나요?</h3>
-        <p>아이가 공부하고 있는 것이라면 무엇이든 도와드립니다. 미트라는 미국 공통 핵심 기준(Common Core), 한국 국가 교육과정, 국제 바칼로레아(IB)의 초6부터 고3까지 전체 커리큘럼을 다룹니다. 수학, 과학, 역사, 글쓰기, 외국어 등 학교 수업 내용이면 무엇이든 가능합니다.</p>
-      </div>
-      <div class="kv2-qa">
-        <h3>아이가 미트라와 함께 특정 목표에 집중했으면 해요. 어떻게 전달하나요?</h3>
-        <p>먼저 아이와 대화를 나눠 주세요. 아이가 스스로 동의한 목표를 미트라에게 직접 전해 주면, 미트라가 대화 속에 자연스럽게 녹여 냅니다. 미트라는 아이의 동반자이지, 부모님이 아이에게 향하게 하는 도구가 아닙니다. 아이가 스스로 동의한 목표는 실제로 참여하게 되는 목표입니다.</p>
-      </div>
+      <details class="kv2-faq-item" open>
+        <summary>미트라는 ChatGPT 같은 AI 모델과 어떻게 다른가요?</summary>
+        <div class="kv2-faq-body"><p>일반 목적의 AI 모델과 달리, 미트라는 관계 기반의 학습 튜터로 특별히 설계되었습니다. 미트라는 아이를 기억하고, 아이의 말투와 관심사에 맞춰 가며, 답을 던져주는 대신 과정을 함께 풀어갑니다.</p></div>
+      </details>
+      <details class="kv2-faq-item">
+        <summary>무료 체험이 있나요?</summary>
+        <div class="kv2-faq-body"><p>네, 있습니다. 첫 7일간은 무료입니다. 미트라가 아이에게 맞지 않으면 7일 이내에 취소하시면 요금이 청구되지 않습니다. 의무 약정 기간은 없습니다.</p></div>
+      </details>
+      <details class="kv2-faq-item">
+        <summary>미트라는 어떤 과목을 다루나요?</summary>
+        <div class="kv2-faq-body"><p>아이가 공부하고 있는 것이라면 무엇이든 도와드립니다. 미트라는 미국 공통 핵심 기준(Common Core), 한국 국가 교육과정, 국제 바칼로레아(IB)의 초6부터 고3까지 전체 커리큘럼을 다룹니다. 수학, 과학, 역사, 글쓰기, 외국어 등 학교 수업 내용이면 무엇이든 가능합니다.</p></div>
+      </details>
+      <details class="kv2-faq-item">
+        <summary>아이가 미트라와 함께 특정 목표에 집중했으면 해요. 어떻게 전달하나요?</summary>
+        <div class="kv2-faq-body"><p>먼저 아이와 대화를 나눠 주세요. 아이가 스스로 동의한 목표를 미트라에게 직접 전해 주면, 미트라가 대화 속에 자연스럽게 녹여 냅니다. 미트라는 아이의 동반자이지, 부모님이 아이에게 향하게 하는 도구가 아닙니다. 아이가 스스로 동의한 목표는 실제로 참여하게 되는 목표입니다.</p></div>
+      </details>
     </div>
   </section>
 
   <!-- 9. CLOSING -->
   <section class="kv2-closing">
-    <div class="kv2-wrap kv2-center">
-      <h2 class="kv2-h2">언제 어디서든 아이가 원할 때<br>미트라가 기억하고 대답할게요</h2>
-      <a class="kv2-cta" href="/ko/free-trial.html">7일 체험 신청하기</a>
-      <div class="kv2-phone kv2-phone-kakao kv2-phone-closing">
-        <div class="kv2-phone-screen">
-          <div class="kv2-phone-head">
-            <img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt="">
-            <span>미트라</span>
-          </div>
-          <div class="kv2-phone-body">
-            <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">서연아, 어제 그린 그림 잘 됐어? 가이드 점 효과 있었는지 궁금해요 😊</span></div>
-            <div class="kv2-m kv2-m-me"><span class="kv2-m-b">네! 양쪽 눈이 좀 비슷해졌어요</span></div>
-            <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">오 성공! 🎉 다음엔 사진도 보여줘요</span></div>
+    <div class="kv2-closing-inner">
+      <div class="kv2-closing-text kv2-closing-left">언제 어디서든<br>아이가 원할 때</div>
+      <div class="kv2-closing-phone">
+        <div class="kv2-cphone">
+          <div class="kv2-cphone-screen">
+            <img src="/ko/static/images/mitra-logo-transparent.png" alt="미트라">
           </div>
         </div>
       </div>
+      <div class="kv2-closing-text kv2-closing-right">미트라가<br>기억하고 대답할게요</div>
     </div>
+    <a class="kv2-talk-btn" href="/ko/free-trial.html"><span class="kv2-talk-dot"></span>톡상담</a>
   </section>
 
 </div>

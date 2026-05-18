@@ -14,10 +14,8 @@ that George should confirm or override).
 | # | Where | What's needed |
 |---|-------|---------------|
 | P2 | §2 미트라가 전합니다 | "POP UP 배너" card — the Canva said "connect with case study video recording + QR display." Content not finalized. What is this card meant to be? |
-| P3 | §2 성장 대시보드 | Growth-dashboard screen mockup image. Placeholder box. Export from Canva. |
-| P4 | §4 카톡 | Photo of a student with an iPad. Placeholder box. Export from Canva. |
-| P5 | §4 카톡 | KakaoTalk channel QR. Placeholder box. NOTE: a QR may already exist at `static/images/KT/mitra-kakaotalk-qr.png` — confirm and wire it if so. |
-| P7 | Header / Footer | "톡상담" button (from the Canva header) — needs the real KakaoTalk channel URL. Not yet wired; current page uses the site's standard nav/footer from the layout. |
+| P7 | §9 / 톡상담 | "톡상담" button needs the real KakaoTalk channel URL. Currently points at /ko/free-trial.html. |
+| P8 | Hero phones | Hero phone cluster is a CSS stand-in. Awaiting George's Canva screen-swap export to replace it with the comp's polished phone render. |
 
 **Note on Canva images:** the app "mockups" in `MITRA web v1.2.pdf` are template
 stock (fintech screens, empty phone frame, stock adult photo), not real Mitra
@@ -25,8 +23,9 @@ assets. Hero + closing are now built as real HTML/CSS phone mockups showing
 Mitra persona chats (Seoyeon / Junho / Yujin), avatar = `hero-illustration_001.png`.
 Real product screenshots remain a separate future task.
 
-*Resolved: ~~P6 comparison table~~ — reused the legacy `src/ko/index.html` table.
-~~P1 hero/closing mockups~~ — built as live phone mockups, no image asset needed (2026-05-17).*
+*Resolved: ~~P6 table~~ (legacy table). ~~P1 hero/closing mockups~~ (CSS phones).
+~~P3 dashboard~~ (built as a CSS card). ~~P4 photo~~ + ~~P5 QR~~ (extracted photo +
+repo QR wired). Full faithful rebuild of all 9 sections against Main.png done 2026-05-18.*
 
 ## Choices — Praxis decided, confirm or override
 
