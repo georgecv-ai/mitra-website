@@ -110,6 +110,22 @@
   .kv2-worry-2 { background: #3E9C7D; transform: rotate(4deg); margin-left: -28px; z-index: 2; }
   .kv2-worry-3 { background: #9A85D6; transform: rotate(-4deg); margin-left: -28px; z-index: 3; }
   .kv2-worry-4 { background: #E8534A; transform: rotate(8deg); margin-left: -28px; z-index: 4; }
+  a.kv2-worry { text-decoration: none; color: #fff; min-height: 320px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  a.kv2-worry:hover { box-shadow: 0 20px 38px rgba(31,42,38,0.28); }
+  .kv2-worry-sub { font-size: 0.9rem; line-height: 1.55; margin: 0.85rem 0 0; opacity: 0.95; color: #fff; }
+  /* dcard links */
+  a.kv2-dcard { text-decoration: none; color: inherit; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  a.kv2-dcard:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31,42,38,0.12); }
+  .kv2-dash-link { display: block; text-decoration: none; }
+  .kv2-dash-link:hover .kv2-dash-img { box-shadow: 0 12px 26px rgba(31,42,38,0.15); transition: box-shadow 0.15s ease; }
+  /* §5 case rotation */
+  .kv2-cases { position: relative; }
+  .kv2-case { display: none; }
+  .kv2-case.kv2-case-active { display: block; animation: kv2-fade 0.45s ease; }
+  @keyframes kv2-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .kv2-case-dots { display: flex; justify-content: center; gap: 0.55rem; margin-top: 1.5rem; }
+  .kv2-cdot { width: 10px; height: 10px; border-radius: 50%; background: #c2d9d0; cursor: pointer; transition: background 0.15s ease; }
+  .kv2-cdot.active { background: var(--green); }
 
   /* ---- 4. 카톡 ---- */
   .kv2-kakao { background: var(--mint); }
