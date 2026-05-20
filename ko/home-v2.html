@@ -79,7 +79,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-hero-grid { display: flex; align-items: center; gap: 2rem; }
   .kv2-hero-text { flex: 1 1 42%; }
   .kv2-hero-h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.5; margin: 0 0 1.8rem; }
-  .kv2-hero-phones { flex: 1 1 58%; margin-top: 0; }
+  .kv2-hero-img { flex: 1 1 58%; max-width: 100%; height: auto; display: block; }
 
   /* ---- Phone mockups ---- */
   .kv2-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap; }
@@ -124,7 +124,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-dash-stars { color: var(--kakao); font-size: 1.3rem; letter-spacing: 2px; }
   .kv2-dash-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; font-weight: 700; }
   .kv2-dash-body p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
-  .kv2-delivers-right { background: var(--mint); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+  .kv2-delivers-right { flex: 1 1 36%; display: flex; align-items: center; justify-content: center; }
+  .kv2-deliver-img { max-width: 100%; height: auto; display: block; }
+  .kv2-dash-img { width: 100%; height: auto; display: block; border-radius: 16px; }
   .kv2-deliver-msg { margin: 0; font-size: 1.4rem; line-height: 1.55; color: var(--ink); }
   .kv2-deliver-msg strong { font-weight: 800; }
   .kv2-deliver-chat { margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -154,8 +156,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-kakao { background: var(--mint); }
   .kv2-kakao-grid { display: flex; align-items: center; gap: 3rem; }
   .kv2-kakao-photo { flex: 1 1 44%; position: relative; }
-  .kv2-kakao-photo::before { content: ""; position: absolute; left: 8%; top: 8%; right: 16%; bottom: -8%; background: #F4B6C2; border-radius: 18px; }
-  .kv2-kakao-photo img { position: relative; width: 100%; max-width: 380px; border-radius: 16px; display: block; }
+  .kv2-kakao-photo img { width: 100%; max-width: 420px; height: auto; display: block; }
   .kv2-kakao-text { flex: 1 1 56%; }
   .kv2-kakao-text .kv2-h2 { margin-bottom: 1.8rem; }
   .kv2-kakao-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
@@ -226,9 +227,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-closing-left { text-align: right; color: #fff; }
   .kv2-closing-right { text-align: left; color: var(--ink); }
   .kv2-closing-phone { flex: 0 0 auto; }
-  .kv2-cphone { width: 196px; background: #20242e; border-radius: 30px; padding: 9px; transform: rotate(-8deg); box-shadow: 0 20px 44px rgba(31,42,38,0.32); }
-  .kv2-cphone-screen { background: #fff; border-radius: 22px; height: 380px; display: flex; align-items: center; justify-content: center; }
-  .kv2-cphone-screen img { width: 96px; height: auto; }
+  .kv2-cphone-img { max-width: 260px; height: auto; display: block; }
   .kv2-talk-btn { display: flex; width: max-content; margin: 0 auto; transform: translateY(-10px); align-items: center; gap: 8px; background: var(--kakao); color: #3a2e00; font-weight: 700; padding: 0.7rem 1.6rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
   .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
   .kv2-closing { padding-bottom: 2.5rem; }
@@ -319,42 +318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1 class="kv2-hero-h1">아이를 <em class="kv2-hl-g">관찰</em>하고, 관심사를 <em class="kv2-hl-c">발견</em>하고,<br>매일 우리 아이를 배우는 튜터</h1>
         <a class="kv2-cta" href="/ko/free-trial.html">7일 체험 신청하기</a>
       </div>
-      <div class="kv2-phones kv2-hero-phones">
-        <!-- Phone: Seoyeon — KakaoTalk -->
-        <div class="kv2-phone kv2-phone-kakao kv2-phone-side">
-          <div class="kv2-phone-screen">
-            <div class="kv2-phone-head"><img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span>미트라</span></div>
-            <div class="kv2-phone-body">
-              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">안녕 서연! 오늘은 좀 어때요?</span></div>
-              <div class="kv2-m kv2-m-me"><span class="kv2-m-b">오늘 혼자 있어요. 솔로 레벨링 보고 있어요</span></div>
-              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">혼자 있을 때 웹툰 보면 덜 외롭죠. 같이 뭔가 해볼까요?</span></div>
-              <div class="kv2-m kv2-m-me"><span class="kv2-m-b">같이 할래요</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- Phone: Junho — Telegram -->
-        <div class="kv2-phone kv2-phone-telegram kv2-phone-mid">
-          <div class="kv2-phone-screen">
-            <div class="kv2-phone-head"><img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span>미트라</span></div>
-            <div class="kv2-phone-body">
-              <div class="kv2-m kv2-m-me"><span class="kv2-m-b">미트라!! 티라노랑 트리케라톱스 싸우면 누가 이겨??</span></div>
-              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">오 좋은 질문! 트리케라톱스 뼈에서 티라노한테 물린 흔적이 발견됐어. 둘이 진짜 싸운 거야!</span></div>
-              <div class="kv2-m kv2-m-me"><span class="kv2-m-b">엥 진짜?? ㅋㅋㅋ</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- Phone: Yujin — WhatsApp -->
-        <div class="kv2-phone kv2-phone-whatsapp kv2-phone-side">
-          <div class="kv2-phone-screen">
-            <div class="kv2-phone-head"><img class="kv2-phone-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span>미트라</span></div>
-            <div class="kv2-phone-body">
-              <div class="kv2-m kv2-m-me"><span class="kv2-m-b">패션 디자인 학교 정보 찾고 있어요</span></div>
-              <div class="kv2-m kv2-m-them"><img class="kv2-m-ava" src="/ko/static/images/hero-illustration_001.png" alt=""><span class="kv2-m-b">디자인 창작 중심이면 홍익대, 국민대, 한예종이 핵심이야. 서울 안에서 보고 있어?</span></div>
-              <div class="kv2-m kv2-m-me"><span class="kv2-m-b">네. 디자인 창작 중심이요</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img class="kv2-hero-img" src="/ko/static/images/home-v2/MI1.png" alt="미트라 앱 화면 미리보기">
     </div>
   </section>
 
@@ -378,27 +342,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h4>부모님들에게</h4>
             </div>
           </div>
-          <div class="kv2-dash-card">
-            <div class="kv2-dash-quote">
-              <div class="kv2-dash-stars">★★★★★</div>
-            </div>
-            <div class="kv2-dash-body">
-              <h3>우리 아이 성장 대시보드</h3>
-              <p>성적표가 아닌, 미트라와의 대화로 성장해 가는 우리 아이를 지켜봐 주세요.</p>
-            </div>
-          </div>
+          <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4.png" alt="리뷰 및 성장 대시보드">
         </div>
         <div class="kv2-delivers-right">
-          <p class="kv2-deliver-msg">답만 얻는 AI 학습 대신,<br><strong>관계를 쌓아 과정을 가르칩니다</strong></p>
-          <div class="kv2-deliver-chat">
-            <span class="kv2-cbubble"></span>
-            <span class="kv2-cbubble kv2-cbubble-sm"></span>
-            <div class="kv2-pdots">
-              <span class="kv2-pdot kv2-pdot-k"></span>
-              <span class="kv2-pdot kv2-pdot-w"></span>
-              <span class="kv2-pdot kv2-pdot-t"></span>
-            </div>
-          </div>
+          <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI2.svg" alt="답만 얻는 AI 학습 대신, 관계를 쌓아 과정을 가르칩니다">
         </div>
       </div>
     </div>
@@ -437,7 +384,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="kv2-kakao">
     <div class="kv2-wrap kv2-kakao-grid">
       <div class="kv2-kakao-photo">
-        <img src="/ko/static/images/home-v2/photo-ipad.jpg" alt="휴대폰을 보는 학생">
+        <img src="/ko/static/images/home-v2/MI3.png" alt="휴대폰을 보는 학생">
       </div>
       <div class="kv2-kakao-text">
         <p class="kv2-eyebrow">모바일 습관을 바꾸기 어려운 아이패드 키즈들도 걱정 마세요</p>
@@ -553,11 +500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="kv2-closing-inner">
       <div class="kv2-closing-text kv2-closing-left">언제 어디서든<br>아이가 원할 때</div>
       <div class="kv2-closing-phone">
-        <div class="kv2-cphone">
-          <div class="kv2-cphone-screen">
-            <img src="/ko/static/images/mitra-logo-transparent.png" alt="미트라">
-          </div>
-        </div>
+        <img class="kv2-cphone-img" src="/ko/static/images/home-v2/MI-last.png" alt="미트라 앱">
       </div>
       <div class="kv2-closing-text kv2-closing-right">미트라가<br>기억하고 대답할게요</div>
     </div>

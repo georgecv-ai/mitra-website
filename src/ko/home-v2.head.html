@@ -38,7 +38,7 @@
   .kv2-hero-grid { display: flex; align-items: center; gap: 2rem; }
   .kv2-hero-text { flex: 1 1 42%; }
   .kv2-hero-h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.5; margin: 0 0 1.8rem; }
-  .kv2-hero-phones { flex: 1 1 58%; margin-top: 0; }
+  .kv2-hero-img { flex: 1 1 58%; max-width: 100%; height: auto; display: block; }
 
   /* ---- Phone mockups ---- */
   .kv2-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap; }
@@ -83,7 +83,9 @@
   .kv2-dash-stars { color: var(--kakao); font-size: 1.3rem; letter-spacing: 2px; }
   .kv2-dash-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; font-weight: 700; }
   .kv2-dash-body p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
-  .kv2-delivers-right { background: var(--mint); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+  .kv2-delivers-right { flex: 1 1 36%; display: flex; align-items: center; justify-content: center; }
+  .kv2-deliver-img { max-width: 100%; height: auto; display: block; }
+  .kv2-dash-img { width: 100%; height: auto; display: block; border-radius: 16px; }
   .kv2-deliver-msg { margin: 0; font-size: 1.4rem; line-height: 1.55; color: var(--ink); }
   .kv2-deliver-msg strong { font-weight: 800; }
   .kv2-deliver-chat { margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -113,8 +115,7 @@
   .kv2-kakao { background: var(--mint); }
   .kv2-kakao-grid { display: flex; align-items: center; gap: 3rem; }
   .kv2-kakao-photo { flex: 1 1 44%; position: relative; }
-  .kv2-kakao-photo::before { content: ""; position: absolute; left: 8%; top: 8%; right: 16%; bottom: -8%; background: #F4B6C2; border-radius: 18px; }
-  .kv2-kakao-photo img { position: relative; width: 100%; max-width: 380px; border-radius: 16px; display: block; }
+  .kv2-kakao-photo img { width: 100%; max-width: 420px; height: auto; display: block; }
   .kv2-kakao-text { flex: 1 1 56%; }
   .kv2-kakao-text .kv2-h2 { margin-bottom: 1.8rem; }
   .kv2-kakao-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
@@ -185,9 +186,7 @@
   .kv2-closing-left { text-align: right; color: #fff; }
   .kv2-closing-right { text-align: left; color: var(--ink); }
   .kv2-closing-phone { flex: 0 0 auto; }
-  .kv2-cphone { width: 196px; background: #20242e; border-radius: 30px; padding: 9px; transform: rotate(-8deg); box-shadow: 0 20px 44px rgba(31,42,38,0.32); }
-  .kv2-cphone-screen { background: #fff; border-radius: 22px; height: 380px; display: flex; align-items: center; justify-content: center; }
-  .kv2-cphone-screen img { width: 96px; height: auto; }
+  .kv2-cphone-img { max-width: 260px; height: auto; display: block; }
   .kv2-talk-btn { display: flex; width: max-content; margin: 0 auto; transform: translateY(-10px); align-items: center; gap: 8px; background: var(--kakao); color: #3a2e00; font-weight: 700; padding: 0.7rem 1.6rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
   .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
   .kv2-closing { padding-bottom: 2.5rem; }
