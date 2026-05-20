@@ -75,11 +75,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-cta:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
 
   /* ---- 1. HERO ---- */
-  .kv2-hero { background: #fff; padding-top: 3.5rem; overflow: hidden; }
-  .kv2-hero-grid { display: flex; align-items: center; gap: 2rem; }
-  .kv2-hero-text { flex: 1 1 42%; }
+  .kv2-hero { background: #fff; position: relative; overflow: hidden; padding: 0 0 0 1.5rem; min-height: 460px; }
+  .kv2-hero-img { position: absolute; top: 0; right: 0; width: 58%; max-width: 760px; height: auto; display: block; pointer-events: none; }
+  .kv2-hero-grid { display: flex; align-items: center; min-height: 460px; }
+  .kv2-hero-text { flex: 0 0 auto; max-width: 460px; position: relative; z-index: 1; padding: 3.5rem 0; }
   .kv2-hero-h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.5; margin: 0 0 1.8rem; }
-  .kv2-hero-img { flex: 0 1 auto; max-width: 560px; width: 100%; height: auto; display: block; }
 
   /* ---- Phone mockups ---- */
   .kv2-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap; }
@@ -236,9 +236,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 860px) {
     .kv2-page section { padding: 3.25rem 1.1rem; }
     .kv2-h2 { font-size: 1.5rem; }
-    .kv2-hero-grid { flex-direction: column; }
+    .kv2-hero { padding: 3rem 1.1rem 0; min-height: auto; }
+    .kv2-hero-grid { flex-direction: column; min-height: auto; }
     .kv2-hero-h1 { font-size: 1.7rem; text-align: center; }
-    .kv2-hero-text { text-align: center; }
+    .kv2-hero-text { text-align: center; max-width: 100%; padding: 0; }
+    .kv2-hero-img { position: static; width: 100%; max-width: 100%; margin-top: 1.5rem; }
     .kv2-delivers-grid { flex-direction: column; }
     .kv2-dcard-row { flex-direction: column; }
     .kv2-worries-h2 { font-size: 1.45rem; }
@@ -313,12 +315,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 1. HERO -->
   <section class="kv2-hero">
+    <img class="kv2-hero-img" src="/ko/static/images/home-v2/MI1.png" alt="미트라 앱 화면 미리보기">
     <div class="kv2-wrap kv2-hero-grid">
       <div class="kv2-hero-text">
         <h1 class="kv2-hero-h1">아이를 <em class="kv2-hl-g">관찰</em>하고, 관심사를 <em class="kv2-hl-c">발견</em>하고,<br>매일 우리 아이를 배우는 튜터</h1>
-        <a class="kv2-cta" href="/ko/free-trial.html">7일 체험 신청하기</a>
+        <a class="kv2-cta" href="https://staging.mitratutor.com/ko/enroll">7일 체험 신청하기</a>
       </div>
-      <img class="kv2-hero-img" src="/ko/static/images/home-v2/MI1.png" alt="미트라 앱 화면 미리보기">
     </div>
   </section>
 
