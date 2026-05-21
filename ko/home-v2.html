@@ -159,6 +159,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   a.kv2-dcard:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31,42,38,0.12); }
   .kv2-dash-link { display: block; text-decoration: none; }
   .kv2-dash-link:hover .kv2-dash-img { box-shadow: 0 12px 26px rgba(31,42,38,0.15); transition: box-shadow 0.15s ease; }
+  /* MI4 split: review (left, with scrolling-text overlay) + dashboard (right, linked) */
+  .kv2-dash-row { display: flex; gap: 1rem; align-items: stretch; }
+  .kv2-dash-half { flex: 1 1 50%; min-width: 0; }
+  .kv2-review-stack { position: relative; display: block; }
+  .kv2-review-stack .kv2-dash-img { display: block; width: 100%; height: auto; border-radius: 16px; }
+  /* Overlay sits inside the quote-bubble area of the image, between the two quote marks
+     and below the "park*** 학부모님" attribution row. Coords are % of image. */
+  .kv2-review-overlay {
+    position: absolute;
+    left: 10%; right: 13%; top: 77%; bottom: 6%;
+    background: rgb(243, 246, 245);
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .kv2-review-track {
+    height: 300%;
+    display: flex;
+    flex-direction: column;
+    animation: kv2-review-scroll 12s ease-in-out infinite;
+  }
+  .kv2-review {
+    height: 33.3333%;
+    margin: 0;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    font-size: 0.88rem; line-height: 1.3;
+    color: #1A1A2E;
+    padding: 0 0.6rem;
+  }
+  @keyframes kv2-review-scroll {
+    0%, 30%   { transform: translateY(0%); }
+    40%, 70%  { transform: translateY(-33.3333%); }
+    80%, 100% { transform: translateY(-66.6667%); }
+  }
+  @media (max-width: 720px) {
+    .kv2-dash-row { flex-direction: column; }
+  }
   /* §5 case rotation */
   .kv2-cases { position: relative; }
   .kv2-case { display: none; }
@@ -360,9 +397,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h4>부모님들에게</h4>
             </a>
           </div>
-          <a class="kv2-dash-link" href="/ko/parent-dashboard.html">
-            <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4.png" alt="리뷰 및 성장 대시보드">
-          </a>
+          <div class="kv2-dash-row">
+            <div class="kv2-dash-half kv2-review-stack">
+              <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-review.png" alt="학부모 후기">
+              <div class="kv2-review-overlay" aria-live="polite">
+                <div class="kv2-review-track">
+                  <p class="kv2-review">placeholder review 1</p>
+                  <p class="kv2-review">placeholder review 2</p>
+                  <p class="kv2-review">placeholder review 1</p>
+                </div>
+              </div>
+            </div>
+            <a class="kv2-dash-half kv2-dash-link" href="/ko/parent-dashboard.html">
+              <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-dashboard.png" alt="우리 아이 성장 대시보드">
+            </a>
+          </div>
         </div>
         <div class="kv2-delivers-right">
           <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI2.svg" alt="답만 얻는 AI 학습 대신, 관계를 쌓아 과정을 가르칩니다">
