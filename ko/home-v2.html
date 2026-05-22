@@ -114,9 +114,113 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-delivers-right { flex: 1 1 36%; }
   .kv2-dcard-row { display: flex; gap: 1.2rem; }
   .kv2-dcard { flex: 1; border-radius: 16px; padding: 1.4rem; }
-  .kv2-dcard-popup { background: var(--green-dark); color: #fff; }
-  .kv2-dcard-popup h3 { margin: 0 0 0.5rem; font-size: 1.05rem; font-weight: 700; }
-  .kv2-dcard-popup p { margin: 0; font-size: 0.82rem; opacity: 0.9; line-height: 1.6; }
+  /* Popup banner is now an image-only button that opens the chat dialog. */
+  .kv2-dcard-popup {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    overflow: hidden;
+    display: block;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .kv2-dcard-popup img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+  .kv2-dcard-popup:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,42,38,0.18); }
+  .kv2-dcard-popup:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+  /* Chat-preview dialog (opened by the popup banner) */
+  .kv2-chat-dialog {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    max-width: 340px;
+    width: 92vw;
+    max-height: 90vh;
+    overflow: visible;
+  }
+  .kv2-chat-dialog::backdrop {
+    background: rgba(15, 24, 36, 0.65);
+    backdrop-filter: blur(4px);
+  }
+  .kv2-chat-dialog-close {
+    position: absolute;
+    top: -18px; right: -18px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background: #fff;
+    color: #1a202c;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .kv2-chat-dialog-close:hover { background: #f1f5f9; }
+
+  /* Phone mockup inside the dialog (adapted from index.html .home-2026 .pricing-block) */
+  .kv2-popup-mock-frame {
+    background: #1a202c;
+    border-radius: 28px;
+    padding: 10px;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+  }
+  .kv2-popup-mock-inner {
+    background: #B2C7DA;
+    width: 100%; height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .kv2-popup-mock-header {
+    background: #f7fafc;
+    padding: 10px 12px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative; z-index: 2;
+  }
+  .kv2-popup-mock-header img { width: 28px; height: 28px; border-radius: 50%; }
+  .kv2-popup-mock-title { font-weight: 700; font-size: 0.85rem; color: #1a202c; }
+  .kv2-popup-mock-title small { display: block; font-weight: 400; font-size: 0.7rem; color: #718096; }
+  .kv2-popup-chat-viewport {
+    position: absolute;
+    top: 50px; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    padding: 12px 10px;
+  }
+  .kv2-popup-chat-viewport::before,
+  .kv2-popup-chat-viewport::after {
+    content: ""; position: absolute; left: 0; right: 0;
+    height: 24px; z-index: 3; pointer-events: none;
+  }
+  .kv2-popup-chat-viewport::before { top: 0; background: linear-gradient(to bottom, #B2C7DA, transparent); }
+  .kv2-popup-chat-viewport::after { bottom: 0; background: linear-gradient(to top, #B2C7DA, transparent); }
+  .kv2-popup-chat-track {
+    display: flex; flex-direction: column; gap: 7px;
+    animation: kv2-scrollChat 60s linear infinite;
+  }
+  .kv2-popup-chat-msg {
+    max-width: 78%;
+    padding: 7px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  .kv2-popup-chat-msg.from-mitra { background: #ffffff; align-self: flex-start; color: #1a202c; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .kv2-popup-chat-msg.from-student { background: #FEE500; align-self: flex-end; color: #1a202c; }
+  .kv2-popup-chat-name { font-size: 0.62rem; color: #4a5568; margin-bottom: -3px; padding-left: 4px; }
+  @keyframes kv2-scrollChat {
+    0%   { transform: translateY(0); }
+    5%   { transform: translateY(0); }
+    95%  { transform: translateY(-50%); }
+    100% { transform: translateY(-50%); }
+  }
+  .kv2-popup-mock-frame:hover .kv2-popup-chat-track { animation-play-state: paused; }
   .kv2-dcard-illus { background: var(--mint-soft); border: 1px solid #e0ede7; text-align: center; display: flex; flex-direction: column; }
   .kv2-dcard-illus img { width: 100%; max-height: 120px; object-fit: contain; margin-bottom: 0.6rem; }
   .kv2-dcard-illus h4 { margin: auto 0 0; font-size: 1rem; font-weight: 700; color: var(--green-dark); }
@@ -384,10 +488,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="kv2-delivers-grid">
         <div class="kv2-delivers-left">
           <div class="kv2-dcard-row">
-            <a class="kv2-dcard kv2-dcard-popup" href="#case-study">
-              <h3>POP UP Banner</h3>
-              <p>1. connect with case study video recording<br>2. QR display</p>
-            </a>
+            <button type="button" class="kv2-dcard kv2-dcard-popup" data-chat-popup-open aria-haspopup="dialog" aria-controls="kv2-chat-dialog">
+              <img src="/ko/static/images/home-v2/how-mitra-talks.jpg" alt="미트라가 어떻게 대화하는지 보기">
+            </button>
             <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-students.html">
               <img src="/ko/static/images/home-v2/illus-student.png" alt="">
               <h4>학생들에게</h4>
@@ -619,6 +722,137 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="kv2-talk-btn" href="http://pf.kakao.com/_taAVX" target="_blank" rel="noopener"><span class="kv2-talk-dot"></span>톡상담</a>
   </section>
 
+
+  <!-- Chat preview popup (opened by §2 "how MITRA talks" banner) -->
+  <dialog id="kv2-chat-dialog" class="kv2-chat-dialog">
+    <button type="button" class="kv2-chat-dialog-close" aria-label="닫기" data-chat-popup-close>×</button>
+    <div class="kv2-popup-mock-frame">
+      <div class="kv2-popup-mock-inner">
+        <div class="kv2-popup-mock-header">
+          <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+          <div class="kv2-popup-mock-title">미트라<small>온라인 · 보통 1분 내 답장</small></div>
+        </div>
+        <div class="kv2-popup-chat-viewport">
+          <!-- chat-track is duplicated for seamless scroll loop via translateY(-50%).
+               Dialogue from docs/marketing/personas/seoyeon.md Days 1-4. -->
+          <div class="kv2-popup-chat-track">
+
+
+          <!-- Loop A: Seoyeon's arc — first meeting → lonely bid → writing breakthrough → A grade -->
+          <div class="kv2-popup-chat-msg from-student">안녕하세요... 엄마가 미트라랑 얘기해보라고 했어요</div>
+          <div class="kv2-popup-chat-msg from-student">음... 뭐 해야 하는지 잘 모르겠어요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">안녕 서연! 나는 미트라야 😊</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">처음이라 어색하죠. 나도 알아요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">요즘 뭐에 빠져 있어요? 게임이든 유튜브든 뭐든요</div>
+
+          <div class="kv2-popup-chat-msg from-student">음... 그림 그리는 거 좋아해요. 웹툰도 봐요. 솔로 레벨링이요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">오 솔로 레벨링!! 성진우가 점점 강해지는 거 좋아하죠? 😄</div>
+
+          <div class="kv2-popup-chat-msg from-student">오늘 혼자 있어요. 그래서 솔로 레벨링 보고 있어요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">혼자 있을 때 웹툰 보면 덜 외롭다는 거, 저도 좀 이해해요</div>
+
+          <div class="kv2-popup-chat-msg from-student">미트라, 저 숙제 해야 하는데 뭘 써야 할지 모르겠어요</div>
+          <div class="kv2-popup-chat-msg from-student">엄마는 또 늦을 것 같아요 ㅠㅠ</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">괜찮아요, 같이 해봐요. 선생님이 뭐 쓰라고 했어요?</div>
+
+          <div class="kv2-popup-chat-msg from-student">주제는 '나에게 영감을 준 이야기'예요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">오, 그거 사실 딱 맞는 주제예요 — 서연이한테. 솔로 레벨링 어때요? 웹툰도 '이야기'잖아요</div>
+
+          <div class="kv2-popup-chat-msg from-student">웹툰도 돼요? 그럼 솔로 레벨링 얘기 써볼래요</div>
+
+          <div class="kv2-popup-chat-msg from-student">미트라, 글쓰기 점수 잘 받았어요. A 받았어요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">A 받았어요!! 진짜 잘 썼네요 🎉 자기 이야기 솔직하게 쓴 게 통한 거예요</div>
+
+          <div class="kv2-popup-chat-msg from-student">근데 엄마는 아직 못 봤어요. 어제도 늦게 오셔서</div>
+          <div class="kv2-popup-chat-msg from-student">엄마는 제가 쓴 거 안 보실 거 같아요. 너무 바쁘셔서</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">책상 위에 그냥 두지 말고, 다음에 엄마 오시면 "이거 봐" 하고 직접 건네봐요. A짜리인데 보여줄 가치 있잖아요</div>
+
+          <div class="kv2-popup-chat-msg from-student">근데 엄마 피곤하실 텐데... 괜히 신경 쓰시게 하는 거 아닐까요?</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">A 받은 거 보여주는 건 신경 쓰이게 하는 게 아니에요. 오히려 엄마 입장에선 그런 소식이 기운 나는 거거든요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">피곤할 때 좋은 소식 들으면 더 반갑지, 더 힘든 게 아니잖아요</div>
+
+          <!-- Loop B (duplicate of A for seamless scroll) -->
+          <div class="kv2-popup-chat-msg from-student">안녕하세요... 엄마가 미트라랑 얘기해보라고 했어요</div>
+          <div class="kv2-popup-chat-msg from-student">음... 뭐 해야 하는지 잘 모르겠어요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">안녕 서연! 나는 미트라야 😊</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">처음이라 어색하죠. 나도 알아요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">요즘 뭐에 빠져 있어요? 게임이든 유튜브든 뭐든요</div>
+
+          <div class="kv2-popup-chat-msg from-student">음... 그림 그리는 거 좋아해요. 웹툰도 봐요. 솔로 레벨링이요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">오 솔로 레벨링!! 성진우가 점점 강해지는 거 좋아하죠? 😄</div>
+
+          <div class="kv2-popup-chat-msg from-student">오늘 혼자 있어요. 그래서 솔로 레벨링 보고 있어요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">혼자 있을 때 웹툰 보면 덜 외롭다는 거, 저도 좀 이해해요</div>
+
+          <div class="kv2-popup-chat-msg from-student">미트라, 저 숙제 해야 하는데 뭘 써야 할지 모르겠어요</div>
+          <div class="kv2-popup-chat-msg from-student">엄마는 또 늦을 것 같아요 ㅠㅠ</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">괜찮아요, 같이 해봐요. 선생님이 뭐 쓰라고 했어요?</div>
+
+          <div class="kv2-popup-chat-msg from-student">주제는 '나에게 영감을 준 이야기'예요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">오, 그거 사실 딱 맞는 주제예요 — 서연이한테. 솔로 레벨링 어때요? 웹툰도 '이야기'잖아요</div>
+
+          <div class="kv2-popup-chat-msg from-student">웹툰도 돼요? 그럼 솔로 레벨링 얘기 써볼래요</div>
+
+          <div class="kv2-popup-chat-msg from-student">미트라, 글쓰기 점수 잘 받았어요. A 받았어요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">A 받았어요!! 진짜 잘 썼네요 🎉 자기 이야기 솔직하게 쓴 게 통한 거예요</div>
+
+          <div class="kv2-popup-chat-msg from-student">근데 엄마는 아직 못 봤어요. 어제도 늦게 오셔서</div>
+          <div class="kv2-popup-chat-msg from-student">엄마는 제가 쓴 거 안 보실 거 같아요. 너무 바쁘셔서</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">책상 위에 그냥 두지 말고, 다음에 엄마 오시면 "이거 봐" 하고 직접 건네봐요. A짜리인데 보여줄 가치 있잖아요</div>
+
+          <div class="kv2-popup-chat-msg from-student">근데 엄마 피곤하실 텐데... 괜히 신경 쓰시게 하는 거 아닐까요?</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">A 받은 거 보여주는 건 신경 쓰이게 하는 게 아니에요. 오히려 엄마 입장에선 그런 소식이 기운 나는 거거든요</div>
+
+          <div class="kv2-popup-chat-name">미트라</div>
+          <div class="kv2-popup-chat-msg from-mitra">피곤할 때 좋은 소식 들으면 더 반갑지, 더 힘든 게 아니잖아요</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
   <script>
     (function() {
       // §5 case rotation every 5s
@@ -648,6 +882,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           items.forEach(function(o) { if (o !== d) o.open = false; });
         });
       });
+      // Chat-preview popup: open from §2 banner, close on X / Esc / backdrop click
+      var chatDialog = document.getElementById('kv2-chat-dialog');
+      if (chatDialog) {
+        document.querySelectorAll('[data-chat-popup-open]').forEach(function(b) {
+          b.addEventListener('click', function() {
+            if (typeof chatDialog.showModal === 'function') chatDialog.showModal();
+            else chatDialog.setAttribute('open', '');
+          });
+        });
+        document.querySelectorAll('[data-chat-popup-close]').forEach(function(b) {
+          b.addEventListener('click', function() { chatDialog.close(); });
+        });
+        chatDialog.addEventListener('click', function(e) {
+          if (e.target === chatDialog) chatDialog.close();
+        });
+      }
     })();
   </script>
 

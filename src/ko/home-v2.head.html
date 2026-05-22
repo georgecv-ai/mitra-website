@@ -73,9 +73,113 @@
   .kv2-delivers-right { flex: 1 1 36%; }
   .kv2-dcard-row { display: flex; gap: 1.2rem; }
   .kv2-dcard { flex: 1; border-radius: 16px; padding: 1.4rem; }
-  .kv2-dcard-popup { background: var(--green-dark); color: #fff; }
-  .kv2-dcard-popup h3 { margin: 0 0 0.5rem; font-size: 1.05rem; font-weight: 700; }
-  .kv2-dcard-popup p { margin: 0; font-size: 0.82rem; opacity: 0.9; line-height: 1.6; }
+  /* Popup banner is now an image-only button that opens the chat dialog. */
+  .kv2-dcard-popup {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    overflow: hidden;
+    display: block;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .kv2-dcard-popup img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+  .kv2-dcard-popup:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,42,38,0.18); }
+  .kv2-dcard-popup:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+  /* Chat-preview dialog (opened by the popup banner) */
+  .kv2-chat-dialog {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    max-width: 340px;
+    width: 92vw;
+    max-height: 90vh;
+    overflow: visible;
+  }
+  .kv2-chat-dialog::backdrop {
+    background: rgba(15, 24, 36, 0.65);
+    backdrop-filter: blur(4px);
+  }
+  .kv2-chat-dialog-close {
+    position: absolute;
+    top: -18px; right: -18px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background: #fff;
+    color: #1a202c;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .kv2-chat-dialog-close:hover { background: #f1f5f9; }
+
+  /* Phone mockup inside the dialog (adapted from index.html .home-2026 .pricing-block) */
+  .kv2-popup-mock-frame {
+    background: #1a202c;
+    border-radius: 28px;
+    padding: 10px;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+  }
+  .kv2-popup-mock-inner {
+    background: #B2C7DA;
+    width: 100%; height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .kv2-popup-mock-header {
+    background: #f7fafc;
+    padding: 10px 12px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative; z-index: 2;
+  }
+  .kv2-popup-mock-header img { width: 28px; height: 28px; border-radius: 50%; }
+  .kv2-popup-mock-title { font-weight: 700; font-size: 0.85rem; color: #1a202c; }
+  .kv2-popup-mock-title small { display: block; font-weight: 400; font-size: 0.7rem; color: #718096; }
+  .kv2-popup-chat-viewport {
+    position: absolute;
+    top: 50px; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    padding: 12px 10px;
+  }
+  .kv2-popup-chat-viewport::before,
+  .kv2-popup-chat-viewport::after {
+    content: ""; position: absolute; left: 0; right: 0;
+    height: 24px; z-index: 3; pointer-events: none;
+  }
+  .kv2-popup-chat-viewport::before { top: 0; background: linear-gradient(to bottom, #B2C7DA, transparent); }
+  .kv2-popup-chat-viewport::after { bottom: 0; background: linear-gradient(to top, #B2C7DA, transparent); }
+  .kv2-popup-chat-track {
+    display: flex; flex-direction: column; gap: 7px;
+    animation: kv2-scrollChat 60s linear infinite;
+  }
+  .kv2-popup-chat-msg {
+    max-width: 78%;
+    padding: 7px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  .kv2-popup-chat-msg.from-mitra { background: #ffffff; align-self: flex-start; color: #1a202c; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .kv2-popup-chat-msg.from-student { background: #FEE500; align-self: flex-end; color: #1a202c; }
+  .kv2-popup-chat-name { font-size: 0.62rem; color: #4a5568; margin-bottom: -3px; padding-left: 4px; }
+  @keyframes kv2-scrollChat {
+    0%   { transform: translateY(0); }
+    5%   { transform: translateY(0); }
+    95%  { transform: translateY(-50%); }
+    100% { transform: translateY(-50%); }
+  }
+  .kv2-popup-mock-frame:hover .kv2-popup-chat-track { animation-play-state: paused; }
   .kv2-dcard-illus { background: var(--mint-soft); border: 1px solid #e0ede7; text-align: center; display: flex; flex-direction: column; }
   .kv2-dcard-illus img { width: 100%; max-height: 120px; object-fit: contain; margin-bottom: 0.6rem; }
   .kv2-dcard-illus h4 { margin: auto 0 0; font-size: 1rem; font-weight: 700; color: var(--green-dark); }
