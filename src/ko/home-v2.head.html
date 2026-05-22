@@ -73,17 +73,16 @@
   .kv2-delivers-right { flex: 1 1 36%; }
   .kv2-dcard-row { display: flex; gap: 1.2rem; }
   .kv2-dcard { flex: 1; border-radius: 16px; padding: 1.4rem; }
-  /* Popup banner is now an image-only button that opens the chat dialog. */
+  /* Popup banner is now an image-only button that opens the chat dialog.
+     Matches the .kv2-dcard-illus neighbors (mint-soft bg, border, padding). */
   .kv2-dcard-popup {
-    background: transparent;
-    padding: 0;
-    border: 0;
+    background: var(--mint-soft);
+    border: 1px solid #e0ede7;
     cursor: pointer;
-    overflow: hidden;
-    display: block;
+    display: flex; align-items: center; justify-content: center;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .kv2-dcard-popup img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
+  .kv2-dcard-popup img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; display: block; }
   .kv2-dcard-popup:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,42,38,0.18); }
   .kv2-dcard-popup:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
 
