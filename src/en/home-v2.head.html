@@ -1,222 +1,396 @@
 <style>
-  /* ===== Mitra home-v2 (2e parent variant) ===== */
-  .hv2-page {
-    --navy: #2B4C7E;
-    --indigo: #4f46e5;
-    --indigo-dark: #4338ca;
-    --lavender: #f8f7ff;
+  /* ===== Mitra home-v2 (Korean) — faithful rebuild ===== */
+  .kv2-page {
+    --green: #2A9D8F;
+    --green-dark: #1f7a6e;
+    --green-soft: #6BBE9F;
+    --mint: #EAF5F0;
+    --mint-soft: #F2F9F5;
+    --lav: #EEEFF4;
+    --kakao: #FEE500;
+    --coral: #E8736B;
     --ink: #1f2937;
     --muted: #6b7280;
     color: var(--ink);
-    line-height: 1.6;
+    line-height: 1.7;
+    word-break: keep-all;
   }
-  .hv2-page section { padding: 5rem 1.25rem; }
-  .hv2-wrap { max-width: 1040px; margin: 0 auto; }
-  .hv2-narrow { max-width: 680px; }
-  .hv2-center { text-align: center; }
+  .kv2-page section { padding: 4.5rem 1.5rem; }
+  .kv2-wrap { max-width: 1120px; margin: 0 auto; }
+  .kv2-narrow { max-width: 720px; }
+  .kv2-center { text-align: center; }
 
-  .hv2-h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--navy);
-    margin: 0 0 1.25rem;
-  }
-  .hv2-sub { font-size: 1.15rem; color: var(--muted); margin: 0 0 2rem; }
+  .kv2-h2 { font-size: 1.95rem; font-weight: 800; line-height: 1.4; color: var(--ink); margin: 0 0 2rem; }
+  .kv2-h2 span, .kv2-mitra-en { color: var(--green); }
+  .kv2-hl-g { font-style: normal; color: var(--green); }
+  .kv2-hl-c { font-style: normal; color: var(--coral); }
+  .kv2-eyebrow { color: var(--green-dark); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.7rem; }
 
-  /* CTA button */
-  .hv2-cta {
-    display: inline-block;
-    background: var(--indigo);
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 0.9rem 2.25rem;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background 0.15s ease, transform 0.15s ease;
+  .kv2-cta {
+    display: inline-block; background: var(--green); color: #fff; font-weight: 700;
+    font-size: 1.05rem; padding: 0.85rem 2.1rem; border-radius: 999px;
+    text-decoration: none; transition: background 0.15s ease, transform 0.15s ease;
   }
-  .hv2-cta:hover { background: var(--indigo-dark); color: #fff; transform: translateY(-1px); }
+  .kv2-cta:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
 
-  /* 1. Hero */
-  .hv2-hero {
-    background: linear-gradient(180deg, #f3f1ff 0%, var(--lavender) 100%);
-    text-align: center;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+  /* ---- 1. HERO ---- */
+  .kv2-page .kv2-hero { background: #fff; position: relative; overflow: hidden; padding: 0 0 0 1.5rem; min-height: 420px; }
+  .kv2-hero-img { position: absolute; top: 0; right: 0; width: 58%; max-width: 760px; height: auto; display: block; pointer-events: none; }
+  .kv2-hero-grid { display: flex; align-items: center; min-height: 420px; }
+  .kv2-hero-text { flex: 0 0 auto; max-width: 460px; position: relative; z-index: 1; padding: 2.5rem 0; }
+  .kv2-hero-h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.5; margin: 0 0 1.8rem; }
+
+  /* ---- Phone mockups ---- */
+  .kv2-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap; }
+  .kv2-phone { background: #20242e; border-radius: 26px; padding: 7px; box-shadow: 0 16px 36px rgba(31,42,38,0.26); flex: 0 0 auto; }
+  .kv2-phone-side { width: 174px; }
+  .kv2-hero-phones .kv2-phone:first-child { transform: rotate(-5deg) translateY(22px); }
+  .kv2-hero-phones .kv2-phone:last-child { transform: rotate(5deg) translateY(22px); }
+  .kv2-phone-mid { width: 190px; position: relative; z-index: 2; }
+  .kv2-phone-screen { border-radius: 20px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+  .kv2-phone-head { display: flex; align-items: center; gap: 7px; padding: 9px 12px; background: #fff; border-bottom: 1px solid #eee; font-weight: 700; font-size: 0.72rem; color: var(--ink); }
+  .kv2-phone-ava { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; background: #eef3f1; }
+  .kv2-phone-body { padding: 10px 8px; display: flex; flex-direction: column; gap: 6px; min-height: 250px; }
+  .kv2-m { display: flex; align-items: flex-end; gap: 4px; }
+  .kv2-m-them { justify-content: flex-start; }
+  .kv2-m-me { justify-content: flex-end; }
+  .kv2-m-ava { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; background: #fff; flex: 0 0 auto; }
+  .kv2-m-b { max-width: 76%; padding: 6px 9px; border-radius: 11px; font-size: 0.62rem; line-height: 1.5; text-align: left; }
+  .kv2-m-them .kv2-m-b { background: #fff; color: #1f2937; border-bottom-left-radius: 3px; }
+  .kv2-m-me .kv2-m-b { border-bottom-right-radius: 3px; }
+  .kv2-phone-kakao .kv2-phone-body { background: #b2c7d9; }
+  .kv2-phone-kakao .kv2-m-me .kv2-m-b { background: #fee500; color: #3a2e00; }
+  .kv2-phone-telegram .kv2-phone-body { background: #cfe5f5; }
+  .kv2-phone-telegram .kv2-m-me .kv2-m-b { background: #cce8ff; color: #14405e; }
+  .kv2-phone-whatsapp .kv2-phone-body { background: #e5ddd3; }
+  .kv2-phone-whatsapp .kv2-m-me .kv2-m-b { background: #d9fdd3; color: #1b3a26; }
+
+  /* ---- 2. 미트라가 전합니다 ---- */
+  .kv2-page .kv2-delivers { background: #fff; padding-top: 1.75rem; }
+  .kv2-delivers-h2 { font-size: 1.7rem; font-weight: 800; color: var(--green); margin: 0 0 1.6rem; }
+  .kv2-delivers-grid { display: flex; gap: 1.2rem; align-items: stretch; }
+  .kv2-delivers-left { flex: 1 1 64%; display: flex; flex-direction: column; gap: 1.2rem; }
+  .kv2-delivers-right { flex: 1 1 36%; }
+  .kv2-dcard-row { display: flex; gap: 1.2rem; }
+  .kv2-dcard { flex: 1; border-radius: 16px; padding: 1.4rem; }
+  /* Popup banner is now an image-only button that opens the chat dialog.
+     Matches the .kv2-dcard-illus neighbors (mint-soft bg, border, padding). */
+  .kv2-dcard-popup {
+    background: var(--mint-soft);
+    border: 1px solid #e0ede7;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .hv2-hero-quote {
-    margin: 0 auto 2.25rem;
-    max-width: 720px;
+  .kv2-dcard-popup img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .kv2-dcard-popup:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,42,38,0.18); }
+  .kv2-dcard-popup:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+  /* Chat-preview dialog (opened by the popup banner) */
+  .kv2-chat-dialog {
     border: 0;
     padding: 0;
+    background: transparent;
+    max-width: 340px;
+    width: 92vw;
+    max-height: 90vh;
+    overflow: visible;
   }
-  .hv2-hero-quote p {
-    font-size: 1.9rem;
-    font-weight: 600;
-    font-style: italic;
-    line-height: 1.4;
-    color: var(--navy);
-    margin: 0;
+  .kv2-chat-dialog::backdrop {
+    background: rgba(15, 24, 36, 0.65);
+    backdrop-filter: blur(4px);
   }
-  .hv2-hero-promise {
-    font-size: 2.6rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: var(--ink);
-    max-width: 760px;
-    margin: 0 auto 1rem;
-  }
-  .hv2-hero-desc {
-    font-size: 1.15rem;
-    color: var(--muted);
-    max-width: 540px;
-    margin: 0 auto 2.25rem;
-  }
-
-  /* 2. Problem */
-  .hv2-problem { background: #fff; }
-  .hv2-problem p { font-size: 1.2rem; margin: 0 0 1.25rem; }
-  .hv2-problem-close {
-    font-weight: 700;
-    color: var(--navy);
-    font-size: 1.3rem !important;
-    margin-top: 1.75rem !important;
-  }
-
-  /* 3. Recognition */
-  .hv2-recognition { background: var(--navy); }
-  .hv2-recognition .hv2-h2 { color: #fff; }
-  .hv2-recognition .hv2-sub { color: #c7d2e8; margin-bottom: 2.75rem; }
-  .hv2-vignettes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-  .hv2-vignette {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 12px;
-    padding: 1.75rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  /* 4. What Mitra does */
-  .hv2-does { background: var(--lavender); }
-  .hv2-does .hv2-h2 { margin-bottom: 2.75rem; }
-  .hv2-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .hv2-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 2rem;
-    box-shadow: 0 2px 16px rgba(43,76,126,0.07);
-  }
-  .hv2-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 0 0 0.75rem;
-  }
-  .hv2-card p { margin: 0; color: var(--ink); }
-
-  /* 5. Why it works */
-  .hv2-why { background: #fff; }
-  .hv2-why .hv2-h2 { margin-bottom: 2.75rem; }
-  .hv2-points { display: flex; flex-direction: column; gap: 1.75rem; }
-  .hv2-point { display: flex; gap: 1.5rem; align-items: flex-start; }
-  .hv2-point-num {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--indigo);
-    flex: 0 0 auto;
-    line-height: 1.2;
-  }
-  .hv2-point h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 0 0 0.35rem;
-  }
-  .hv2-point p { margin: 0; color: var(--muted); }
-
-  /* 6. How to start */
-  .hv2-start { background: var(--lavender); }
-  .hv2-start .hv2-h2 { margin-bottom: 2rem; }
-  .hv2-steps {
-    counter-reset: hv2step;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.75rem;
-  }
-  .hv2-steps li {
-    counter-increment: hv2step;
-    position: relative;
-    padding: 0.9rem 0 0.9rem 3rem;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #e6e3f5;
-  }
-  .hv2-steps li:last-child { border-bottom: 0; }
-  .hv2-steps li::before {
-    content: counter(hv2step);
+  .kv2-chat-dialog-close {
     position: absolute;
-    left: 0;
-    top: 0.75rem;
-    width: 2rem;
-    height: 2rem;
-    background: var(--indigo);
-    color: #fff;
+    top: -18px; right: -18px;
+    width: 44px; height: 44px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-  .hv2-mechanic {
+    border: 0;
     background: #fff;
-    border: 1px solid #e6e3f5;
-    border-radius: 10px;
-    padding: 1.1rem 1.35rem;
-    font-size: 0.98rem;
-    color: var(--muted);
+    color: #1a202c;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .kv2-chat-dialog-close:hover { background: #f1f5f9; }
+
+  /* Phone mockup inside the dialog (adapted from index.html .home-2026 .pricing-block) */
+  .kv2-popup-mock-frame {
+    background: #1a202c;
+    border-radius: 28px;
+    padding: 10px;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+  }
+  .kv2-popup-mock-inner {
+    background: #B2C7DA;
+    width: 100%; height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .kv2-popup-mock-header {
+    background: #f7fafc;
+    padding: 10px 12px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative; z-index: 2;
+  }
+  .kv2-popup-mock-header img { width: 28px; height: 28px; border-radius: 50%; }
+  .kv2-popup-mock-title { font-weight: 700; font-size: 0.85rem; color: #1a202c; }
+  .kv2-popup-mock-title small { display: block; font-weight: 400; font-size: 0.7rem; color: #718096; }
+  .kv2-popup-chat-viewport {
+    position: absolute;
+    top: 50px; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    padding: 12px 10px;
+  }
+  .kv2-popup-chat-viewport::before,
+  .kv2-popup-chat-viewport::after {
+    content: ""; position: absolute; left: 0; right: 0;
+    height: 24px; z-index: 3; pointer-events: none;
+  }
+  .kv2-popup-chat-viewport::before { top: 0; background: linear-gradient(to bottom, #B2C7DA, transparent); }
+  .kv2-popup-chat-viewport::after { bottom: 0; background: linear-gradient(to top, #B2C7DA, transparent); }
+  .kv2-popup-chat-track {
+    display: flex; flex-direction: column; gap: 7px;
+    animation: kv2-scrollChat 60s linear infinite;
+  }
+  .kv2-popup-chat-msg {
+    max-width: 78%;
+    padding: 7px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  .kv2-popup-chat-msg.from-mitra { background: #ffffff; align-self: flex-start; color: #1a202c; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .kv2-popup-chat-msg.from-student { background: #FEE500; align-self: flex-end; color: #1a202c; }
+  .kv2-popup-chat-name { font-size: 0.62rem; color: #4a5568; margin-bottom: -3px; padding-left: 4px; }
+  @keyframes kv2-scrollChat {
+    0%   { transform: translateY(0); }
+    5%   { transform: translateY(0); }
+    95%  { transform: translateY(-50%); }
+    100% { transform: translateY(-50%); }
+  }
+  .kv2-popup-mock-frame:hover .kv2-popup-chat-track { animation-play-state: paused; }
+  .kv2-dcard-illus { background: var(--mint-soft); border: 1px solid #e0ede7; text-align: center; display: flex; flex-direction: column; }
+  .kv2-dcard-illus img { width: 100%; max-height: 120px; object-fit: contain; margin-bottom: 0.6rem; }
+  .kv2-dcard-illus h4 { margin: auto 0 0; font-size: 1rem; font-weight: 700; color: var(--green-dark); }
+  .kv2-dash-card { background: var(--green-dark); border-radius: 16px; padding: 1.6rem 1.8rem; display: flex; align-items: center; gap: 1.5rem; color: #fff; }
+  .kv2-dash-stars { color: var(--kakao); font-size: 1.3rem; letter-spacing: 2px; }
+  .kv2-dash-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; font-weight: 700; }
+  .kv2-dash-body p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+  .kv2-delivers-right { flex: 1 1 36%; display: flex; align-items: center; justify-content: center; }
+  .kv2-deliver-img { max-width: 100%; height: auto; display: block; }
+  .kv2-dash-img { width: 100%; height: auto; display: block; border-radius: 16px; }
+  .kv2-deliver-msg { margin: 0; font-size: 1.4rem; line-height: 1.55; color: var(--ink); }
+  .kv2-deliver-msg strong { font-weight: 800; }
+  .kv2-deliver-chat { margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .kv2-cbubble { width: 130px; height: 26px; background: #fff; border-radius: 13px; }
+  .kv2-cbubble-sm { width: 88px; }
+  .kv2-pdots { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+  .kv2-pdot { width: 24px; height: 24px; border-radius: 50%; }
+  .kv2-pdot-k { background: var(--kakao); }
+  .kv2-pdot-w { background: #25D366; }
+  .kv2-pdot-t { background: #29A9EB; }
+
+  /* ---- 3. 이런 고민 ---- */
+  .kv2-worries { background: var(--mint); }
+  .kv2-worries-h2 { text-align: center; font-size: 1.9rem; font-weight: 800; color: var(--ink); line-height: 1.4; margin: 0 0 3rem; }
+  .kv2-worries-h2 span { color: var(--green); }
+  .kv2-worry-cards { display: flex; justify-content: center; align-items: center; padding: 1rem 0 1.5rem; }
+  .kv2-worry { width: 210px; min-height: 288px; border-radius: 20px; padding: 1.8rem 1.5rem; color: #fff; display: flex; flex-direction: column; box-shadow: 0 14px 32px rgba(31,42,38,0.2); flex: 0 0 auto; }
+  .kv2-worry-label { font-size: 1.5rem; font-weight: 800; }
+  .kv2-worry-line { display: block; width: 78px; height: 3px; background: rgba(255,255,255,0.85); border-radius: 2px; margin-top: 0.7rem; }
+  .kv2-worry-arrow { width: 54px; height: 54px; margin-top: auto; }
+  .kv2-worry-1 { background: #F2914A; transform: rotate(-3deg); z-index: 1; }
+  .kv2-worry-2 { background: #3E9C7D; transform: rotate(4deg); margin-left: -28px; z-index: 2; }
+  .kv2-worry-3 { background: #9A85D6; transform: rotate(-4deg); margin-left: -28px; z-index: 3; }
+  .kv2-worry-4 { background: #E8534A; transform: rotate(8deg); margin-left: -28px; z-index: 4; }
+  a.kv2-worry { text-decoration: none; color: #fff; min-height: 320px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  a.kv2-worry:hover { box-shadow: 0 20px 38px rgba(31,42,38,0.28); }
+  .kv2-worry-sub { font-size: 0.9rem; line-height: 1.55; margin: 0.85rem 0 0; opacity: 0.95; color: #fff; }
+  /* dcard links */
+  a.kv2-dcard { text-decoration: none; color: inherit; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  a.kv2-dcard:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31,42,38,0.12); }
+  .kv2-dash-link { display: block; text-decoration: none; }
+  .kv2-dash-link:hover .kv2-dash-img { box-shadow: 0 12px 26px rgba(31,42,38,0.15); transition: box-shadow 0.15s ease; }
+  /* Reviews card (left): m14-v2 stars on top + scrolling quotes below with
+     decorative mi4-quote marks. Dashboard card (right) unchanged. Tops align
+     via align-items:flex-start and both images being the first child of their
+     respective column. */
+  /* dash-row stretches both halves to the same height so the reviews quote
+     can be pushed to the bottom (= bottom of dashboard card, ~= bottom of MI2). */
+  .kv2-dash-row { display: flex; gap: 1rem; align-items: stretch; }
+  .kv2-dash-half { flex: 1 1 50%; min-width: 0; }
+  .kv2-reviews-card { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; }
+  .kv2-reviews-stars { width: 100%; height: auto; display: block; }
+  /* Quote sits naturally right under the stars image (top of text row aligns
+     with bottom of m14-v2). Horizontal padding removed so the marks sit flush
+     with the stars-image edges. */
+  .kv2-reviews-quote {
     margin: 0;
+    position: relative;
+    padding: 0.4rem 0 0.4rem 0;
   }
-
-  /* 7. FAQ */
-  .hv2-faq { background: #fff; }
-  .hv2-faq .hv2-h2 { margin-bottom: 2.25rem; }
-  .hv2-qa { padding: 1.25rem 0; border-bottom: 1px solid #ececf3; }
-  .hv2-qa:last-child { border-bottom: 0; }
-  .hv2-qa h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 0 0 0.4rem;
+  .kv2-reviews-marks { position: absolute; display: flex; gap: 2px; pointer-events: none; }
+  .kv2-reviews-marks img { display: block; }  /* native 13x21 */
+  .kv2-reviews-marks-open  { top: 0;     left: 0; }
+  .kv2-reviews-marks-close { bottom: 0;  right: 0; transform: scale(-1, -1); }
+  .kv2-reviews-text {
+    height: 6rem;
+    overflow: hidden;
+    position: relative;
+    padding: 0 22px;  /* clear the marks at left/right edges */
   }
-  .hv2-qa p { margin: 0; color: var(--ink); }
-
-  /* 8. Final CTA */
-  .hv2-final {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+  .kv2-reviews-track {
+    display: flex;
+    flex-direction: column;
+    animation: kv2-review-scroll 12s ease-in-out infinite;
   }
-  .hv2-final .hv2-h2 { color: #fff; }
-  .hv2-final .hv2-sub { color: #dfe3f4; }
-
-  /* Responsive */
+  .kv2-review {
+    height: 6rem;
+    margin: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .kv2-review-attr {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.82em;
+    color: var(--muted);
+    font-style: italic;
+  }
+  @keyframes kv2-review-scroll {
+    0%, 30%   { transform: translateY(0); }
+    40%, 70%  { transform: translateY(-6rem); }
+    80%, 100% { transform: translateY(-12rem); }
+  }
   @media (max-width: 720px) {
-    .hv2-page section { padding: 3.5rem 1.1rem; }
-    .hv2-hero { padding-top: 4rem; padding-bottom: 4rem; }
-    .hv2-hero-quote p { font-size: 1.4rem; }
-    .hv2-hero-promise { font-size: 1.85rem; }
-    .hv2-h2 { font-size: 1.6rem; }
-    .hv2-vignettes { grid-template-columns: 1fr; }
-    .hv2-cards { grid-template-columns: 1fr; }
-    .hv2-point { gap: 1rem; }
+    .kv2-dash-row { flex-direction: column; }
+  }
+  /* §5 case rotation */
+  .kv2-cases { position: relative; }
+  .kv2-case { display: none; }
+  .kv2-case.kv2-case-active { display: block; animation: kv2-fade 0.45s ease; }
+  @keyframes kv2-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .kv2-case-dots { display: flex; justify-content: center; gap: 0.55rem; margin-top: 1.5rem; }
+  .kv2-cdot { width: 10px; height: 10px; border-radius: 50%; background: #c2d9d0; cursor: pointer; transition: background 0.15s ease; }
+  .kv2-cdot.active { background: var(--green); }
+
+  /* ---- 4. 카톡 ---- */
+  .kv2-kakao { background: var(--mint); }
+  .kv2-kakao-grid { display: flex; align-items: center; gap: 3rem; }
+  .kv2-kakao-photo { flex: 1 1 44%; position: relative; }
+  .kv2-kakao-photo img { width: 100%; max-width: 420px; height: auto; display: block; }
+  .kv2-kakao-text { flex: 1 1 56%; }
+  .kv2-kakao-text .kv2-h2 { margin-bottom: 1.8rem; }
+  .kv2-kakao-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .kv2-qr { width: 116px; height: 116px; border-radius: 10px; background: #fff; padding: 6px; }
+
+  /* ---- 5. 서연이 이야기 ---- */
+  .kv2-story { background: var(--mint-soft); }
+  .kv2-story-grid { display: flex; gap: 2.5rem; align-items: center; }
+  .kv2-story-h2 { flex: 1 1 46%; font-size: 1.7rem; font-weight: 800; line-height: 1.55; margin: 0; }
+  .kv2-story-h2 span { color: var(--green); }
+  .kv2-thread { flex: 1 1 54%; display: flex; flex-direction: column; gap: 0.7rem; }
+  .kv2-t { display: flex; align-items: flex-end; gap: 0.4rem; }
+  .kv2-t-me { justify-content: flex-end; }
+  .kv2-t-them { justify-content: flex-start; }
+  .kv2-t-b { max-width: 78%; padding: 0.7rem 1rem; font-size: 0.92rem; line-height: 1.55; border-radius: 14px; }
+  .kv2-t-me .kv2-t-b { background: var(--kakao); color: #3a2e00; border-bottom-right-radius: 4px; }
+  .kv2-t-them .kv2-t-b { background: #fff; color: var(--ink); border: 1px solid #e6ebe8; border-bottom-left-radius: 4px; }
+  .kv2-t-time { font-size: 0.68rem; color: var(--muted); flex: 0 0 auto; }
+
+  /* ---- 6. STEP ---- */
+  .kv2-learns { background: #fff; }
+  .kv2-learns .kv2-h2 { margin-bottom: 2.5rem; }
+  .kv2-steps { display: flex; flex-direction: column; gap: 1.1rem; }
+  .kv2-step { display: flex; align-items: center; gap: 1.4rem; }
+  .kv2-step-pill { flex: 0 0 auto; width: 104px; text-align: center; background: #FCE6A8; color: #7a5a12; font-weight: 800; font-size: 0.9rem; padding: 0.55rem 0; border-radius: 999px; }
+  .kv2-step-start { background: #20242e; color: var(--kakao); }
+  .kv2-step p { margin: 0; font-size: 1.05rem; }
+  .kv2-step .kv2-hl-g { font-weight: 700; }
+
+  /* ---- 7. 솔루션 ---- */
+  .kv2-solution { background: var(--lav); }
+  .kv2-solution .kv2-h2 { margin-bottom: 2.5rem; }
+  .kv2-sol-grid { display: flex; gap: 2.5rem; align-items: flex-start; }
+  .kv2-sol-points { flex: 1 1 40%; display: flex; flex-direction: column; gap: 1.6rem; }
+  .kv2-sol-point { display: flex; gap: 1.75rem; align-items: center; }
+  .kv2-sol-point svg { width: 42px; height: 42px; flex: 0 0 auto; }
+  .kv2-sol-point p { margin: 0; font-size: 0.98rem; color: var(--ink); }
+  .kv2-sol-table { flex: 1 1 60%; overflow-x: auto; }
+  .kv2-compare { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+  .kv2-compare th, .kv2-compare td { padding: 12px 10px; text-align: center; border-bottom: 1px solid #edf2f7; font-size: 0.9rem; }
+  .kv2-compare th { background: #f7fafc; font-weight: 700; color: var(--ink); }
+  .kv2-compare th.kv2-mitra-col { background: var(--green); color: #fff; }
+  .kv2-compare td.kv2-feature { text-align: left; font-weight: 600; }
+  .kv2-compare td.kv2-mitra-cell { background: #e6fffa; font-weight: 700; color: var(--green); }
+  .kv2-check { color: var(--green); font-weight: 700; }
+  .kv2-cross { color: #cbd5e0; }
+  .kv2-partial { color: #ed8936; }
+  .kv2-privacy-row { display: flex; align-items: center; justify-content: center; gap: 0.9rem; margin-top: 2.5rem; }
+  .kv2-privacy-row svg { width: 44px; height: 44px; flex: 0 0 auto; }
+  .kv2-privacy-row p { margin: 0; font-weight: 700; color: var(--ink); font-size: 1.1rem; }
+
+  /* ---- 8. FAQ ---- */
+  .kv2-faq { background: var(--lav); }
+  .kv2-faq-icon { display: block; width: 88px; height: auto; margin: 0 auto 0.8rem; }
+  .kv2-faq .kv2-h2 { margin-bottom: 2rem; }
+  .kv2-faq-item { background: #fff; border-radius: 14px; margin-bottom: 0.8rem; box-shadow: 0 2px 10px rgba(31,42,38,0.05); overflow: hidden; }
+  .kv2-faq-item summary { list-style: none; cursor: pointer; padding: 1.1rem 1.4rem; font-weight: 700; font-size: 1rem; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .kv2-faq-item summary::-webkit-details-marker { display: none; }
+  .kv2-faq-item summary::after { content: "+"; color: var(--green); font-size: 1.4rem; font-weight: 400; flex: 0 0 auto; }
+  .kv2-faq-item[open] summary::after { content: "\00d7"; }
+  .kv2-faq-body { padding: 0 1.4rem 1.3rem; }
+  .kv2-faq-body p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
+  /* ---- 9. CLOSING ---- */
+  .kv2-closing { padding: 0; background: linear-gradient(to right, var(--green-soft) 0 50%, #fff 50% 100%); }
+  .kv2-closing-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 3.5rem 1.5rem 1rem; }
+  .kv2-closing-text { flex: 1; font-size: 1.7rem; font-weight: 800; line-height: 1.5; }
+  .kv2-closing-left { text-align: right; color: #fff; }
+  .kv2-closing-right { text-align: left; color: var(--ink); }
+  .kv2-closing-phone { flex: 0 0 auto; }
+  .kv2-cphone-img { max-width: 260px; height: auto; display: block; }
+  .kv2-talk-btn { display: flex; width: max-content; margin: 0 auto; transform: translateY(-10px); align-items: center; gap: 8px; background: var(--kakao); color: #3a2e00; font-weight: 700; padding: 0.7rem 1.6rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+  .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
+  .kv2-closing { padding-bottom: 2.5rem; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 860px) {
+    .kv2-page section { padding: 3.25rem 1.1rem; }
+    .kv2-h2 { font-size: 1.5rem; }
+    .kv2-hero { padding: 3rem 1.1rem 0; min-height: auto; }
+    .kv2-hero-grid { flex-direction: column; min-height: auto; }
+    .kv2-hero-h1 { font-size: 1.7rem; text-align: center; }
+    .kv2-hero-text { text-align: center; max-width: 100%; padding: 0; }
+    .kv2-hero-img { position: static; width: 100%; max-width: 100%; margin-top: 1.5rem; }
+    .kv2-delivers-grid { flex-direction: column; }
+    .kv2-dcard-row { flex-direction: column; }
+    .kv2-worries-h2 { font-size: 1.45rem; }
+    .kv2-worry-cards { flex-wrap: wrap; gap: 1rem; }
+    .kv2-worry { transform: none !important; margin-left: 0 !important; width: 152px; min-height: 210px; padding: 1.3rem; }
+    .kv2-worry-label { font-size: 1.2rem; }
+    .kv2-kakao-grid { flex-direction: column; }
+    .kv2-story-grid { flex-direction: column; }
+    .kv2-sol-grid { flex-direction: column; }
+    .kv2-step { gap: 0.9rem; }
+    .kv2-step-pill { width: 86px; font-size: 0.78rem; }
+    .kv2-step p { font-size: 0.95rem; }
+    .kv2-closing { background: var(--green-soft); }
+    .kv2-closing-inner { flex-direction: column; }
+    .kv2-closing-left, .kv2-closing-right { text-align: center; color: #fff; }
+    .kv2-hero-phones .kv2-phone:first-child, .kv2-hero-phones .kv2-phone:last-child { transform: none; }
   }
 </style>

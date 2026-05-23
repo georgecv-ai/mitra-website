@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mitra is a tutor for the twice-exceptional kid: years ahead in their head, stuck on the worksheet. Built for the kid everyone keeps getting wrong." />
-  <title>Misread, then mistaught — Mitra for twice-exceptional kids</title>
+  <meta name="description" content="Not the AI that hands out answers, but one that builds a relationship and teaches the process. Mitra observes your child, discovers their interests, and learns them every day." />
+  <title>Mitra — An AI tutor that learns your child, every day</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,16 +12,16 @@
   <link rel="stylesheet" href="/en/static/style.css" />
   <link rel="icon" type="image/png" href="/en/static/images/mitra-logo-icon-v2_003.png">
   <link rel="canonical" href="https://www.mitratutor.com/en/home-v2" />
-  <meta property="og:title" content="Misread, then mistaught — Mitra for twice-exceptional kids" />
-  <meta property="og:description" content="Mitra is a tutor for the twice-exceptional kid: years ahead in their head, stuck on the worksheet. Built for the kid everyone keeps getting wrong." />
+  <meta property="og:title" content="Mitra — An AI tutor that learns your child, every day" />
+  <meta property="og:description" content="Not the AI that hands out answers, but one that builds a relationship and teaches the process. Mitra observes your child, discovers their interests, and learns them every day." />
   <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.mitratutor.com/en/home-v2" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Misread, then mistaught — Mitra for twice-exceptional kids" />
-  <meta name="twitter:description" content="Mitra is a tutor for the twice-exceptional kid: years ahead in their head, stuck on the worksheet. Built for the kid everyone keeps getting wrong." />
+  <meta name="twitter:title" content="Mitra — An AI tutor that learns your child, every day" />
+  <meta name="twitter:description" content="Not the AI that hands out answers, but one that builds a relationship and teaches the process. Mitra observes your child, discovers their interests, and learns them every day." />
   <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <link rel="alternate" hreflang="en" href="https://www.mitratutor.com/en/home-v2" />
   <link rel="alternate" hreflang="ko" href="https://www.mitratutor.com/ko/home-v2" />
@@ -40,225 +40,399 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5S43DC8L');</script>
 <!-- End Google Tag Manager -->
 <style>
-  /* ===== Mitra home-v2 (2e parent variant) ===== */
-  .hv2-page {
-    --navy: #2B4C7E;
-    --indigo: #4f46e5;
-    --indigo-dark: #4338ca;
-    --lavender: #f8f7ff;
+  /* ===== Mitra home-v2 (Korean) — faithful rebuild ===== */
+  .kv2-page {
+    --green: #2A9D8F;
+    --green-dark: #1f7a6e;
+    --green-soft: #6BBE9F;
+    --mint: #EAF5F0;
+    --mint-soft: #F2F9F5;
+    --lav: #EEEFF4;
+    --kakao: #FEE500;
+    --coral: #E8736B;
     --ink: #1f2937;
     --muted: #6b7280;
     color: var(--ink);
-    line-height: 1.6;
+    line-height: 1.7;
+    word-break: keep-all;
   }
-  .hv2-page section { padding: 5rem 1.25rem; }
-  .hv2-wrap { max-width: 1040px; margin: 0 auto; }
-  .hv2-narrow { max-width: 680px; }
-  .hv2-center { text-align: center; }
+  .kv2-page section { padding: 4.5rem 1.5rem; }
+  .kv2-wrap { max-width: 1120px; margin: 0 auto; }
+  .kv2-narrow { max-width: 720px; }
+  .kv2-center { text-align: center; }
 
-  .hv2-h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--navy);
-    margin: 0 0 1.25rem;
-  }
-  .hv2-sub { font-size: 1.15rem; color: var(--muted); margin: 0 0 2rem; }
+  .kv2-h2 { font-size: 1.95rem; font-weight: 800; line-height: 1.4; color: var(--ink); margin: 0 0 2rem; }
+  .kv2-h2 span, .kv2-mitra-en { color: var(--green); }
+  .kv2-hl-g { font-style: normal; color: var(--green); }
+  .kv2-hl-c { font-style: normal; color: var(--coral); }
+  .kv2-eyebrow { color: var(--green-dark); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.7rem; }
 
-  /* CTA button */
-  .hv2-cta {
-    display: inline-block;
-    background: var(--indigo);
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 0.9rem 2.25rem;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background 0.15s ease, transform 0.15s ease;
+  .kv2-cta {
+    display: inline-block; background: var(--green); color: #fff; font-weight: 700;
+    font-size: 1.05rem; padding: 0.85rem 2.1rem; border-radius: 999px;
+    text-decoration: none; transition: background 0.15s ease, transform 0.15s ease;
   }
-  .hv2-cta:hover { background: var(--indigo-dark); color: #fff; transform: translateY(-1px); }
+  .kv2-cta:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
 
-  /* 1. Hero */
-  .hv2-hero {
-    background: linear-gradient(180deg, #f3f1ff 0%, var(--lavender) 100%);
-    text-align: center;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+  /* ---- 1. HERO ---- */
+  .kv2-page .kv2-hero { background: #fff; position: relative; overflow: hidden; padding: 0 0 0 1.5rem; min-height: 420px; }
+  .kv2-hero-img { position: absolute; top: 0; right: 0; width: 58%; max-width: 760px; height: auto; display: block; pointer-events: none; }
+  .kv2-hero-grid { display: flex; align-items: center; min-height: 420px; }
+  .kv2-hero-text { flex: 0 0 auto; max-width: 460px; position: relative; z-index: 1; padding: 2.5rem 0; }
+  .kv2-hero-h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.5; margin: 0 0 1.8rem; }
+
+  /* ---- Phone mockups ---- */
+  .kv2-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap; }
+  .kv2-phone { background: #20242e; border-radius: 26px; padding: 7px; box-shadow: 0 16px 36px rgba(31,42,38,0.26); flex: 0 0 auto; }
+  .kv2-phone-side { width: 174px; }
+  .kv2-hero-phones .kv2-phone:first-child { transform: rotate(-5deg) translateY(22px); }
+  .kv2-hero-phones .kv2-phone:last-child { transform: rotate(5deg) translateY(22px); }
+  .kv2-phone-mid { width: 190px; position: relative; z-index: 2; }
+  .kv2-phone-screen { border-radius: 20px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+  .kv2-phone-head { display: flex; align-items: center; gap: 7px; padding: 9px 12px; background: #fff; border-bottom: 1px solid #eee; font-weight: 700; font-size: 0.72rem; color: var(--ink); }
+  .kv2-phone-ava { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; background: #eef3f1; }
+  .kv2-phone-body { padding: 10px 8px; display: flex; flex-direction: column; gap: 6px; min-height: 250px; }
+  .kv2-m { display: flex; align-items: flex-end; gap: 4px; }
+  .kv2-m-them { justify-content: flex-start; }
+  .kv2-m-me { justify-content: flex-end; }
+  .kv2-m-ava { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; background: #fff; flex: 0 0 auto; }
+  .kv2-m-b { max-width: 76%; padding: 6px 9px; border-radius: 11px; font-size: 0.62rem; line-height: 1.5; text-align: left; }
+  .kv2-m-them .kv2-m-b { background: #fff; color: #1f2937; border-bottom-left-radius: 3px; }
+  .kv2-m-me .kv2-m-b { border-bottom-right-radius: 3px; }
+  .kv2-phone-kakao .kv2-phone-body { background: #b2c7d9; }
+  .kv2-phone-kakao .kv2-m-me .kv2-m-b { background: #fee500; color: #3a2e00; }
+  .kv2-phone-telegram .kv2-phone-body { background: #cfe5f5; }
+  .kv2-phone-telegram .kv2-m-me .kv2-m-b { background: #cce8ff; color: #14405e; }
+  .kv2-phone-whatsapp .kv2-phone-body { background: #e5ddd3; }
+  .kv2-phone-whatsapp .kv2-m-me .kv2-m-b { background: #d9fdd3; color: #1b3a26; }
+
+  /* ---- 2. 미트라가 전합니다 ---- */
+  .kv2-page .kv2-delivers { background: #fff; padding-top: 1.75rem; }
+  .kv2-delivers-h2 { font-size: 1.7rem; font-weight: 800; color: var(--green); margin: 0 0 1.6rem; }
+  .kv2-delivers-grid { display: flex; gap: 1.2rem; align-items: stretch; }
+  .kv2-delivers-left { flex: 1 1 64%; display: flex; flex-direction: column; gap: 1.2rem; }
+  .kv2-delivers-right { flex: 1 1 36%; }
+  .kv2-dcard-row { display: flex; gap: 1.2rem; }
+  .kv2-dcard { flex: 1; border-radius: 16px; padding: 1.4rem; }
+  /* Popup banner is now an image-only button that opens the chat dialog.
+     Matches the .kv2-dcard-illus neighbors (mint-soft bg, border, padding). */
+  .kv2-dcard-popup {
+    background: var(--mint-soft);
+    border: 1px solid #e0ede7;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .hv2-hero-quote {
-    margin: 0 auto 2.25rem;
-    max-width: 720px;
+  .kv2-dcard-popup img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .kv2-dcard-popup:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,42,38,0.18); }
+  .kv2-dcard-popup:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+  /* Chat-preview dialog (opened by the popup banner) */
+  .kv2-chat-dialog {
     border: 0;
     padding: 0;
+    background: transparent;
+    max-width: 340px;
+    width: 92vw;
+    max-height: 90vh;
+    overflow: visible;
   }
-  .hv2-hero-quote p {
-    font-size: 1.9rem;
-    font-weight: 600;
-    font-style: italic;
-    line-height: 1.4;
-    color: var(--navy);
-    margin: 0;
+  .kv2-chat-dialog::backdrop {
+    background: rgba(15, 24, 36, 0.65);
+    backdrop-filter: blur(4px);
   }
-  .hv2-hero-promise {
-    font-size: 2.6rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: var(--ink);
-    max-width: 760px;
-    margin: 0 auto 1rem;
-  }
-  .hv2-hero-desc {
-    font-size: 1.15rem;
-    color: var(--muted);
-    max-width: 540px;
-    margin: 0 auto 2.25rem;
-  }
-
-  /* 2. Problem */
-  .hv2-problem { background: #fff; }
-  .hv2-problem p { font-size: 1.2rem; margin: 0 0 1.25rem; }
-  .hv2-problem-close {
-    font-weight: 700;
-    color: var(--navy);
-    font-size: 1.3rem !important;
-    margin-top: 1.75rem !important;
-  }
-
-  /* 3. Recognition */
-  .hv2-recognition { background: var(--navy); }
-  .hv2-recognition .hv2-h2 { color: #fff; }
-  .hv2-recognition .hv2-sub { color: #c7d2e8; margin-bottom: 2.75rem; }
-  .hv2-vignettes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-  .hv2-vignette {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 12px;
-    padding: 1.75rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  /* 4. What Mitra does */
-  .hv2-does { background: var(--lavender); }
-  .hv2-does .hv2-h2 { margin-bottom: 2.75rem; }
-  .hv2-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .hv2-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 2rem;
-    box-shadow: 0 2px 16px rgba(43,76,126,0.07);
-  }
-  .hv2-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 0 0 0.75rem;
-  }
-  .hv2-card p { margin: 0; color: var(--ink); }
-
-  /* 5. Why it works */
-  .hv2-why { background: #fff; }
-  .hv2-why .hv2-h2 { margin-bottom: 2.75rem; }
-  .hv2-points { display: flex; flex-direction: column; gap: 1.75rem; }
-  .hv2-point { display: flex; gap: 1.5rem; align-items: flex-start; }
-  .hv2-point-num {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--indigo);
-    flex: 0 0 auto;
-    line-height: 1.2;
-  }
-  .hv2-point h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 0 0 0.35rem;
-  }
-  .hv2-point p { margin: 0; color: var(--muted); }
-
-  /* 6. How to start */
-  .hv2-start { background: var(--lavender); }
-  .hv2-start .hv2-h2 { margin-bottom: 2rem; }
-  .hv2-steps {
-    counter-reset: hv2step;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.75rem;
-  }
-  .hv2-steps li {
-    counter-increment: hv2step;
-    position: relative;
-    padding: 0.9rem 0 0.9rem 3rem;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #e6e3f5;
-  }
-  .hv2-steps li:last-child { border-bottom: 0; }
-  .hv2-steps li::before {
-    content: counter(hv2step);
+  .kv2-chat-dialog-close {
     position: absolute;
-    left: 0;
-    top: 0.75rem;
-    width: 2rem;
-    height: 2rem;
-    background: var(--indigo);
-    color: #fff;
+    top: -18px; right: -18px;
+    width: 44px; height: 44px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-  .hv2-mechanic {
+    border: 0;
     background: #fff;
-    border: 1px solid #e6e3f5;
-    border-radius: 10px;
-    padding: 1.1rem 1.35rem;
-    font-size: 0.98rem;
-    color: var(--muted);
+    color: #1a202c;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .kv2-chat-dialog-close:hover { background: #f1f5f9; }
+
+  /* Phone mockup inside the dialog (adapted from index.html .home-2026 .pricing-block) */
+  .kv2-popup-mock-frame {
+    background: #1a202c;
+    border-radius: 28px;
+    padding: 10px;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+  }
+  .kv2-popup-mock-inner {
+    background: #B2C7DA;
+    width: 100%; height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .kv2-popup-mock-header {
+    background: #f7fafc;
+    padding: 10px 12px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative; z-index: 2;
+  }
+  .kv2-popup-mock-header img { width: 28px; height: 28px; border-radius: 50%; }
+  .kv2-popup-mock-title { font-weight: 700; font-size: 0.85rem; color: #1a202c; }
+  .kv2-popup-mock-title small { display: block; font-weight: 400; font-size: 0.7rem; color: #718096; }
+  .kv2-popup-chat-viewport {
+    position: absolute;
+    top: 50px; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    padding: 12px 10px;
+  }
+  .kv2-popup-chat-viewport::before,
+  .kv2-popup-chat-viewport::after {
+    content: ""; position: absolute; left: 0; right: 0;
+    height: 24px; z-index: 3; pointer-events: none;
+  }
+  .kv2-popup-chat-viewport::before { top: 0; background: linear-gradient(to bottom, #B2C7DA, transparent); }
+  .kv2-popup-chat-viewport::after { bottom: 0; background: linear-gradient(to top, #B2C7DA, transparent); }
+  .kv2-popup-chat-track {
+    display: flex; flex-direction: column; gap: 7px;
+    animation: kv2-scrollChat 60s linear infinite;
+  }
+  .kv2-popup-chat-msg {
+    max-width: 78%;
+    padding: 7px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  .kv2-popup-chat-msg.from-mitra { background: #ffffff; align-self: flex-start; color: #1a202c; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .kv2-popup-chat-msg.from-student { background: #FEE500; align-self: flex-end; color: #1a202c; }
+  .kv2-popup-chat-name { font-size: 0.62rem; color: #4a5568; margin-bottom: -3px; padding-left: 4px; }
+  @keyframes kv2-scrollChat {
+    0%   { transform: translateY(0); }
+    5%   { transform: translateY(0); }
+    95%  { transform: translateY(-50%); }
+    100% { transform: translateY(-50%); }
+  }
+  .kv2-popup-mock-frame:hover .kv2-popup-chat-track { animation-play-state: paused; }
+  .kv2-dcard-illus { background: var(--mint-soft); border: 1px solid #e0ede7; text-align: center; display: flex; flex-direction: column; }
+  .kv2-dcard-illus img { width: 100%; max-height: 120px; object-fit: contain; margin-bottom: 0.6rem; }
+  .kv2-dcard-illus h4 { margin: auto 0 0; font-size: 1rem; font-weight: 700; color: var(--green-dark); }
+  .kv2-dash-card { background: var(--green-dark); border-radius: 16px; padding: 1.6rem 1.8rem; display: flex; align-items: center; gap: 1.5rem; color: #fff; }
+  .kv2-dash-stars { color: var(--kakao); font-size: 1.3rem; letter-spacing: 2px; }
+  .kv2-dash-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; font-weight: 700; }
+  .kv2-dash-body p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+  .kv2-delivers-right { flex: 1 1 36%; display: flex; align-items: center; justify-content: center; }
+  .kv2-deliver-img { max-width: 100%; height: auto; display: block; }
+  .kv2-dash-img { width: 100%; height: auto; display: block; border-radius: 16px; }
+  .kv2-deliver-msg { margin: 0; font-size: 1.4rem; line-height: 1.55; color: var(--ink); }
+  .kv2-deliver-msg strong { font-weight: 800; }
+  .kv2-deliver-chat { margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .kv2-cbubble { width: 130px; height: 26px; background: #fff; border-radius: 13px; }
+  .kv2-cbubble-sm { width: 88px; }
+  .kv2-pdots { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+  .kv2-pdot { width: 24px; height: 24px; border-radius: 50%; }
+  .kv2-pdot-k { background: var(--kakao); }
+  .kv2-pdot-w { background: #25D366; }
+  .kv2-pdot-t { background: #29A9EB; }
+
+  /* ---- 3. 이런 고민 ---- */
+  .kv2-worries { background: var(--mint); }
+  .kv2-worries-h2 { text-align: center; font-size: 1.9rem; font-weight: 800; color: var(--ink); line-height: 1.4; margin: 0 0 3rem; }
+  .kv2-worries-h2 span { color: var(--green); }
+  .kv2-worry-cards { display: flex; justify-content: center; align-items: center; padding: 1rem 0 1.5rem; }
+  .kv2-worry { width: 210px; min-height: 288px; border-radius: 20px; padding: 1.8rem 1.5rem; color: #fff; display: flex; flex-direction: column; box-shadow: 0 14px 32px rgba(31,42,38,0.2); flex: 0 0 auto; }
+  .kv2-worry-label { font-size: 1.5rem; font-weight: 800; }
+  .kv2-worry-line { display: block; width: 78px; height: 3px; background: rgba(255,255,255,0.85); border-radius: 2px; margin-top: 0.7rem; }
+  .kv2-worry-arrow { width: 54px; height: 54px; margin-top: auto; }
+  .kv2-worry-1 { background: #F2914A; transform: rotate(-3deg); z-index: 1; }
+  .kv2-worry-2 { background: #3E9C7D; transform: rotate(4deg); margin-left: -28px; z-index: 2; }
+  .kv2-worry-3 { background: #9A85D6; transform: rotate(-4deg); margin-left: -28px; z-index: 3; }
+  .kv2-worry-4 { background: #E8534A; transform: rotate(8deg); margin-left: -28px; z-index: 4; }
+  a.kv2-worry { text-decoration: none; color: #fff; min-height: 320px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  a.kv2-worry:hover { box-shadow: 0 20px 38px rgba(31,42,38,0.28); }
+  .kv2-worry-sub { font-size: 0.9rem; line-height: 1.55; margin: 0.85rem 0 0; opacity: 0.95; color: #fff; }
+  /* dcard links */
+  a.kv2-dcard { text-decoration: none; color: inherit; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  a.kv2-dcard:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31,42,38,0.12); }
+  .kv2-dash-link { display: block; text-decoration: none; }
+  .kv2-dash-link:hover .kv2-dash-img { box-shadow: 0 12px 26px rgba(31,42,38,0.15); transition: box-shadow 0.15s ease; }
+  /* Reviews card (left): m14-v2 stars on top + scrolling quotes below with
+     decorative mi4-quote marks. Dashboard card (right) unchanged. Tops align
+     via align-items:flex-start and both images being the first child of their
+     respective column. */
+  /* dash-row stretches both halves to the same height so the reviews quote
+     can be pushed to the bottom (= bottom of dashboard card, ~= bottom of MI2). */
+  .kv2-dash-row { display: flex; gap: 1rem; align-items: stretch; }
+  .kv2-dash-half { flex: 1 1 50%; min-width: 0; }
+  .kv2-reviews-card { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; }
+  .kv2-reviews-stars { width: 100%; height: auto; display: block; }
+  /* Quote sits naturally right under the stars image (top of text row aligns
+     with bottom of m14-v2). Horizontal padding removed so the marks sit flush
+     with the stars-image edges. */
+  .kv2-reviews-quote {
     margin: 0;
+    position: relative;
+    padding: 0.4rem 0 0.4rem 0;
   }
-
-  /* 7. FAQ */
-  .hv2-faq { background: #fff; }
-  .hv2-faq .hv2-h2 { margin-bottom: 2.25rem; }
-  .hv2-qa { padding: 1.25rem 0; border-bottom: 1px solid #ececf3; }
-  .hv2-qa:last-child { border-bottom: 0; }
-  .hv2-qa h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 0 0 0.4rem;
+  .kv2-reviews-marks { position: absolute; display: flex; gap: 2px; pointer-events: none; }
+  .kv2-reviews-marks img { display: block; }  /* native 13x21 */
+  .kv2-reviews-marks-open  { top: 0;     left: 0; }
+  .kv2-reviews-marks-close { bottom: 0;  right: 0; transform: scale(-1, -1); }
+  .kv2-reviews-text {
+    height: 6rem;
+    overflow: hidden;
+    position: relative;
+    padding: 0 22px;  /* clear the marks at left/right edges */
   }
-  .hv2-qa p { margin: 0; color: var(--ink); }
-
-  /* 8. Final CTA */
-  .hv2-final {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+  .kv2-reviews-track {
+    display: flex;
+    flex-direction: column;
+    animation: kv2-review-scroll 12s ease-in-out infinite;
   }
-  .hv2-final .hv2-h2 { color: #fff; }
-  .hv2-final .hv2-sub { color: #dfe3f4; }
-
-  /* Responsive */
+  .kv2-review {
+    height: 6rem;
+    margin: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .kv2-review-attr {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.82em;
+    color: var(--muted);
+    font-style: italic;
+  }
+  @keyframes kv2-review-scroll {
+    0%, 30%   { transform: translateY(0); }
+    40%, 70%  { transform: translateY(-6rem); }
+    80%, 100% { transform: translateY(-12rem); }
+  }
   @media (max-width: 720px) {
-    .hv2-page section { padding: 3.5rem 1.1rem; }
-    .hv2-hero { padding-top: 4rem; padding-bottom: 4rem; }
-    .hv2-hero-quote p { font-size: 1.4rem; }
-    .hv2-hero-promise { font-size: 1.85rem; }
-    .hv2-h2 { font-size: 1.6rem; }
-    .hv2-vignettes { grid-template-columns: 1fr; }
-    .hv2-cards { grid-template-columns: 1fr; }
-    .hv2-point { gap: 1rem; }
+    .kv2-dash-row { flex-direction: column; }
+  }
+  /* §5 case rotation */
+  .kv2-cases { position: relative; }
+  .kv2-case { display: none; }
+  .kv2-case.kv2-case-active { display: block; animation: kv2-fade 0.45s ease; }
+  @keyframes kv2-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .kv2-case-dots { display: flex; justify-content: center; gap: 0.55rem; margin-top: 1.5rem; }
+  .kv2-cdot { width: 10px; height: 10px; border-radius: 50%; background: #c2d9d0; cursor: pointer; transition: background 0.15s ease; }
+  .kv2-cdot.active { background: var(--green); }
+
+  /* ---- 4. 카톡 ---- */
+  .kv2-kakao { background: var(--mint); }
+  .kv2-kakao-grid { display: flex; align-items: center; gap: 3rem; }
+  .kv2-kakao-photo { flex: 1 1 44%; position: relative; }
+  .kv2-kakao-photo img { width: 100%; max-width: 420px; height: auto; display: block; }
+  .kv2-kakao-text { flex: 1 1 56%; }
+  .kv2-kakao-text .kv2-h2 { margin-bottom: 1.8rem; }
+  .kv2-kakao-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .kv2-qr { width: 116px; height: 116px; border-radius: 10px; background: #fff; padding: 6px; }
+
+  /* ---- 5. 서연이 이야기 ---- */
+  .kv2-story { background: var(--mint-soft); }
+  .kv2-story-grid { display: flex; gap: 2.5rem; align-items: center; }
+  .kv2-story-h2 { flex: 1 1 46%; font-size: 1.7rem; font-weight: 800; line-height: 1.55; margin: 0; }
+  .kv2-story-h2 span { color: var(--green); }
+  .kv2-thread { flex: 1 1 54%; display: flex; flex-direction: column; gap: 0.7rem; }
+  .kv2-t { display: flex; align-items: flex-end; gap: 0.4rem; }
+  .kv2-t-me { justify-content: flex-end; }
+  .kv2-t-them { justify-content: flex-start; }
+  .kv2-t-b { max-width: 78%; padding: 0.7rem 1rem; font-size: 0.92rem; line-height: 1.55; border-radius: 14px; }
+  .kv2-t-me .kv2-t-b { background: var(--kakao); color: #3a2e00; border-bottom-right-radius: 4px; }
+  .kv2-t-them .kv2-t-b { background: #fff; color: var(--ink); border: 1px solid #e6ebe8; border-bottom-left-radius: 4px; }
+  .kv2-t-time { font-size: 0.68rem; color: var(--muted); flex: 0 0 auto; }
+
+  /* ---- 6. STEP ---- */
+  .kv2-learns { background: #fff; }
+  .kv2-learns .kv2-h2 { margin-bottom: 2.5rem; }
+  .kv2-steps { display: flex; flex-direction: column; gap: 1.1rem; }
+  .kv2-step { display: flex; align-items: center; gap: 1.4rem; }
+  .kv2-step-pill { flex: 0 0 auto; width: 104px; text-align: center; background: #FCE6A8; color: #7a5a12; font-weight: 800; font-size: 0.9rem; padding: 0.55rem 0; border-radius: 999px; }
+  .kv2-step-start { background: #20242e; color: var(--kakao); }
+  .kv2-step p { margin: 0; font-size: 1.05rem; }
+  .kv2-step .kv2-hl-g { font-weight: 700; }
+
+  /* ---- 7. 솔루션 ---- */
+  .kv2-solution { background: var(--lav); }
+  .kv2-solution .kv2-h2 { margin-bottom: 2.5rem; }
+  .kv2-sol-grid { display: flex; gap: 2.5rem; align-items: flex-start; }
+  .kv2-sol-points { flex: 1 1 40%; display: flex; flex-direction: column; gap: 1.6rem; }
+  .kv2-sol-point { display: flex; gap: 1.75rem; align-items: center; }
+  .kv2-sol-point svg { width: 42px; height: 42px; flex: 0 0 auto; }
+  .kv2-sol-point p { margin: 0; font-size: 0.98rem; color: var(--ink); }
+  .kv2-sol-table { flex: 1 1 60%; overflow-x: auto; }
+  .kv2-compare { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+  .kv2-compare th, .kv2-compare td { padding: 12px 10px; text-align: center; border-bottom: 1px solid #edf2f7; font-size: 0.9rem; }
+  .kv2-compare th { background: #f7fafc; font-weight: 700; color: var(--ink); }
+  .kv2-compare th.kv2-mitra-col { background: var(--green); color: #fff; }
+  .kv2-compare td.kv2-feature { text-align: left; font-weight: 600; }
+  .kv2-compare td.kv2-mitra-cell { background: #e6fffa; font-weight: 700; color: var(--green); }
+  .kv2-check { color: var(--green); font-weight: 700; }
+  .kv2-cross { color: #cbd5e0; }
+  .kv2-partial { color: #ed8936; }
+  .kv2-privacy-row { display: flex; align-items: center; justify-content: center; gap: 0.9rem; margin-top: 2.5rem; }
+  .kv2-privacy-row svg { width: 44px; height: 44px; flex: 0 0 auto; }
+  .kv2-privacy-row p { margin: 0; font-weight: 700; color: var(--ink); font-size: 1.1rem; }
+
+  /* ---- 8. FAQ ---- */
+  .kv2-faq { background: var(--lav); }
+  .kv2-faq-icon { display: block; width: 88px; height: auto; margin: 0 auto 0.8rem; }
+  .kv2-faq .kv2-h2 { margin-bottom: 2rem; }
+  .kv2-faq-item { background: #fff; border-radius: 14px; margin-bottom: 0.8rem; box-shadow: 0 2px 10px rgba(31,42,38,0.05); overflow: hidden; }
+  .kv2-faq-item summary { list-style: none; cursor: pointer; padding: 1.1rem 1.4rem; font-weight: 700; font-size: 1rem; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .kv2-faq-item summary::-webkit-details-marker { display: none; }
+  .kv2-faq-item summary::after { content: "+"; color: var(--green); font-size: 1.4rem; font-weight: 400; flex: 0 0 auto; }
+  .kv2-faq-item[open] summary::after { content: "\00d7"; }
+  .kv2-faq-body { padding: 0 1.4rem 1.3rem; }
+  .kv2-faq-body p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
+  /* ---- 9. CLOSING ---- */
+  .kv2-closing { padding: 0; background: linear-gradient(to right, var(--green-soft) 0 50%, #fff 50% 100%); }
+  .kv2-closing-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 3.5rem 1.5rem 1rem; }
+  .kv2-closing-text { flex: 1; font-size: 1.7rem; font-weight: 800; line-height: 1.5; }
+  .kv2-closing-left { text-align: right; color: #fff; }
+  .kv2-closing-right { text-align: left; color: var(--ink); }
+  .kv2-closing-phone { flex: 0 0 auto; }
+  .kv2-cphone-img { max-width: 260px; height: auto; display: block; }
+  .kv2-talk-btn { display: flex; width: max-content; margin: 0 auto; transform: translateY(-10px); align-items: center; gap: 8px; background: var(--kakao); color: #3a2e00; font-weight: 700; padding: 0.7rem 1.6rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+  .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
+  .kv2-closing { padding-bottom: 2.5rem; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 860px) {
+    .kv2-page section { padding: 3.25rem 1.1rem; }
+    .kv2-h2 { font-size: 1.5rem; }
+    .kv2-hero { padding: 3rem 1.1rem 0; min-height: auto; }
+    .kv2-hero-grid { flex-direction: column; min-height: auto; }
+    .kv2-hero-h1 { font-size: 1.7rem; text-align: center; }
+    .kv2-hero-text { text-align: center; max-width: 100%; padding: 0; }
+    .kv2-hero-img { position: static; width: 100%; max-width: 100%; margin-top: 1.5rem; }
+    .kv2-delivers-grid { flex-direction: column; }
+    .kv2-dcard-row { flex-direction: column; }
+    .kv2-worries-h2 { font-size: 1.45rem; }
+    .kv2-worry-cards { flex-wrap: wrap; gap: 1rem; }
+    .kv2-worry { transform: none !important; margin-left: 0 !important; width: 152px; min-height: 210px; padding: 1.3rem; }
+    .kv2-worry-label { font-size: 1.2rem; }
+    .kv2-kakao-grid { flex-direction: column; }
+    .kv2-story-grid { flex-direction: column; }
+    .kv2-sol-grid { flex-direction: column; }
+    .kv2-step { gap: 0.9rem; }
+    .kv2-step-pill { width: 86px; font-size: 0.78rem; }
+    .kv2-step p { font-size: 0.95rem; }
+    .kv2-closing { background: var(--green-soft); }
+    .kv2-closing-inner { flex-direction: column; }
+    .kv2-closing-left, .kv2-closing-right { text-align: center; color: #fff; }
+    .kv2-hero-phones .kv2-phone:first-child, .kv2-hero-phones .kv2-phone:last-child { transform: none; }
   }
 </style>
 </head>
@@ -314,150 +488,447 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <main class="container py-4">
-<div class="hv2-page">
+<div class="kv2-page">
 
   <!-- 1. HERO -->
-  <section class="hv2-hero">
-    <div class="hv2-wrap">
-      <blockquote class="hv2-hero-quote">
-        <p>"Her IEP says she 'doesn't apply effort.'</p>
-        <p>She built a working drone last weekend."</p>
-      </blockquote>
-      <h1 class="hv2-hero-promise">Mitra is a tutor for the kid everyone keeps getting wrong.</h1>
-      <p class="hv2-hero-desc">An AI tutor your kid talks with, right in the messaging app you already use.</p>
-      <a class="hv2-cta" href="/en/free-trial.html">Start your free week</a>
-    </div>
-  </section>
-
-  <!-- 2. PROBLEM -->
-  <section class="hv2-problem">
-    <div class="hv2-wrap hv2-narrow">
-      <h2 class="hv2-h2">Misread, then mistaught.</h2>
-      <p>Your kid pours everything into what grips them and has little left for what doesn't. That isn't a character flaw. It's how a twice-exceptional mind is wired.</p>
-      <p>But it is easy to read wrong, so it gets read wrong: as lazy, as defiant, as "not applying effort." And a kid who's been read wrong gets taught wrong. Not from malice. An honest mistake, repeated by every worksheet and report card built for a different kid.</p>
-      <p class="hv2-problem-close">None of it was their fault. And it can be fixed.</p>
-    </div>
-  </section>
-
-  <!-- 3. RECOGNITION -->
-  <section class="hv2-recognition">
-    <div class="hv2-wrap">
-      <h2 class="hv2-h2 hv2-center">You already know this kid.</h2>
-      <p class="hv2-sub hv2-center">Maybe they're yours.</p>
-      <div class="hv2-vignettes">
-        <div class="hv2-vignette">He reads three grades ahead. He won't write one sentence.</div>
-        <div class="hv2-vignette">He can solve a Rubik's cube in 90 seconds. He can't get his shoes on.</div>
-        <div class="hv2-vignette">She's the smartest kid in the room. She failed the test.</div>
-        <div class="hv2-vignette">He can tell you everything about the deep sea. The worksheet is about apples.</div>
+  <section class="kv2-hero">
+    <img class="kv2-hero-img" src="/en/static/images/home-v2/MI1.png" alt="Preview of the Mitra app">
+    <div class="kv2-wrap kv2-hero-grid">
+      <div class="kv2-hero-text">
+        <h1 class="kv2-hero-h1"><em class="kv2-hl-g">Observes</em> your child,<br><em class="kv2-hl-c">discovers</em> their interests,<br>learns them every day.</h1>
+        <a class="kv2-cta" href="https://staging.mitratutor.com/en/enroll">Start your 7-day trial</a>
       </div>
     </div>
   </section>
 
-  <!-- 4. WHAT MITRA DOES -->
-  <section class="hv2-does">
-    <div class="hv2-wrap">
-      <h2 class="hv2-h2 hv2-center">A tutor that starts with who they are.</h2>
-      <div class="hv2-cards">
-        <div class="hv2-card">
-          <h3>Meets them through what they love.</h3>
-          <p>Mitra finds the line between the drone and the physics, the deep sea and the paragraph. The interest isn't a distraction from the work. It's the way in.</p>
-        </div>
-        <div class="hv2-card">
-          <h3>Meets each subject at its real level.</h3>
-          <p>A 2e kid isn't "ahead" or "behind." They're both, in different subjects, on the same day. Mitra teaches each one where it actually is, so they're never bored and never drowning.</p>
-        </div>
-        <div class="hv2-card">
-          <h3>No judgment, ever.</h3>
-          <p>Mitra has infinite patience and no history with the word "lazy." A kid who feels safe stops bracing and starts working.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. WHY IT WORKS -->
-  <section class="hv2-why">
-    <div class="hv2-wrap hv2-narrow">
-      <h2 class="hv2-h2 hv2-center">Why this works when other things haven't.</h2>
-      <div class="hv2-points">
-        <div class="hv2-point">
-          <span class="hv2-point-num">01</span>
-          <div>
-            <h3>A kid engages when they're known, not managed.</h3>
-            <p>Mitra builds the relationship before she builds the lesson.</p>
+  <!-- 2. What Mitra delivers -->
+  <section class="kv2-delivers">
+    <div class="kv2-wrap">
+      <h2 class="kv2-delivers-h2">What Mitra delivers</h2>
+      <div class="kv2-delivers-grid">
+        <div class="kv2-delivers-left">
+          <div class="kv2-dcard-row">
+            <button type="button" class="kv2-dcard kv2-dcard-popup" data-chat-popup-open aria-haspopup="dialog" aria-controls="kv2-chat-dialog">
+              <img src="/en/static/images/home-v2/how-mitra-talks.png" alt="See how Mitra talks">
+            </button>
+            <a class="kv2-dcard kv2-dcard-illus" href="/en/for-students.html">
+              <img src="/en/static/images/home-v2/illus-student.png" alt="">
+              <h4>For students</h4>
+            </a>
+            <a class="kv2-dcard kv2-dcard-illus" href="/en/for-parents.html">
+              <img src="/en/static/images/home-v2/illus-parent.png" alt="">
+              <h4>For parents</h4>
+            </a>
+          </div>
+          <div class="kv2-dash-row">
+            <div class="kv2-dash-half kv2-reviews-card">
+              <img class="kv2-reviews-stars" src="/en/static/images/home-v2/m14-v2.png" alt="Parent reviews">
+              <figure class="kv2-reviews-quote">
+                <div class="kv2-reviews-marks kv2-reviews-marks-open" aria-hidden="true">
+                  <img src="/en/static/images/home-v2/mi4-quote.png" alt="">
+                  <img src="/en/static/images/home-v2/mi4-quote.png" alt="">
+                </div>
+                <div class="kv2-reviews-text" aria-live="polite">
+                  <div class="kv2-reviews-track">
+                    <p class="kv2-review">"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                    <p class="kv2-review">placeholder review 2</p>
+                    <p class="kv2-review">"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                  </div>
+                </div>
+                <div class="kv2-reviews-marks kv2-reviews-marks-close" aria-hidden="true">
+                  <img src="/en/static/images/home-v2/mi4-quote.png" alt="">
+                  <img src="/en/static/images/home-v2/mi4-quote.png" alt="">
+                </div>
+              </figure>
+            </div>
+            <a class="kv2-dash-half kv2-dash-link" href="/en/parent-dashboard.html">
+              <img class="kv2-dash-img" src="/en/static/images/home-v2/MI4-dashboard.png" alt="Your child's growth dashboard">
+            </a>
           </div>
         </div>
-        <div class="hv2-point">
-          <span class="hv2-point-num">02</span>
-          <div>
-            <h3>Interest is the engine, not the reward.</h3>
-            <p>School treats a kid's passion as a treat for finishing the boring part. Mitra runs the lesson on it.</p>
-          </div>
-        </div>
-        <div class="hv2-point">
-          <span class="hv2-point-num">03</span>
-          <div>
-            <h3>Help in the moment it's needed.</h3>
-            <p>The worksheet meltdown happens at 9pm, not in a tutoring slot on Tuesday. Mitra is there at 9pm.</p>
-          </div>
+        <div class="kv2-delivers-right">
+          <img class="kv2-deliver-img" src="/en/static/images/home-v2/MI2.svg" alt="Not the AI that hands out answers, but one that teaches the process through relationship">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. HOW TO START -->
-  <section class="hv2-start">
-    <div class="hv2-wrap hv2-narrow">
-      <h2 class="hv2-h2 hv2-center">Starting takes about five minutes.</h2>
-      <ol class="hv2-steps">
-        <li>Tell us a little about your kid.</li>
-        <li>Pick the app you already use: KakaoTalk, Telegram, or WhatsApp.</li>
-        <li>Your kid sends Mitra a first hello.</li>
-        <li>Mitra spends the first sessions getting to know them, not testing them.</li>
-        <li>The first week is free. If it's working, keep going.</li>
-      </ol>
-      <p class="hv2-mechanic">Starting the free week sets up your subscription, so there's no second sign-up later. If Mitra isn't right for your kid, cancel any time in that first week and you won't be charged.</p>
-    </div>
-  </section>
-
-  <!-- 7. FAQ -->
-  <section class="hv2-faq">
-    <div class="hv2-wrap hv2-narrow">
-      <h2 class="hv2-h2 hv2-center">Questions parents ask.</h2>
-      <div class="hv2-qa">
-        <h3>Is this AI just doing his homework for him?</h3>
-        <p>No. Mitra doesn't hand over answers. She does what a good tutor does: gets them to the answer themselves.</p>
-      </div>
-      <div class="hv2-qa">
-        <h3>My kid won't talk to a tutor.</h3>
-        <p>Mitra isn't a stranger with a worksheet. She opens by being interested in them. Most kids talk back.</p>
-      </div>
-      <div class="hv2-qa">
-        <h3>He's years ahead in some things, behind in others. Can it handle that?</h3>
-        <p>That contradiction is the exact kid Mitra was built for.</p>
-      </div>
-      <div class="hv2-qa">
-        <h3>Does this replace his school or his IEP?</h3>
-        <p>No. It works alongside both.</p>
-      </div>
-      <div class="hv2-qa">
-        <h3>What ages is this for?</h3>
-        <p>Mitra works with kids in grades 6 through 12.</p>
-      </div>
-      <div class="hv2-qa">
-        <h3>What if it doesn't work for him?</h3>
-        <p>The first week is free, and you can stop within that week with no charge.</p>
+  <!-- 3. Common concerns -->
+  <section class="kv2-worries">
+    <div class="kv2-wrap">
+      <h2 class="kv2-worries-h2">Recognize any of these? Talk to <span>Mitra</span>.</h2>
+      <div class="kv2-worry-cards">
+        <a class="kv2-worry kv2-worry-1" href="#case-busy-family">
+          <div class="kv2-worry-label">Busy families</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">What if your child, alone for long stretches, had a friend who kept talking with them?</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
+        <a class="kv2-worry kv2-worry-2" href="#case-adhd">
+          <div class="kv2-worry-label">Kids with ADHD</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">Your child struggles to focus for ten minutes at a time. With Mitra, learning happens without the stress.</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
+        <a class="kv2-worry kv2-worry-3" href="#case-teen">
+          <div class="kv2-worry-label">Teenagers</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">When they stop talking to you, Mitra still gets through, without the conflict.</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
+        <a class="kv2-worry kv2-worry-4" href="#case-multicultural">
+          <div class="kv2-worry-label">Multicultural families</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">What if your child had a friend who understood every culture and language they live with?</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 8. FINAL CTA -->
-  <section class="hv2-final">
-    <div class="hv2-wrap hv2-center">
-      <h2 class="hv2-h2">Your kid was never the problem.</h2>
-      <p class="hv2-sub">Give them a tutor who starts there.</p>
-      <a class="hv2-cta" href="/en/free-trial.html">Start your free week</a>
+  <!-- 4. Reaches out on the apps they already use -->
+  <section class="kv2-kakao">
+    <div class="kv2-wrap kv2-kakao-grid">
+      <div class="kv2-kakao-photo">
+        <img src="/en/static/images/home-v2/MI3.png" alt="A student looking at their phone">
+      </div>
+      <div class="kv2-kakao-text">
+        <p class="kv2-eyebrow">Even for the iPad kids whose screen habits are hard to break</p>
+        <h2 class="kv2-h2">Remembers your child<br>and reaches out first on the apps they already use</h2>
+        <div class="kv2-kakao-actions">
+          <a class="kv2-cta" href="https://staging.mitratutor.com/en/enroll">Start your 7-day trial</a>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- 5. Case rotation -->
+  <section class="kv2-story">
+    <div class="kv2-cases">
+
+      <div class="kv2-case kv2-case-active">
+        <div class="kv2-wrap kv2-story-grid">
+          <h2 class="kv2-story-h2">Seoyeon, who spends most evenings alone,<br>met <span>Mitra</span>, a friend who studies alongside her.</h2>
+          <div class="kv2-thread">
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">my mom said i should try talking to you</span><span class="kv2-t-time">11:02</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:03</span><span class="kv2-t-b">Hi Seoyeon! First time is always a little awkward. What have you been into lately?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">um... i like drawing. and i watch Solo Leveling</span><span class="kv2-t-time">11:05</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:06</span><span class="kv2-t-b">Oh nice, drawing + webtoons. Do you copy the characters?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">yeah... but one of the eyes always comes out weird ㅠㅠ</span><span class="kv2-t-time">11:09</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:11</span><span class="kv2-t-b">Try lightly marking a dot between where the eyes should sit before you draw. Makes a huge difference.</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">oh... i'll try that next time. thanks Mitra</span><span class="kv2-t-time">11:14</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kv2-case">
+        <div class="kv2-wrap kv2-story-grid">
+          <h2 class="kv2-story-h2">Sarah, navigating two cultures,<br>met <span>Mitra</span>, who helps her talk to her Korean family.</h2>
+          <div class="kv2-thread">
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">my grandma calls sometimes and i basically just say "응 응" then hand the phone to my dad lol</span><span class="kv2-t-time">21:14</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:15</span><span class="kv2-t-b">She probably misses you. Her calls are usually pretty short, right?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">yeah. she asks if i ate, like 50 times. food food food.</span><span class="kv2-t-time">21:17</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:18</span><span class="kv2-t-b">Food = love. That's literally how she's saying "I care about you." Want to build a few phrases so you can actually have the call?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">ok... that actually makes sense. let's try 1 or 2.</span><span class="kv2-t-time">21:21</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:22</span><span class="kv2-t-b">떡볶이 먹었어요. Same 먹었어요 you already know, just add the food first.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kv2-case">
+        <div class="kv2-wrap kv2-story-grid">
+          <h2 class="kv2-story-h2">Junwoo, a senior facing college exams,<br>met <span>Mitra</span>, who works through calculus<br>with him at 2 a.m.</h2>
+          <div class="kv2-thread">
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">Mitra, it's 2am and I can't get this calc problem. help</span><span class="kv2-t-time">02:14</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:15</span><span class="kv2-t-b">Up late again. Which one? Send a photo.</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">It's a limit. The denominator is 0 but so is the numerator</span><span class="kv2-t-time">02:17</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:18</span><span class="kv2-t-b">0/0 form. Try factoring first, or rationalizing. There's a shared factor in the numerator and denominator. Want to start by factoring the top?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">oh right. i'll try it</span><span class="kv2-t-time">02:21</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:22</span><span class="kv2-t-b">You've got it. Holler if you get stuck.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="kv2-case-dots">
+      <span class="kv2-cdot active" data-i="0"></span>
+      <span class="kv2-cdot" data-i="1"></span>
+      <span class="kv2-cdot" data-i="2"></span>
+    </div>
+  </section>
+
+  <!-- 6. How Mitra keeps learning -->
+  <section class="kv2-learns">
+    <div class="kv2-wrap kv2-narrow">
+      <h2 class="kv2-h2 kv2-center">How <span>Mitra</span> keeps learning</h2>
+      <div class="kv2-steps">
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 01</span><p>Gathers basic info about your child from you, so the first conversation has somewhere to start</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 02</span><p>Remembers that info and <span class="kv2-hl-g">reaches out to your child first</span></p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 03</span><p>For the first four days, builds a relationship instead of talking about schoolwork</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 04</span><p>Maps their academic level against an <span class="kv2-hl-g">age-appropriate curriculum</span></p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">STEP 05</span><p>Learns how they ask questions, the way they talk, their interests, what worries them, how often they chat</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill kv2-step-start">START</span><p>With the foundation set, becomes a tireless 1-on-1 study partner</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. The Mitra solution -->
+  <section class="kv2-solution">
+    <div class="kv2-wrap">
+      <h2 class="kv2-h2 kv2-center">The <span class="kv2-mitra-en">MITRA</span> Solution</h2>
+      <div class="kv2-sol-grid">
+        <div class="kv2-sol-points">
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V10m14 11V10M3 10l9-6 9 6M9 21v-6h6v6"/></svg>
+            <p>Compliant with the Korean AI Framework Act</p>
+          </div>
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M12 2l2.5 2 3.5-.5 1 3.4 3 1.6-1.5 3.2 1.5 3.2-3 1.6-1 3.4-3.5-.5L12 22l-2.5-2-3.5.5-1-3.4-3-1.6L3.5 11 2 7.8l3-1.6 1-3.4L9.5 4z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
+            <p>Teaches against the U.S. Common Core, Korean national curriculum, and International Baccalaureate (IB) for more accurate, systematic guidance</p>
+          </div>
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7"/></svg>
+            <p>Built on a vetted, curriculum-grounded language model</p>
+          </div>
+        </div>
+        <div class="kv2-sol-table">
+          <table class="kv2-compare">
+            <thead>
+              <tr><th></th><th>ChatGPT</th><th>Private tutor</th><th class="kv2-mitra-col">Mitra</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="kv2-feature">Subject expertise</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">Understands kids who learn differently</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-partial">◐</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">Personalized to each child</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">Available on your schedule</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">Friendly messenger-based chat</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">Remembers across sessions</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">Affordable</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="kv2-privacy-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="1.8" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
+        <p>Strong privacy protection so both your child and you can rest easy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="kv2-faq">
+    <div class="kv2-wrap kv2-narrow">
+      <img class="kv2-faq-icon" src="/en/static/images/home-v2/icon-faq.png" alt="">
+      <h2 class="kv2-h2 kv2-center"><span class="kv2-mitra-en">MITRA</span> frequently asked questions</h2>
+      <details class="kv2-faq-item" open>
+        <summary>How is Mitra different from ChatGPT and other general AI models?</summary>
+        <div class="kv2-faq-body"><p>Unlike general-purpose AI models, Mitra is designed specifically as a relationship-based learning tutor. Mitra remembers your child, adapts to how they speak and what they care about, and walks through the process together instead of just handing out answers.</p></div>
+      </details>
+      <details class="kv2-faq-item">
+        <summary>Is there a free trial?</summary>
+        <div class="kv2-faq-body"><p>Yes. The first 7 days are free. If Mitra isn't the right fit for your child, cancel within 7 days and you won't be charged. There is no minimum commitment.</p></div>
+      </details>
+      <details class="kv2-faq-item">
+        <summary>What subjects does Mitra cover?</summary>
+        <div class="kv2-faq-body"><p>Whatever your child is working on. Mitra teaches against the U.S. Common Core, the Korean national curriculum, and International Baccalaureate (IB) from 6th grade through 12th grade. That includes math, science, history, writing, foreign languages, anything coming home from school.</p></div>
+      </details>
+      <details class="kv2-faq-item">
+        <summary>I want my child to focus on a specific goal with Mitra. How do I share it?</summary>
+        <div class="kv2-faq-body"><p>Start with your child. When you agree on a goal together, have your child tell Mitra directly. Mitra weaves it naturally into the conversation. Mitra is your child's companion, not a tool parents point at their child. Goals your child has agreed to are the ones they'll actually engage with.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 9. CLOSING -->
+  <section class="kv2-closing">
+    <div class="kv2-closing-inner">
+      <div class="kv2-closing-text kv2-closing-left">Whenever and wherever<br>your child needs</div>
+      <div class="kv2-closing-phone">
+        <img class="kv2-cphone-img" src="/en/static/images/home-v2/MI-last.png" alt="The Mitra app">
+      </div>
+      <div class="kv2-closing-text kv2-closing-right">Mitra remembers<br>and will answer</div>
+    </div>
+    <a class="kv2-talk-btn" href="https://staging.mitratutor.com/en/enroll"><span class="kv2-talk-dot"></span>Get started</a>
+  </section>
+
+
+  <!-- Chat preview popup (opened by §2 "how MITRA talks" banner) -->
+  <dialog id="kv2-chat-dialog" class="kv2-chat-dialog">
+    <button type="button" class="kv2-chat-dialog-close" aria-label="Close" data-chat-popup-close>×</button>
+    <div class="kv2-popup-mock-frame">
+      <div class="kv2-popup-mock-inner">
+        <div class="kv2-popup-mock-header">
+          <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+          <div class="kv2-popup-mock-title">Mitra<small>online · usually replies within a minute</small></div>
+        </div>
+        <div class="kv2-popup-chat-viewport">
+          <!-- chat-track is duplicated for seamless scroll loop via translateY(-50%).
+               Dialogue adapted from docs/marketing/personas/seoyeon.md Days 1-4. -->
+          <div class="kv2-popup-chat-track">
+
+          <!-- Loop A: Seoyeon's arc -->
+          <div class="kv2-popup-chat-msg from-student">hi... my mom said i should try talking to you</div>
+          <div class="kv2-popup-chat-msg from-student">um... not really sure what i'm supposed to do</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Hi Seoyeon! I'm Mitra 😊</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">First time is always a little awkward. I get it.</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">What have you been into lately? Games, YouTube, anything.</div>
+
+          <div class="kv2-popup-chat-msg from-student">um... i like drawing. and webtoons. Solo Leveling</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Oh Solo Leveling!! You love watching Sung Jin-Woo level up, right? 😄</div>
+
+          <div class="kv2-popup-chat-msg from-student">i'm home alone today. so i've been watching it</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Webtoons help when you're alone. I get that.</div>
+
+          <div class="kv2-popup-chat-msg from-student">Mitra, i have to write something for class and i have no idea what</div>
+          <div class="kv2-popup-chat-msg from-student">my mom is going to be late again ㅠㅠ</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Okay, let's do it together. What did the teacher ask for?</div>
+
+          <div class="kv2-popup-chat-msg from-student">the prompt is "a story that inspired me"</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Oh that's actually a perfect prompt, for you. What about Solo Leveling? A webtoon is a story too.</div>
+
+          <div class="kv2-popup-chat-msg from-student">a webtoon counts?? then i'll write about Solo Leveling</div>
+
+          <div class="kv2-popup-chat-msg from-student">Mitra, i got my essay back. i got an A</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">An A!! That's amazing 🎉 Writing honestly about your own thing is what landed.</div>
+
+          <div class="kv2-popup-chat-msg from-student">my mom hasn't seen it yet though. she was late again last night</div>
+          <div class="kv2-popup-chat-msg from-student">honestly i don't think she'll read it. she's so busy</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Don't just leave it on your desk. Next time she's home, hand it to her: "look at this." An A is worth showing.</div>
+
+          <div class="kv2-popup-chat-msg from-student">but she'll be tired... i don't want to make her worry about more stuff</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Showing her an A isn't adding to her worry. From her side, news like this lifts her up.</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">When you're tired, good news feels better, not heavier.</div>
+
+          <!-- Loop B (duplicate of A for seamless scroll) -->
+          <div class="kv2-popup-chat-msg from-student">hi... my mom said i should try talking to you</div>
+          <div class="kv2-popup-chat-msg from-student">um... not really sure what i'm supposed to do</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Hi Seoyeon! I'm Mitra 😊</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">First time is always a little awkward. I get it.</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">What have you been into lately? Games, YouTube, anything.</div>
+
+          <div class="kv2-popup-chat-msg from-student">um... i like drawing. and webtoons. Solo Leveling</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Oh Solo Leveling!! You love watching Sung Jin-Woo level up, right? 😄</div>
+
+          <div class="kv2-popup-chat-msg from-student">i'm home alone today. so i've been watching it</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Webtoons help when you're alone. I get that.</div>
+
+          <div class="kv2-popup-chat-msg from-student">Mitra, i have to write something for class and i have no idea what</div>
+          <div class="kv2-popup-chat-msg from-student">my mom is going to be late again ㅠㅠ</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Okay, let's do it together. What did the teacher ask for?</div>
+
+          <div class="kv2-popup-chat-msg from-student">the prompt is "a story that inspired me"</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Oh that's actually a perfect prompt, for you. What about Solo Leveling? A webtoon is a story too.</div>
+
+          <div class="kv2-popup-chat-msg from-student">a webtoon counts?? then i'll write about Solo Leveling</div>
+
+          <div class="kv2-popup-chat-msg from-student">Mitra, i got my essay back. i got an A</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">An A!! That's amazing 🎉 Writing honestly about your own thing is what landed.</div>
+
+          <div class="kv2-popup-chat-msg from-student">my mom hasn't seen it yet though. she was late again last night</div>
+          <div class="kv2-popup-chat-msg from-student">honestly i don't think she'll read it. she's so busy</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Don't just leave it on your desk. Next time she's home, hand it to her: "look at this." An A is worth showing.</div>
+
+          <div class="kv2-popup-chat-msg from-student">but she'll be tired... i don't want to make her worry about more stuff</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">Showing her an A isn't adding to her worry. From her side, news like this lifts her up.</div>
+
+          <div class="kv2-popup-chat-name">Mitra</div>
+          <div class="kv2-popup-chat-msg from-mitra">When you're tired, good news feels better, not heavier.</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    (function() {
+      // §5 case rotation every 5s
+      var cases = document.querySelectorAll('.kv2-case');
+      var dots = document.querySelectorAll('.kv2-cdot');
+      if (cases.length >= 2) {
+        var i = 0;
+        function show(n) {
+          cases.forEach(function(c, idx) { c.classList.toggle('kv2-case-active', idx === n); });
+          dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
+          i = n;
+        }
+        var timer = setInterval(function() { show((i + 1) % cases.length); }, 5000);
+        dots.forEach(function(d, idx) {
+          d.addEventListener('click', function() {
+            clearInterval(timer);
+            show(idx);
+            timer = setInterval(function() { show((i + 1) % cases.length); }, 5000);
+          });
+        });
+      }
+      // §8 FAQ: opening one closes the others
+      var items = document.querySelectorAll('.kv2-faq-item');
+      items.forEach(function(d) {
+        d.addEventListener('toggle', function() {
+          if (!d.open) return;
+          items.forEach(function(o) { if (o !== d) o.open = false; });
+        });
+      });
+      // Chat-preview popup
+      var chatDialog = document.getElementById('kv2-chat-dialog');
+      if (chatDialog) {
+        document.querySelectorAll('[data-chat-popup-open]').forEach(function(b) {
+          b.addEventListener('click', function() {
+            if (typeof chatDialog.showModal === 'function') chatDialog.showModal();
+            else chatDialog.setAttribute('open', '');
+          });
+        });
+        document.querySelectorAll('[data-chat-popup-close]').forEach(function(b) {
+          b.addEventListener('click', function() { chatDialog.close(); });
+        });
+        chatDialog.addEventListener('click', function(e) {
+          if (e.target === chatDialog) chatDialog.close();
+        });
+      }
+    })();
+  </script>
 
 </div>
 </main>
