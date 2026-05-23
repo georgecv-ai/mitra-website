@@ -231,10 +231,11 @@
   .kv2-dash-half { flex: 1 1 50%; min-width: 0; }
   .kv2-reviews-card { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; }
   .kv2-reviews-stars { width: 100%; height: auto; display: block; }
-  /* Quote pushed to the bottom of the card via margin-top: auto.
-     Horizontal padding removed so the marks sit flush with stars-image edges. */
+  /* Quote sits naturally right under the stars image (top of text row aligns
+     with bottom of m14-v2). Horizontal padding removed so the marks sit flush
+     with the stars-image edges. */
   .kv2-reviews-quote {
-    margin: auto 0 0 0;
+    margin: 0;
     position: relative;
     padding: 0.4rem 0 0.4rem 0;
   }
