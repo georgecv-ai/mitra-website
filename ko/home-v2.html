@@ -1035,8 +1035,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var target = document.getElementById(card.getAttribute('data-worry-popup-open'));
           if (!target) return;
           e.preventDefault();
+          // Rotated focusable cards + native dialog focus shift can nudge
+          // scroll. Capture + restore scrollY on open and on close.
+          var savedY = window.scrollY;
           if (typeof target.showModal === 'function') target.showModal();
           else target.setAttribute('open', '');
+          window.scrollTo(0, savedY);
+          target.addEventListener('close', function restoreOnClose() {
+            window.scrollTo(0, savedY);
+            target.removeEventListener('close', restoreOnClose);
+          });
         }
         card.addEventListener('click', openPopup);
         card.addEventListener('keydown', function(e) {
