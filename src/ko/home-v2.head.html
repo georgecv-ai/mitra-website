@@ -276,6 +276,64 @@
     53%, 72%   { transform: translateY(-12rem); }
     78%, 100%  { transform: translateY(-18rem); }
   }
+  /* §3 worry-card popups (modal dialogs matched to card colors) */
+  .kv2-worry-popup {
+    border: 0;
+    padding: 2rem 1.75rem;
+    max-width: 480px;
+    width: 92vw;
+    max-height: 90vh;
+    overflow: auto;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.35);
+    position: relative;
+  }
+  .kv2-worry-popup::backdrop {
+    background: rgba(15, 24, 36, 0.65);
+    backdrop-filter: blur(4px);
+  }
+  .kv2-worry-popup-1 { background: #F2914A; }
+  .kv2-worry-popup-2 { background: #3E9C7D; }
+  .kv2-worry-popup-3 { background: #9A85D6; }
+  .kv2-worry-popup-close {
+    position: absolute;
+    top: 12px; right: 14px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .kv2-worry-popup-close:hover { background: rgba(255,255,255,0.4); }
+  .kv2-worry-popup-tagline {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 0.6rem;
+    opacity: 0.92;
+  }
+  .kv2-worry-popup-h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 1.2rem;
+    line-height: 1.3;
+    padding-right: 2.5rem;
+  }
+  .kv2-worry-popup-list {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    padding-left: 1.4rem;
+    margin: 0;
+  }
+  .kv2-worry-popup-list li {
+    margin-bottom: 0.75rem;
+  }
+  .kv2-worry-popup-list li:last-child {
+    margin-bottom: 0;
+  }
   @media (max-width: 720px) {
     .kv2-dash-row { flex-direction: column; }
   }
