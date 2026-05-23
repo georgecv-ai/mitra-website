@@ -74,19 +74,19 @@ slug: home-v2.html
     <div class="kv2-wrap">
       <h2 class="kv2-worries-h2">이런 고민 해보셨다면, 지금 <span>미트라</span>와 이야기하세요</h2>
       <div class="kv2-worry-cards">
-        <a class="kv2-worry kv2-worry-1" href="#case-busy-family" data-worry-popup-open="case-busy-family">
+        <a class="kv2-worry kv2-worry-1" data-worry-popup-open="case-busy-family" role="button" tabindex="0">
           <div class="kv2-worry-label">바쁜 가족들</div>
           <span class="kv2-worry-line"></span>
           <p class="kv2-worry-sub">혼자 있는 시간이 많은 우리 아이에게 계속 말 걸어주는 친구가 있다면?</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
-        <a class="kv2-worry kv2-worry-2" href="#case-adhd" data-worry-popup-open="case-adhd">
+        <a class="kv2-worry kv2-worry-2" data-worry-popup-open="case-adhd" role="button" tabindex="0">
           <div class="kv2-worry-label">ADHD 아이</div>
           <span class="kv2-worry-line"></span>
           <p class="kv2-worry-sub">10분도 집중이 힘든 우리 아이, 스트레스 없이 편하게 학습할 수 있어요.</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
-        <a class="kv2-worry kv2-worry-3" href="#case-teen" data-worry-popup-open="case-teen">
+        <a class="kv2-worry kv2-worry-3" data-worry-popup-open="case-teen" role="button" tabindex="0">
           <div class="kv2-worry-label">사춘기 학생</div>
           <span class="kv2-worry-line"></span>
           <p class="kv2-worry-sub">말 수가 적어지는 시기, 갈등 없이 우리 아이 도와줄 수 있어요.</p>
@@ -481,12 +481,16 @@ slug: home-v2.html
       }
       // Worry-card popups: open via [data-worry-popup-open], close on X / backdrop
       document.querySelectorAll('[data-worry-popup-open]').forEach(function(card) {
-        card.addEventListener('click', function(e) {
+        function openPopup(e) {
           var target = document.getElementById(card.getAttribute('data-worry-popup-open'));
           if (!target) return;
           e.preventDefault();
           if (typeof target.showModal === 'function') target.showModal();
           else target.setAttribute('open', '');
+        }
+        card.addEventListener('click', openPopup);
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') openPopup(e);
         });
       });
       document.querySelectorAll('.kv2-worry-popup [data-worry-popup-close]').forEach(function(b) {
