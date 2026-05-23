@@ -225,23 +225,28 @@
      decorative mi4-quote marks. Dashboard card (right) unchanged. Tops align
      via align-items:flex-start and both images being the first child of their
      respective column. */
-  .kv2-dash-row { display: flex; gap: 1rem; align-items: flex-start; }
+  /* dash-row stretches both halves to the same height so the reviews quote
+     can be pushed to the bottom (= bottom of dashboard card, ~= bottom of MI2). */
+  .kv2-dash-row { display: flex; gap: 1rem; align-items: stretch; }
   .kv2-dash-half { flex: 1 1 50%; min-width: 0; }
-  .kv2-reviews-card { display: flex; flex-direction: column; gap: 0.3rem; }
+  .kv2-reviews-card { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; }
   .kv2-reviews-stars { width: 100%; height: auto; display: block; }
+  /* Quote pushed to the bottom of the card via margin-top: auto.
+     Horizontal padding removed so the marks sit flush with stars-image edges. */
   .kv2-reviews-quote {
-    margin: 0;
+    margin: auto 0 0 0;
     position: relative;
-    padding: 0.15rem 0.9rem;
+    padding: 0.4rem 0 0.4rem 0;
   }
   .kv2-reviews-marks { position: absolute; display: flex; gap: 2px; pointer-events: none; }
   .kv2-reviews-marks img { display: block; }  /* native 13x21 */
-  .kv2-reviews-marks-open  { top: -2px;    left: 2px; }
-  .kv2-reviews-marks-close { bottom: -2px; right: 2px; transform: scale(-1, -1); }
+  .kv2-reviews-marks-open  { top: 0;     left: 0; }
+  .kv2-reviews-marks-close { bottom: 0;  right: 0; transform: scale(-1, -1); }
   .kv2-reviews-text {
-    height: 2.8rem;
+    height: 6rem;
     overflow: hidden;
     position: relative;
+    padding: 0 22px;  /* clear the marks at left/right edges */
   }
   .kv2-reviews-track {
     display: flex;
@@ -249,19 +254,25 @@
     animation: kv2-review-scroll 12s ease-in-out infinite;
   }
   .kv2-review {
-    height: 3.6rem;
+    height: 6rem;
     margin: 0;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.4;
     color: var(--ink);
-    padding: 0 0.4rem;
+  }
+  .kv2-review-attr {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.82em;
+    color: var(--muted);
+    font-style: italic;
   }
   @keyframes kv2-review-scroll {
     0%, 30%   { transform: translateY(0); }
-    40%, 70%  { transform: translateY(-3.6rem); }
-    80%, 100% { transform: translateY(-7.2rem); }
+    40%, 70%  { transform: translateY(-6rem); }
+    80%, 100% { transform: translateY(-12rem); }
   }
   @media (max-width: 720px) {
     .kv2-dash-row { flex-direction: column; }
