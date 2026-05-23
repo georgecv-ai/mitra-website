@@ -395,6 +395,100 @@
   }
 
   /* ===== for-parents-v2 additions ===== */
+  /* Hero phone mockup (right side of the hero) showing a weekly-letter preview */
+  .kvfp-hero-mockup {
+    position: absolute;
+    top: 50%; right: 4%;
+    transform: translateY(-50%);
+    width: 300px;
+    display: none;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @media (min-width: 980px) {
+    .kvfp-hero-mockup { display: block; }
+  }
+  .kvfp-hero-phone {
+    background: #1a202c;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 20px 48px rgba(31, 42, 38, 0.22);
+  }
+  .kvfp-hero-phone-inner {
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+  .kvfp-hero-phone-head {
+    background: #f7fafc;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eef2f0;
+  }
+  .kvfp-hero-phone-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+  }
+  .kvfp-hero-phone-title {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.1;
+  }
+  .kvfp-hero-phone-title small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .kvfp-hero-phone-body {
+    padding: 14px 18px 22px;
+    background: #fff;
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+  }
+  .kvfp-hero-phone-body p {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    margin: 0 0 0.7rem;
+    color: var(--ink);
+  }
+  .kvfp-hero-phone-body em {
+    color: var(--green-dark);
+    font-weight: 600;
+  }
+  .kvfp-hero-phone-body::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 72px;
+    background: linear-gradient(to bottom, transparent, #fff 80%);
+    pointer-events: none;
+  }
+  .kvfp-hero-phone-tag {
+    position: absolute;
+    top: 14px; right: -6px;
+    background: var(--green);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 5px 11px 5px 14px;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.35);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   /* Three knowledge circles (lifted from current for-parents, restyled green) */
   .kvfp-circles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin: 0 0 1.6rem; }
   .kvfp-circle { background: var(--mint-soft); border: 1px solid #e0ede7; border-radius: 16px; padding: 1.6rem 1.4rem; }
