@@ -1,0 +1,60 @@
+#!/bin/sh
+# Refuse to merge the 'staging' branch directly into 'master'.
+#
+# mitra-website staging can carry weeks of in-progress work — English
+# drafts, layout iterations, prototypes — alongside legitimate prod-bound
+# commits. A wholesale `git merge staging` drags ALL of it to production.
+# Promote via a feature branch instead, after running:
+#
+#   sh scripts/promotion-audit.sh
+#
+# to see what's actually on staging.
+#
+# REQUIRES: branch.master.mergeOptions = --no-ff in git config. Without it,
+# a fast-forward staging->master merge skips this hook entirely (no merge
+# commit is created, so pre-merge-commit never fires). Set per clone with:
+#   git config branch.master.mergeOptions --no-ff
+# See .claude/runbooks/staging.md for full setup + workflow.
+#
+# Detection: git sets GITHEAD_<sha>=<branch_name> env vars for each branch
+# being merged. We check for any GITHEAD_*=staging entry. (.git/MERGE_HEAD
+# is not yet written when pre-merge-commit fires on Git for Windows, so env
+# vars are the reliable signal.)
+#
+# Lesson logged 2026-05-25: a near-miss staging->master merge would have
+# dragged English `for-parents-v2` + `home-v2` drafts into prod alongside
+# an approved KO popup ship. George caught it: "DO NOT push the english
+# changes into production." Cherry-pick approach used instead. This hook
+# + the --no-ff config prevent the next occurrence.
+
+current=$(git rev-parse --abbrev-ref HEAD)
+if [ "$current" != "master" ]; then
+    exit 0
+fi
+
+if env | grep -qE '^GITHEAD_[a-f0-9]+=staging$'; then
+    cat >&2 <<'EOF'
+
+MERGE BLOCKED: Refusing to merge 'staging' into 'master'.
+
+mitra-website staging accumulates in-progress drafts (English v2 pages,
+layout prototypes, work-in-flight). A wholesale staging->master merge
+drags ALL of it to production. Promote via a feature branch:
+
+  git merge --abort
+  sh scripts/promotion-audit.sh         # see what's actually on staging
+  git checkout -b feat/promote-XYZ      # off master
+  git cherry-pick <approved-commit-shas>
+  python build.py --env production       # rebuild URLs for prod
+  git checkout master
+  git merge --no-ff feat/promote-XYZ
+
+If this block is wrong (you really do want EVERY commit on staging in
+production), bypass with --no-verify -- but pause first and run the
+audit script so you know what's riding along.
+
+EOF
+    exit 1
+fi
+
+exit 0
