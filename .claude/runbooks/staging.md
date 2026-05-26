@@ -18,16 +18,46 @@ URLs are defined in `shared/nav-config.json` under the `env` block. `build.py` s
 - **`staging`** = staging preview. Auto-deploys to https://staging-mitra-website.georgeneal.workers.dev on push. Cloudflare sets `CF_PAGES_BRANCH=staging`, `build.py` auto-detects and uses staging URLs.
 - **`feat/*`** = working branches.
 
-## CRITICAL: mitra-website is NOT tutor
+## Guardrails (active as of 2026-05-26)
 
-The `tutor/.claude/runbooks/staging.md` rule **"never merge staging into master"** does NOT apply here.
+The same `pre-merge-commit` hook that tutor uses is now active here. **`git merge staging` while on master is blocked** with an explanatory message. The escape hatch is `--no-verify`, but pause first and run the audit script (below).
 
-- **Why it applies to tutor:** the tutor app has staging-only commits (seed scripts, demo fixtures, fake-data dashboards) that must never reach production. There's even a `pre-merge-commit` hook enforcing it.
-- **Why it does NOT apply to mitra-website:** the marketing site is pure static content. There are no "staging-only" commits in the structural sense — every commit aims at production eventually.
+The reasoning behind the block: even though mitra-website is "pure static content" without structural staging-only commits like tutor's seed scripts, staging in practice accumulates in-progress drafts (English v2 pages, layout iterations, prototypes) that aren't approved for prod. A wholesale staging→master merge drags them. The hook makes that impossible by accident.
 
-The mitra-website pattern across master's history is direct merges: `Merge staging into master: KO homepage rebuild`, `Merge staging into master: NE Georgia partner program`, etc. That's the established convention here.
+**Per-clone setup** (each developer must run on their own clone — git config is per-clone, not committed):
 
-That said, **don't merge wholesale by default**. See the next section.
+```bash
+git config core.hooksPath scripts/
+git config branch.master.mergeOptions --no-ff
+```
+
+Verify after every clone, and at session start:
+
+```bash
+git config core.hooksPath              # -> scripts/
+git config branch.master.mergeOptions  # -> --no-ff
+```
+
+Both must be set. Without `branch.master.mergeOptions --no-ff`, a fast-forward `git merge staging` skips the hook entirely (no merge commit gets created, so pre-merge-commit never fires).
+
+### `scripts/promotion-audit.sh`
+
+Run this before any promotion work to see what's actually on staging:
+
+```bash
+sh scripts/promotion-audit.sh
+```
+
+Output:
+- Total commits on staging not on master
+- `[WIP-only]` tag on commits whose touched files all match known staging-only paths (see `WIP_PATTERNS` in the script — update the list when WIP areas change)
+- Untagged commits = promotion candidates that touch files that DO ship to prod
+
+The original failure mode this exists to prevent: WhatsApp callouts sat on staging from mid-May to 2026-05-26 because no one had visibility into "legitimate work stuck on staging." Now there's a one-line audit.
+
+## History note: why the convention changed
+
+Pre-2026-05-26, the mitra-website convention was direct staging→master merges (`Merge staging into master: KO homepage rebuild`, `Merge staging into master: NE Georgia partner program`). That worked when staging was kept clean. By mid-May 2026, staging had ~50 commits of mixed-state work, and a wholesale merge would have shipped unapproved English drafts. The new hook + audit script reflect that reality: feature branches off master are now the standard unit of promotion, same as tutor.
 
 ## Standard workflow: feature branch off master
 
@@ -118,3 +148,4 @@ CF Pages watches the GitHub repo and rebuilds on every push.
 ## History
 
 - **2026-05-25:** Runbook created after George corrected the assistant on a staging→master merge attempt that would have dragged English drafts into prod. Cherry-pick + rebuild for prod env established as the safe pattern when staging has unrelated WIP.
+- **2026-05-26:** Staging cleanup pass + guardrails landed. Bucket A (WhatsApp callouts), Bucket A-2 (EN homepage + faq), Bucket D (free-trial WhatsApp option) all promoted to master via individual feature branches. Bucket B/C (English `home-v2` + `for-parents-v2` drafts) explicitly held on staging. Bucket E backfilled master into staging. Then: `scripts/pre-merge-commit` hook copied from tutor, `scripts/promotion-audit.sh` added, per-clone git config documented. Trigger was George's observation that the staging→master gap was costing legitimate work (the WhatsApp callouts had been stuck since mid-May).
