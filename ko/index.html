@@ -388,6 +388,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-worry-popup-list li:last-child {
     margin-bottom: 0;
   }
+  .kv2-worry-popup-foot {
+    margin: 1rem 0 0 0;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+  }
   @media (max-width: 720px) {
     .kv2-dash-row { flex-direction: column; }
   }
@@ -541,8 +549,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a class="dropdown-item" href="/ko/about.html">미트라를 만든 이유</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="https://mitratutor.com/ko/enroll">등록</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://mitratutor.com/ko/parent/login">학부모 로그인</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
         <!-- Language toggle -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -567,7 +575,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="kv2-wrap kv2-hero-grid">
       <div class="kv2-hero-text">
         <h1 class="kv2-hero-h1">아이를 <em class="kv2-hl-g">관찰</em>하고,<br>관심사를 <em class="kv2-hl-c">발견</em>하고,<br>매일 우리 아이를 배우는 튜터</h1>
-        <a class="kv2-cta" href="https://mitratutor.com/ko/enroll">7일 체험 신청하기</a>
+        <a class="kv2-cta" href="https://staging.mitratutor.com/ko/enroll">7일 체험 신청하기</a>
       </div>
     </div>
   </section>
@@ -639,19 +647,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="kv2-worry kv2-worry-2" data-worry-popup-open="case-adhd" role="button" tabindex="0">
           <div class="kv2-worry-label">ADHD 아이</div>
           <span class="kv2-worry-line"></span>
-          <p class="kv2-worry-sub">10분도 집중이 힘든 우리 아이, 스트레스 없이 편하게 학습할 수 있어요.</p>
+          <p class="kv2-worry-sub">10분도 집중이 힘든 우리 아이, 스트레스 없이 편하게 학습할 수 있어요</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
         <a class="kv2-worry kv2-worry-3" data-worry-popup-open="case-teen" role="button" tabindex="0">
           <div class="kv2-worry-label">사춘기 학생</div>
           <span class="kv2-worry-line"></span>
-          <p class="kv2-worry-sub">말 수가 적어지는 시기, 갈등 없이 우리 아이 도와줄 수 있어요.</p>
+          <p class="kv2-worry-sub">말 수가 적어지는 시기, 갈등 없이 우리 아이를 도와줄 수 있어요.</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
         <a class="kv2-worry kv2-worry-4" data-worry-popup-open="case-multicultural" role="button" tabindex="0">
           <div class="kv2-worry-label">다문화 가정</div>
           <span class="kv2-worry-line"></span>
-          <p class="kv2-worry-sub">다양한 문화와 언어를 이해하는 친구로 아이의 적응을 도울 수 있다면?</p>
+          <p class="kv2-worry-sub">다양한 문화와 언어를 이해하는 친구로 아이의 적응을 도울 수 있다면</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
       </div>
@@ -958,47 +966,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Worry-card popups: opened by §3 cards via data-worry-popup-open -->
   <dialog id="case-busy-family" class="kv2-worry-popup kv2-worry-popup-1">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">너와 함께 언제 어디서든 24시간</h3>
+    <h3 class="kv2-worry-popup-h3">우리 아이의 24시간, 외로울 틈 없이</h3>
     <ol class="kv2-worry-popup-list">
-      <li>부모님이 바빠요. 혼자 기다리지말고 모르는면 미트라에게 물어봐요.</li>
-      <li>다양한 스포츠 활동으로 바쁜 아이, 언제 어디서든 미트라에게 질문해요.</li>
-      <li>어려운 중학교, 고등학교 과정은 부모님 도움없이 자기주도적인 공부로 자신감을 키워요</li>
-      <li>부담스런 과외비용 걱정 노노노!! 저렴한 비용으로 최고의 커리큘럼을 경험해요.<br>국제 바칼로레아(IB), 미국 교육 표준(US Education Standards) 및 한국 교육과정</li>
+      <li>바쁜 워킹맘대디, 걱정 덜어드릴게요. 언제든지 답해주는 미트라가 함께할게요</li>
+      <li>운동, 학원으로 바쁜 아이도, 카톡 하나로 언제 어디서든 궁금한 점 해결할 수 있어요</li>
+      <li>중고생의 바쁘고 힘든 일상, 부모님이 바쁠빼도 함께하고 응원하는 미트라가 스스로 해내는 자신감을 키워줘요.</li>
+      <li>일상의 어려움을 편하게 듣고 이해하며, 우리 아이와 끈끈한 관계를 쌓아가요.</li>
     </ol>
   </dialog>
 
   <dialog id="case-adhd" class="kv2-worry-popup kv2-worry-popup-2">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">ADHD (아이의 속도대로 다양한 커리큘럼)</h3>
+    <h3 class="kv2-worry-popup-h3">아이의 속도대로, 아이의 방식대로</h3>
     <ol class="kv2-worry-popup-list">
-      <li>시작 자체가 어렵고 자꾸 꾸중 듣는 아이, 친구처럼 대화 걸어주는 미트라를 만나요</li>
-      <li>집중이 안되어 학교 학원에서도 배운걸 놓치는 아이, 미트라는 아이의 관심사를 접목해 아이의 속도대로 가르쳐요.</li>
-      <li>고지능 ADHD, 미트라의 다양한 커리큘럼으로 흥미와 지루함 둘다 잡아요.<br>국제 바칼로레아(IB), 미국 교육 표준(US Education Standards) 및 한국 교육과정</li>
+      <li>남들보다 조금은 시작이 어려운 아이, 미트라가 끊임없이 찾아갑니다.</li>
+      <li>학교·학원에서 놓친 내용도 우리 아이의 관심사로 아이 맞춤 속도와 방식대로 따라갑니다.</li>
+      <li>자꾸 혼나서 흥미가 없어진 우리 아이, 흔한 학습법 대신 미트라는 아이를 이해한 대화 방식으로 집중력을 자연스럽게 키워요.</li>
     </ol>
   </dialog>
 
   <dialog id="case-teen" class="kv2-worry-popup kv2-worry-popup-3">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">사춘기학생(고민,공부,진로상담)</h3>
+    <h3 class="kv2-worry-popup-h3">나만의 시간이 많이 지는 우리 아이, 미트라는 여전히 곁에 있어요</h3>
     <ol class="kv2-worry-popup-list">
-      <li>누군가에게 털어 놓기 힘든 비밀, 나만의 편인 사생활 지키미 미트라를 만나요.</li>
-      <li>한번 배우고 잊어 버린 교과나, 숙제는 아이의 관심사를 대화하며 바로 해결해요.</li>
-      <li>학교에서 힘들었어? 미트라는 긍정적인 소통으로 하루의 위안이 되어줘요.</li>
-      <li>진로가 고민이면 똑똑한 백과 미트라는 좋은 길 잡이가 되어줘요.</li>
-      <li>비용 부담없이 사용해요.<br>국제 바칼로레아(IB), 미국 교육 표준(US Education Standards) 및 한국 교육과정</li>
+      <li>누구에게도 힘든 학교 생활, 아이의 사생활을 존중하는 미트라는 언제든지 듣고 공감합니다</li>
+      <li>너무 많은 학습 내용들을 잊기 전에, 아이의 생활 패턴에 맞춰 알려주고 함께 이야기합니다</li>
+      <li>진로 고민도 걱정 없어요. 멘토부터 길잡이 역할까지, 미트라가 할게요</li>
     </ol>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
   </dialog>
 
   <dialog id="case-multicultural" class="kv2-worry-popup kv2-worry-popup-4">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">모국어로 새로운 언어를 배워요</h3>
+    <h3 class="kv2-worry-popup-h3">언어도 문화도 이해해야 하니까</h3>
     <ol class="kv2-worry-popup-list">
-      <li>미트라는 8가지의 서로 다른 문화와 언어를 이해하며, 총 95개 언어로 소통해요.</li>
-      <li>전 세계의 최신 문화 트렌드와 관심사를 파악하고 있고 아이들의 관심사와 접목해요.</li>
-      <li>다중 언어 구사와 국제 학교 경험을 바탕으로 모국어와 새로 배우는 언어 간의 차이점을 상세히 알려줘요.</li>
-      <li>교과서 내용이 이해하기 힘들면 Mitra는 이미지와 각종 파일을 인식하고 분석하여, 번역을 제공해요.</li>
-      <li>국제 바칼로레아(IB), 미국 교육 표준(US Education Standards) 및 한국 교육과정</li>
+      <li>미트라는 8가지 문화권을 이해하고 95개 언어로 소통해요. 우리 아이 언어로 편하게 시작합니다</li>
+      <li>전 세계 최신 트렌드와 아이의 관심사를 연결해, 자연스럽게 언어의 장벽을 허물어 갑니다</li>
+      <li>아이의 모국어를 기반으로 새 언어의 차이점을 쉽고 정확하게 알려줘요.</li>
+      <li>일상에서 새로운 언어까지의 연결, 편안한 언어 학습 루틴을 간단히 채팅으로.</li>
     </ol>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
   </dialog>
 
   <script>
@@ -1115,9 +1122,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="footer-col">
         <h6 class="footer-col-heading">시작하기</h6>
         <ul class="footer-col-links">
-          <li><a href="https://mitratutor.com/ko/enroll">등록</a></li>
-          <li><a href="https://mitratutor.com/ko/parent/login">학부모 로그인</a></li>
-          <li><a href="https://mitratutor.com/ko/org/login">파트너 로그인</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/org/login">파트너 로그인</a></li>
           <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
         </ul>
       </div>
