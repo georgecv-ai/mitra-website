@@ -40,6 +40,12 @@
   .kv2-hero-text { flex: 0 0 auto; max-width: 460px; position: relative; z-index: 1; padding: 2.5rem 0; }
   .kv2-hero-h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.5; margin: 0 0 1.8rem; }
 
+  /* HTML/CSS hero variant: 3-phone cluster instead of MI1.png */
+  .kv2-hero-css { padding: 0 1.5rem; background: linear-gradient(135deg, #fff 0%, #fff 52%, var(--mint-soft) 52%, var(--mint) 100%); }
+  .kv2-hero-css .kv2-hero-grid { justify-content: space-between; gap: 1.5rem; align-items: center; }
+  .kv2-hero-css .kv2-hero-text { padding: 3rem 0; }
+  .kv2-hero-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.5rem; padding: 2.5rem 0; flex: 0 0 auto; }
+
   /* ---- Phone mockups ---- */
   .kv2-phones { display: flex; justify-content: center; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap; }
   .kv2-phone { background: #20242e; border-radius: 26px; padding: 7px; box-shadow: 0 16px 36px rgba(31,42,38,0.26); flex: 0 0 auto; }
@@ -376,6 +382,9 @@
     .kv2-hero-h1 { font-size: 1.7rem; text-align: center; }
     .kv2-hero-text { text-align: center; max-width: 100%; padding: 0; }
     .kv2-hero-img { position: static; width: 100%; max-width: 100%; margin-top: 1.5rem; }
+    .kv2-hero-css { background: #fff; padding: 2rem 1.1rem; }
+    .kv2-hero-css .kv2-hero-text { padding: 0; }
+    .kv2-hero-phones { padding: 1.5rem 0 0; gap: 0.4rem; }
     .kv2-delivers-grid { flex-direction: column; }
     .kv2-dcard-row { flex-direction: column; }
     .kv2-worries-h2 { font-size: 1.45rem; }
