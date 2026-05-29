@@ -11,7 +11,7 @@ slug: home-v2.html
     <div class="kv2-wrap kv2-hero-grid">
       <div class="kv2-hero-text">
         <h1 class="kv2-hero-h1">Mitra <em class="kv2-hl-g">learns</em> what<br>your child <em class="kv2-hl-c">loves</em>,<br>then finds the <em class="kv2-hl-g">math</em> in it,<br>the <em class="kv2-hl-c">science</em> in it,<br>the <em class="kv2-hl-g">story</em> in it.</h1>
-        <a class="kv2-cta" href="{{app_base}}/{{lang}}/enroll">Start your 7-day trial</a>
+        <a class="kv2-cta" href="{{app_base}}/{{lang}}/enroll" onclick="(window.dataLayer=window.dataLayer||[]).push({event:'enroll_click',cta_location:'home_hero'})">Start your 7-day trial</a>
       </div>
     </div>
   </section>
@@ -112,7 +112,7 @@ slug: home-v2.html
         <p class="kv2-eyebrow">Even for the iPad kids whose screen habits are hard to break</p>
         <h2 class="kv2-h2">Remembers your child<br>and reaches out first on the apps they already use</h2>
         <div class="kv2-kakao-actions">
-          <a class="kv2-cta" href="{{app_base}}/{{lang}}/enroll">Start your 7-day trial</a>
+          <a class="kv2-cta" href="{{app_base}}/{{lang}}/enroll" onclick="(window.dataLayer=window.dataLayer||[]).push({event:'enroll_click',cta_location:'home_apps_section'})">Start your 7-day trial</a>
         </div>
       </div>
     </div>
@@ -264,7 +264,7 @@ slug: home-v2.html
       </div>
       <div class="kv2-closing-text kv2-closing-right">Their tutor,<br>who actually gets them.</div>
     </div>
-    <a class="kv2-talk-btn" href="{{app_base}}/{{lang}}/enroll"><span class="kv2-talk-dot"></span>Get started</a>
+    <a class="kv2-talk-btn" href="{{app_base}}/{{lang}}/enroll" onclick="(window.dataLayer=window.dataLayer||[]).push({event:'enroll_click',cta_location:'home_closing'})"><span class="kv2-talk-dot"></span>Get started</a>
   </section>
 
 
@@ -496,6 +496,7 @@ slug: home-v2.html
           var target = document.getElementById(card.getAttribute('data-worry-popup-open'));
           if (!target) return;
           e.preventDefault();
+          (window.dataLayer=window.dataLayer||[]).push({event:'worry_card_open', worry_type: card.getAttribute('data-worry-popup-open')});
           var savedY = window.scrollY;
           if (typeof target.showModal === 'function') target.showModal();
           else target.setAttribute('open', '');
