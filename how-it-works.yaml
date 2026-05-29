@@ -80,3 +80,9 @@ integrations:
   - project: "Mitra"
     direction: "outbound"
     description: "Links to mitratutor.com for enrollment, parent login, and all authenticated features"
+
+human_documents:
+  - name: "KO Site Rebuild Decisions"
+    path: "docs/ko-site-rebuild-decisions.md"
+    category: "decision"
+    summary: "Working notes from the Korean home-v2 rebuild (May 2026). Tracks placeholders that needed founder input and choices Praxis made (palette, FAQ selection, copy fixes, link targets) that George should confirm or override."
