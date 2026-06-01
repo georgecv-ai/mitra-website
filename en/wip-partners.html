@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Internal draft of a tightened US-focused partners page. Four-pillar hero, dashboard-led proof, three product blocks, single CTA." />
+  <title>For Academies, Schools, and Tutors — Mitra (WIP US partners draft)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/en/static/style.css" />
+  <link rel="icon" type="image/png" href="/en/static/images/mitra-logo-icon-v2_003.png">
+  <link rel="canonical" href="https://www.mitratutor.com/en/wip-partners" />
+  <meta property="og:title" content="For Academies, Schools, and Tutors — Mitra (WIP US partners draft)" />
+  <meta property="og:description" content="Internal draft of a tightened US-focused partners page. Four-pillar hero, dashboard-led proof, three product blocks, single CTA." />
+  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mitratutor.com/en/wip-partners" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="For Academies, Schools, and Tutors — Mitra (WIP US partners draft)" />
+  <meta name="twitter:description" content="Internal draft of a tightened US-focused partners page. Four-pillar hero, dashboard-led proof, three product blocks, single CTA." />
+  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <link rel="alternate" hreflang="en" href="https://www.mitratutor.com/en/wip-partners" />
+  <link rel="alternate" hreflang="ko" href="https://www.mitratutor.com/ko/wip-partners" />
+  <link rel="alternate" hreflang="x-default" href="https://www.mitratutor.com/en/wip-partners" />
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-LsAoaHD8Mux3yrUonjE7S.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5S43DC8L');</script>
+<!-- End Google Tag Manager -->
+<meta name="robots" content="noindex, nofollow">
+<style>
+/* ============================================================
+   PARTNERS PAGE — US — WIP draft
+   Whatquiz-style restraint: hard numbers, body-feeling pain,
+   four hero pillars, generous whitespace. Namespaced .wp-*.
+   ============================================================ */
+
+.pain-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+.wp-page { color: #1A1A2E; font-family: 'Inter', sans-serif; }
+.wp-page h1, .wp-page h2, .wp-page h3, .wp-page h4 { font-family: 'DM Sans', sans-serif; letter-spacing: -.015em; }
+.wp-wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+.wp-narrow { max-width: 820px; margin: 0 auto; padding: 0 32px; }
+
+/* ----- Sticky WIP / lang bar ----- */
+.wp-bar { position: sticky; top: 0; z-index: 50; background: #1B3A5C; color: #fff;
+  padding: 10px 0; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.wp-bar-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  font-size: 14px; }
+.wp-bar-tag { background: #2A9D8F; color: #fff; padding: 3px 10px; border-radius: 4px;
+  font-weight: 700; letter-spacing: .06em; font-size: 11px; }
+.wp-bar .wp-spacer { flex: 1; }
+.wp-bar .wp-note { color: rgba(255,255,255,.75); font-size: 12px; }
+.wp-bar .wp-note a { color: #FEE500; margin-left: 8px; text-decoration: none; }
+
+/* ----- Hero ----- */
+.wp-hero { padding: 120px 0 96px; background: #fff; }
+.wp-eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px;
+  color: #2A9D8F; font-weight: 700; margin-bottom: 24px; }
+.wp-hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800;
+  color: #1B3A5C; line-height: 1.05; margin: 0 0 32px; max-width: 980px; }
+.wp-hero .wp-sub { font-size: 21px; color: #4A5568; max-width: 720px;
+  line-height: 1.55; margin: 0 0 48px; }
+.wp-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  margin: 56px 0 56px; padding: 32px 0; border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0; }
+.wp-pillar .num { font-family: 'DM Sans'; font-size: 36px; font-weight: 800;
+  color: #2A9D8F; line-height: 1; margin-bottom: 8px; letter-spacing: -.03em; }
+.wp-pillar .label { font-size: 14px; font-weight: 600; color: #1A1A2E;
+  line-height: 1.4; }
+.wp-pillar .label small { display: block; color: #8896A6; font-size: 12px;
+  font-weight: 500; margin-top: 4px; }
+
+.wp-cta-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.wp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px;
+  border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .15s;
+  font-size: 16px; }
+.wp-cta:hover { transform: translateY(-1px); }
+.wp-cta.primary { background: #2A9D8F; color: #fff; }
+.wp-cta.secondary { background: transparent; color: #1B3A5C;
+  border: 2px solid #1B3A5C; padding: 14px 30px; }
+
+/* ----- Dashboard section ----- */
+.wp-dash-section { padding: 120px 0; background: linear-gradient(180deg, #F0F2F5 0%, #D9E2EC 100%); }
+.wp-dash-section .wp-eyebrow { color: #1B3A5C; }
+.wp-dash-section h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800;
+  color: #1B3A5C; line-height: 1.1; margin: 0 0 16px; max-width: 760px; }
+.wp-dash-section .desc { font-size: 18px; color: #4A5568; max-width: 620px;
+  line-height: 1.6; margin: 0 0 56px; }
+.wp-dash-frame { background: #fff; border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(27,58,92,.18); padding: 24px; }
+
+/* Dashboard internals (compact rebuild of pn-* from partners.html) */
+.wp-dh { background: linear-gradient(135deg, #1B3A5C 0%, #2B4C7E 60%, #2A9D8F 140%);
+  color: #fff; padding: 24px 28px; border-radius: 12px; margin-bottom: 20px; }
+.wp-dh-head { display: flex; justify-content: space-between; flex-wrap: wrap;
+  gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+.wp-dh-head h4 { color: #fff; margin: 0 0 4px; font-weight: 700; font-size: 1.35rem; }
+.wp-dh-head .sub { font-size: 14px; opacity: .85; }
+.wp-dh-health { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
+  border-radius: 10px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
+.wp-dh-health .score { font-family: 'DM Sans'; font-size: 2rem; font-weight: 800; line-height: 1; }
+.wp-dh-health .lab { font-size: 11px; opacity: .85; text-transform: uppercase; letter-spacing: .08em; }
+.wp-dh-health .badge { background: #2A9D8F; color: #fff; padding: 2px 8px; border-radius: 999px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  display: inline-block; margin-top: 4px; }
+.wp-dh-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.wp-dh-stat { background: rgba(255,255,255,.1); border-radius: 8px; padding: 10px 14px; }
+.wp-dh-stat .v { font-family: 'DM Sans'; font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1; }
+.wp-dh-stat .l { font-size: 11px; opacity: .8; text-transform: uppercase; letter-spacing: .05em; margin-top: 4px; }
+
+.wp-panel { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px;
+  padding: 20px 24px; margin-bottom: 16px; }
+.wp-panel-h { font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #2B4C7E; margin: 0 0 12px; }
+.wp-topic { display: grid; grid-template-columns: 28px 1fr 100px; gap: 14px;
+  align-items: center; padding: 10px 0; border-bottom: 1px solid #E2E8F0; }
+.wp-topic:last-child { border-bottom: none; }
+.wp-topic .rank { width: 28px; height: 28px; border-radius: 50%; background: #D6E1EE;
+  color: #2B4C7E; font-weight: 700; font-family: 'DM Sans'; font-size: .95rem;
+  text-align: center; line-height: 28px; }
+.wp-topic .name { font-weight: 600; font-size: .95rem; color: #1A1A2E; }
+.wp-topic .bar { height: 8px; background: #EEF2F7; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+.wp-topic .bar .fill { height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #2A9D8F 0%, #2B4C7E 100%); }
+.wp-topic .meta { font-size: 13px; color: #4A5568; text-align: right;
+  font-variant-numeric: tabular-nums; }
+.wp-topic .meta strong { display: block; color: #1A1A2E; font-family: 'DM Sans';
+  font-size: 1rem; font-weight: 700; }
+
+.wp-challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
+  border: 1px solid #fed7aa; border-left: 4px solid #f97316; border-radius: 10px;
+  padding: 14px 18px; display: grid; grid-template-columns: 36px 1fr; gap: 14px; }
+.wp-challenge-icon { width: 36px; height: 36px; border-radius: 8px; background: #f97316;
+  color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; }
+.wp-challenge .ch-title { font-weight: 700; color: #7c2d12; font-size: 1rem; margin-bottom: 2px; }
+.wp-challenge .ch-meta { font-size: 12px; color: #9a3412; margin-bottom: 6px; }
+.wp-challenge .ch-meta strong { font-weight: 700; }
+.wp-challenge .ch-action { background: rgba(255,255,255,.7); border-radius: 6px;
+  padding: 8px 12px; font-size: 13px; line-height: 1.5; color: #1A1A2E; }
+.wp-challenge .ch-action b { color: #7c2d12; }
+
+.wp-dash-foot { font-size: 13px; color: #8896A6; font-style: italic; margin-top: 16px; }
+
+/* ----- Three product blocks ----- */
+.wp-three { padding: 120px 0; background: #fff; }
+.wp-three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
+.wp-tile { display: flex; flex-direction: column; gap: 16px; }
+.wp-tile .tile-num { font-family: 'DM Sans'; font-size: 14px; font-weight: 800;
+  color: #2A9D8F; letter-spacing: .12em; }
+.wp-tile h3 { font-size: 1.5rem; font-weight: 800; color: #1B3A5C; line-height: 1.2;
+  margin: 0; }
+.wp-tile p { color: #4A5568; font-size: 16px; line-height: 1.6; margin: 0; }
+.wp-tile .tile-art { background: #F0F2F5; border-radius: 12px; padding: 28px;
+  font-family: 'DM Sans'; color: #1B3A5C; min-height: 140px;
+  display: flex; align-items: center; justify-content: center; text-align: center; }
+.wp-tile .tile-art .big { font-size: 2.6rem; font-weight: 800; line-height: 1;
+  letter-spacing: -.03em; }
+.wp-tile .tile-art .small { font-size: 12px; opacity: .7; text-transform: uppercase;
+  letter-spacing: .1em; margin-top: 8px; }
+
+/* ----- Cost ----- */
+.wp-cost { padding: 140px 0; background: #1B3A5C; color: #fff; text-align: center; }
+.wp-cost .wp-eyebrow { color: #FEE500; }
+.wp-cost h2 { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1;
+  color: #fff; margin: 0 0 16px; letter-spacing: -.03em; }
+.wp-cost h2 .currency { color: #FEE500; }
+.wp-cost .cost-sub { font-size: 18px; color: rgba(255,255,255,.75);
+  max-width: 540px; margin: 0 auto 48px; line-height: 1.6; }
+.wp-cost .wp-cta.primary { background: #FEE500; color: #1B3A5C; }
+
+/* ----- Final CTA ----- */
+.wp-final { padding: 120px 0; background: #fff; text-align: center; }
+.wp-final h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #1B3A5C;
+  margin: 0 0 24px; line-height: 1.1; }
+.wp-final p { color: #4A5568; max-width: 540px; margin: 0 auto 40px; font-size: 17px;
+  line-height: 1.6; }
+.wp-final .wp-cta-row { justify-content: center; }
+
+/* ----- Depth links ----- */
+.wp-depth { padding: 80px 0; background: #F0F2F5; }
+.wp-depth h3 { font-size: 14px; text-transform: uppercase; letter-spacing: .12em;
+  color: #8896A6; font-weight: 700; margin: 0 0 24px; text-align: center; }
+.wp-depth-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  max-width: 820px; margin: 0 auto; }
+.wp-depth-link { display: flex; align-items: center; gap: 12px; padding: 18px 24px;
+  background: #fff; border: 1px solid #E2E8F0; border-radius: 10px;
+  text-decoration: none; color: #1B3A5C; font-weight: 600; font-size: 15px;
+  transition: border-color .15s, transform .15s; }
+.wp-depth-link:hover { border-color: #2A9D8F; transform: translateY(-1px); color: #1B3A5C; }
+.wp-depth-link .arrow { margin-left: auto; color: #2A9D8F; font-weight: 700; }
+
+/* ----- Responsive ----- */
+@media (max-width: 820px) {
+  .wp-hero { padding: 72px 0 56px; }
+  .wp-pillars { grid-template-columns: repeat(2, 1fr); }
+  .wp-three-grid { grid-template-columns: 1fr; gap: 56px; }
+  .wp-dh-stats { grid-template-columns: repeat(2, 1fr); }
+  .wp-depth-grid { grid-template-columns: 1fr; }
+  .wp-dash-section, .wp-three, .wp-cost, .wp-final { padding: 80px 0; }
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S43DC8L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/en/"><img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown1" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown1">
+            <li><a class="dropdown-item" href="/en/principles.html">Principles & Practice</a></li>
+            <li><a class="dropdown-item" href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+            <li><a class="dropdown-item" href="/en/for-parents.html">For Parents</a></li>
+            <li><a class="dropdown-item" href="/en/for-students.html">For Students</a></li>
+            <li><a class="dropdown-item" href="/en/partners.html">For Academies, Hagwons, Schools & Tutors</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+          <ul class="dropdown-menu" aria-labelledby="navDropdown2">
+            <li><a class="dropdown-item" href="/en/faq.html">FAQ</a></li>
+            <li><a class="dropdown-item" href="/en/compliance.html">Compliance</a></li>
+            <li><a class="dropdown-item" href="/en/about.html">Why Build Mitra</a></li>
+            <li><a class="dropdown-item" href="/en/blog/">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/en/parent/login">Parent Login</a></li>
+        <!-- Language toggle -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" style="border-radius:2px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item active" href="/en/wip-partners.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
+            <li><a class="dropdown-item " href="/ko/wip-partners.html"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="pain-main">
+<div class="wp-page">
+
+<!-- Sticky WIP bar -->
+<div class="wp-bar">
+  <div class="wp-wrap wp-bar-row">
+    <span class="wp-bar-tag">WIP · INTERNAL</span>
+    <span class="wp-note">US partners page draft · for review</span>
+    <span class="wp-spacer"></span>
+    <span class="wp-note">Compare with live: <a href="/en/partners">/en/partners</a></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="wp-hero">
+  <div class="wp-wrap">
+    <p class="wp-eyebrow">For academies, schools, and tutors · US</p>
+    <h1>Your students are using AI tonight.<br>Make sure it's teaching them.</h1>
+    <p class="wp-sub">Mitra runs alongside your program on the apps your students already use. They get a tutor between sessions. You get a dashboard that shows exactly where they're stuck.</p>
+
+    <div class="wp-pillars">
+      <div class="wp-pillar">
+        <div class="num">24/7</div>
+        <div class="label">Student support<small>KakaoTalk · Telegram · WhatsApp</small></div>
+      </div>
+      <div class="wp-pillar">
+        <div class="num">30s</div>
+        <div class="label">To see what your class is stuck on<small>Cohort dashboard, updated daily</small></div>
+      </div>
+      <div class="wp-pillar">
+        <div class="num">0</div>
+        <div class="label">Transcripts shared<small>Parent-owned accounts, FERPA-aligned</small></div>
+      </div>
+      <div class="wp-pillar">
+        <div class="num">Live</div>
+        <div class="label">Founding partners onboarding<small>NE Georgia program now active</small></div>
+      </div>
+    </div>
+
+    <div class="wp-cta-row">
+      <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20application">Apply to become a partner</a>
+      <a class="wp-cta secondary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20call">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="wp-dash-section">
+  <div class="wp-wrap">
+    <p class="wp-eyebrow">Monday morning</p>
+    <h2>What your students worked on this week.</h2>
+    <p class="desc">Every session. Every topic. Every challenge. One place. You walk in Monday already knowing what to focus on.</p>
+
+    <div class="wp-dash-frame">
+
+      <div class="wp-dh">
+        <div class="wp-dh-head">
+          <div>
+            <h4>Sample Tutoring Center</h4>
+            <div class="sub">Last 30 days · 16 active students · 2 classes</div>
+          </div>
+          <div class="wp-dh-health">
+            <div class="score">87</div>
+            <div>
+              <div class="lab">Engagement</div>
+              <span class="badge">Healthy</span>
+            </div>
+          </div>
+        </div>
+        <div class="wp-dh-stats">
+          <div class="wp-dh-stat"><div class="v">16</div><div class="l">Active students</div></div>
+          <div class="wp-dh-stat"><div class="v">107</div><div class="l">Sessions (30d)</div></div>
+          <div class="wp-dh-stat"><div class="v">982</div><div class="l">Messages exchanged</div></div>
+          <div class="wp-dh-stat"><div class="v">29</div><div class="l">Active days</div></div>
+        </div>
+      </div>
+
+      <div class="wp-panel">
+        <div class="wp-panel-h">What students are working on</div>
+        <div class="wp-topic">
+          <div class="rank">1</div>
+          <div>
+            <div class="name">Linear equations</div>
+            <div class="bar"><div class="fill" style="width:100%;"></div></div>
+          </div>
+          <div class="meta"><strong>39</strong>8 students</div>
+        </div>
+        <div class="wp-topic">
+          <div class="rank">2</div>
+          <div>
+            <div class="name">Main idea identification</div>
+            <div class="bar"><div class="fill" style="width:97%;"></div></div>
+          </div>
+          <div class="meta"><strong>38</strong>7 students</div>
+        </div>
+        <div class="wp-topic">
+          <div class="rank">3</div>
+          <div>
+            <div class="name">Substitution method</div>
+            <div class="bar"><div class="fill" style="width:72%;"></div></div>
+          </div>
+          <div class="meta"><strong>28</strong>5 students</div>
+        </div>
+      </div>
+
+      <div class="wp-panel">
+        <div class="wp-panel-h">Where students get stuck, and what to do about it</div>
+        <div class="wp-challenge">
+          <div class="wp-challenge-icon">!</div>
+          <div>
+            <div class="ch-title">Parallel lines case in systems</div>
+            <div class="ch-meta"><strong>11</strong> sessions · <strong>5</strong> students affected</div>
+            <div class="ch-action"><b>Try:</b> Switch to graphing first to show why parallel slopes never intersect. Pair with a grid-based interest hook (Minecraft, LEGO Technic) for the kids who lock in on visual structure.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="wp-dash-foot">Sample data. Representative shape from real partner cohorts. Per-student detail surfaces only above a 5-student floor for privacy.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- THREE PRODUCT BLOCKS -->
+<section class="wp-three">
+  <div class="wp-wrap">
+    <p class="wp-eyebrow">What it gives you</p>
+    <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:800; color:#1B3A5C; line-height:1.1; margin:0 0 16px; max-width:760px;">The three things tutors say they actually needed.</h2>
+
+    <div class="wp-three-grid">
+
+      <div class="wp-tile">
+        <div class="tile-art">
+          <div>
+            <div class="big">11:14 PM</div>
+            <div class="small">Mitra responded · You slept</div>
+          </div>
+        </div>
+        <div class="tile-num">01</div>
+        <h3>Mitra answers the 11pm text. You sleep.</h3>
+        <p>Your students get help between sessions, on the apps they already use, without the message landing on your phone. The work still gets done. The relationship stays with you.</p>
+      </div>
+
+      <div class="wp-tile">
+        <div class="tile-art">
+          <div>
+            <div class="big">52 wks</div>
+            <div class="small">Weekly proof to every parent</div>
+          </div>
+        </div>
+        <div class="tile-num">02</div>
+        <h3>Your parents get weekly proof. You get retained students.</h3>
+        <p>Every parent sees a structured weekly report on their child: what they worked on, what's working, where they're growing. The in-between weeks stop being invisible. Renewal conversations get easier.</p>
+      </div>
+
+      <div class="wp-tile">
+        <div class="tile-art">
+          <div>
+            <div class="big">Peer</div>
+            <div class="small">Advisor mode, not help-desk</div>
+          </div>
+        </div>
+        <div class="tile-num">03</div>
+        <h3>A teaching peer who's read everything.</h3>
+        <p>Mitra has a separate mode for educators. Talk to her as a colleague about lesson design, learner profiles, what's working with these specific kids. Most program directors don't have a peer who's both read the research and seen what's actually landing in your classrooms.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="wp-cost">
+  <div class="wp-wrap">
+    <p class="wp-eyebrow">The model</p>
+    <h2><span class="currency">$</span>0 to your program.</h2>
+    <p class="cost-sub">Mitra is paid for by parents, not by your program. No license fee. No per-seat charge. Revenue share back to you once your students grow. Founding partners help shape the terms.</p>
+    <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20founding%20partner%20application">Apply to be a founding partner</a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="wp-final">
+  <div class="wp-narrow">
+    <h2>Ready when you are.</h2>
+    <p>Apply takes 2 minutes. If it's a fit, we'll have you onboarded inside a week. If it isn't, we'll say so early.</p>
+    <div class="wp-cta-row">
+      <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20application">Apply to become a partner</a>
+      <a class="wp-cta secondary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20call">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPTH -->
+<section class="wp-depth">
+  <div class="wp-wrap">
+    <h3>For the visitor who wants to go deeper</h3>
+    <div class="wp-depth-grid">
+      <a class="wp-depth-link" href="/en/parent-dashboard">See a sample parent dashboard <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/partners">Read the long-form partner pitch <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/how-to-work-with-mitra">How Mitra works with families <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/partner-agreement-v1.0">Partner agreement v1.0 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/partner-guidelines-v1.0">Partner guidelines v1.0 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/compliance">Compliance and AI safety <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand mb-4">
+      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
+      <span class="footer-logo">Mitra AI Tutor</span>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Learn</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+          <li><a href="/en/for-parents.html">For Parents</a></li>
+          <li><a href="/en/for-students.html">For Students</a></li>
+          <li><a href="/en/partners.html">For Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Resources</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/faq.html">FAQ</a></li>
+          <li><a href="/en/compliance.html">Compliance</a></li>
+          <li><a href="/en/about.html">Why Build Mitra</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Legal</h6>
+        <ul class="footer-col-links">
+          <li><a href="/en/privacy.html">Privacy</a></li>
+          <li><a href="/en/terms.html">Terms</a></li>
+          <li><a href="/en/refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6 class="footer-col-heading">Get started</h6>
+        <ul class="footer-col-links">
+          <li><a href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+          <li><a href="https://staging.mitratutor.com/en/parent/login">Parent Login</a></li>
+          <li><a href="https://staging.mitratutor.com/en/org/login">Partner Login</a></li>
+          <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
+        </ul>
+      </div>
+    <div class="footer-muted small text-muted text-center mt-3"><a href="https://staging.mitratutor.com/admin/login" class="text-muted">Admin</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
+      <div class="small text-muted">
+        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<meta name="robots" content="noindex, nofollow">
+<style>
+/* ============================================================
+   PARTNERS PAGE — US — WIP draft
+   Whatquiz-style restraint: hard numbers, body-feeling pain,
+   four hero pillars, generous whitespace. Namespaced .wp-*.
+   ============================================================ */
+
+.pain-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+.wp-page { color: #1A1A2E; font-family: 'Inter', sans-serif; }
+.wp-page h1, .wp-page h2, .wp-page h3, .wp-page h4 { font-family: 'DM Sans', sans-serif; letter-spacing: -.015em; }
+.wp-wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+.wp-narrow { max-width: 820px; margin: 0 auto; padding: 0 32px; }
+
+/* ----- Sticky WIP / lang bar ----- */
+.wp-bar { position: sticky; top: 0; z-index: 50; background: #1B3A5C; color: #fff;
+  padding: 10px 0; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.wp-bar-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  font-size: 14px; }
+.wp-bar-tag { background: #2A9D8F; color: #fff; padding: 3px 10px; border-radius: 4px;
+  font-weight: 700; letter-spacing: .06em; font-size: 11px; }
+.wp-bar .wp-spacer { flex: 1; }
+.wp-bar .wp-note { color: rgba(255,255,255,.75); font-size: 12px; }
+.wp-bar .wp-note a { color: #FEE500; margin-left: 8px; text-decoration: none; }
+
+/* ----- Hero ----- */
+.wp-hero { padding: 120px 0 96px; background: #fff; }
+.wp-eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px;
+  color: #2A9D8F; font-weight: 700; margin-bottom: 24px; }
+.wp-hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800;
+  color: #1B3A5C; line-height: 1.05; margin: 0 0 32px; max-width: 980px; }
+.wp-hero .wp-sub { font-size: 21px; color: #4A5568; max-width: 720px;
+  line-height: 1.55; margin: 0 0 48px; }
+.wp-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  margin: 56px 0 56px; padding: 32px 0; border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0; }
+.wp-pillar .num { font-family: 'DM Sans'; font-size: 36px; font-weight: 800;
+  color: #2A9D8F; line-height: 1; margin-bottom: 8px; letter-spacing: -.03em; }
+.wp-pillar .label { font-size: 14px; font-weight: 600; color: #1A1A2E;
+  line-height: 1.4; }
+.wp-pillar .label small { display: block; color: #8896A6; font-size: 12px;
+  font-weight: 500; margin-top: 4px; }
+
+.wp-cta-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.wp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px;
+  border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .15s;
+  font-size: 16px; }
+.wp-cta:hover { transform: translateY(-1px); }
+.wp-cta.primary { background: #2A9D8F; color: #fff; }
+.wp-cta.secondary { background: transparent; color: #1B3A5C;
+  border: 2px solid #1B3A5C; padding: 14px 30px; }
+
+/* ----- Dashboard section ----- */
+.wp-dash-section { padding: 120px 0; background: linear-gradient(180deg, #F0F2F5 0%, #D9E2EC 100%); }
+.wp-dash-section .wp-eyebrow { color: #1B3A5C; }
+.wp-dash-section h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800;
+  color: #1B3A5C; line-height: 1.1; margin: 0 0 16px; max-width: 760px; }
+.wp-dash-section .desc { font-size: 18px; color: #4A5568; max-width: 620px;
+  line-height: 1.6; margin: 0 0 56px; }
+.wp-dash-frame { background: #fff; border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(27,58,92,.18); padding: 24px; }
+
+/* Dashboard internals (compact rebuild of pn-* from partners.html) */
+.wp-dh { background: linear-gradient(135deg, #1B3A5C 0%, #2B4C7E 60%, #2A9D8F 140%);
+  color: #fff; padding: 24px 28px; border-radius: 12px; margin-bottom: 20px; }
+.wp-dh-head { display: flex; justify-content: space-between; flex-wrap: wrap;
+  gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+.wp-dh-head h4 { color: #fff; margin: 0 0 4px; font-weight: 700; font-size: 1.35rem; }
+.wp-dh-head .sub { font-size: 14px; opacity: .85; }
+.wp-dh-health { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
+  border-radius: 10px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
+.wp-dh-health .score { font-family: 'DM Sans'; font-size: 2rem; font-weight: 800; line-height: 1; }
+.wp-dh-health .lab { font-size: 11px; opacity: .85; text-transform: uppercase; letter-spacing: .08em; }
+.wp-dh-health .badge { background: #2A9D8F; color: #fff; padding: 2px 8px; border-radius: 999px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  display: inline-block; margin-top: 4px; }
+.wp-dh-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.wp-dh-stat { background: rgba(255,255,255,.1); border-radius: 8px; padding: 10px 14px; }
+.wp-dh-stat .v { font-family: 'DM Sans'; font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1; }
+.wp-dh-stat .l { font-size: 11px; opacity: .8; text-transform: uppercase; letter-spacing: .05em; margin-top: 4px; }
+
+.wp-panel { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px;
+  padding: 20px 24px; margin-bottom: 16px; }
+.wp-panel-h { font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #2B4C7E; margin: 0 0 12px; }
+.wp-topic { display: grid; grid-template-columns: 28px 1fr 100px; gap: 14px;
+  align-items: center; padding: 10px 0; border-bottom: 1px solid #E2E8F0; }
+.wp-topic:last-child { border-bottom: none; }
+.wp-topic .rank { width: 28px; height: 28px; border-radius: 50%; background: #D6E1EE;
+  color: #2B4C7E; font-weight: 700; font-family: 'DM Sans'; font-size: .95rem;
+  text-align: center; line-height: 28px; }
+.wp-topic .name { font-weight: 600; font-size: .95rem; color: #1A1A2E; }
+.wp-topic .bar { height: 8px; background: #EEF2F7; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+.wp-topic .bar .fill { height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #2A9D8F 0%, #2B4C7E 100%); }
+.wp-topic .meta { font-size: 13px; color: #4A5568; text-align: right;
+  font-variant-numeric: tabular-nums; }
+.wp-topic .meta strong { display: block; color: #1A1A2E; font-family: 'DM Sans';
+  font-size: 1rem; font-weight: 700; }
+
+.wp-challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
+  border: 1px solid #fed7aa; border-left: 4px solid #f97316; border-radius: 10px;
+  padding: 14px 18px; display: grid; grid-template-columns: 36px 1fr; gap: 14px; }
+.wp-challenge-icon { width: 36px; height: 36px; border-radius: 8px; background: #f97316;
+  color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; }
+.wp-challenge .ch-title { font-weight: 700; color: #7c2d12; font-size: 1rem; margin-bottom: 2px; }
+.wp-challenge .ch-meta { font-size: 12px; color: #9a3412; margin-bottom: 6px; }
+.wp-challenge .ch-meta strong { font-weight: 700; }
+.wp-challenge .ch-action { background: rgba(255,255,255,.7); border-radius: 6px;
+  padding: 8px 12px; font-size: 13px; line-height: 1.5; color: #1A1A2E; }
+.wp-challenge .ch-action b { color: #7c2d12; }
+
+.wp-dash-foot { font-size: 13px; color: #8896A6; font-style: italic; margin-top: 16px; }
+
+/* ----- Three product blocks ----- */
+.wp-three { padding: 120px 0; background: #fff; }
+.wp-three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
+.wp-tile { display: flex; flex-direction: column; gap: 16px; }
+.wp-tile .tile-num { font-family: 'DM Sans'; font-size: 14px; font-weight: 800;
+  color: #2A9D8F; letter-spacing: .12em; }
+.wp-tile h3 { font-size: 1.5rem; font-weight: 800; color: #1B3A5C; line-height: 1.2;
+  margin: 0; }
+.wp-tile p { color: #4A5568; font-size: 16px; line-height: 1.6; margin: 0; }
+.wp-tile .tile-art { background: #F0F2F5; border-radius: 12px; padding: 28px;
+  font-family: 'DM Sans'; color: #1B3A5C; min-height: 140px;
+  display: flex; align-items: center; justify-content: center; text-align: center; }
+.wp-tile .tile-art .big { font-size: 2.6rem; font-weight: 800; line-height: 1;
+  letter-spacing: -.03em; }
+.wp-tile .tile-art .small { font-size: 12px; opacity: .7; text-transform: uppercase;
+  letter-spacing: .1em; margin-top: 8px; }
+
+/* ----- Cost ----- */
+.wp-cost { padding: 140px 0; background: #1B3A5C; color: #fff; text-align: center; }
+.wp-cost .wp-eyebrow { color: #FEE500; }
+.wp-cost h2 { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1;
+  color: #fff; margin: 0 0 16px; letter-spacing: -.03em; }
+.wp-cost h2 .currency { color: #FEE500; }
+.wp-cost .cost-sub { font-size: 18px; color: rgba(255,255,255,.75);
+  max-width: 540px; margin: 0 auto 48px; line-height: 1.6; }
+.wp-cost .wp-cta.primary { background: #FEE500; color: #1B3A5C; }
+
+/* ----- Final CTA ----- */
+.wp-final { padding: 120px 0; background: #fff; text-align: center; }
+.wp-final h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #1B3A5C;
+  margin: 0 0 24px; line-height: 1.1; }
+.wp-final p { color: #4A5568; max-width: 540px; margin: 0 auto 40px; font-size: 17px;
+  line-height: 1.6; }
+.wp-final .wp-cta-row { justify-content: center; }
+
+/* ----- Depth links ----- */
+.wp-depth { padding: 80px 0; background: #F0F2F5; }
+.wp-depth h3 { font-size: 14px; text-transform: uppercase; letter-spacing: .12em;
+  color: #8896A6; font-weight: 700; margin: 0 0 24px; text-align: center; }
+.wp-depth-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  max-width: 820px; margin: 0 auto; }
+.wp-depth-link { display: flex; align-items: center; gap: 12px; padding: 18px 24px;
+  background: #fff; border: 1px solid #E2E8F0; border-radius: 10px;
+  text-decoration: none; color: #1B3A5C; font-weight: 600; font-size: 15px;
+  transition: border-color .15s, transform .15s; }
+.wp-depth-link:hover { border-color: #2A9D8F; transform: translateY(-1px); color: #1B3A5C; }
+.wp-depth-link .arrow { margin-left: auto; color: #2A9D8F; font-weight: 700; }
+
+/* ----- Responsive ----- */
+@media (max-width: 820px) {
+  .wp-hero { padding: 72px 0 56px; }
+  .wp-pillars { grid-template-columns: repeat(2, 1fr); }
+  .wp-three-grid { grid-template-columns: 1fr; gap: 56px; }
+  .wp-dh-stats { grid-template-columns: repeat(2, 1fr); }
+  .wp-depth-grid { grid-template-columns: 1fr; }
+  .wp-dash-section, .wp-three, .wp-cost, .wp-final { padding: 80px 0; }
+}
+</style>
