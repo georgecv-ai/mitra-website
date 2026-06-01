@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Internal draft of a tightened US-focused partners page. Four-pillar hero, dashboard-led proof, three product blocks, single CTA." />
-  <title>For Academies, Schools, and Tutors — Mitra (WIP US partners draft)</title>
+  <meta name="description" content="Internal draft. Whatquiz-style: four capability sections, each pain + capability + supportable number + visual proof, stacked." />
+  <title>For Academies, Schools, and Tutors — Mitra (WIP US partners draft v2)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,16 +12,16 @@
   <link rel="stylesheet" href="/en/static/style.css" />
   <link rel="icon" type="image/png" href="/en/static/images/mitra-logo-icon-v2_003.png">
   <link rel="canonical" href="https://www.mitratutor.com/en/wip-partners" />
-  <meta property="og:title" content="For Academies, Schools, and Tutors — Mitra (WIP US partners draft)" />
-  <meta property="og:description" content="Internal draft of a tightened US-focused partners page. Four-pillar hero, dashboard-led proof, three product blocks, single CTA." />
+  <meta property="og:title" content="For Academies, Schools, and Tutors — Mitra (WIP US partners draft v2)" />
+  <meta property="og:description" content="Internal draft. Whatquiz-style: four capability sections, each pain + capability + supportable number + visual proof, stacked." />
   <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.mitratutor.com/en/wip-partners" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="For Academies, Schools, and Tutors — Mitra (WIP US partners draft)" />
-  <meta name="twitter:description" content="Internal draft of a tightened US-focused partners page. Four-pillar hero, dashboard-led proof, three product blocks, single CTA." />
+  <meta name="twitter:title" content="For Academies, Schools, and Tutors — Mitra (WIP US partners draft v2)" />
+  <meta name="twitter:description" content="Internal draft. Whatquiz-style: four capability sections, each pain + capability + supportable number + visual proof, stacked." />
   <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <link rel="alternate" hreflang="en" href="https://www.mitratutor.com/en/wip-partners" />
   <link rel="alternate" hreflang="ko" href="https://www.mitratutor.com/ko/wip-partners" />
@@ -42,9 +42,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="robots" content="noindex, nofollow">
 <style>
 /* ============================================================
-   PARTNERS PAGE — US — WIP draft
-   Whatquiz-style restraint: hard numbers, body-feeling pain,
-   four hero pillars, generous whitespace. Namespaced .wp-*.
+   PARTNERS PAGE — US — WIP draft v2
+   Whatquiz pattern at scale: each matrix row gets its own full
+   section, stacked. Pain headline + capability + number + proof
+   visual per section. Restrained, supportable, scannable.
    ============================================================ */
 
 .pain-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
@@ -53,11 +54,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .wp-wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
 .wp-narrow { max-width: 820px; margin: 0 auto; padding: 0 32px; }
 
-/* ----- Sticky WIP / lang bar ----- */
+/* ----- Sticky WIP bar ----- */
 .wp-bar { position: sticky; top: 0; z-index: 50; background: #1B3A5C; color: #fff;
   padding: 10px 0; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
-.wp-bar-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  font-size: 14px; }
+.wp-bar-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 14px; }
 .wp-bar-tag { background: #2A9D8F; color: #fff; padding: 3px 10px; border-radius: 4px;
   font-weight: 700; letter-spacing: .06em; font-size: 11px; }
 .wp-bar .wp-spacer { flex: 1; }
@@ -69,112 +69,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .wp-eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px;
   color: #2A9D8F; font-weight: 700; margin-bottom: 24px; }
 .wp-hero .wp-kicker { font-size: clamp(1.05rem, 1.6vw, 1.3rem); font-weight: 500;
-  color: #4A5568; line-height: 1.5; margin: 0 0 24px; max-width: 880px;
-  letter-spacing: -.005em; }
+  color: #4A5568; line-height: 1.5; margin: 0 0 24px; max-width: 880px; letter-spacing: -.005em; }
 .wp-hero .wp-kicker strong { color: #1A1A2E; font-weight: 700; }
-.wp-hero h1 { font-size: clamp(2.4rem, 5.4vw, 4.4rem); font-weight: 800;
+.wp-hero h1 { font-size: clamp(2.6rem, 5.8vw, 4.6rem); font-weight: 800;
   color: #1B3A5C; line-height: 1.04; margin: 0 0 24px; max-width: 1040px; }
 .wp-hero h1 em { font-style: normal; color: #2A9D8F; }
 .wp-hero .wp-sub { font-size: 19px; color: #4A5568; max-width: 720px;
   line-height: 1.6; margin: 0 0 48px; }
-.wp-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-  margin: 56px 0 56px; padding: 32px 0; border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0; }
-.wp-pillar .num { font-family: 'DM Sans'; font-size: 36px; font-weight: 800;
-  color: #2A9D8F; line-height: 1; margin-bottom: 8px; letter-spacing: -.03em; }
-.wp-pillar .label { font-size: 14px; font-weight: 600; color: #1A1A2E;
-  line-height: 1.4; }
-.wp-pillar .label small { display: block; color: #8896A6; font-size: 12px;
-  font-weight: 500; margin-top: 4px; }
-
 .wp-cta-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 .wp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px;
-  border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .15s;
-  font-size: 16px; }
+  border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .15s; font-size: 16px; }
 .wp-cta:hover { transform: translateY(-1px); }
 .wp-cta.primary { background: #2A9D8F; color: #fff; }
-.wp-cta.secondary { background: transparent; color: #1B3A5C;
-  border: 2px solid #1B3A5C; padding: 14px 30px; }
+.wp-cta.secondary { background: transparent; color: #1B3A5C; border: 2px solid #1B3A5C; padding: 14px 30px; }
 
-/* ----- Dashboard section ----- */
-.wp-dash-section { padding: 120px 0; background: linear-gradient(180deg, #F0F2F5 0%, #D9E2EC 100%); }
-.wp-dash-section .wp-eyebrow { color: #1B3A5C; }
-.wp-dash-section h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800;
-  color: #1B3A5C; line-height: 1.1; margin: 0 0 16px; max-width: 760px; }
-.wp-dash-section .desc { font-size: 18px; color: #4A5568; max-width: 620px;
-  line-height: 1.6; margin: 0 0 56px; }
-.wp-dash-frame { background: #fff; border-radius: 16px;
-  box-shadow: 0 30px 80px rgba(27,58,92,.18); padding: 24px; }
+/* ============================================================
+   CAPABILITY SECTIONS — shared scaffold
+   ============================================================ */
+.cap { padding: 120px 0; }
+.cap.alt { background: #F0F2F5; }
+.cap-row { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.cap-row.reverse { direction: rtl; }
+.cap-row.reverse > * { direction: ltr; }
+.cap-text .cap-num-label { font-family: 'DM Sans'; font-size: 12px; font-weight: 700;
+  letter-spacing: .14em; color: #2A9D8F; text-transform: uppercase; margin-bottom: 16px; }
+.cap-pain { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; color: #1B3A5C;
+  line-height: 1.15; margin: 0 0 24px; }
+.cap-capability { font-size: 18px; color: #4A5568; line-height: 1.65; margin: 0 0 32px; max-width: 560px; }
+.cap-number { font-family: 'DM Sans'; padding: 20px 24px; border-left: 4px solid #2A9D8F;
+  background: #fff; border-radius: 0 8px 8px 0; display: inline-block; max-width: 520px; }
+.cap-number .num { font-size: 1.6rem; font-weight: 800; color: #1B3A5C; line-height: 1.2; display: block; }
+.cap-number .sub { font-size: 13px; color: #8896A6; margin-top: 4px; }
 
-/* Dashboard internals (compact rebuild of pn-* from partners.html) */
-.wp-dh { background: linear-gradient(135deg, #1B3A5C 0%, #2B4C7E 60%, #2A9D8F 140%);
-  color: #fff; padding: 24px 28px; border-radius: 12px; margin-bottom: 20px; }
-.wp-dh-head { display: flex; justify-content: space-between; flex-wrap: wrap;
-  gap: 16px; align-items: flex-start; margin-bottom: 20px; }
-.wp-dh-head h4 { color: #fff; margin: 0 0 4px; font-weight: 700; font-size: 1.35rem; }
-.wp-dh-head .sub { font-size: 14px; opacity: .85; }
-.wp-dh-health { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
-  border-radius: 10px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
-.wp-dh-health .score { font-family: 'DM Sans'; font-size: 2rem; font-weight: 800; line-height: 1; }
-.wp-dh-health .lab { font-size: 11px; opacity: .85; text-transform: uppercase; letter-spacing: .08em; }
-.wp-dh-health .badge { background: #2A9D8F; color: #fff; padding: 2px 8px; border-radius: 999px;
-  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
-  display: inline-block; margin-top: 4px; }
-.wp-dh-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.wp-dh-stat { background: rgba(255,255,255,.1); border-radius: 8px; padding: 10px 14px; }
-.wp-dh-stat .v { font-family: 'DM Sans'; font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1; }
-.wp-dh-stat .l { font-size: 11px; opacity: .8; text-transform: uppercase; letter-spacing: .05em; margin-top: 4px; }
+/* ----- Section 1 proof: ChatGPT vs Mitra ----- */
+.s1-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.s1-pane { background: #fff; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px;
+  box-shadow: 0 8px 24px rgba(27,58,92,.06); }
+.s1-pane.bad { background: #1A1A2E; color: #fff; border-color: #2A2A3E; }
+.s1-pane .pane-h { font-family: 'DM Sans'; font-size: 12px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px;
+  border-bottom: 1px solid #E2E8F0; }
+.s1-pane.bad .pane-h { color: #E76F51; border-color: rgba(255,255,255,.1); }
+.s1-pane.good .pane-h { color: #2A9D8F; }
+.s1-msg { padding: 8px 12px; border-radius: 12px; font-size: 13px; line-height: 1.45; margin-bottom: 8px; max-width: 90%; }
+.s1-pane .s1-msg.me { background: #2B6FB5; color: #fff; margin-left: auto; }
+.s1-pane.bad .s1-msg.them { background: #2A2A3E; color: #fff; }
+.s1-pane.good .s1-msg.them { background: #F0F2F5; color: #1A1A2E; }
+.s1-foot { margin-top: 16px; padding-top: 12px; border-top: 1px solid #E2E8F0;
+  font-size: 12px; font-weight: 700; }
+.s1-pane.bad .s1-foot { border-color: rgba(255,255,255,.1); color: #E76F51; }
+.s1-pane.good .s1-foot { color: #2A9D8F; }
 
-.wp-panel { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px;
-  padding: 20px 24px; margin-bottom: 16px; }
-.wp-panel-h { font-size: 11px; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: #2B4C7E; margin: 0 0 12px; }
-.wp-topic { display: grid; grid-template-columns: 28px 1fr 100px; gap: 14px;
-  align-items: center; padding: 10px 0; border-bottom: 1px solid #E2E8F0; }
-.wp-topic:last-child { border-bottom: none; }
-.wp-topic .rank { width: 28px; height: 28px; border-radius: 50%; background: #D6E1EE;
-  color: #2B4C7E; font-weight: 700; font-family: 'DM Sans'; font-size: .95rem;
-  text-align: center; line-height: 28px; }
-.wp-topic .name { font-weight: 600; font-size: .95rem; color: #1A1A2E; }
-.wp-topic .bar { height: 8px; background: #EEF2F7; border-radius: 4px; overflow: hidden; margin-top: 6px; }
-.wp-topic .bar .fill { height: 100%; border-radius: 4px;
-  background: linear-gradient(90deg, #2A9D8F 0%, #2B4C7E 100%); }
-.wp-topic .meta { font-size: 13px; color: #4A5568; text-align: right;
-  font-variant-numeric: tabular-nums; }
-.wp-topic .meta strong { display: block; color: #1A1A2E; font-family: 'DM Sans';
-  font-size: 1rem; font-weight: 700; }
+/* ----- Section 2 proof: student week timeline ----- */
+.s2-card { background: #fff; border-radius: 14px; padding: 24px; box-shadow: 0 12px 32px rgba(27,58,92,.08);
+  border: 1px solid #E2E8F0; }
+.s2-head { display: flex; justify-content: space-between; align-items: flex-end;
+  padding-bottom: 16px; border-bottom: 1px solid #E2E8F0; margin-bottom: 20px; }
+.s2-head .name { font-family: 'DM Sans'; font-size: 20px; font-weight: 800; color: #1B3A5C; }
+.s2-head .meta { font-size: 12px; color: #8896A6; text-transform: uppercase; letter-spacing: .1em; }
+.s2-week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.s2-day { background: #F0F2F5; border-radius: 8px; padding: 12px 10px; min-height: 130px;
+  display: flex; flex-direction: column; }
+.s2-day .day-h { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: #8896A6;
+  text-transform: uppercase; margin-bottom: 6px; }
+.s2-day .day-event { background: #fff; border-radius: 6px; padding: 8px 10px; margin-top: auto;
+  border-left: 3px solid #2A9D8F; }
+.s2-day .day-event .time { font-size: 11px; color: #4A5568; font-weight: 600; }
+.s2-day .day-event .topic { font-size: 12px; color: #1B3A5C; font-weight: 700; line-height: 1.3; margin-top: 4px; }
+.s2-day .day-event .src { font-size: 10px; color: #2A9D8F; margin-top: 4px;
+  text-transform: uppercase; letter-spacing: .05em; font-weight: 700; }
+.s2-foot { margin-top: 20px; padding: 12px 16px; background: #E6F7F4;
+  border-left: 4px solid #2A9D8F; border-radius: 0 8px 8px 0; font-size: 13px; color: #1F7A6E; font-weight: 600; }
 
-.wp-challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
-  border: 1px solid #fed7aa; border-left: 4px solid #f97316; border-radius: 10px;
-  padding: 14px 18px; display: grid; grid-template-columns: 36px 1fr; gap: 14px; }
-.wp-challenge-icon { width: 36px; height: 36px; border-radius: 8px; background: #f97316;
-  color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; }
-.wp-challenge .ch-title { font-weight: 700; color: #7c2d12; font-size: 1rem; margin-bottom: 2px; }
-.wp-challenge .ch-meta { font-size: 12px; color: #9a3412; margin-bottom: 6px; }
-.wp-challenge .ch-meta strong { font-weight: 700; }
-.wp-challenge .ch-action { background: rgba(255,255,255,.7); border-radius: 6px;
-  padding: 8px 12px; font-size: 13px; line-height: 1.5; color: #1A1A2E; }
-.wp-challenge .ch-action b { color: #7c2d12; }
+/* ----- Section 3 proof: dashboard cut + report cut ----- */
+.s3-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.s3-card { background: #fff; border-radius: 12px; padding: 20px;
+  box-shadow: 0 8px 24px rgba(27,58,92,.06); border: 1px solid #E2E8F0; }
+.s3-card .card-h { font-family: 'DM Sans'; font-size: 11px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: #2A9D8F;
+  padding-bottom: 12px; border-bottom: 1px solid #E2E8F0; margin-bottom: 16px;
+  display: flex; justify-content: space-between; align-items: center; }
+.s3-card .live-dot { display: inline-block; width: 8px; height: 8px; background: #2A9D8F;
+  border-radius: 50%; margin-right: 6px; vertical-align: middle; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+.s3-stat { display: flex; justify-content: space-between; padding: 8px 0; font-size: 13px;
+  border-bottom: 1px dashed #E2E8F0; }
+.s3-stat:last-of-type { border-bottom: none; }
+.s3-stat .label { color: #4A5568; }
+.s3-stat .val { font-weight: 700; color: #1B3A5C; font-family: 'DM Sans'; }
+.s3-card .student-name { font-family: 'DM Sans'; font-size: 17px; font-weight: 700;
+  color: #1B3A5C; margin-bottom: 12px; }
+.s3-quote { margin-top: 12px; padding: 12px; background: #F0F2F5; border-radius: 6px;
+  font-size: 13px; color: #4A5568; font-style: italic; line-height: 1.5; }
+.s3-badge { display: inline-block; background: #FFF7E6; color: #8B6914; padding: 3px 8px;
+  border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase; margin-top: 12px; }
 
-.wp-dash-foot { font-size: 13px; color: #8896A6; font-style: italic; margin-top: 16px; }
-
-/* ----- Three product blocks ----- */
-.wp-three { padding: 120px 0; background: #fff; }
-.wp-three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
-.wp-tile { display: flex; flex-direction: column; gap: 16px; }
-.wp-tile .tile-num { font-family: 'DM Sans'; font-size: 14px; font-weight: 800;
-  color: #2A9D8F; letter-spacing: .12em; }
-.wp-tile h3 { font-size: 1.5rem; font-weight: 800; color: #1B3A5C; line-height: 1.2;
-  margin: 0; }
-.wp-tile p { color: #4A5568; font-size: 16px; line-height: 1.6; margin: 0; }
-.wp-tile .tile-art { background: #F0F2F5; border-radius: 12px; padding: 28px;
-  font-family: 'DM Sans'; color: #1B3A5C; min-height: 140px;
-  display: flex; align-items: center; justify-content: center; text-align: center; }
-.wp-tile .tile-art .big { font-size: 2.6rem; font-weight: 800; line-height: 1;
-  letter-spacing: -.03em; }
-.wp-tile .tile-art .small { font-size: 12px; opacity: .7; text-transform: uppercase;
-  letter-spacing: .1em; margin-top: 8px; }
+/* ----- Section 4 proof: class plan card ----- */
+.s4-plan { background: #fff; border-radius: 14px; padding: 24px;
+  box-shadow: 0 12px 32px rgba(27,58,92,.08); border: 1px solid #E2E8F0; }
+.s4-plan-head { display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 16px; border-bottom: 1px solid #E2E8F0; margin-bottom: 20px; }
+.s4-plan-head .title { font-family: 'DM Sans'; font-size: 18px; font-weight: 800; color: #1B3A5C; }
+.s4-plan-head .when { font-size: 11px; color: #8896A6; text-transform: uppercase; letter-spacing: .1em; }
+.s4-plan-row { display: grid; grid-template-columns: 80px 1fr; gap: 16px; padding: 14px 0;
+  border-bottom: 1px solid #F0F2F5; align-items: start; }
+.s4-plan-row:last-of-type { border-bottom: none; }
+.s4-plan-row .tag { font-family: 'DM Sans'; font-size: 11px; font-weight: 800; letter-spacing: .14em;
+  color: #2A9D8F; text-transform: uppercase; padding-top: 4px; }
+.s4-plan-row .body .main { font-size: 16px; color: #1B3A5C; font-weight: 700; line-height: 1.4; margin-bottom: 4px; }
+.s4-plan-row .body .meta { font-size: 13px; color: #4A5568; line-height: 1.5; }
+.s4-cohort { margin-top: 16px; padding: 14px 16px; background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
+  border-left: 4px solid #f97316; border-radius: 0 8px 8px 0; }
+.s4-cohort .ch-h { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #9a3412;
+  text-transform: uppercase; margin-bottom: 4px; }
+.s4-cohort .ch-body { font-size: 14px; color: #7c2d12; font-weight: 600; }
 
 /* ----- Cost ----- */
 .wp-cost { padding: 140px 0; background: #1B3A5C; color: #fff; text-align: center; }
@@ -188,13 +197,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 /* ----- Final CTA ----- */
 .wp-final { padding: 120px 0; background: #fff; text-align: center; }
-.wp-final h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #1B3A5C;
-  margin: 0 0 24px; line-height: 1.1; }
-.wp-final p { color: #4A5568; max-width: 540px; margin: 0 auto 40px; font-size: 17px;
-  line-height: 1.6; }
+.wp-final h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #1B3A5C; margin: 0 0 24px; line-height: 1.1; }
+.wp-final p { color: #4A5568; max-width: 540px; margin: 0 auto 40px; font-size: 17px; line-height: 1.6; }
 .wp-final .wp-cta-row { justify-content: center; }
 
-/* ----- Depth links ----- */
+/* ----- Depth ----- */
 .wp-depth { padding: 80px 0; background: #F0F2F5; }
 .wp-depth h3 { font-size: 14px; text-transform: uppercase; letter-spacing: .12em;
   color: #8896A6; font-weight: 700; margin: 0 0 24px; text-align: center; }
@@ -208,13 +215,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .wp-depth-link .arrow { margin-left: auto; color: #2A9D8F; font-weight: 700; }
 
 /* ----- Responsive ----- */
-@media (max-width: 820px) {
+@media (max-width: 880px) {
   .wp-hero { padding: 72px 0 56px; }
-  .wp-pillars { grid-template-columns: repeat(2, 1fr); }
-  .wp-three-grid { grid-template-columns: 1fr; gap: 56px; }
-  .wp-dh-stats { grid-template-columns: repeat(2, 1fr); }
+  .cap { padding: 80px 0; }
+  .cap-row { grid-template-columns: 1fr; gap: 40px; }
+  .cap-row.reverse { direction: ltr; }
+  .s1-compare { grid-template-columns: 1fr; }
+  .s2-week { grid-template-columns: repeat(2, 1fr); }
+  .s3-split { grid-template-columns: 1fr; }
   .wp-depth-grid { grid-template-columns: 1fr; }
-  .wp-dash-section, .wp-three, .wp-cost, .wp-final { padding: 80px 0; }
+  .wp-cost, .wp-final { padding: 80px 0; }
 }
 </style>
 </head>
@@ -275,7 +285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Sticky WIP bar -->
 <div class="wp-bar">
   <div class="wp-wrap wp-bar-row">
-    <span class="wp-bar-tag">WIP · INTERNAL</span>
+    <span class="wp-bar-tag">WIP · INTERNAL · v2</span>
     <span class="wp-note">US partners page draft · for review</span>
     <span class="wp-spacer"></span>
     <span class="wp-note">Compare with live: <a href="/en/partners">/en/partners</a></span>
@@ -289,26 +299,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="wp-kicker">Right now, you're up against <strong>ChatGPT</strong>, <strong>Gemini</strong>, <strong>Claude</strong>, and every other AI your students can open for free.</p>
     <h1>Mitra is the one <em>on your side</em>.</h1>
     <p class="wp-sub">The suit, not the replacement. Built to make you irreplaceable, not obsolete. Your students keep their tutor. You keep your edge. The AI works for the relationship, not around it.</p>
-
-    <div class="wp-pillars">
-      <div class="wp-pillar">
-        <div class="num">24/7</div>
-        <div class="label">Student support<small>KakaoTalk · Telegram · WhatsApp</small></div>
-      </div>
-      <div class="wp-pillar">
-        <div class="num">30s</div>
-        <div class="label">To see what your class is stuck on<small>Cohort dashboard, updated daily</small></div>
-      </div>
-      <div class="wp-pillar">
-        <div class="num">0</div>
-        <div class="label">Transcripts shared<small>Parent-owned accounts, FERPA-aligned</small></div>
-      </div>
-      <div class="wp-pillar">
-        <div class="num">Live</div>
-        <div class="label">Founding partners onboarding<small>NE Georgia program now active</small></div>
-      </div>
-    </div>
-
     <div class="wp-cta-row">
       <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20application">Apply to become a partner</a>
       <a class="wp-cta secondary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20call">Talk to us</a>
@@ -316,127 +306,206 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- DASHBOARD -->
-<section class="wp-dash-section">
+<!-- ============================================================
+     SECTION 1 — Free AI vs real learning (alliance)
+     ============================================================ -->
+<section class="cap">
   <div class="wp-wrap">
-    <p class="wp-eyebrow">Monday morning</p>
-    <h2>What your students worked on this week.</h2>
-    <p class="desc">Every session. Every topic. Every challenge. One place. You walk in Monday already knowing what to focus on.</p>
-
-    <div class="wp-dash-frame">
-
-      <div class="wp-dh">
-        <div class="wp-dh-head">
-          <div>
-            <h4>Sample Tutoring Center</h4>
-            <div class="sub">Last 30 days · 16 active students · 2 classes</div>
-          </div>
-          <div class="wp-dh-health">
-            <div class="score">87</div>
-            <div>
-              <div class="lab">Engagement</div>
-              <span class="badge">Healthy</span>
-            </div>
-          </div>
-        </div>
-        <div class="wp-dh-stats">
-          <div class="wp-dh-stat"><div class="v">16</div><div class="l">Active students</div></div>
-          <div class="wp-dh-stat"><div class="v">107</div><div class="l">Sessions (30d)</div></div>
-          <div class="wp-dh-stat"><div class="v">982</div><div class="l">Messages exchanged</div></div>
-          <div class="wp-dh-stat"><div class="v">29</div><div class="l">Active days</div></div>
+    <div class="cap-row">
+      <div class="cap-text">
+        <p class="cap-num-label">01 · Same side as the parents</p>
+        <h2 class="cap-pain">Free AI is eroding real learning. You're the one parents trust to push back.</h2>
+        <p class="cap-capability">Mitra is the only AI tutor built to teach the process, not hand the answer over. The academy and the family stand on the same side: real learning, not faster shortcuts. You give them access to the AI that's actually teaching.</p>
+        <div class="cap-number">
+          <span class="num">0 answers handed over.</span>
+          <span class="sub">Every problem walked. Same chat speed as ChatGPT, different outcome.</span>
         </div>
       </div>
-
-      <div class="wp-panel">
-        <div class="wp-panel-h">What students are working on</div>
-        <div class="wp-topic">
-          <div class="rank">1</div>
-          <div>
-            <div class="name">Linear equations</div>
-            <div class="bar"><div class="fill" style="width:100%;"></div></div>
+      <div class="cap-art">
+        <div class="s1-compare">
+          <div class="s1-pane bad">
+            <div class="pane-h">ChatGPT</div>
+            <div class="s1-msg me">solve 2x + 3 = 11</div>
+            <div class="s1-msg them">x = 4</div>
+            <div class="s1-msg me">thx</div>
+            <div class="s1-foot">→ Got the answer. Learned nothing.</div>
           </div>
-          <div class="meta"><strong>39</strong>8 students</div>
-        </div>
-        <div class="wp-topic">
-          <div class="rank">2</div>
-          <div>
-            <div class="name">Main idea identification</div>
-            <div class="bar"><div class="fill" style="width:97%;"></div></div>
-          </div>
-          <div class="meta"><strong>38</strong>7 students</div>
-        </div>
-        <div class="wp-topic">
-          <div class="rank">3</div>
-          <div>
-            <div class="name">Substitution method</div>
-            <div class="bar"><div class="fill" style="width:72%;"></div></div>
-          </div>
-          <div class="meta"><strong>28</strong>5 students</div>
-        </div>
-      </div>
-
-      <div class="wp-panel">
-        <div class="wp-panel-h">Where students get stuck, and what to do about it</div>
-        <div class="wp-challenge">
-          <div class="wp-challenge-icon">!</div>
-          <div>
-            <div class="ch-title">Parallel lines case in systems</div>
-            <div class="ch-meta"><strong>11</strong> sessions · <strong>5</strong> students affected</div>
-            <div class="ch-action"><b>Try:</b> Switch to graphing first to show why parallel slopes never intersect. Pair with a grid-based interest hook (Minecraft, LEGO Technic) for the kids who lock in on visual structure.</div>
+          <div class="s1-pane good">
+            <div class="pane-h">Mitra</div>
+            <div class="s1-msg me">solve 2x + 3 = 11</div>
+            <div class="s1-msg them">Okay. What needs to happen to the 3 first?</div>
+            <div class="s1-msg me">subtract it from both sides</div>
+            <div class="s1-msg them">Yes. So now what does the equation look like?</div>
+            <div class="s1-foot">→ Got the skill. Will land it on the test.</div>
           </div>
         </div>
       </div>
-
-      <p class="wp-dash-foot">Sample data. Representative shape from real partner cohorts. Per-student detail surfaces only above a 5-student floor for privacy.</p>
-
     </div>
   </div>
 </section>
 
-<!-- THREE PRODUCT BLOCKS -->
-<section class="wp-three">
+<!-- ============================================================
+     SECTION 2 — Outside-the-classroom visibility
+     ============================================================ -->
+<section class="cap alt">
   <div class="wp-wrap">
-    <p class="wp-eyebrow">What the suit gives you</p>
-    <h2 style="font-size:clamp(2rem,4vw,3.2rem); font-weight:800; color:#1B3A5C; line-height:1.1; margin:0 0 16px; max-width:760px;">Three things a free AI cannot do for your students.</h2>
+    <div class="cap-row reverse">
+      <div class="cap-text">
+        <p class="cap-num-label">02 · Visibility past your classroom door</p>
+        <h2 class="cap-pain">The moment your students leave your classroom, your visibility and quality assurance evaporate.</h2>
+        <p class="cap-capability">Mitra extends your teaching standard into the home. She works from your curriculum, your topics, your method, and reports every between-class session back to you, tagged to the right unit in your taxonomy.</p>
+        <div class="cap-number">
+          <span class="num">Every session, visible same-day.</span>
+          <span class="sub">Tagged to a topic from your uploaded curriculum.</span>
+        </div>
+      </div>
+      <div class="cap-art">
+        <div class="s2-card">
+          <div class="s2-head">
+            <div>
+              <div class="name">Addy &middot; Grade 7</div>
+              <div class="meta">Last week · 5 between-class sessions</div>
+            </div>
+          </div>
+          <div class="s2-week">
+            <div class="s2-day">
+              <div class="day-h">Mon</div>
+              <div class="day-event">
+                <div class="time">8:14 PM</div>
+                <div class="topic">Linear equations</div>
+                <div class="src">Algebra Foundations</div>
+              </div>
+            </div>
+            <div class="s2-day">
+              <div class="day-h">Tue</div>
+            </div>
+            <div class="s2-day">
+              <div class="day-h">Wed</div>
+              <div class="day-event">
+                <div class="time">4:42 PM</div>
+                <div class="topic">Substitution method</div>
+                <div class="src">Algebra Foundations</div>
+              </div>
+            </div>
+            <div class="s2-day">
+              <div class="day-h">Thu</div>
+              <div class="day-event">
+                <div class="time">9:30 PM</div>
+                <div class="topic">Topic sentences</div>
+                <div class="src">Brightline ELA 6-7</div>
+              </div>
+            </div>
+            <div class="s2-day">
+              <div class="day-h">Fri</div>
+              <div class="day-event">
+                <div class="time">3:18 PM</div>
+                <div class="topic">Linear equations</div>
+                <div class="src">Algebra Foundations</div>
+              </div>
+            </div>
+          </div>
+          <div class="s2-foot">Every session aligned to your taxonomy. Quality standard travels with the student.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="wp-three-grid">
-
-      <div class="wp-tile">
-        <div class="tile-art">
-          <div>
-            <div class="big">11:14 PM</div>
-            <div class="small">Mitra answered · You slept</div>
+<!-- ============================================================
+     SECTION 3 — ROI proof for parents (dashboard + weekly report)
+     ============================================================ -->
+<section class="cap">
+  <div class="wp-wrap">
+    <div class="cap-row">
+      <div class="cap-text">
+        <p class="cap-num-label">03 · ROI proof, before they ask</p>
+        <h2 class="cap-pain">Every renewal is a school-versus-parents conversation about whether you're worth it.</h2>
+        <p class="cap-capability">Mitra delivers ongoing parent visibility two ways: a live progress dashboard parents can check anytime, plus a structured weekly report auto-sent every Friday on your behalf. The proof is in their inbox before they thought to ask.</p>
+        <div class="cap-number">
+          <span class="num">Live dashboard + 52 reports / family / year.</span>
+          <span class="sub">Auto-sent Friday. No work from you.</span>
+        </div>
+      </div>
+      <div class="cap-art">
+        <div class="s3-split">
+          <div class="s3-card">
+            <div class="card-h">
+              <span><span class="live-dot"></span>Live dashboard</span>
+              <span style="color:#8896A6; letter-spacing:0; text-transform:none; font-weight:500;">updated 4 min ago</span>
+            </div>
+            <div class="student-name">Addy &middot; Week 14</div>
+            <div class="s3-stat"><span class="label">Sessions this week</span><span class="val">5</span></div>
+            <div class="s3-stat"><span class="label">Total time</span><span class="val">3.4h</span></div>
+            <div class="s3-stat"><span class="label">Work completed</span><span class="val">17 items</span></div>
+            <div class="s3-stat"><span class="label">Current topic</span><span class="val">Substitution</span></div>
+            <p style="font-size:11px; color:#8896A6; margin-top:12px; text-align:center;">Parents check anytime.</p>
+          </div>
+          <div class="s3-card">
+            <div class="card-h">
+              <span>Friday email</span>
+              <span style="color:#8896A6; letter-spacing:0; text-transform:none; font-weight:500;">14 of 52 sent</span>
+            </div>
+            <div class="student-name">Addy &middot; Week 14 of 52</div>
+            <div class="s3-stat"><span class="label">Sessions</span><span class="val">5</span></div>
+            <div class="s3-stat"><span class="label">What's clicking</span><span class="val">Substitution</span></div>
+            <div class="s3-stat"><span class="label">Where she's growing</span><span class="val">Walking the steps</span></div>
+            <div class="s3-quote">"Addy held a clean substitution end-to-end this week without prompting. The topic-sentence work is still bumpy but she's asking better questions about it."</div>
+            <div class="s3-badge">Auto-sent Friday · From [Academy]</div>
           </div>
         </div>
-        <div class="tile-num">01</div>
-        <h3>Always on. So you don't have to be.</h3>
-        <p>Your students get help between sessions, on the apps they already use, without the message landing on your phone. Mitra runs the late shift. You stay the relationship. The student remembers who taught them, not who chatted with them at midnight.</p>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="wp-tile">
-        <div class="tile-art">
-          <div>
-            <div class="big">52 wks</div>
-            <div class="small">Weekly proof to every parent</div>
+<!-- ============================================================
+     SECTION 4 — Class planning (cohort signal + structured plan)
+     ============================================================ -->
+<section class="cap alt">
+  <div class="wp-wrap">
+    <div class="cap-row reverse">
+      <div class="cap-text">
+        <p class="cap-num-label">04 · Monday plan, ready before you sit down</p>
+        <h2 class="cap-pain">Class planning never stops and you never have enough time to do it well.</h2>
+        <p class="cap-capability">Mitra generates a structured class plan from your cohort's actual data: <strong>what</strong> to teach, <strong>how</strong> to teach it, and <strong>how-else</strong> if the first approach doesn't land. With the cohort signal you can act on, not the cohort signal you have to assemble from scratch.</p>
+        <div class="cap-number">
+          <span class="num">Monday plan in 5 minutes.</span>
+          <span class="sub">Pulled from yesterday's session data.</span>
+        </div>
+      </div>
+      <div class="cap-art">
+        <div class="s4-plan">
+          <div class="s4-plan-head">
+            <div class="title">Algebra Foundations · Monday</div>
+            <div class="when">Generated Sun 9:00 PM</div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">What</div>
+            <div class="body">
+              <div class="main">Distributing across parentheses</div>
+              <div class="meta">Pre-requisite for next week's quadratics unit. Your cohort: 12 of 16 still stuck here.</div>
+            </div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">How</div>
+            <div class="body">
+              <div class="main">Rainbow-arrow drill</div>
+              <div class="meta">Draw arcs from the outside number to each inside term. Visual lock for kids who think in pictures (8 of your 16 lock in faster with visual hooks).</div>
+            </div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">How-else</div>
+            <div class="body">
+              <div class="main">Box notation</div>
+              <div class="meta">If rainbow doesn't land, switch to a 2x2 box. Slower start but generalizes to FOIL later.</div>
+            </div>
+          </div>
+          <div class="s4-cohort">
+            <div class="ch-h">Cohort signal · last 7 days</div>
+            <div class="ch-body">8 of 16 still confusing topic sentence with supporting detail. Carry the one-sentence-summary drill from last Thursday into the warm-up.</div>
           </div>
         </div>
-        <div class="tile-num">02</div>
-        <h3>Every parent sees the work behind the work.</h3>
-        <p>A structured report goes to every family every week. What their child worked on. What's clicking. Where they're growing. The in-between weeks stop being invisible. Renewal conversations get easier because the proof was already in their inbox before they thought to ask.</p>
       </div>
-
-      <div class="wp-tile">
-        <div class="tile-art">
-          <div>
-            <div class="big">Peer</div>
-            <div class="small">A colleague, not a help-desk</div>
-          </div>
-        </div>
-        <div class="tile-num">03</div>
-        <h3>A teaching peer who's read every paper.</h3>
-        <p>Mitra has a separate mode just for educators. Talk to her as a colleague about lesson design, learner profiles, what's actually landing with these specific kids. She is not your help desk. She is the colleague you've been missing, the one who's both read the research and seen what's working across thousands of sessions.</p>
-      </div>
-
     </div>
   </div>
 </section>
@@ -468,7 +537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wp-wrap">
     <h3>For the visitor who wants to go deeper</h3>
     <div class="wp-depth-grid">
-      <a class="wp-depth-link" href="/en/parent-dashboard">See a sample parent dashboard <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/parent-dashboard">See a full sample parent dashboard <span class="arrow">→</span></a>
       <a class="wp-depth-link" href="/en/partners">Read the long-form partner pitch <span class="arrow">→</span></a>
       <a class="wp-depth-link" href="/en/how-to-work-with-mitra">How Mitra works with families <span class="arrow">→</span></a>
       <a class="wp-depth-link" href="/en/partner-agreement-v1.0">Partner agreement v1.0 <span class="arrow">→</span></a>
