@@ -1226,3 +1226,97 @@ a:hover {
 .text-muted {
   color: var(--text-muted) !important;
 }
+
+/* ============================================================
+   wp-nav + wp-footer — site-wide chrome
+   Promoted from wip-partners.head.html on 2026-06-03.
+   These rules style the dark-teal sticky header and the matching
+   footer used across all marketing pages.
+   ============================================================ */
+
+.wp-wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ----- Header ----- */
+.wp-nav { background: #21867A; color: #fff; border-bottom: 1px solid #1A6D63;
+  position: sticky; top: 0; z-index: 60; font-family: 'Inter', sans-serif; }
+.wp-nav-row { display: flex; align-items: center; gap: 24px; height: 64px; }
+.wp-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none;
+  color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 18px;
+  letter-spacing: -.01em; }
+.wp-nav-logo img { width: 32px; height: 32px; }
+.wp-nav-logo:hover { color: #fff; }
+.wp-nav-items { display: flex; align-items: center; gap: 4px; list-style: none;
+  margin: 0; padding: 0; margin-left: auto; }
+.wp-nav-items > li { position: relative; }
+.wp-nav-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+  border-radius: 999px; color: rgba(255,255,255,.92); font-weight: 600; font-size: 14px;
+  text-decoration: none; cursor: pointer; border: none; background: transparent;
+  font-family: inherit; }
+.wp-nav-link:hover { color: #fff; background: rgba(255,255,255,.12); }
+.wp-nav-link.cta { background: #fff; color: #1B3A5C; font-weight: 700; }
+.wp-nav-link.cta:hover { background: #F0F2F5; color: #1B3A5C; }
+.wp-nav-link .caret { font-size: 10px; opacity: .8; transition: transform .15s; }
+.wp-nav-dd.open .wp-nav-link .caret { transform: rotate(180deg); }
+.wp-nav-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 240px;
+  background: #fff; border: 1px solid #E2E8F0; border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0,0,0,.18); padding: 8px; list-style: none; margin: 0;
+  opacity: 0; visibility: hidden; transform: translateY(-6px); transition: all .15s; }
+.wp-nav-dd.open .wp-nav-dd-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.wp-nav-dd-menu li + li { border-top: 1px solid #F0F2F5; margin-top: 4px; padding-top: 4px; }
+.wp-nav-dd-menu a { display: block; padding: 10px 14px; color: #1A1A2E;
+  text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 8px; }
+.wp-nav-dd-menu a:hover { background: #F0F2F5; color: #1B3A5C; }
+.wp-nav-dd-menu a.sub { font-size: 13px; color: #2A9D8F; font-weight: 700; }
+.wp-nav-lang { display: flex; gap: 4px; margin-left: 16px;
+  padding-left: 16px; border-left: 1px solid rgba(255,255,255,.22); }
+.wp-nav-lang a { padding: 5px 11px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.92);
+  text-decoration: none; font-weight: 700; font-size: 12px; letter-spacing: .04em; }
+.wp-nav-lang a.active { background: #fff; color: #21867A; border-color: #fff; }
+.wp-nav-lang a:hover:not(.active) { color: #fff; border-color: rgba(255,255,255,.6); }
+
+.wp-nav-burger { display: none; background: transparent; border: none; color: #fff;
+  font-size: 22px; cursor: pointer; padding: 8px 10px; margin-left: auto; }
+
+/* ----- Footer ----- */
+.wp-footer { background: #21867A; color: rgba(255,255,255,.85); padding: 64px 0 24px;
+  font-family: 'Inter', sans-serif; }
+.wp-footer .wp-wrap { display: flex; flex-direction: column; gap: 48px; }
+.wp-footer-brand { display: flex; align-items: center; gap: 10px; color: #fff;
+  font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 18px; }
+.wp-footer-brand img { width: 28px; height: 28px; }
+.wp-footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.wp-footer-col h6 { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em; color: #fff; margin: 0 0 16px; }
+.wp-footer-col ul { list-style: none; padding: 0; margin: 0; }
+.wp-footer-col li { margin: 0 0 10px; }
+.wp-footer-col a { color: rgba(255,255,255,.78); text-decoration: none;
+  font-size: 14px; transition: color .15s; }
+.wp-footer-col a:hover { color: #fff; }
+.wp-footer-bottom { display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,.16);
+  font-size: 12px; color: rgba(255,255,255,.55); flex-wrap: wrap; gap: 12px; }
+.wp-footer-admin a { color: rgba(255,255,255,.48); text-decoration: none; }
+.wp-footer-admin a:hover { color: rgba(255,255,255,.9); }
+.wp-footer-legal { font-size: 11px; color: rgba(255,255,255,.5);
+  line-height: 1.6; margin-top: 6px; max-width: 760px; }
+.wp-footer-legal a { color: rgba(255,255,255,.7); text-decoration: none; }
+.wp-footer-legal a:hover { color: #fff; }
+
+/* ----- Responsive ----- */
+@media (max-width: 860px) {
+  .wp-nav-row { gap: 12px; height: 56px; }
+  .wp-nav-items { display: none; }
+  .wp-nav-items.mobile-open { display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 100%; left: 0; right: 0; background: #21867A;
+    padding: 12px; border-top: 1px solid rgba(255,255,255,.12); }
+  .wp-nav-items.mobile-open > li { width: 100%; }
+  .wp-nav-items.mobile-open .wp-nav-link { width: 100%; justify-content: space-between; }
+  .wp-nav-items.mobile-open .wp-nav-dd-menu { position: static; opacity: 1;
+    visibility: visible; transform: none; min-width: 0; box-shadow: none;
+    margin-top: 4px; }
+  .wp-nav-burger { display: inline-flex; align-items: center; }
+  .wp-nav-lang { margin-left: 0; padding-left: 0; border-left: none; }
+  .wp-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .wp-footer { padding: 48px 0 24px; }
+}
