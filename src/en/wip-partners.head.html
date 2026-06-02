@@ -162,10 +162,10 @@
 .s4-scale { margin-top: 16px; padding: 12px 16px; background: #F0F2F5; border-radius: 6px;
   font-size: 12px; color: #4A5568; text-align: center; }
 .s4-scale strong { color: #1B3A5C; font-weight: 700; }
-/* Hero art container — currently reuses .s1-compare visual */
+/* Hero grid — top-aligned so the carousel doesn't push the copy down */
 .wp-hero .wp-hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px;
-  align-items: center; margin-top: 40px; }
-.wp-hero .wp-hero-grid .wp-hero-art { padding-top: 12px; }
+  align-items: start; margin-top: 40px; }
+.wp-hero .wp-hero-grid .wp-hero-art { padding-top: 0; }
 @media (max-width: 880px) {
   .wp-hero .wp-hero-grid { grid-template-columns: 1fr; gap: 32px; }
 }
@@ -187,17 +187,17 @@
 .wp-case.active { opacity: 1; pointer-events: auto; position: relative; }
 .wp-case .case-ctx { font-size: 12px; color: #2A9D8F; text-transform: uppercase;
   letter-spacing: .12em; font-weight: 700; }
-.wp-thread { background: #0A1226; border: 1px solid rgba(154,206,255,.2); border-radius: 16px;
-  padding: 16px; box-shadow: 0 20px 56px rgba(27,58,92,.18); }
+.wp-thread { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px;
+  padding: 16px; box-shadow: 0 12px 32px rgba(27,58,92,.10); }
 .wp-thread .thread-h { display: flex; align-items: center; gap: 10px;
-  padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 12px; color: #fff; }
+  padding-bottom: 12px; border-bottom: 1px solid #E2E8F0; margin-bottom: 12px; color: #1B3A5C; }
 .wp-thread .thread-h img { width: 26px; height: 26px; border-radius: 50%; }
-.wp-thread .thread-h .name { font-weight: 700; font-size: 13px; }
-.wp-thread .thread-h .status { font-size: 10px; color: #6BB37A; }
+.wp-thread .thread-h .name { font-weight: 700; font-size: 13px; color: #1B3A5C; }
+.wp-thread .thread-h .status { font-size: 10px; color: #2A9D8F; font-weight: 600; }
 .wp-t { padding: 9px 13px; border-radius: 14px; font-size: 13px; line-height: 1.45;
   max-width: 88%; margin: 5px 0; }
 .wp-t.me { background: #2A9D8F; color: #fff; margin-left: auto; }
-.wp-t.them { background: rgba(255,255,255,.07); color: #fff; }
+.wp-t.them { background: #fff; color: #1A1A2E; border: 1px solid #E2E8F0; }
 .wp-case .case-reveal { padding: 12px 14px; background: #FFF7E6;
   border-left: 3px solid #FEE500; border-radius: 0 6px 6px 0; font-size: 13px;
   color: #1B3A5C; line-height: 1.5; font-weight: 500; }
