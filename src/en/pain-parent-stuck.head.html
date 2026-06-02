@@ -32,18 +32,27 @@
 
 /* ===== Block 1 (parent stuck) — used as the hero here ===== */
 .pb-1 { background: #FAFAFA; color: #1A1A2E; }
-.pb-1 .pb-grid { display: grid; grid-template-columns: 80px 1fr; gap: 32px; align-items: start; }
-.pb-1 .pp-quote { font-family: 'DM Sans', serif; font-size: 180px; line-height: .7;
-  color: #2A9D8F; font-weight: 900; }
 .pb-1 .pb-label { background: #FFF7E6; color: #8B6914; }
 .pb-1 h2.pp-pain { font-family: 'DM Sans', sans-serif; font-weight: 700; }
 .pb-1 .pp-promise { color: #2A9D8F; }
 .pb-1 .pp-cta { background: #2A9D8F; color: #fff; }
 
-@media (max-width: 700px) {
-  .pb { padding: 64px 0; }
-  .pb-1 .pb-grid { grid-template-columns: 1fr; gap: 8px; }
-  .pb-1 .pp-quote { font-size: 110px; }
+/* Hero layout: image on the left, text on the right */
+.pb-1-hero { padding: 72px 0; }
+.pb-1-hero-grid { display: grid; grid-template-columns: minmax(280px, 1fr) 1.15fr;
+  gap: 48px; align-items: center; }
+.pb-1-hero-image { display: flex; justify-content: center; align-items: center; }
+.pb-1-hero-image img { width: 100%; max-width: 420px; height: auto; display: block;
+  border-radius: 18px; box-shadow: 0 12px 28px rgba(31,42,38,0.12); }
+.pb-1-hero-text { position: relative; }
+.pb-1-hero-text .pp-quote { font-family: 'DM Sans', serif; font-size: 110px; line-height: .7;
+  color: #2A9D8F; font-weight: 900; margin: 0 0 8px; opacity: .85; }
+
+@media (max-width: 860px) {
+  .pb-1-hero { padding: 48px 0; }
+  .pb-1-hero-grid { grid-template-columns: 1fr; gap: 24px; }
+  .pb-1-hero-image img { max-width: 340px; }
+  .pb-1-hero-text .pp-quote { font-size: 80px; }
 }
 
 /* ===== kv2 styles used by the condensed body ===== */
@@ -137,6 +146,8 @@
 .kv2-closing-text { flex: 1; font-size: 1.7rem; font-weight: 800; line-height: 1.5; }
 .kv2-closing-left { text-align: right; color: #fff; }
 .kv2-closing-right { text-align: left; color: var(--ink); }
+.kv2-closing-phone { flex: 0 0 auto; }
+.kv2-cphone-img { max-width: 260px; height: auto; display: block; }
 .kv2-talk-btn { display: flex; width: max-content; margin: 0 auto; transform: translateY(-10px); align-items: center; gap: 8px; background: var(--kakao); color: #3a2e00; font-weight: 700; padding: 0.7rem 1.6rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
 .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
 .kv2-closing { padding-bottom: 2.5rem; }

@@ -8,11 +8,14 @@ main_class: pain-landing-main
 -->
 <div class="pp-page">
 
-  <!-- 1. HERO — pb-1 "parent at the table" -->
-  <section class="pb pb-1">
-    <div class="pp-wrap pb-grid">
-      <div class="pp-quote">&ldquo;</div>
-      <div>
+  <!-- 1. HERO — pb-1 "parent at the table" with image -->
+  <section class="pb pb-1 pb-1-hero">
+    <div class="pp-wrap pb-1-hero-grid">
+      <div class="pb-1-hero-image">
+        <img src="/en/static/images/home-v2/MI3.png" alt="A kid stuck on homework, reaching for Mitra on their phone">
+      </div>
+      <div class="pb-1-hero-text">
+        <div class="pp-quote">&ldquo;</div>
         <span class="pb-label">For the parent at the table</span>
         <h2 class="pp-pain">It's 8 p.m. Your kid is stuck.<br>You don't know the answer.<br>The tutor doesn't pick up.</h2>
         <p class="pp-promise">Mitra picks up. Every time.</p>
@@ -149,10 +152,13 @@ main_class: pain-landing-main
     </div>
   </section>
 
-  <!-- 5. CLOSING — hero callback -->
+  <!-- 5. CLOSING — hero callback, with bridging phone image -->
   <section class="kv2-closing">
     <div class="kv2-closing-inner">
       <div class="kv2-closing-text kv2-closing-left">8 p.m.<br>or 2 a.m.</div>
+      <div class="kv2-closing-phone">
+        <img class="kv2-cphone-img" src="/en/static/images/home-v2/MI-last.png" alt="The Mitra app">
+      </div>
       <div class="kv2-closing-text kv2-closing-right">Mitra picks up.<br>Every time.</div>
     </div>
     <a class="kv2-talk-btn" href="{{app_base}}/en/enroll" onclick="(window.dataLayer=window.dataLayer||[]).push({event:'enroll_click',cta_location:'pain_closing',pain_slug:'parent-stuck'})"><span class="kv2-talk-dot"></span>Start your 7-day trial</a>
