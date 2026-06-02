@@ -1,0 +1,39 @@
+{
+  "_schema_notes": [
+    "Pain landing-page manifest. One entry per pain.",
+    "Generator: scripts/generate_pain_pages.py — reads this file and writes",
+    "  src/en/pain-{slug}.html + src/en/pain-{slug}.head.html for each entry.",
+    "After regenerating, run `python build.py --env staging` to rebuild outputs.",
+    "Set hero_image to null to render the dashed placeholder block."
+  ],
+  "pains": [
+    {
+      "slug": "parent-stuck",
+      "id": 1,
+      "label": "For the parent at the table",
+      "headline_lines": [
+        "It's 8 p.m. Your kid is stuck.",
+        "You don't know the answer.",
+        "The tutor doesn't pick up."
+      ],
+      "promise": "Mitra picks up. Every time.",
+      "bullets": [
+        "Always on. No scheduling, no wait, no \"I'll get back to you tomorrow.\"",
+        "Works the subject <em>with</em> your child, not over their head.",
+        "Knows your child's curriculum, so the answers match what their teacher is asking.",
+        "You don't have to pretend you remember 7th-grade physics. Mitra has it."
+      ],
+      "hero_image": null,
+      "hero_alt": "A parent and child stuck on homework at the kitchen table at 8 p.m.",
+      "closing": {
+        "left_lines": ["8 p.m.", "or 2 a.m."],
+        "right_lines": ["Mitra picks up.", "Every time."]
+      },
+      "meta": {
+        "title": "Mitra — 8 p.m. Your kid is stuck. Mitra picks up.",
+        "description": "When the tutor doesn't pick up and you don't remember 7th-grade physics, Mitra is there. Always on, knows your child's curriculum, teaches the process. 7-day free trial.",
+        "og_description": "8 p.m. Your kid is stuck. The tutor doesn't pick up. Mitra does. Every time."
+      }
+    }
+  ]
+}
