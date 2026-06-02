@@ -281,84 +281,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .wp-depth-link:hover { border-color: #2A9D8F; transform: translateY(-1px); color: #1B3A5C; }
 .wp-depth-link .arrow { margin-left: auto; color: #2A9D8F; font-weight: 700; }
 
-/* ============================================================
-   PREVIEW: new nav + footer for wip-partners only
-   Hides the inherited Bootstrap navbar/footer from _layout and
-   renders a tighter dark-navy header + 4-col footer in their place.
-   When approved, promote to _layout.html + nav-config.json site-wide.
-   ============================================================ */
-
-/* Hide the inherited site nav and footer on this page only */
-body > nav.navbar { display: none !important; }
-body > footer.site-footer { display: none !important; }
-body { padding-top: 0 !important; }
-
-/* ----- New header — DEFAULT = white on darker teal #21867A ----- */
-.wp-nav { background: #21867A; color: #fff; border-bottom: 1px solid #1A6D63;
-  position: sticky; top: 0; z-index: 60; }
-.wp-nav-row { display: flex; align-items: center; gap: 24px; height: 64px; }
-.wp-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none;
-  color: #fff; font-family: 'DM Sans'; font-weight: 700; font-size: 18px;
-  letter-spacing: -.01em; }
-.wp-nav-logo img { width: 32px; height: 32px; }
-.wp-nav-logo:hover { color: #fff; }
-.wp-nav-items { display: flex; align-items: center; gap: 4px; list-style: none;
-  margin: 0; padding: 0; margin-left: auto; }
-.wp-nav-items > li { position: relative; }
-.wp-nav-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
-  border-radius: 999px; color: rgba(255,255,255,.92); font-weight: 600; font-size: 14px;
-  text-decoration: none; cursor: pointer; border: none; background: transparent;
-  font-family: inherit; }
-.wp-nav-link:hover { color: #fff; background: rgba(255,255,255,.12); }
-.wp-nav-link.cta { background: #fff; color: #1B3A5C; font-weight: 700; }
-.wp-nav-link.cta:hover { background: #F0F2F5; color: #1B3A5C; }
-.wp-nav-link .caret { font-size: 10px; opacity: .8; transition: transform .15s; }
-.wp-nav-dd.open .wp-nav-link .caret { transform: rotate(180deg); }
-.wp-nav-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 240px;
-  background: #fff; border: 1px solid #E2E8F0; border-radius: 12px;
-  box-shadow: 0 24px 48px rgba(0,0,0,.18); padding: 8px; list-style: none; margin: 0;
-  opacity: 0; visibility: hidden; transform: translateY(-6px); transition: all .15s; }
-.wp-nav-dd.open .wp-nav-dd-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-.wp-nav-dd-menu li + li { border-top: 1px solid #F0F2F5; margin-top: 4px; padding-top: 4px; }
-.wp-nav-dd-menu a { display: block; padding: 10px 14px; color: #1A1A2E;
-  text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 8px; }
-.wp-nav-dd-menu a:hover { background: #F0F2F5; color: #1B3A5C; }
-.wp-nav-dd-menu a.sub { font-size: 13px; color: #2A9D8F; font-weight: 700; }
-.wp-nav-lang { display: flex; gap: 4px; margin-left: 16px;
-  padding-left: 16px; border-left: 1px solid rgba(255,255,255,.22); }
-.wp-nav-lang a { padding: 5px 11px; border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.92);
-  text-decoration: none; font-weight: 700; font-size: 12px; letter-spacing: .04em; }
-.wp-nav-lang a.on { background: #fff; color: #21867A; border-color: #fff; }
-.wp-nav-lang a:hover:not(.on) { color: #fff; border-color: rgba(255,255,255,.6); }
-
-/* Mobile hamburger */
-.wp-nav-burger { display: none; background: transparent; border: none; color: #fff;
-  font-size: 22px; cursor: pointer; padding: 8px 10px; margin-left: auto; }
-
-/* ----- New footer — DEFAULT = white on darker teal ----- */
-.wp-footer { background: #21867A; color: rgba(255,255,255,.85); padding: 64px 0 24px; }
-.wp-footer .wp-wrap { display: flex; flex-direction: column; gap: 48px; }
-.wp-footer-brand { display: flex; align-items: center; gap: 10px; color: #fff;
-  font-family: 'DM Sans'; font-weight: 700; font-size: 18px; }
-.wp-footer-brand img { width: 28px; height: 28px; }
-.wp-footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-.wp-footer-col h6 { font-family: 'DM Sans'; font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .14em; color: #fff; margin: 0 0 16px; }
-.wp-footer-col ul { list-style: none; padding: 0; margin: 0; }
-.wp-footer-col li { margin: 0 0 10px; }
-.wp-footer-col a { color: rgba(255,255,255,.78); text-decoration: none;
-  font-size: 14px; transition: color .15s; }
-.wp-footer-col a:hover { color: #fff; }
-.wp-footer-bottom { display: flex; justify-content: space-between; align-items: center;
-  padding-top: 24px; border-top: 1px solid rgba(255,255,255,.16);
-  font-size: 12px; color: rgba(255,255,255,.55); flex-wrap: wrap; gap: 12px; }
-.wp-footer-admin a { color: rgba(255,255,255,.48); text-decoration: none; }
-.wp-footer-admin a:hover { color: rgba(255,255,255,.9); }
-.wp-footer-legal { font-size: 11px; color: rgba(255,255,255,.5);
-  line-height: 1.6; margin-top: 6px; max-width: 760px; }
-.wp-footer-legal a { color: rgba(255,255,255,.7); text-decoration: none; }
-.wp-footer-legal a:hover { color: #fff; }
+/* wp-nav and wp-footer styles now live in /static/style.css (site-wide).
+   Only page-specific responsive rules remain below. */
 
 /* ----- Responsive — matched to home-v2's 860px breakpoint ----- */
 @media (max-width: 860px) {
@@ -378,22 +302,6 @@ body { padding-top: 0 !important; }
   .wp-depth-grid { grid-template-columns: 1fr; }
   .wp-cost, .wp-final { padding: 80px 1.1rem; }
   .wp-case-stage { min-height: 420px; }
-
-  /* Preview nav/footer mobile */
-  .wp-nav-row { gap: 12px; height: 56px; }
-  .wp-nav-items { display: none; }
-  .wp-nav-items.mobile-open { display: flex; flex-direction: column; gap: 0;
-    position: absolute; top: 100%; left: 0; right: 0; background: #1B3A5C;
-    padding: 12px; border-top: 1px solid rgba(255,255,255,.12); }
-  .wp-nav-items.mobile-open > li { width: 100%; }
-  .wp-nav-items.mobile-open .wp-nav-link { width: 100%; justify-content: space-between; }
-  .wp-nav-items.mobile-open .wp-nav-dd-menu { position: static; opacity: 1;
-    visibility: visible; transform: none; min-width: 0; box-shadow: none;
-    margin-top: 4px; }
-  .wp-nav-burger { display: inline-flex; align-items: center; }
-  .wp-nav-lang { margin-left: 0; padding-left: 0; border-left: none; }
-  .wp-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .wp-footer { padding: 48px 0 24px; }
 }
 </style>
 </head>
@@ -403,97 +311,48 @@ body { padding-top: 0 !important; }
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="/ko/"><img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navLinks">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/ko/">홈</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown1" data-bs-toggle="dropdown" aria-expanded="false">소개</a>
-          <ul class="dropdown-menu" aria-labelledby="navDropdown1">
-            <li><a class="dropdown-item" href="/ko/principles.html">원칙과 실천</a></li>
-            <li><a class="dropdown-item" href="/ko/how-to-work-with-mitra.html">미트라와 함께하는 법</a></li>
-            <li><a class="dropdown-item" href="/ko/for-parents.html">학부모 안내</a></li>
-            <li><a class="dropdown-item" href="/ko/for-students.html">학생 안내</a></li>
-            <li><a class="dropdown-item" href="/ko/partners.html">파트너 안내</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown2" data-bs-toggle="dropdown" aria-expanded="false">자료</a>
-          <ul class="dropdown-menu" aria-labelledby="navDropdown2">
-            <li><a class="dropdown-item" href="/ko/faq.html">자주 묻는 질문</a></li>
-            <li><a class="dropdown-item" href="/ko/compliance.html">컴플라이언스</a></li>
-            <li><a class="dropdown-item" href="/ko/about.html">미트라를 만든 이유</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
-        <!-- Language toggle -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KO" style="border-radius:2px;">
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item " href="/en/wip-partners.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
-            <li><a class="dropdown-item active" href="/ko/wip-partners.html"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<main class="pain-main">
-<div class="wp-page">
-
-<!-- ============================================================
-     PREVIEW: new site header (KO)
-     ============================================================ -->
 <nav class="wp-nav">
   <div class="wp-wrap wp-nav-row">
     <a class="wp-nav-logo" href="/ko/">
-      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
-      <span>미트라 AI 튜터</span>
+      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
     </a>
-    <button class="wp-nav-burger" data-burger aria-label="메뉴">☰</button>
+    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
     <ul class="wp-nav-items" data-nav-items>
-      <li>
-        <a class="wp-nav-link cta" href="https://staging.mitratutor.com/ko/enroll">등록</a>
-      </li>
+      <li><a class="wp-nav-link" href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
       <li class="wp-nav-dd" data-dd>
         <button class="wp-nav-link" data-dd-trigger>학부모 <span class="caret">▾</span></button>
         <ul class="wp-nav-dd-menu">
-          <li><a href="/ko/for-parents">학부모를 위한 미트라</a></li>
-          <li><a class="sub" href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인 →</a></li>
+          <li><a href="/ko/for-parents.html">학부모를 위한 미트라</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인 →</a></li>
         </ul>
       </li>
       <li class="wp-nav-dd" data-dd>
         <button class="wp-nav-link" data-dd-trigger>학원 <span class="caret">▾</span></button>
         <ul class="wp-nav-dd-menu">
-          <li><a href="/ko/partners">학원을 위한 미트라</a></li>
-          <li><a class="sub" href="https://staging.mitratutor.com/ko/org/login">학원 로그인 →</a></li>
+          <li><a href="/ko/partners.html">학원을 위한 미트라</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/org/login">학원 로그인 →</a></li>
         </ul>
       </li>
       <li class="wp-nav-dd" data-dd>
         <button class="wp-nav-link" data-dd-trigger>소개 <span class="caret">▾</span></button>
         <ul class="wp-nav-dd-menu">
-          <li><a href="/ko/faq">자주 묻는 질문</a></li>
-          <li><a href="/ko/how-to-work-with-mitra">미트라와 함께하는 법</a></li>
-          <li><a href="/ko/principles">원칙과 실천</a></li>
-          <li><a href="/ko/about">미트라를 만든 이유</a></li>
+          <li><a href="/ko/faq.html">자주 묻는 질문</a></li>
+          <li><a href="/ko/how-to-work-with-mitra.html">미트라와 함께하는 법</a></li>
+          <li><a href="/ko/principles.html">원칙과 실천</a></li>
+          <li><a href="/ko/about.html">미트라를 만든 이유</a></li>
         </ul>
       </li>
       <li class="wp-nav-lang">
-        <a href="/en/wip-partners.html">EN</a>
-        <a class="on" href="/ko/wip-partners.html">KO</a>
+        <a class="" href="/en/wip-partners.html">EN</a>
+        <a class="active" href="/ko/wip-partners.html">KO</a>
       </li>
     </ul>
   </div>
 </nav>
+
+<main class="pain-main">
+<div class="wp-page">
 
 <!-- Sticky WIP bar -->
 <div class="wp-bar">
@@ -802,41 +661,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ============================================================
-     PREVIEW: new site footer (KO)
-     ============================================================ -->
+<!-- Header and footer now come from src/_layout.html (site-wide chrome). -->
+
+<!-- Carousel rotation JS (page-specific) -->
+<script>
+  (function() {
+    var cases = document.querySelectorAll('.wp-case');
+    var dots = document.querySelectorAll('.wp-case-dots span');
+    if (cases.length < 2) return;
+    var i = 0;
+    function show(n) {
+      cases.forEach(function(c, idx) { c.classList.toggle('active', idx === n); });
+      dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
+      i = n;
+    }
+    var timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+    dots.forEach(function(d, idx) {
+      d.addEventListener('click', function() {
+        clearInterval(timer);
+        show(idx);
+        timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+      });
+    });
+  })();
+</script>
+
+</div>
+</main>
+
 <footer class="wp-footer">
   <div class="wp-wrap">
     <div class="wp-footer-brand">
-      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
-      <span>미트라 AI 튜터</span>
+      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
     </div>
     <div class="wp-footer-cols">
       <div class="wp-footer-col">
         <h6>둘러보기</h6>
         <ul>
-          <li><a href="/ko/for-parents">학부모 안내</a></li>
-          <li><a href="/ko/for-students">학생 안내</a></li>
-          <li><a href="/ko/partners">파트너 안내</a></li>
-          <li><a href="/ko/how-to-work-with-mitra">미트라와 함께하는 법</a></li>
+          <li><a href="/ko/for-parents.html">학부모 안내</a></li>
+          <li><a href="/ko/for-students.html">학생 안내</a></li>
+          <li><a href="/ko/partners.html">파트너 안내</a></li>
+          <li><a href="/ko/how-to-work-with-mitra.html">미트라와 함께하는 법</a></li>
         </ul>
       </div>
       <div class="wp-footer-col">
         <h6>자료</h6>
         <ul>
-          <li><a href="/ko/faq">자주 묻는 질문</a></li>
-          <li><a href="/ko/about">미트라를 만든 이유</a></li>
-          <li><a href="/ko/principles">원칙</a></li>
-          <li><a href="/ko/compliance">컴플라이언스</a></li>
+          <li><a href="/ko/faq.html">자주 묻는 질문</a></li>
+          <li><a href="/ko/about.html">미트라를 만든 이유</a></li>
+          <li><a href="/ko/principles.html">원칙</a></li>
+          <li><a href="/ko/compliance.html">컴플라이언스</a></li>
         </ul>
       </div>
       <div class="wp-footer-col">
         <h6>법적 고지</h6>
         <ul>
-          <li><a href="/ko/privacy">개인정보처리방침</a></li>
-          <li><a href="/ko/terms">이용약관</a></li>
-          <li><a href="/ko/refund">환불정책</a></li>
-          <li><a href="/en/partner-agreement-v1.0">파트너 계약서</a></li>
+          <li><a href="/ko/privacy.html">개인정보처리방침</a></li>
+          <li><a href="/ko/terms.html">이용약관</a></li>
+          <li><a href="/ko/refund.html">환불정책</a></li>
         </ul>
       </div>
       <div class="wp-footer-col">
@@ -850,17 +733,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wp-footer-bottom">
       <div>
         <div>&copy; 2026 Mitra AI &middot; 미트라 AI</div>
-        <div class="wp-footer-legal">상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com">support@mitratutor.com</a></div>
+        <div class="wp-footer-legal">상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a></div>
       </div>
-      <div class="wp-footer-admin"><a href="https://staging.mitratutor.com/admin/login">Admin</a></div>
+      <div class="wp-footer-admin"></div>
     </div>
   </div>
 </footer>
 
-<!-- Dropdown + mobile nav toggling -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  // Dropdown + mobile nav toggling (site-wide)
   (function() {
-    var dds = document.querySelectorAll('[data-dd]');
+    var dds = document.querySelectorAll('.wp-nav [data-dd]');
     dds.forEach(function(dd) {
       var trigger = dd.querySelector('[data-dd-trigger]');
       if (!trigger) return;
@@ -874,90 +758,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.addEventListener('click', function() {
       dds.forEach(function(dd) { dd.classList.remove('open'); });
     });
-    var burger = document.querySelector('[data-burger]');
-    var items = document.querySelector('[data-nav-items]');
+    var burger = document.querySelector('.wp-nav [data-burger]');
+    var items = document.querySelector('.wp-nav [data-nav-items]');
     if (burger && items) {
       burger.addEventListener('click', function(e) {
         e.stopPropagation();
         items.classList.toggle('mobile-open');
       });
     }
-    var cases = document.querySelectorAll('.wp-case');
-    var dots = document.querySelectorAll('.wp-case-dots span');
-    if (cases.length >= 2) {
-      var i = 0;
-      function show(n) {
-        cases.forEach(function(c, idx) { c.classList.toggle('active', idx === n); });
-        dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
-        i = n;
-      }
-      var timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
-      dots.forEach(function(d, idx) {
-        d.addEventListener('click', function() {
-          clearInterval(timer);
-          show(idx);
-          timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
-        });
-      });
-    }
   })();
 </script>
-
-</div>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-brand mb-4">
-      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
-      <span class="footer-logo">Mitra AI Tutor</span>
-    </div>
-    <div class="footer-columns">
-      <div class="footer-col">
-        <h6 class="footer-col-heading">둘러보기</h6>
-        <ul class="footer-col-links">
-          <li><a href="/ko/how-to-work-with-mitra.html">미트라와 함께하는 법</a></li>
-          <li><a href="/ko/for-parents.html">학부모 안내</a></li>
-          <li><a href="/ko/for-students.html">학생 안내</a></li>
-          <li><a href="/ko/partners.html">파트너 안내</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h6 class="footer-col-heading">자료</h6>
-        <ul class="footer-col-links">
-          <li><a href="/ko/faq.html">자주 묻는 질문</a></li>
-          <li><a href="/ko/compliance.html">컴플라이언스</a></li>
-          <li><a href="/ko/about.html">미트라를 만든 이유</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h6 class="footer-col-heading">법적 고지</h6>
-        <ul class="footer-col-links">
-          <li><a href="/ko/privacy.html">개인정보처리방침</a></li>
-          <li><a href="/ko/terms.html">이용약관</a></li>
-          <li><a href="/ko/refund.html">환불정책</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h6 class="footer-col-heading">시작하기</h6>
-        <ul class="footer-col-links">
-          <li><a href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
-          <li><a href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인</a></li>
-          <li><a href="https://staging.mitratutor.com/ko/org/login">파트너 로그인</a></li>
-          <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
-      <div class="small text-muted">
-        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

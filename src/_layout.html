@@ -47,51 +47,72 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="/{{ html_lang }}/"><img src="/{{ html_lang }}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navLinks">
-      <ul class="navbar-nav ms-auto">
+<nav class="wp-nav">
+  <div class="wp-wrap wp-nav-row">
+    <a class="wp-nav-logo" href="/{{ html_lang }}/">
+      <img src="/{{ html_lang }}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
+    </a>
+    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
+    <ul class="wp-nav-items" data-nav-items>
 {{ nav_items_html }}
-        <!-- Language toggle -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{{ lang_toggle_current_flag }}" width="24" height="16" alt="{{ lang_toggle_current_alt }}" style="border-radius:2px;">
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item {{ en_active_class }}" href="/en/{{ slug }}"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
-            <li><a class="dropdown-item {{ ko_active_class }}" href="/ko/{{ slug }}"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+      <li class="wp-nav-lang">
+        <a class="{{ en_active_class }}" href="/en/{{ slug }}">EN</a>
+        <a class="{{ ko_active_class }}" href="/ko/{{ slug }}">KO</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
 {{ content_block }}
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-brand mb-4">
-      <img src="/{{ html_lang }}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
-      <span class="footer-logo">Mitra AI Tutor</span>
+<footer class="wp-footer">
+  <div class="wp-wrap">
+    <div class="wp-footer-brand">
+      <img src="/{{ html_lang }}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
     </div>
-    <div class="footer-columns">
-{{ footer_links_html }}
+    <div class="wp-footer-cols">
+{{ footer_columns_html }}
     </div>
-    <div class="footer-bottom">
-      <div class="mb-1">{{ footer_copyright }}</div>
-      <div class="small text-muted">
-        {{ footer_legal_html }}
+    <div class="wp-footer-bottom">
+      <div>
+        <div>{{ footer_copyright }}</div>
+        <div class="wp-footer-legal">{{ footer_legal_html }}</div>
       </div>
+      <div class="wp-footer-admin">{{ footer_admin_html }}</div>
     </div>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Dropdown + mobile nav toggling (site-wide)
+  (function() {
+    var dds = document.querySelectorAll('.wp-nav [data-dd]');
+    dds.forEach(function(dd) {
+      var trigger = dd.querySelector('[data-dd-trigger]');
+      if (!trigger) return;
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var wasOpen = dd.classList.contains('open');
+        dds.forEach(function(other) { other.classList.remove('open'); });
+        if (!wasOpen) dd.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function() {
+      dds.forEach(function(dd) { dd.classList.remove('open'); });
+    });
+    var burger = document.querySelector('.wp-nav [data-burger]');
+    var items = document.querySelector('.wp-nav [data-nav-items]');
+    if (burger && items) {
+      burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        items.classList.toggle('mobile-open');
+      });
+    }
+  })();
+</script>
 {{ extra_scripts }}
 </body>
 </html>
