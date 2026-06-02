@@ -36,24 +36,77 @@ main_class: pain-main
         </div>
       </div>
       <div class="wp-hero-art">
-        <!-- TODO: replace with stronger hero image (super-suit graphic or academy hero illustration). Placeholder: ChatGPT vs Mitra side-by-side. -->
-        <div class="s1-compare">
-          <div class="s1-pane bad">
-            <div class="pane-h">ChatGPT</div>
-            <div class="s1-msg me">solve 2x + 3 = 11</div>
-            <div class="s1-msg them">x = 4</div>
-            <div class="s1-msg me">thx</div>
-            <div class="s1-foot">→ Got the answer. Learned nothing.</div>
+        <div class="wp-case-stage">
+
+          <!-- CASE 1 — Theo (was Junho), 9, ADHD, dinosaurs -->
+          <div class="wp-case active">
+            <div class="case-ctx">Theo · Grade 3 · ADHD</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+                <div>
+                  <div class="name">Mitra</div>
+                  <div class="status">● online</div>
+                </div>
+              </div>
+              <div class="wp-t me">Mitra!! I got 10 T-Rex toys yesterday!!! my room is jurassic park now lol</div>
+              <div class="wp-t them">That's a math problem hiding in your room. A T-Rex eats 50 kg of meat per day. 10 T-Rex would eat how much in a day?</div>
+              <div class="wp-t me">umm... 50 ten times? 50, 100, 150... wait</div>
+              <div class="wp-t me">OH!! you just put a 0 after 50?? 500???</div>
+              <div class="wp-t them">YES 🎉 You found a real math trick — multiplying by 10 just means add a zero.</div>
+            </div>
+            <div class="case-reveal">→ <em>Theo discovered ×10 means add a zero</em> himself. ChatGPT would have said "500."</div>
           </div>
-          <div class="s1-pane good">
-            <div class="pane-h">Mitra</div>
-            <div class="s1-msg me">solve 2x + 3 = 11</div>
-            <div class="s1-msg them">What needs to happen to the 3 first?</div>
-            <div class="s1-msg me">subtract from both sides</div>
-            <div class="s1-msg them">Yes. So what does the equation look like now?</div>
-            <div class="s1-foot">→ Got the skill. Lands on the test.</div>
+
+          <!-- CASE 2 — Marcus (was Minhu), 18, senior, exam prep -->
+          <div class="wp-case">
+            <div class="case-ctx">Marcus · Senior · Exam prep</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+                <div>
+                  <div class="name">Mitra</div>
+                  <div class="status">● online</div>
+                </div>
+              </div>
+              <div class="wp-t me">Mitra, basic question. ∫ x·e^(x²) dx. I read the answer key but I don't get why a (1/2) shows up.</div>
+              <div class="wp-t them">The x dx is hiding in the integral as a SET. Let x² = t, then 2x dx = dt, so x dx = dt/2. Replace it, only e^t is left.</div>
+              <div class="wp-t them">Try this: ∫ 2x·cos(x²) dx. See the same set?</div>
+              <div class="wp-t me">oh yeah... 2x dx is right there. u = x², du = 2x dx, gives sin(x²) + C</div>
+              <div class="wp-t them">Perfect. The pattern works every time you spot the "set" hidden in the integral.</div>
+            </div>
+            <div class="case-reveal">→ Marcus, later: <em>"If I'd just memorized the answer, I'd be stuck on the next one."</em></div>
           </div>
+
+          <!-- CASE 3 — Maya (was Seoyeon), 14, mom-late, essay -->
+          <div class="wp-case">
+            <div class="case-ctx">Maya · Grade 8 · Home alone after school</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+                <div>
+                  <div class="name">Mitra</div>
+                  <div class="status">● online</div>
+                </div>
+              </div>
+              <div class="wp-t me">Mitra, I have to write something for class and I have no idea what</div>
+              <div class="wp-t me">my mom is going to be late again 😞</div>
+              <div class="wp-t them">Okay, let's do it together. What did the teacher ask for?</div>
+              <div class="wp-t me">the prompt is "a story that inspired me"</div>
+              <div class="wp-t them">Oh that's actually a perfect prompt, for you. What about that webtoon you've been watching? A webtoon is a story too.</div>
+              <div class="wp-t me">a webtoon counts?? then I'll write about that</div>
+            </div>
+            <div class="case-reveal">→ A week later, Maya messaged: <em>"I got my essay back. I got an A."</em> She wrote it herself.</div>
+          </div>
+
         </div>
+
+        <div class="wp-case-dots">
+          <span class="active" data-i="0"></span>
+          <span data-i="1"></span>
+          <span data-i="2"></span>
+        </div>
+        <div class="wp-case-foot">Real, unscripted Mitra responses captured on Mitra staging.</div>
       </div>
     </div>
   </div>
@@ -226,133 +279,28 @@ main_class: pain-main
   </div>
 </section>
 
-<!-- ============================================================
-     CASE CAROUSEL — real Mitra conversations from staging
-     Three students: elementary, middle, senior. Each shows
-     Mitra teaching the process, not handing over the answer.
-     Names are Westernized; transcripts are real Mitra responses
-     captured on Mitra staging (sourced from marketing personas).
-     ============================================================ -->
-<section class="wp-cases">
-  <div class="wp-wrap">
-    <p class="wp-eyebrow">Three students. Three real conversations.</p>
-    <h2>Mitra teaches. She doesn't hand over the answer.</h2>
-    <p class="cases-sub">Every line below labeled "Mitra" is a real, unscripted response captured on Mitra staging. Translated to English where the original was Korean. Names changed for privacy.</p>
-
-    <div class="wp-case-stage">
-
-      <!-- CASE 1 — Theo (was Junho), 9, ADHD, dinosaurs -->
-      <div class="wp-case active">
-        <div class="wp-case-grid">
-          <div class="wp-case-text">
-            <div class="ctx">Theo · Grade 3 · ADHD</div>
-            <h3>10 T-Rex toys turned into <span class="name">Theo's</span> first big math discovery.</h3>
-            <p style="color:rgba(255,255,255,.75); line-height:1.55; font-size:15px;">Theo had just gotten 10 dinosaur figurines and was buzzing. Mitra met him in the dinosaur world and turned the room into a math problem. He found the trick himself.</p>
-            <div class="reveal">→ <em>Theo discovered the pattern</em> (×10 means add a zero) by himself. ChatGPT would have just said "500."</div>
-          </div>
-          <div class="wp-thread">
-            <div class="thread-h">
-              <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
-              <div>
-                <div class="name">Mitra</div>
-                <div class="status">● online</div>
-              </div>
-            </div>
-            <div class="wp-t me">Mitra!! I got 10 T-Rex toys yesterday!!! my room is jurassic park now lol</div>
-            <div class="wp-t them">That's actually a math problem hiding in your room. A T-Rex eats 50 kg of meat per day. 10 T-Rex would eat how much in a day?</div>
-            <div class="wp-t me">umm... 50 ten times? 50, 100, 150... wait</div>
-            <div class="wp-t me">OH!! you just put a 0 after 50?? 500???</div>
-            <div class="wp-t them">YES 🎉 You found a real math trick — multiplying by 10 just means add a zero.</div>
-            <div class="wp-t me">T-Rex eats SO MUCH 😱</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE 2 — Marcus (was Minhu), 18, senior, exam prep -->
-      <div class="wp-case">
-        <div class="wp-case-grid">
-          <div class="wp-case-text">
-            <div class="ctx">Marcus · Senior · Exam prep</div>
-            <h3><span class="name">Marcus</span> had been staring at the answer key for an hour. Mitra showed him the pattern.</h3>
-            <p style="color:rgba(255,255,255,.75); line-height:1.55; font-size:15px;">Marcus came to Mitra after hours, embarrassed, asking a "basic" question. He'd read the answer but didn't know <em>why</em> it was the answer. Mitra named the pattern. Then he solved the next one himself.</p>
-            <div class="reveal">→ Marcus, later: <em>"If I'd just memorized the answer, I'd be stuck on the next one. Nobody's ever explained the pattern before."</em></div>
-          </div>
-          <div class="wp-thread">
-            <div class="thread-h">
-              <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
-              <div>
-                <div class="name">Mitra</div>
-                <div class="status">● online</div>
-              </div>
-            </div>
-            <div class="wp-t me">Mitra, basic question. ∫ x·e^(x²) dx. I read the answer key, but I don't understand why a (1/2) shows up.</div>
-            <div class="wp-t them">The key is substitution. The x dx is hiding inside the integral as a set. Let x² = t, then 2x dx = dt, so x dx = dt/2. Replace it, only e^t is left.</div>
-            <div class="wp-t them">Now try this: ∫ 2x·cos(x²) dx. See the same set?</div>
-            <div class="wp-t me">oh yeah... 2x dx is right there. so u = x², du = 2x dx, gives sin(x²) + C</div>
-            <div class="wp-t them">Perfect. The pattern works every time you see the "set" hidden in the integral.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE 3 — Maya (was Seoyeon), 14, mom-late, essay -->
-      <div class="wp-case">
-        <div class="wp-case-grid">
-          <div class="wp-case-text">
-            <div class="ctx">Maya · Grade 8 · Home alone after school</div>
-            <h3><span class="name">Maya</span> sat in front of a blank essay. Mitra didn't write it for her.</h3>
-            <p style="color:rgba(255,255,255,.75); line-height:1.55; font-size:15px;">Maya's mom works late. The essay was due tomorrow and she had no idea what to write. Mitra didn't draft it. She reframed Maya's own world as worth writing about.</p>
-            <div class="reveal">→ A week later, Maya messaged: <em>"I got my essay back. I got an A."</em> She wrote it herself.</div>
-          </div>
-          <div class="wp-thread">
-            <div class="thread-h">
-              <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
-              <div>
-                <div class="name">Mitra</div>
-                <div class="status">● online</div>
-              </div>
-            </div>
-            <div class="wp-t me">Mitra, I have to write something for class and I have no idea what</div>
-            <div class="wp-t me">my mom is going to be late again 😞</div>
-            <div class="wp-t them">Okay, let's do it together. What did the teacher ask for?</div>
-            <div class="wp-t me">the prompt is "a story that inspired me"</div>
-            <div class="wp-t them">Oh that's actually a perfect prompt, for you. What about that webtoon you've been watching? A webtoon is a story too.</div>
-            <div class="wp-t me">a webtoon counts?? then I'll write about that</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="wp-case-dots">
-      <span class="active" data-i="0"></span>
-      <span data-i="1"></span>
-      <span data-i="2"></span>
-    </div>
-    <p class="wp-cases-foot">Unscripted Mitra responses. Captured on Mitra staging. Student lines authored to match the persona; the AI's responses are real.</p>
-  </div>
-
-  <script>
-    (function() {
-      var cases = document.querySelectorAll('.wp-case');
-      var dots = document.querySelectorAll('.wp-case-dots span');
-      if (cases.length < 2) return;
-      var i = 0;
-      function show(n) {
-        cases.forEach(function(c, idx) { c.classList.toggle('active', idx === n); });
-        dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
-        i = n;
-      }
-      var timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
-      dots.forEach(function(d, idx) {
-        d.addEventListener('click', function() {
-          clearInterval(timer);
-          show(idx);
-          timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
-        });
+<!-- Carousel rotation JS (drives the .wp-case-stage in the hero) -->
+<script>
+  (function() {
+    var cases = document.querySelectorAll('.wp-case');
+    var dots = document.querySelectorAll('.wp-case-dots span');
+    if (cases.length < 2) return;
+    var i = 0;
+    function show(n) {
+      cases.forEach(function(c, idx) { c.classList.toggle('active', idx === n); });
+      dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
+      i = n;
+    }
+    var timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+    dots.forEach(function(d, idx) {
+      d.addEventListener('click', function() {
+        clearInterval(timer);
+        show(idx);
+        timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
       });
-    })();
-  </script>
-</section>
+    });
+  })();
+</script>
 
 <!-- COST -->
 <section class="wp-cost">
