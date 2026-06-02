@@ -88,17 +88,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    ============================================================ */
 .cap { padding: 4.5rem 0; }
 .cap.alt { background: #F0F2F5; }
-.cap-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.cap-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: stretch; }
 .cap-row.reverse { direction: rtl; }
 .cap-row.reverse > * { direction: ltr; }
-.cap-text { padding-top: 4px; }
+.cap-text { padding-top: 4px; display: flex; flex-direction: column; }
+.cap-art { display: flex; flex-direction: column; justify-content: center; }
 .cap-text .cap-num-label { font-family: 'DM Sans'; font-size: 12px; font-weight: 700;
   letter-spacing: .14em; color: #2A9D8F; text-transform: uppercase; margin-bottom: 16px; }
 .cap-pain { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; color: #1B3A5C;
   line-height: 1.15; margin: 0 0 24px; }
-.cap-capability { font-size: 18px; color: #4A5568; line-height: 1.65; margin: 0 0 32px; max-width: 560px; }
+.cap-capability { font-size: 18px; color: #4A5568; line-height: 1.65; margin: 0 0 24px; max-width: 560px; }
 .cap-number { font-family: 'DM Sans'; padding: 20px 24px; border-left: 4px solid #2A9D8F;
-  background: #fff; border-radius: 0 8px 8px 0; display: inline-block; max-width: 520px; }
+  background: #fff; border-radius: 0 8px 8px 0; align-self: flex-start; max-width: 520px;
+  margin-top: auto; }
 .cap-number .num { font-size: 1.6rem; font-weight: 800; color: #1B3A5C; line-height: 1.2; display: block; }
 .cap-number .sub { font-size: 13px; color: #8896A6; margin-top: 4px; }
 
