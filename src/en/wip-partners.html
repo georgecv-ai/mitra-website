@@ -56,12 +56,8 @@ main_class: pain-main
 <!-- Sticky WIP bar -->
 <div class="wp-bar">
   <div class="wp-wrap wp-bar-row">
-    <span class="wp-bar-tag">WIP · INTERNAL · v5</span>
-    <span class="wp-note">US partners · login inside Parents/Academies</span>
-    <span class="wp-theme-toggle">
-      <button class="on" data-theme="">B · Teal + navy text</button>
-      <button data-theme="theme-dark-teal">B2 · White on darker teal</button>
-    </span>
+    <span class="wp-bar-tag">WIP · INTERNAL · v6</span>
+    <span class="wp-note">US partners · white on darker teal nav + footer · white Enroll CTA</span>
     <span class="wp-spacer"></span>
     <span class="wp-note">Compare with live: <a href="/en/partners">/en/partners</a></span>
   </div>
@@ -465,18 +461,6 @@ main_class: pain-main
         items.classList.toggle('mobile-open');
       });
     }
-    // Theme toggle (B vs B2)
-    var themeButtons = document.querySelectorAll('.wp-theme-toggle button');
-    themeButtons.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var theme = btn.getAttribute('data-theme');
-        document.body.classList.remove('theme-dark-teal');
-        if (theme) document.body.classList.add(theme);
-        themeButtons.forEach(function(b) { b.classList.remove('on'); });
-        btn.classList.add('on');
-      });
-    });
   })();
 </script>
 
