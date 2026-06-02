@@ -130,8 +130,63 @@ twitter_description: Try Mitra AI Tutor free for 1 month. No credit card require
     <!-- SUCCESS STATES -->
     <div id="trial-success" class="trial-success" style="display:none;">
       <h2>You're in!</h2>
-      <p>Your child's free trial is active. They can start chatting with Mitra right now.</p>
-      <p>We'll check in after the first month. If things are going well, we'll extend to 3 months.</p>
+      <p>Your child's free trial is active. Here's how to connect them to Mitra:</p>
+
+      <div id="success-code-block" style="display:none;">
+        <p>Your child's enrollment code:</p>
+        <div class="alert alert-primary mb-3 text-center">
+          <strong class="fs-4" id="success-code-text"></strong>
+        </div>
+        <p class="text-muted small" id="success-code-help"></p>
+      </div>
+
+      <div id="success-whatsapp" style="display:none;">
+        <div class="d-grid mb-3">
+          <a id="success-whatsapp-btn" href="#" target="_blank" class="btn btn-lg" style="background:#25D366; color:#fff; font-weight:600;">
+            <img src="{{app_base}}/static/images/WhatsApp/whatsapp-logo-white.svg" alt="WhatsApp" style="height:22px; vertical-align:middle; margin-right:8px;">
+            Open WhatsApp with code pre-filled
+          </a>
+        </div>
+        <p class="text-muted small">Prefer another platform? You can also message Mitra on KakaoTalk or Telegram using the same code:</p>
+      </div>
+
+      <div id="success-kakaotalk" style="display:none;">
+        <div class="d-flex justify-content-center align-items-center gap-3 mb-3 flex-wrap">
+          <a href="http://pf.kakao.com/_taAVX" target="_blank">
+            <img src="{{app_base}}/static/images/KT/channel_add/channel_add_large_2X.png" alt="KakaoTalk" style="height:36px;">
+          </a>
+          <a href="http://pf.kakao.com/_taAVX/chat" target="_blank">
+            <img src="{{app_base}}/static/images/KT/channel_chat/consult/consult_large_yellow_pc_2X.png" alt="Chat" style="height:36px;">
+          </a>
+        </div>
+      </div>
+
+      <div id="success-telegram" style="display:none;">
+        <p>Tap below to open Telegram and message Mitra. Your child's @username was matched at signup, so no code is needed.</p>
+        <div class="d-grid mb-3">
+          <a href="https://t.me/Mitradhdbot" target="_blank" class="btn btn-lg" style="background:#0088cc; color:#fff; font-weight:600;">
+            <img src="{{app_base}}/static/images/telegram/telegram-logo.svg" alt="Telegram" style="height:22px; vertical-align:middle; margin-right:8px; filter:brightness(10);">
+            Open Telegram
+          </a>
+        </div>
+      </div>
+
+      <div id="success-alt-platforms" style="display:none;">
+        <p class="text-muted small">Or message Mitra on another platform with the same code:</p>
+        <div class="d-flex justify-content-center align-items-center gap-3 mb-3 flex-wrap">
+          <a href="http://pf.kakao.com/_taAVX" target="_blank">
+            <img src="{{app_base}}/static/images/KT/channel_add/channel_add_large_2X.png" alt="KakaoTalk" style="height:36px;">
+          </a>
+          <a href="https://t.me/Mitradhdbot" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#0088cc; color:#fff; padding:8px 16px; border-radius:8px; font-size:0.85rem; font-weight:600; text-decoration:none;">
+            <img src="{{app_base}}/static/images/telegram/telegram-logo.svg" alt="Telegram" style="height:18px; filter:brightness(10);"> Telegram
+          </a>
+          <a id="success-alt-whatsapp" href="#" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:8px 16px; border-radius:8px; font-size:0.85rem; font-weight:600; text-decoration:none;">
+            <img src="{{app_base}}/static/images/WhatsApp/whatsapp-logo-white.svg" alt="WhatsApp" style="height:18px;"> WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-4">We'll check in after the first month. If things are going well, we'll extend to 3 months.</p>
       <p><a href="/en/">Back to home</a></p>
     </div>
 
@@ -161,6 +216,34 @@ fetch(API_BASE + "/api/trial/status")
     document.getElementById("trial-open").style.display = "block";
     document.getElementById("slot-count").textContent = "";
   });
+
+function renderTrialSuccess(data) {
+  const platform = data.platform || "telegram";
+  const code = data.enrollment_code || "";
+  const waUrl = "https://wa.me/18087077506" + (code ? ("?text=" + encodeURIComponent(code)) : "");
+
+  if (platform === "whatsapp" && code) {
+    document.getElementById("success-code-text").textContent = code;
+    document.getElementById("success-code-help").textContent =
+      "Tap the button below from your child's phone. WhatsApp will open with the enrollment code pre-typed. Your child sends it, and Mitra links the account automatically.";
+    document.getElementById("success-code-block").style.display = "block";
+    document.getElementById("success-whatsapp-btn").href = waUrl;
+    document.getElementById("success-whatsapp").style.display = "block";
+    document.getElementById("success-alt-whatsapp").href = waUrl;
+    document.getElementById("success-alt-platforms").style.display = "block";
+    document.getElementById("success-alt-whatsapp").style.display = "none";
+  } else if (platform === "kakaotalk" && code) {
+    document.getElementById("success-code-text").textContent = code;
+    document.getElementById("success-code-help").textContent =
+      "Your child will need this code when they first message Mitra on KakaoTalk.";
+    document.getElementById("success-code-block").style.display = "block";
+    document.getElementById("success-kakaotalk").style.display = "block";
+    document.getElementById("success-alt-whatsapp").href = waUrl;
+    document.getElementById("success-alt-platforms").style.display = "block";
+  } else {
+    document.getElementById("success-telegram").style.display = "block";
+  }
+}
 
 document.querySelector('[name="platform"]').addEventListener("change", function() {
   const group = document.getElementById("platform-id-group");
@@ -212,6 +295,7 @@ document.getElementById("trial-form").addEventListener("submit", function(e) {
     .then(r => r.json())
     .then(data => {
       if (data.ok) {
+        renderTrialSuccess(data);
         document.getElementById("trial-open").style.display = "none";
         document.getElementById("trial-success").style.display = "block";
       } else {
