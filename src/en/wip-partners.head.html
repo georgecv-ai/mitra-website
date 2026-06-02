@@ -240,6 +240,81 @@
 .wp-depth-link:hover { border-color: #2A9D8F; transform: translateY(-1px); color: #1B3A5C; }
 .wp-depth-link .arrow { margin-left: auto; color: #2A9D8F; font-weight: 700; }
 
+/* ============================================================
+   PREVIEW: new nav + footer for wip-partners only
+   Hides the inherited Bootstrap navbar/footer from _layout and
+   renders a tighter dark-navy header + 4-col footer in their place.
+   When approved, promote to _layout.html + nav-config.json site-wide.
+   ============================================================ */
+
+/* Hide the inherited site nav and footer on this page only */
+body > nav.navbar { display: none !important; }
+body > footer.site-footer { display: none !important; }
+body { padding-top: 0 !important; }
+
+/* ----- New header ----- */
+.wp-nav { background: #1B3A5C; color: #fff; border-bottom: 1px solid #16294D;
+  position: sticky; top: 0; z-index: 60; }
+.wp-nav-row { display: flex; align-items: center; gap: 24px; height: 64px; }
+.wp-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none;
+  color: #fff; font-family: 'DM Sans'; font-weight: 700; font-size: 18px;
+  letter-spacing: -.01em; }
+.wp-nav-logo img { width: 32px; height: 32px; }
+.wp-nav-logo:hover { color: #fff; }
+.wp-nav-items { display: flex; align-items: center; gap: 4px; list-style: none;
+  margin: 0; padding: 0; margin-left: auto; }
+.wp-nav-items > li { position: relative; }
+.wp-nav-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+  border-radius: 999px; color: rgba(255,255,255,.85); font-weight: 600; font-size: 14px;
+  text-decoration: none; cursor: pointer; border: none; background: transparent;
+  font-family: inherit; }
+.wp-nav-link:hover { color: #fff; background: rgba(255,255,255,.07); }
+.wp-nav-link.cta { background: #2A9D8F; color: #fff; font-weight: 700; }
+.wp-nav-link.cta:hover { background: #21867A; color: #fff; }
+.wp-nav-link .caret { font-size: 10px; opacity: .7; transition: transform .15s; }
+.wp-nav-dd.open .wp-nav-link .caret { transform: rotate(180deg); }
+.wp-nav-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 240px;
+  background: #fff; border: 1px solid #E2E8F0; border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0,0,0,.18); padding: 8px; list-style: none; margin: 0;
+  opacity: 0; visibility: hidden; transform: translateY(-6px); transition: all .15s; }
+.wp-nav-dd.open .wp-nav-dd-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.wp-nav-dd-menu li + li { border-top: 1px solid #F0F2F5; margin-top: 4px; padding-top: 4px; }
+.wp-nav-dd-menu a { display: block; padding: 10px 14px; color: #1A1A2E;
+  text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 8px; }
+.wp-nav-dd-menu a:hover { background: #F0F2F5; color: #1B3A5C; }
+.wp-nav-dd-menu a.sub { font-size: 13px; color: #2A9D8F; font-weight: 700; }
+.wp-nav-lang { display: flex; gap: 4px; margin-left: 16px;
+  padding-left: 16px; border-left: 1px solid rgba(255,255,255,.18); }
+.wp-nav-lang a { padding: 5px 11px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.25); color: rgba(255,255,255,.85);
+  text-decoration: none; font-weight: 700; font-size: 12px; letter-spacing: .04em; }
+.wp-nav-lang a.on { background: #fff; color: #1B3A5C; border-color: #fff; }
+.wp-nav-lang a:hover:not(.on) { color: #fff; border-color: rgba(255,255,255,.5); }
+
+/* Mobile hamburger */
+.wp-nav-burger { display: none; background: transparent; border: none; color: #fff;
+  font-size: 22px; cursor: pointer; padding: 8px 10px; margin-left: auto; }
+
+/* ----- New footer ----- */
+.wp-footer { background: #1B3A5C; color: rgba(255,255,255,.85); padding: 64px 0 24px; }
+.wp-footer .wp-wrap { display: flex; flex-direction: column; gap: 48px; }
+.wp-footer-brand { display: flex; align-items: center; gap: 10px; color: #fff;
+  font-family: 'DM Sans'; font-weight: 700; font-size: 18px; }
+.wp-footer-brand img { width: 28px; height: 28px; }
+.wp-footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.wp-footer-col h6 { font-family: 'DM Sans'; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em; color: #FEE500; margin: 0 0 16px; }
+.wp-footer-col ul { list-style: none; padding: 0; margin: 0; }
+.wp-footer-col li { margin: 0 0 10px; }
+.wp-footer-col a { color: rgba(255,255,255,.75); text-decoration: none;
+  font-size: 14px; transition: color .15s; }
+.wp-footer-col a:hover { color: #fff; }
+.wp-footer-bottom { display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12);
+  font-size: 12px; color: rgba(255,255,255,.5); flex-wrap: wrap; gap: 12px; }
+.wp-footer-admin a { color: rgba(255,255,255,.45); text-decoration: none; }
+.wp-footer-admin a:hover { color: rgba(255,255,255,.85); }
+
 /* ----- Responsive — matched to home-v2's 860px breakpoint ----- */
 @media (max-width: 860px) {
   .wp-page section { padding: 3.25rem 1.1rem; }
@@ -258,5 +333,21 @@
   .wp-depth-grid { grid-template-columns: 1fr; }
   .wp-cost, .wp-final { padding: 80px 1.1rem; }
   .wp-case-stage { min-height: 420px; }
+
+  /* Preview nav/footer mobile */
+  .wp-nav-row { gap: 12px; height: 56px; }
+  .wp-nav-items { display: none; }
+  .wp-nav-items.mobile-open { display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 100%; left: 0; right: 0; background: #1B3A5C;
+    padding: 12px; border-top: 1px solid rgba(255,255,255,.12); }
+  .wp-nav-items.mobile-open > li { width: 100%; }
+  .wp-nav-items.mobile-open .wp-nav-link { width: 100%; justify-content: space-between; }
+  .wp-nav-items.mobile-open .wp-nav-dd-menu { position: static; opacity: 1;
+    visibility: visible; transform: none; min-width: 0; box-shadow: none;
+    margin-top: 4px; }
+  .wp-nav-burger { display: inline-flex; align-items: center; }
+  .wp-nav-lang { margin-left: 0; padding-left: 0; border-left: none; }
+  .wp-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .wp-footer { padding: 48px 0 24px; }
 }
 </style>
