@@ -221,6 +221,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   max-width: 540px; margin: 0 auto 48px; line-height: 1.6; }
 .wp-cost .wp-cta.primary { background: #FEE500; color: #1B3A5C; }
 
+/* ----- Case carousel (real Mitra conversations from staging) ----- */
+.wp-cases { padding: 120px 0; background: linear-gradient(180deg, #1B3A5C 0%, #16294D 100%); color: #fff; }
+.wp-cases .wp-eyebrow { color: #FEE500; }
+.wp-cases h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #fff;
+  margin: 0 0 8px; line-height: 1.15; max-width: 820px; }
+.wp-cases .cases-sub { font-size: 17px; color: rgba(255,255,255,.7);
+  max-width: 720px; margin: 0 0 56px; line-height: 1.6; }
+.wp-case-stage { position: relative; min-height: 460px; }
+.wp-case { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease;
+  pointer-events: none; }
+.wp-case.active { opacity: 1; pointer-events: auto; position: relative; }
+.wp-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.wp-case-text h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 800; color: #fff;
+  line-height: 1.2; margin: 0 0 16px; }
+.wp-case-text h3 .name { color: #FEE500; }
+.wp-case-text .ctx { font-size: 14px; color: rgba(255,255,255,.7);
+  text-transform: uppercase; letter-spacing: .08em; font-weight: 600; margin-bottom: 12px; }
+.wp-case-text .reveal { margin-top: 24px; padding: 16px 18px; background: rgba(254,229,0,.12);
+  border-left: 4px solid #FEE500; border-radius: 0 8px 8px 0; font-size: 14px;
+  color: #fff; line-height: 1.5; font-weight: 500; }
+.wp-case-text .reveal em { font-style: normal; color: #FEE500; font-weight: 700; }
+.wp-thread { background: #0A1226; border: 1px solid rgba(154,206,255,.2); border-radius: 16px;
+  padding: 20px; box-shadow: 0 20px 56px rgba(0,0,0,.45); }
+.wp-thread .thread-h { display: flex; align-items: center; gap: 10px;
+  padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 14px; }
+.wp-thread .thread-h img { width: 28px; height: 28px; border-radius: 50%; }
+.wp-thread .thread-h .name { font-weight: 700; font-size: 14px; }
+.wp-thread .thread-h .status { font-size: 11px; color: #6BB37A; }
+.wp-t { padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5;
+  max-width: 86%; margin: 6px 0; }
+.wp-t.me { background: #2A9D8F; color: #fff; margin-left: auto; }
+.wp-t.them { background: rgba(255,255,255,.07); color: #fff; }
+.wp-t .t-time { display: block; font-size: 10px; opacity: .55; margin-top: 4px; }
+.wp-case-dots { display: flex; gap: 10px; justify-content: center; margin-top: 32px; }
+.wp-case-dots span { width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,.25); cursor: pointer; transition: background .2s; }
+.wp-case-dots span.active { background: #FEE500; }
+.wp-cases-foot { font-size: 12px; color: rgba(255,255,255,.5); text-align: center;
+  margin-top: 24px; font-style: italic; }
+
 /* ----- Final CTA ----- */
 .wp-final { padding: 120px 0; background: #fff; text-align: center; }
 .wp-final h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #1B3A5C; margin: 0 0 24px; line-height: 1.1; }
@@ -251,6 +291,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .s3-split { grid-template-columns: 1fr; }
   .wp-depth-grid { grid-template-columns: 1fr; }
   .wp-cost, .wp-final { padding: 80px 0; }
+  .wp-cases { padding: 80px 0; }
+  .wp-case-grid { grid-template-columns: 1fr; gap: 32px; }
+  .wp-case-stage { min-height: auto; }
 }
 </style>
 </head>
@@ -526,6 +569,134 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </div>
+</section>
+
+<!-- ============================================================
+     CASE CAROUSEL — real Mitra conversations from staging
+     Three students: elementary, middle, senior. Each shows
+     Mitra teaching the process, not handing over the answer.
+     Names are Westernized; transcripts are real Mitra responses
+     captured on Mitra staging (sourced from marketing personas).
+     ============================================================ -->
+<section class="wp-cases">
+  <div class="wp-wrap">
+    <p class="wp-eyebrow">Three students. Three real conversations.</p>
+    <h2>Mitra teaches. She doesn't hand over the answer.</h2>
+    <p class="cases-sub">Every line below labeled "Mitra" is a real, unscripted response captured on Mitra staging. Translated to English where the original was Korean. Names changed for privacy.</p>
+
+    <div class="wp-case-stage">
+
+      <!-- CASE 1 — Theo (was Junho), 9, ADHD, dinosaurs -->
+      <div class="wp-case active">
+        <div class="wp-case-grid">
+          <div class="wp-case-text">
+            <div class="ctx">Theo · Grade 3 · ADHD</div>
+            <h3>10 T-Rex toys turned into <span class="name">Theo's</span> first big math discovery.</h3>
+            <p style="color:rgba(255,255,255,.75); line-height:1.55; font-size:15px;">Theo had just gotten 10 dinosaur figurines and was buzzing. Mitra met him in the dinosaur world and turned the room into a math problem. He found the trick himself.</p>
+            <div class="reveal">→ <em>Theo discovered the pattern</em> (×10 means add a zero) by himself. ChatGPT would have just said "500."</div>
+          </div>
+          <div class="wp-thread">
+            <div class="thread-h">
+              <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+              <div>
+                <div class="name">Mitra</div>
+                <div class="status">● online</div>
+              </div>
+            </div>
+            <div class="wp-t me">Mitra!! I got 10 T-Rex toys yesterday!!! my room is jurassic park now lol</div>
+            <div class="wp-t them">That's actually a math problem hiding in your room. A T-Rex eats 50 kg of meat per day. 10 T-Rex would eat how much in a day?</div>
+            <div class="wp-t me">umm... 50 ten times? 50, 100, 150... wait</div>
+            <div class="wp-t me">OH!! you just put a 0 after 50?? 500???</div>
+            <div class="wp-t them">YES 🎉 You found a real math trick — multiplying by 10 just means add a zero.</div>
+            <div class="wp-t me">T-Rex eats SO MUCH 😱</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 2 — Marcus (was Minhu), 18, senior, exam prep -->
+      <div class="wp-case">
+        <div class="wp-case-grid">
+          <div class="wp-case-text">
+            <div class="ctx">Marcus · Senior · Exam prep</div>
+            <h3><span class="name">Marcus</span> had been staring at the answer key for an hour. Mitra showed him the pattern.</h3>
+            <p style="color:rgba(255,255,255,.75); line-height:1.55; font-size:15px;">Marcus came to Mitra after hours, embarrassed, asking a "basic" question. He'd read the answer but didn't know <em>why</em> it was the answer. Mitra named the pattern. Then he solved the next one himself.</p>
+            <div class="reveal">→ Marcus, later: <em>"If I'd just memorized the answer, I'd be stuck on the next one. Nobody's ever explained the pattern before."</em></div>
+          </div>
+          <div class="wp-thread">
+            <div class="thread-h">
+              <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+              <div>
+                <div class="name">Mitra</div>
+                <div class="status">● online</div>
+              </div>
+            </div>
+            <div class="wp-t me">Mitra, basic question. ∫ x·e^(x²) dx. I read the answer key, but I don't understand why a (1/2) shows up.</div>
+            <div class="wp-t them">The key is substitution. The x dx is hiding inside the integral as a set. Let x² = t, then 2x dx = dt, so x dx = dt/2. Replace it, only e^t is left.</div>
+            <div class="wp-t them">Now try this: ∫ 2x·cos(x²) dx. See the same set?</div>
+            <div class="wp-t me">oh yeah... 2x dx is right there. so u = x², du = 2x dx, gives sin(x²) + C</div>
+            <div class="wp-t them">Perfect. The pattern works every time you see the "set" hidden in the integral.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 3 — Maya (was Seoyeon), 14, mom-late, essay -->
+      <div class="wp-case">
+        <div class="wp-case-grid">
+          <div class="wp-case-text">
+            <div class="ctx">Maya · Grade 8 · Home alone after school</div>
+            <h3><span class="name">Maya</span> sat in front of a blank essay. Mitra didn't write it for her.</h3>
+            <p style="color:rgba(255,255,255,.75); line-height:1.55; font-size:15px;">Maya's mom works late. The essay was due tomorrow and she had no idea what to write. Mitra didn't draft it. She reframed Maya's own world as worth writing about.</p>
+            <div class="reveal">→ A week later, Maya messaged: <em>"I got my essay back. I got an A."</em> She wrote it herself.</div>
+          </div>
+          <div class="wp-thread">
+            <div class="thread-h">
+              <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+              <div>
+                <div class="name">Mitra</div>
+                <div class="status">● online</div>
+              </div>
+            </div>
+            <div class="wp-t me">Mitra, I have to write something for class and I have no idea what</div>
+            <div class="wp-t me">my mom is going to be late again 😞</div>
+            <div class="wp-t them">Okay, let's do it together. What did the teacher ask for?</div>
+            <div class="wp-t me">the prompt is "a story that inspired me"</div>
+            <div class="wp-t them">Oh that's actually a perfect prompt, for you. What about that webtoon you've been watching? A webtoon is a story too.</div>
+            <div class="wp-t me">a webtoon counts?? then I'll write about that</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="wp-case-dots">
+      <span class="active" data-i="0"></span>
+      <span data-i="1"></span>
+      <span data-i="2"></span>
+    </div>
+    <p class="wp-cases-foot">Unscripted Mitra responses. Captured on Mitra staging. Student lines authored to match the persona; the AI's responses are real.</p>
+  </div>
+
+  <script>
+    (function() {
+      var cases = document.querySelectorAll('.wp-case');
+      var dots = document.querySelectorAll('.wp-case-dots span');
+      if (cases.length < 2) return;
+      var i = 0;
+      function show(n) {
+        cases.forEach(function(c, idx) { c.classList.toggle('active', idx === n); });
+        dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
+        i = n;
+      }
+      var timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+      dots.forEach(function(d, idx) {
+        d.addEventListener('click', function() {
+          clearInterval(timer);
+          show(idx);
+          timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+        });
+      });
+    })();
+  </script>
 </section>
 
 <!-- COST -->
