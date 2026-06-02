@@ -293,25 +293,25 @@ body > nav.navbar { display: none !important; }
 body > footer.site-footer { display: none !important; }
 body { padding-top: 0 !important; }
 
-/* ----- New header ----- */
-.wp-nav { background: #1B3A5C; color: #fff; border-bottom: 1px solid #16294D;
+/* ----- New header — DEFAULT = Option B (teal #2A9D8F + dark navy text) ----- */
+.wp-nav { background: #2A9D8F; color: #1B3A5C; border-bottom: 1px solid #1F7A6E;
   position: sticky; top: 0; z-index: 60; }
 .wp-nav-row { display: flex; align-items: center; gap: 24px; height: 64px; }
 .wp-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none;
-  color: #fff; font-family: 'DM Sans'; font-weight: 700; font-size: 18px;
+  color: #1B3A5C; font-family: 'DM Sans'; font-weight: 700; font-size: 18px;
   letter-spacing: -.01em; }
 .wp-nav-logo img { width: 32px; height: 32px; }
-.wp-nav-logo:hover { color: #fff; }
+.wp-nav-logo:hover { color: #1B3A5C; }
 .wp-nav-items { display: flex; align-items: center; gap: 4px; list-style: none;
   margin: 0; padding: 0; margin-left: auto; }
 .wp-nav-items > li { position: relative; }
 .wp-nav-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
-  border-radius: 999px; color: rgba(255,255,255,.85); font-weight: 600; font-size: 14px;
+  border-radius: 999px; color: rgba(27,58,92,.88); font-weight: 600; font-size: 14px;
   text-decoration: none; cursor: pointer; border: none; background: transparent;
   font-family: inherit; }
-.wp-nav-link:hover { color: #fff; background: rgba(255,255,255,.07); }
-.wp-nav-link.cta { background: #2A9D8F; color: #fff; font-weight: 700; }
-.wp-nav-link.cta:hover { background: #21867A; color: #fff; }
+.wp-nav-link:hover { color: #1B3A5C; background: rgba(255,255,255,.22); }
+.wp-nav-link.cta { background: #FEE500; color: #1B3A5C; font-weight: 700; }
+.wp-nav-link.cta:hover { background: #ffe833; color: #1B3A5C; }
 .wp-nav-link .caret { font-size: 10px; opacity: .7; transition: transform .15s; }
 .wp-nav-dd.open .wp-nav-link .caret { transform: rotate(180deg); }
 .wp-nav-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 240px;
@@ -325,36 +325,66 @@ body { padding-top: 0 !important; }
 .wp-nav-dd-menu a:hover { background: #F0F2F5; color: #1B3A5C; }
 .wp-nav-dd-menu a.sub { font-size: 13px; color: #2A9D8F; font-weight: 700; }
 .wp-nav-lang { display: flex; gap: 4px; margin-left: 16px;
-  padding-left: 16px; border-left: 1px solid rgba(255,255,255,.18); }
+  padding-left: 16px; border-left: 1px solid rgba(27,58,92,.22); }
 .wp-nav-lang a { padding: 5px 11px; border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.25); color: rgba(255,255,255,.85);
+  border: 1px solid rgba(27,58,92,.3); color: rgba(27,58,92,.88);
   text-decoration: none; font-weight: 700; font-size: 12px; letter-spacing: .04em; }
-.wp-nav-lang a.on { background: #fff; color: #1B3A5C; border-color: #fff; }
-.wp-nav-lang a:hover:not(.on) { color: #fff; border-color: rgba(255,255,255,.5); }
+.wp-nav-lang a.on { background: #1B3A5C; color: #fff; border-color: #1B3A5C; }
+.wp-nav-lang a:hover:not(.on) { color: #1B3A5C; border-color: #1B3A5C; }
 
 /* Mobile hamburger */
-.wp-nav-burger { display: none; background: transparent; border: none; color: #fff;
+.wp-nav-burger { display: none; background: transparent; border: none; color: #1B3A5C;
   font-size: 22px; cursor: pointer; padding: 8px 10px; margin-left: auto; }
 
-/* ----- New footer ----- */
-.wp-footer { background: #1B3A5C; color: rgba(255,255,255,.85); padding: 64px 0 24px; }
+/* ----- New footer — DEFAULT = Option B ----- */
+.wp-footer { background: #2A9D8F; color: rgba(27,58,92,.9); padding: 64px 0 24px; }
 .wp-footer .wp-wrap { display: flex; flex-direction: column; gap: 48px; }
-.wp-footer-brand { display: flex; align-items: center; gap: 10px; color: #fff;
+.wp-footer-brand { display: flex; align-items: center; gap: 10px; color: #1B3A5C;
   font-family: 'DM Sans'; font-weight: 700; font-size: 18px; }
 .wp-footer-brand img { width: 28px; height: 28px; }
 .wp-footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
 .wp-footer-col h6 { font-family: 'DM Sans'; font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .14em; color: #FEE500; margin: 0 0 16px; }
+  text-transform: uppercase; letter-spacing: .14em; color: #1B3A5C; margin: 0 0 16px; }
 .wp-footer-col ul { list-style: none; padding: 0; margin: 0; }
 .wp-footer-col li { margin: 0 0 10px; }
-.wp-footer-col a { color: rgba(255,255,255,.75); text-decoration: none;
+.wp-footer-col a { color: rgba(27,58,92,.85); text-decoration: none;
   font-size: 14px; transition: color .15s; }
-.wp-footer-col a:hover { color: #fff; }
+.wp-footer-col a:hover { color: #1B3A5C; }
 .wp-footer-bottom { display: flex; justify-content: space-between; align-items: center;
-  padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12);
-  font-size: 12px; color: rgba(255,255,255,.5); flex-wrap: wrap; gap: 12px; }
-.wp-footer-admin a { color: rgba(255,255,255,.45); text-decoration: none; }
-.wp-footer-admin a:hover { color: rgba(255,255,255,.85); }
+  padding-top: 24px; border-top: 1px solid rgba(27,58,92,.2);
+  font-size: 12px; color: rgba(27,58,92,.7); flex-wrap: wrap; gap: 12px; }
+.wp-footer-admin a { color: rgba(27,58,92,.55); text-decoration: none; }
+.wp-footer-admin a:hover { color: rgba(27,58,92,.9); }
+
+/* ----- ALT = Option B2 (white on darker teal #21867A) ----- */
+body.theme-dark-teal .wp-nav { background: #21867A; color: #fff; border-bottom: 1px solid #1A6D63; }
+body.theme-dark-teal .wp-nav-logo { color: #fff; }
+body.theme-dark-teal .wp-nav-link { color: rgba(255,255,255,.92); }
+body.theme-dark-teal .wp-nav-link:hover { color: #fff; background: rgba(255,255,255,.12); }
+body.theme-dark-teal .wp-nav-link.cta { background: #FEE500; color: #1B3A5C; }
+body.theme-dark-teal .wp-nav-link.cta:hover { background: #ffe833; color: #1B3A5C; }
+body.theme-dark-teal .wp-nav-lang { border-left-color: rgba(255,255,255,.22); }
+body.theme-dark-teal .wp-nav-lang a { border-color: rgba(255,255,255,.32); color: rgba(255,255,255,.92); }
+body.theme-dark-teal .wp-nav-lang a.on { background: #fff; color: #21867A; border-color: #fff; }
+body.theme-dark-teal .wp-nav-lang a:hover:not(.on) { color: #fff; border-color: rgba(255,255,255,.6); }
+body.theme-dark-teal .wp-nav-burger { color: #fff; }
+body.theme-dark-teal .wp-footer { background: #21867A; color: rgba(255,255,255,.85); }
+body.theme-dark-teal .wp-footer-brand { color: #fff; }
+body.theme-dark-teal .wp-footer-col h6 { color: #FEE500; }
+body.theme-dark-teal .wp-footer-col a { color: rgba(255,255,255,.78); }
+body.theme-dark-teal .wp-footer-col a:hover { color: #fff; }
+body.theme-dark-teal .wp-footer-bottom { border-top-color: rgba(255,255,255,.16); color: rgba(255,255,255,.55); }
+body.theme-dark-teal .wp-footer-admin a { color: rgba(255,255,255,.48); }
+body.theme-dark-teal .wp-footer-admin a:hover { color: rgba(255,255,255,.9); }
+
+/* ----- Theme toggle in WIP bar ----- */
+.wp-theme-toggle { display: inline-flex; gap: 4px; margin-left: 8px; }
+.wp-theme-toggle button { background: rgba(255,255,255,.12); color: #fff;
+  border: 1px solid rgba(255,255,255,.25); border-radius: 999px;
+  padding: 3px 10px; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  cursor: pointer; font-family: inherit; }
+.wp-theme-toggle button.on { background: #FEE500; color: #1B3A5C; border-color: #FEE500; }
+.wp-theme-toggle button:hover:not(.on) { background: rgba(255,255,255,.22); color: #fff; }
 
 /* ----- Responsive — matched to home-v2's 860px breakpoint ----- */
 @media (max-width: 860px) {
@@ -497,8 +527,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Sticky WIP bar -->
 <div class="wp-bar">
   <div class="wp-wrap wp-bar-row">
-    <span class="wp-bar-tag">WIP · INTERNAL · v4</span>
-    <span class="wp-note">US partners draft · new nav + footer preview · login lives inside Parents/Academies dropdowns</span>
+    <span class="wp-bar-tag">WIP · INTERNAL · v5</span>
+    <span class="wp-note">US partners · login inside Parents/Academies</span>
+    <span class="wp-theme-toggle">
+      <button class="on" data-theme="">B · Teal + navy text</button>
+      <button data-theme="theme-dark-teal">B2 · White on darker teal</button>
+    </span>
     <span class="wp-spacer"></span>
     <span class="wp-note">Compare with live: <a href="/en/partners">/en/partners</a></span>
   </div>
@@ -902,6 +936,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         items.classList.toggle('mobile-open');
       });
     }
+    // Theme toggle (B vs B2)
+    var themeButtons = document.querySelectorAll('.wp-theme-toggle button');
+    themeButtons.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var theme = btn.getAttribute('data-theme');
+        document.body.classList.remove('theme-dark-teal');
+        if (theme) document.body.classList.add(theme);
+        themeButtons.forEach(function(b) { b.classList.remove('on'); });
+        btn.classList.add('on');
+      });
+    });
   })();
 </script>
 
