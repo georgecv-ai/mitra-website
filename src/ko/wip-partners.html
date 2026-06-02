@@ -1,0 +1,462 @@
+<!-- META
+title: 학원, 학교, 과외 선생님을 위한 미트라 (WIP)
+description: 한국어 초안. 학원 대상 파트너 페이지. 새로운 헤더와 푸터, 히어로 안의 회전 캐러셀, 3개 역량 섹션.
+slug: wip-partners.html
+main_class: pain-main
+-->
+<div class="wp-page">
+
+<!-- ============================================================
+     PREVIEW: new site header (KO)
+     ============================================================ -->
+<nav class="wp-nav">
+  <div class="wp-wrap wp-nav-row">
+    <a class="wp-nav-logo" href="/ko/">
+      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+      <span>미트라 AI 튜터</span>
+    </a>
+    <button class="wp-nav-burger" data-burger aria-label="메뉴">☰</button>
+    <ul class="wp-nav-items" data-nav-items>
+      <li>
+        <a class="wp-nav-link cta" href="{{app_base}}/ko/enroll">등록</a>
+      </li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>학부모 <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/ko/for-parents">학부모를 위한 미트라</a></li>
+          <li><a class="sub" href="{{app_base}}/ko/parent/login">학부모 로그인 →</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>학원 <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/ko/partners">학원을 위한 미트라</a></li>
+          <li><a class="sub" href="{{app_base}}/ko/org/login">학원 로그인 →</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>소개 <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/ko/faq">자주 묻는 질문</a></li>
+          <li><a href="/ko/how-to-work-with-mitra">미트라와 함께하는 법</a></li>
+          <li><a href="/ko/principles">원칙과 실천</a></li>
+          <li><a href="/ko/about">미트라를 만든 이유</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-lang">
+        <a href="/en/wip-partners.html">EN</a>
+        <a class="on" href="/ko/wip-partners.html">KO</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sticky WIP bar -->
+<div class="wp-bar">
+  <div class="wp-wrap wp-bar-row">
+    <span class="wp-bar-tag">WIP · 내부 검토용 · v7</span>
+    <span class="wp-note">한국어 초안 · 미트라 한국 마케팅 팀 감수 전</span>
+    <span class="wp-spacer"></span>
+    <span class="wp-note">실제 공개 페이지: <a href="/ko/partners">/ko/partners</a></span>
+  </div>
+</div>
+
+<!-- Translation status notice -->
+<div style="background:#FEE500; color:#1B3A5C; padding:14px 0; border-bottom:1px solid #C9B600;">
+  <div class="wp-wrap" style="font-size:14px; font-weight:600;">
+    한국어 초안입니다. 미트라 한국어 마케팅 팀의 감수 전 시안이며, 디자인과 카피 방향성 검토용으로 사용해 주세요.
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="wp-hero">
+  <div class="wp-wrap">
+    <div class="wp-hero-grid">
+      <div class="wp-hero-copy">
+        <p class="wp-eyebrow">학원 · 학교 · 과외 선생님께 · 한국</p>
+        <p class="wp-kicker">지금, 학원은 <strong>ChatGPT</strong>, <strong>Gemini</strong>, <strong>Claude</strong>, 그리고 학생들이 무료로 열 수 있는 모든 AI와 경쟁하고 있습니다.</p>
+        <h1>미트라는 학원의 <em>슈퍼슈트</em>입니다.</h1>
+        <p class="wp-sub">학원은 진짜 학습을 지키는 곳입니다. 학부모에게 대안을 제시합니다. 학생에게 진짜 가르치는 AI를 제공합니다. 미트라는 학원 편에 서 있는 AI, 관계를 위해 만들어진 AI입니다.</p>
+        <div class="cap-number" style="margin-bottom:24px;">
+          <span class="num">정답 전달 0건.</span>
+        </div>
+        <div class="wp-cta-row">
+          <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=미트라%20파트너%20신청">파트너로 신청하기</a>
+          <a class="wp-cta secondary" href="mailto:partnerships@mitratutor.com?subject=미트라%20파트너%20상담">상담 요청</a>
+        </div>
+      </div>
+      <div class="wp-hero-art">
+        <div class="wp-case-stage">
+
+          <!-- CASE 1 — 준호, 초3, ADHD -->
+          <div class="wp-case active">
+            <div class="case-ctx">준호 · 초3 · ADHD</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+                <div>
+                  <div class="name">미트라</div>
+                  <div class="status">● 온라인</div>
+                </div>
+              </div>
+              <div class="wp-t me">미트라!! 어제 공룡 피규어 10개 샀어!! 방을 쥬라기공원처럼 만들 거야 ㅋㅋㅋ</div>
+              <div class="wp-t them">방 안에 수학 문제가 숨어있네! 티라노 1마리가 하루에 50kg 먹어. 10마리면 하루에 몇 kg일까??</div>
+              <div class="wp-t me">음… 50이 10번? 50, 100, 150… 어 잠깐</div>
+              <div class="wp-t me">아!! 50 뒤에 0 붙이면 500??? 맞아???</div>
+              <div class="wp-t them">맞았어 🎉 진짜 수학 꿀팁이야 — 10 곱하면 0 하나 붙이는 거.</div>
+            </div>
+            <div class="case-reveal">→ <em>준호가 ×10 = 0 붙이기를 스스로 발견</em>했어요. 다른 AI라면 그냥 "500"이라고 답을 던졌을 거예요.</div>
+          </div>
+
+          <!-- CASE 2 — 민후, 고3, 수능 -->
+          <div class="wp-case">
+            <div class="case-ctx">민후 · 고3 · 수능 준비</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+                <div>
+                  <div class="name">미트라</div>
+                  <div class="status">● 온라인</div>
+                </div>
+              </div>
+              <div class="wp-t me">미트라, 기초적인 거 하나만요. ∫ x·e^(x²) dx 답지 봤는데 왜 (1/2)이 나오는지 모르겠어요.</div>
+              <div class="wp-t them">핵심은 치환적분이야. x dx가 적분 안에 세트로 숨어있어. x² = t 로 놓으면 2x dx = dt, 그러니까 x dx = dt/2. 바꾸면 e^t만 남아.</div>
+              <div class="wp-t them">이거 해볼래? ∫ 2x·cos(x²) dx. 같은 세트 보여?</div>
+              <div class="wp-t me">아 보여요. 2x dx 그대로 있네요. u = x², du = 2x dx → sin(x²) + C</div>
+              <div class="wp-t them">완벽해. '세트'를 찾는 눈이 생기면 같은 패턴이 매번 통해.</div>
+            </div>
+            <div class="case-reveal">→ 며칠 뒤 민후: <em>"답만 외웠으면 다음 문제에서 또 막혔을 거예요. 패턴을 설명해준 사람은 처음이에요."</em></div>
+          </div>
+
+          <!-- CASE 3 — 서연, 중2, 엄마 늦은 저녁 -->
+          <div class="wp-case">
+            <div class="case-ctx">서연 · 중2 · 방과 후 혼자</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+                <div>
+                  <div class="name">미트라</div>
+                  <div class="status">● 온라인</div>
+                </div>
+              </div>
+              <div class="wp-t me">미트라, 저 글쓰기 숙제 해야 하는데 뭘 써야 할지 모르겠어요</div>
+              <div class="wp-t me">엄마는 또 늦으실 거 같고요 😞</div>
+              <div class="wp-t them">같이 해보자. 선생님이 뭐 쓰라고 했어?</div>
+              <div class="wp-t me">주제가 "나에게 영감을 준 이야기"예요</div>
+              <div class="wp-t them">오, 그건 너한테 완전 맞는 주제다. 요즘 보고 있는 웹툰은 어때? 웹툰도 이야기잖아.</div>
+              <div class="wp-t me">웹툰도 돼요?? 그럼 그거 쓸래요</div>
+            </div>
+            <div class="case-reveal">→ 일주일 뒤 서연: <em>"에세이 받았어요. A 받았어요."</em> 본인이 직접 썼어요.</div>
+          </div>
+
+        </div>
+
+        <div class="wp-case-dots">
+          <span class="active" data-i="0"></span>
+          <span data-i="1"></span>
+          <span data-i="2"></span>
+        </div>
+        <div class="wp-case-foot">실제, 즉흥 미트라 응답.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 1 — 교실 밖에서의 가시성
+     ============================================================ -->
+<section class="cap alt">
+  <div class="wp-wrap">
+    <div class="cap-row">
+      <div class="cap-text">
+        <p class="cap-num-label">01 · 교실 문 너머의 가르침</p>
+        <h2 class="cap-pain">교실을 나서는 순간, 학생에 대한 가시성과 품질 관리가 사라집니다.</h2>
+        <p class="cap-capability">미트라가 학원의 가르침을 집까지 연장합니다. 학원의 커리큘럼과 한국 교육과정·Common Core·IB 기준에 맞춰 학습합니다. 학원이 업로드한 교재를 사용하고, 학원의 목표에 맞는 주제로 학생과 학습합니다. 교실에서 세운 기준이, 수업 사이 시간에도 그대로 이어집니다.</p>
+        <div class="cap-number">
+          <span class="num">학원 커리큘럼 + 한국 교육과정 + Common Core + IB</span>
+          <span class="sub">학원이 업로드한 교재. 학원의 기준, 어디서나.</span>
+        </div>
+      </div>
+      <div class="cap-art">
+        <div class="s2-card">
+          <div class="card-h">학원 대시보드 · 최근 30일</div>
+
+          <div class="s2-block">
+            <div class="s2-block-h">학생들이 가장 많이 공부한 주제</div>
+            <div class="s2-topic-row">
+              <div class="s2-topic-rank">1</div>
+              <div class="s2-topic-name">일차방정식</div>
+              <div class="s2-topic-count"><strong>39</strong></div>
+            </div>
+            <div class="s2-topic-row">
+              <div class="s2-topic-rank">2</div>
+              <div class="s2-topic-name">중심 내용 찾기</div>
+              <div class="s2-topic-count"><strong>38</strong></div>
+            </div>
+            <div class="s2-topic-row">
+              <div class="s2-topic-rank">3</div>
+              <div class="s2-topic-name">대입법</div>
+              <div class="s2-topic-count"><strong>28</strong></div>
+            </div>
+          </div>
+
+          <div class="s2-block">
+            <div class="s2-block-h">우선 다뤄야 할 어려움</div>
+            <div class="s2-challenge">
+              <div class="s2-challenge-icon">!</div>
+              <div>
+                <div class="ch-name">연립방정식의 평행 케이스</div>
+                <div class="ch-meta">11세션 · 학생 5명</div>
+              </div>
+            </div>
+          </div>
+
+          <a class="s2-see" href="/ko/partners">전체 대시보드 보기 →</a>
+          <div class="s2-foot">샘플 · 실제 파트너 코호트의 대표적인 모습</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — 가치를 매일 전달
+     ============================================================ -->
+<section class="cap">
+  <div class="wp-wrap">
+    <div class="cap-row reverse">
+      <div class="cap-text">
+        <p class="cap-num-label">02 · 매일 보여주는 가치</p>
+        <h2 class="cap-pain">미트라가 학원 프로그램의 가치를, 모든 학부모에게 매일 전합니다.</h2>
+        <p class="cap-capability">학부모가 언제든 확인할 수 있는 실시간 성장 대시보드. 매주 금요일에 학원 이름으로 자동 발송되는 구조화된 주간 리포트. 학부모가 묻기 전에, 증거가 이미 받은편지함에 도착해 있습니다. 재등록 시즌마다 가치를 다시 증명해야 하는 부담이 사라집니다.</p>
+        <div class="cap-number">
+          <span class="num">실시간 대시보드 + 가정당 연 52회 리포트.</span>
+          <span class="sub">금요일 자동 발송. 학원의 작업은 0.</span>
+        </div>
+      </div>
+      <div class="cap-art">
+        <div class="s3-split">
+          <div class="s3-card">
+            <div class="card-h">
+              <span><span class="live-dot"></span>실시간 대시보드</span>
+              <span style="color:#8896A6; letter-spacing:0; text-transform:none; font-weight:500;">4분 전 업데이트</span>
+            </div>
+            <div class="student-name">서연 &middot; 14주차</div>
+            <div class="s3-stat"><span class="label">이번 주 세션</span><span class="val">5</span></div>
+            <div class="s3-stat"><span class="label">총 학습 시간</span><span class="val">3.4시간</span></div>
+            <div class="s3-stat"><span class="label">완료 항목</span><span class="val">17개</span></div>
+            <div class="s3-stat"><span class="label">현재 주제</span><span class="val">대입법</span></div>
+            <p style="font-size:11px; color:#8896A6; margin-top:12px; text-align:center;">학부모는 언제든 확인할 수 있어요.</p>
+          </div>
+          <div class="s3-card">
+            <div class="card-h">
+              <span>금요일 이메일</span>
+              <span style="color:#8896A6; letter-spacing:0; text-transform:none; font-weight:500;">52회 중 14회 발송</span>
+            </div>
+            <div class="student-name">서연 &middot; 52주 중 14주차</div>
+            <div class="s3-stat"><span class="label">세션</span><span class="val">5</span></div>
+            <div class="s3-stat"><span class="label">잘 되는 것</span><span class="val">대입법</span></div>
+            <div class="s3-stat"><span class="label">자라고 있는 부분</span><span class="val">풀이 단계</span></div>
+            <div class="s3-quote">"서연이 이번 주에 대입법을 끝까지 도움 없이 깔끔하게 풀어냈어요. 중심 내용 찾기는 아직 흔들리지만, 질문하는 방식이 나아지고 있어요."</div>
+            <div class="s3-badge">매주 금요일 자동 발송 · [학원명] 발송</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — 모든 규모의 수업 설계
+     ============================================================ -->
+<section class="cap alt">
+  <div class="wp-wrap">
+    <div class="cap-row">
+      <div class="cap-text">
+        <p class="cap-num-label">03 · 자리에 앉기 전에 준비된 수업안</p>
+        <h2 class="cap-pain">수업 준비는 끝이 없고, 잘 준비할 시간은 늘 부족합니다.</h2>
+        <p class="cap-capability">학원이 필요로 하는 모든 규모로 미트라가 수업을 설계합니다. 30분 워밍업. 월요일 수업. 6개월 프로그램. <strong>무엇을</strong> / <strong>어떻게</strong> / <strong>어떻게-안 되면</strong> 구조로, 출력하거나 학생에게 바로 전달할 수 있는 워크시트와 함께.</p>
+        <div class="cap-number">
+          <span class="num">30분 워밍업부터 6개월 로드맵까지.</span>
+          <span class="sub">일반 템플릿이 아닌, 학원 코호트의 실제 데이터에서 생성.</span>
+        </div>
+        <p class="cap-scale">같은 엔진, 모든 규모: <strong>30분 워밍업</strong> &middot; <strong>주간 수업</strong> &middot; <strong>단원 전체 계획</strong> &middot; <strong>6개월 프로그램 로드맵</strong></p>
+      </div>
+      <div class="cap-art">
+        <div class="s4-plan">
+          <div class="s4-plan-head">
+            <div class="title">대수학 기초 · 월요일</div>
+            <div class="when">일요일 21:00 생성</div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">무엇</div>
+            <div class="body">
+              <div class="main">괄호 분배법칙</div>
+              <div class="meta">다음 주 이차방정식 단원의 선행 학습. 학원 코호트: 16명 중 12명이 여기서 막혀 있음.</div>
+            </div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">어떻게</div>
+            <div class="body">
+              <div class="main">레인보우 화살표 드릴</div>
+              <div class="meta">바깥의 수에서 안쪽 각 항으로 호를 그리기. 시각적으로 사고하는 학생에게 잘 맞음.</div>
+              <span class="s4-worksheet">워크시트 준비 · 12문항</span>
+            </div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">안 되면</div>
+            <div class="body">
+              <div class="main">박스 표기법</div>
+              <div class="meta">레인보우가 안 통하면, 2x2 박스로 전환. 시작은 느리지만 나중에 FOIL로 확장 가능.</div>
+              <span class="s4-worksheet">워크시트 준비 · 8문항</span>
+            </div>
+          </div>
+          <div class="s4-cohort">
+            <div class="ch-h">코호트 시그널 · 지난 7일</div>
+            <div class="ch-body">16명 중 8명이 아직 중심 문장과 뒷받침 문장을 헷갈려 함. 지난 목요일의 "한 문장 요약" 드릴을 워밍업에 다시 넣을 것.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="wp-cost">
+  <div class="wp-wrap">
+    <p class="wp-eyebrow">비용 구조</p>
+    <h2>학원 비용 <span class="currency">₩</span>0.</h2>
+    <p class="cost-sub">학부모가 미트라를 직접 결제합니다. 라이선스 비용도, 시트당 과금도 없습니다. 학생들이 성장하면 수익을 공유 받으세요. 창립 파트너가 조건 형성에 함께합니다.</p>
+    <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=미트라%20창립%20파트너%20신청">창립 파트너로 신청하기</a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="wp-final">
+  <div class="wp-narrow">
+    <h2>준비되시면 시작해요.</h2>
+    <p>신청은 2분이면 끝납니다. 학원에 맞으면 일주일 안에 온보딩을 도와드립니다. 맞지 않으면, 빠르게 알려드립니다.</p>
+    <div class="wp-cta-row">
+      <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=미트라%20파트너%20신청">파트너로 신청하기</a>
+      <a class="wp-cta secondary" href="mailto:partnerships@mitratutor.com?subject=미트라%20파트너%20상담">상담 요청</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPTH -->
+<section class="wp-depth">
+  <div class="wp-wrap">
+    <h3>더 깊이 보고 싶다면</h3>
+    <div class="wp-depth-grid">
+      <a class="wp-depth-link" href="/ko/parent-dashboard">학부모 대시보드 전체 샘플 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/ko/partners">긴 형식의 파트너 소개 읽기 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/ko/how-to-work-with-mitra">미트라가 가정과 함께하는 법 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/partner-agreement-v1.0">파트너 계약서 v1.0 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/partner-guidelines-v1.0">파트너 가이드라인 v1.0 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/ko/compliance">컴플라이언스 및 AI 안전 <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PREVIEW: new site footer (KO)
+     ============================================================ -->
+<footer class="wp-footer">
+  <div class="wp-wrap">
+    <div class="wp-footer-brand">
+      <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+      <span>미트라 AI 튜터</span>
+    </div>
+    <div class="wp-footer-cols">
+      <div class="wp-footer-col">
+        <h6>둘러보기</h6>
+        <ul>
+          <li><a href="/ko/for-parents">학부모 안내</a></li>
+          <li><a href="/ko/for-students">학생 안내</a></li>
+          <li><a href="/ko/partners">파트너 안내</a></li>
+          <li><a href="/ko/how-to-work-with-mitra">미트라와 함께하는 법</a></li>
+        </ul>
+      </div>
+      <div class="wp-footer-col">
+        <h6>자료</h6>
+        <ul>
+          <li><a href="/ko/faq">자주 묻는 질문</a></li>
+          <li><a href="/ko/about">미트라를 만든 이유</a></li>
+          <li><a href="/ko/principles">원칙</a></li>
+          <li><a href="/ko/compliance">컴플라이언스</a></li>
+        </ul>
+      </div>
+      <div class="wp-footer-col">
+        <h6>법적 고지</h6>
+        <ul>
+          <li><a href="/ko/privacy">개인정보처리방침</a></li>
+          <li><a href="/ko/terms">이용약관</a></li>
+          <li><a href="/ko/refund">환불정책</a></li>
+          <li><a href="/en/partner-agreement-v1.0">파트너 계약서</a></li>
+        </ul>
+      </div>
+      <div class="wp-footer-col">
+        <h6>시작하기</h6>
+        <ul>
+          <li><a href="{{app_base}}/ko/enroll">등록</a></li>
+          <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wp-footer-bottom">
+      <div>
+        <div>&copy; 2026 Mitra AI &middot; 미트라 AI</div>
+        <div class="wp-footer-legal">상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com">support@mitratutor.com</a></div>
+      </div>
+      <div class="wp-footer-admin"><a href="{{app_base}}/admin/login">Admin</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Dropdown + mobile nav toggling -->
+<script>
+  (function() {
+    var dds = document.querySelectorAll('[data-dd]');
+    dds.forEach(function(dd) {
+      var trigger = dd.querySelector('[data-dd-trigger]');
+      if (!trigger) return;
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var wasOpen = dd.classList.contains('open');
+        dds.forEach(function(other) { other.classList.remove('open'); });
+        if (!wasOpen) dd.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function() {
+      dds.forEach(function(dd) { dd.classList.remove('open'); });
+    });
+    var burger = document.querySelector('[data-burger]');
+    var items = document.querySelector('[data-nav-items]');
+    if (burger && items) {
+      burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        items.classList.toggle('mobile-open');
+      });
+    }
+    var cases = document.querySelectorAll('.wp-case');
+    var dots = document.querySelectorAll('.wp-case-dots span');
+    if (cases.length >= 2) {
+      var i = 0;
+      function show(n) {
+        cases.forEach(function(c, idx) { c.classList.toggle('active', idx === n); });
+        dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
+        i = n;
+      }
+      var timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+      dots.forEach(function(d, idx) {
+        d.addEventListener('click', function() {
+          clearInterval(timer);
+          show(idx);
+          timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+        });
+      });
+    }
+  })();
+</script>
+
+</div>
