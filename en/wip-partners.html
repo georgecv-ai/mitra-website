@@ -92,7 +92,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .cap-row.reverse { direction: rtl; }
 .cap-row.reverse > * { direction: ltr; }
 .cap-text { padding-top: 4px; display: flex; flex-direction: column; }
-.cap-art { display: flex; flex-direction: column; justify-content: center; }
+.cap-art { padding-top: 4px; display: flex; flex-direction: column; }
+.cap-art > * { flex: 1 1 auto; min-height: 0; }
 .cap-text .cap-num-label { font-family: 'DM Sans'; font-size: 12px; font-weight: 700;
   letter-spacing: .14em; color: #2A9D8F; text-transform: uppercase; margin-bottom: 16px; }
 .cap-pain { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; color: #1B3A5C;
@@ -203,9 +204,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   font-weight: 700; color: #1F7A6E; text-transform: uppercase; letter-spacing: .04em; }
 .s4-worksheet::before { content: ""; display: inline-block; width: 10px; height: 12px;
   background: #2A9D8F; border-radius: 1px; position: relative; }
-.s4-scale { margin-top: 16px; padding: 12px 16px; background: #F0F2F5; border-radius: 6px;
-  font-size: 12px; color: #4A5568; text-align: center; }
-.s4-scale strong { color: #1B3A5C; font-weight: 700; }
+.cap-scale { margin-top: 14px; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em; color: #8896A6;
+  max-width: 560px; line-height: 1.7; }
+.cap-scale strong { color: #2A9D8F; font-weight: 700; }
 /* Hero grid — stretch both columns to equal height so the carousel
    stops bouncing as case heights change. */
 .wp-hero .wp-hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px;
@@ -582,6 +584,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="num">From a 30-minute warm-up to a 6-month roadmap.</span>
           <span class="sub">Generated from your cohort's actual data, not generic templates.</span>
         </div>
+        <p class="cap-scale">Same engine, any scale: <strong>30-minute warm-up</strong> &middot; <strong>weekly lesson</strong> &middot; <strong>full unit plan</strong> &middot; <strong>6-month program roadmap</strong></p>
       </div>
       <div class="cap-art">
         <div class="s4-plan">
@@ -615,9 +618,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="s4-cohort">
             <div class="ch-h">Cohort signal · last 7 days</div>
             <div class="ch-body">8 of 16 still confusing topic sentence with supporting detail. Carry the one-sentence-summary drill from last Thursday into the warm-up.</div>
-          </div>
-          <div class="s4-scale">
-            Same engine, any scale: <strong>30-minute warm-up</strong> &middot; <strong>weekly lesson</strong> &middot; <strong>full unit plan</strong> &middot; <strong>6-month program roadmap</strong>
           </div>
         </div>
       </div>
