@@ -37,16 +37,17 @@ main_class: pain-landing-main
 <div class="pp-page">
 
   <!-- 1. HERO -->
-  <section class="pb pb-1 pb-1-hero">
+  <section class="__HERO_SECTION_CLASS__">
     <div class="pp-wrap pb-1-hero-grid">
       <div class="pb-1-hero-image">
 __HERO_VISUAL_HTML__
       </div>
       <div class="pb-1-hero-text">
-        <div class="pp-quote">&ldquo;</div>
+__HERO_QUOTE_HTML__
         <span class="pb-label">__LABEL__</span>
         <h2 class="pp-pain">__HEADLINE_HTML__</h2>
         <p class="pp-promise">__PROMISE__</p>
+__HERO_BUBBLES_HTML__
         <ul class="pp-help">
 __BULLETS_HTML__
         </ul>
@@ -274,6 +275,22 @@ HEAD_TEMPLATE = """<meta name="robots" content="noindex, nofollow">
 .pb-1 .pp-promise { color: #2A9D8F; }
 .pb-1 .pp-cta { background: #2A9D8F; color: #fff; }
 
+/* Variant: pb-5 (yellow notepaper + strike/loves + interest bubbles) */
+.pb-5 { background: #FFF7E6; color: #1A1A2E; position: relative; }
+.pb-5 .pb-label { background: #FEE500; color: #5C4A00; }
+.pb-5 h2.pp-pain { font-family: 'DM Sans', sans-serif; font-weight: 700; }
+.pb-5 .pp-strike { text-decoration: line-through; text-decoration-color: #E76F51;
+  text-decoration-thickness: 4px; opacity: .55; }
+.pb-5 .pp-loves { color: #2A9D8F; }
+.pb-5 .pp-promise { color: #1B3A5C; }
+.pb-5 .pp-bubbles { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 28px; }
+.pb-5 .pp-bub { padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px;
+  background: #fff; border: 2px solid #1B3A5C; color: #1B3A5C; }
+.pb-5 .pp-bub.alt1 { background: #2A9D8F; color: #fff; border-color: #2A9D8F; }
+.pb-5 .pp-bub.alt2 { background: #1B3A5C; color: #fff; border-color: #1B3A5C; }
+.pb-5 .pp-bub.alt3 { background: #FEE500; border-color: #C9B600; color: #5C4A00; }
+.pb-5 .pp-cta { background: #1B3A5C; color: #fff; }
+
 /* Hero layout: image on the left, text on the right */
 .pb-1-hero { padding: 72px 0; }
 .pb-1-hero-grid { display: grid; grid-template-columns: minmax(260px, 0.9fr) 1.25fr;
@@ -433,11 +450,31 @@ def render_bullets(bullets: list[str]) -> str:
     return "\n".join(f"          <li>{b}</li>" for b in bullets)
 
 
+def render_bubbles(bubbles: list[dict]) -> str:
+    """Render pb-5 interest bubbles between promise and bullets. Empty if not pb-5."""
+    if not bubbles:
+        return ""
+    spans = []
+    for b in bubbles:
+        cls = "pp-bub"
+        if b.get("alt"):
+            cls += " " + b["alt"]
+        spans.append(f'          <span class="{cls}">{b["label"]}</span>')
+    return '        <div class="pp-bubbles">\n' + "\n".join(spans) + "\n        </div>"
+
+
 def render_page(pain: dict) -> str:
     out = PAGE_TEMPLATE
     headline_html = "<br>".join(pain["headline_lines"])
     closing_left = "<br>".join(pain["closing"]["left_lines"])
     closing_right = "<br>".join(pain["closing"]["right_lines"])
+
+    variant = pain.get("hero_variant", "pb-1")
+    section_class = f"pb {variant} pb-1-hero"
+    # Default variant gets a big serif quote mark; pb-5 doesn't.
+    quote_html = '        <div class="pp-quote">&ldquo;</div>' if variant == "pb-1" else ""
+    bubbles_html = render_bubbles(pain.get("bubbles", []))
+
     subs = {
         "__SLUG__": pain["slug"],
         "__PAIN_ID__": str(pain["id"]),
@@ -449,6 +486,9 @@ def render_page(pain: dict) -> str:
         "__PROMISE__": pain["promise"],
         "__BULLETS_HTML__": render_bullets(pain["bullets"]),
         "__HERO_VISUAL_HTML__": render_hero_visual(pain),
+        "__HERO_SECTION_CLASS__": section_class,
+        "__HERO_QUOTE_HTML__": quote_html,
+        "__HERO_BUBBLES_HTML__": bubbles_html,
         "__CLOSING_LEFT_HTML__": closing_left,
         "__CLOSING_RIGHT_HTML__": closing_right,
     }
