@@ -125,7 +125,7 @@
     {
       "slug": "not-interested",
       "id": 5,
-      "label": "The kid who shrugs",
+      "label": "",
       "hero_variant": "pb-5",
       "headline_lines": [
         "He doesn't care about <span class=\"pp-strike\">fractions</span>.",

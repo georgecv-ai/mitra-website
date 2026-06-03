@@ -44,7 +44,7 @@ __HERO_VISUAL_HTML__
       </div>
       <div class="pb-1-hero-text">
 __HERO_QUOTE_HTML__
-        <span class="pb-label">__LABEL__</span>
+__LABEL_HTML__
         <h2 class="pp-pain">__HEADLINE_HTML__</h2>
         <p class="pp-promise">__PROMISE__</p>
 __HERO_BUBBLES_HTML__
@@ -290,6 +290,9 @@ HEAD_TEMPLATE = """<meta name="robots" content="noindex, nofollow">
 .pb-5 .pp-bub.alt2 { background: #1B3A5C; color: #fff; border-color: #1B3A5C; }
 .pb-5 .pp-bub.alt3 { background: #FEE500; border-color: #C9B600; color: #5C4A00; }
 .pb-5 .pp-cta { background: #1B3A5C; color: #fff; }
+/* pb-5 has a tall image + long right column; align tops so heading sits high. */
+.pb-5 .pb-1-hero-grid { align-items: start; }
+.pb-5 .pb-1-hero-text { padding-top: 8px; }
 
 /* Hero layout: image on the left, text on the right */
 .pb-1-hero { padding: 72px 0; }
@@ -474,6 +477,8 @@ def render_page(pain: dict) -> str:
     # Default variant gets a big serif quote mark; pb-5 doesn't.
     quote_html = '        <div class="pp-quote">&ldquo;</div>' if variant == "pb-1" else ""
     bubbles_html = render_bubbles(pain.get("bubbles", []))
+    # Eyebrow label is optional; if empty/missing, omit the span entirely.
+    label_html = f'        <span class="pb-label">{pain["label"]}</span>' if pain.get("label") else ""
 
     subs = {
         "__SLUG__": pain["slug"],
@@ -481,7 +486,7 @@ def render_page(pain: dict) -> str:
         "__META_TITLE__": pain["meta"]["title"],
         "__META_DESCRIPTION__": pain["meta"]["description"],
         "__META_OG_DESCRIPTION__": pain["meta"]["og_description"],
-        "__LABEL__": pain["label"],
+        "__LABEL_HTML__": label_html,
         "__HEADLINE_HTML__": headline_html,
         "__PROMISE__": pain["promise"],
         "__BULLETS_HTML__": render_bullets(pain["bullets"]),
