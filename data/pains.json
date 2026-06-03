@@ -137,8 +137,8 @@
         "The curriculum still gets covered. Just from a door your child will open.",
         "Boring is not the only way to be serious about learning."
       ],
-      "hero_image": null,
-      "hero_alt": "A kid mid-Minecraft session, schoolbooks pushed to the side.",
+      "hero_image": "/en/static/images/pain/not-interested.webp",
+      "hero_alt": "A kid sitting cross-legged, absorbed in his phone, the math worksheet discarded on the floor beside him.",
       "closing": {
         "left_lines": ["He cares about", "Minecraft."],
         "right_lines": ["Mitra finds", "the math in it."]
