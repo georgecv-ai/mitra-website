@@ -282,7 +282,7 @@ HEAD_TEMPLATE = """<meta name="robots" content="noindex, nofollow">
 .pb-1-hero-image img { width: 100%; max-width: 420px; height: auto; display: block;
   border-radius: 18px; box-shadow: 0 12px 28px rgba(31,42,38,0.12); }
 .pb-1-hero-placeholder {
-  width: 100%; max-width: 420px; aspect-ratio: 4 / 5;
+  width: 100%; max-width: 420px; aspect-ratio: 3 / 4;
   border: 2px dashed #2A9D8F; border-radius: 18px;
   background: repeating-linear-gradient(45deg, #F0F8F6, #F0F8F6 12px, #EAF5F0 12px, #EAF5F0 24px);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
