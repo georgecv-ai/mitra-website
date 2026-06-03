@@ -40,6 +40,30 @@ description: |
   Enrollment and authenticated areas (admin, parent portal) remain on the
   main portal at mitratutor.com.
 
+  Pain landing pages (added 2026-06-03): variant landing pages targeting
+  one parent pain at a time, generated from a manifest so adding a new pain
+  takes a few lines of JSON instead of a copy of an HTML file.
+    - Manifest: data/pains.json — one entry per pain (label, headline lines,
+      promise, bullets, hero image, closing callback, meta).
+    - Generator: scripts/generate_pain_pages.py — reads the manifest and
+      writes src/en/{slug}.html + .head.html. After running, run build.py
+      to assemble final outputs. Source files carry a "do not hand-edit"
+      banner; edits go in the manifest.
+    - URL pattern: /en/{slug} (no "pain-" prefix — that's marketing-internal
+      and we don't want parents seeing the label we use for them). Pages
+      are noindex while in draft.
+    - Attribution: same page, different UTM. utm_source distinguishes
+      platform (facebook, linkedin, instagram, kakao, whatsapp, email);
+      utm_content distinguishes creative variant for A/B on the same pain.
+      Helper: scripts/pain_utms.py {slug} [creative] [--env staging|production]
+      prints ready-to-paste share URLs for every supported channel.
+    - Tracking: each page fires pain_landing_view on load with pain_slug
+      and pain_id; both enroll CTAs fire enroll_click with pain_slug. GA4
+      slices the funnel by pain automatically.
+    - Hero images: required field. When hero_image is null in the manifest,
+      a dashed placeholder block renders so the page reads as draft. Real
+      art is generated per-pain via VideoLab before launch.
+
 flowchart: |
   graph TD
     USER["Visitor"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
@@ -75,6 +99,10 @@ deployment:
       name: "www"
       target: "mitra-website.georgeneal.workers.dev"
       note: "CF project: mitra-website. Staging: staging-mitra-website.georgeneal.workers.dev (dash not dot). Enable staging branch in CF dashboard Branch Control."
+
+cost_tracking:
+  status: "n/a"
+  reason: "Static website; no LLM API calls originate from this project. All AI spend tracked in the tutor (Mitra portal) project."
 
 integrations:
   - project: "Mitra"
