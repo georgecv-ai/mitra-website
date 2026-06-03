@@ -1,582 +1,329 @@
 <!-- META
-title: For Academies, Hagwons, Schools & Tutors — Mitra
-description: Mitra works with hagwons, schools, and solo tutors. Aggregate analytics only, parent-owned accounts, partnership on student-first terms.
+title: For Academies, Schools, and Tutors — Mitra
+description: Mitra runs alongside your program. Students get a tutor between sessions on the apps they use. You get a dashboard that shows where they're stuck.
 slug: partners.html
+main_class: pain-main
 -->
-<style>
-  /* ===== Partner-page accordion samples ===== */
-  .pn-accordion { margin: 1.25rem 0 0; }
-  .pn-accordion .accordion-button { font-weight: 600; font-size: 1rem;
-                                      background: #f0f7f4; color: #1a202c; }
-  .pn-accordion .accordion-button:not(.collapsed) { background: #d9ebe2;
-                                                      color: #1a202c; box-shadow: none; }
-  .pn-accordion .accordion-button:focus { box-shadow: 0 0 0 0.15rem rgba(42,157,143,0.25); }
-  .pn-accordion .accordion-body { background: #fafbfc; padding: 1.25rem 1.25rem; }
-  .pn-sample-caption { font-size: 0.88rem; color: #4a5568; font-style: italic;
-                        margin-top: 0.75rem; padding-top: 0.6rem;
-                        border-top: 1px dashed #cbd5e0; }
+<div class="wp-page">
 
-  /* ===== Sample chats ===== */
-  .pn-chat { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
-              padding: 0.85rem 0.95rem; }
-  .pn-chat + .pn-chat { margin-top: 1rem; }
-  .pn-chat .pn-chat-title { font-weight: 700; font-size: 0.92rem; color: #2B4C7E;
-                              margin-bottom: 0.6rem; }
-  .pn-msg { display: flex; gap: 0.5rem; margin-bottom: 0.4rem; align-items: flex-start; }
-  .pn-msg.from-mitra { justify-content: flex-start; }
-  .pn-msg.from-student { justify-content: flex-end; flex-direction: row-reverse; }
-  .pn-bubble { padding: 0.5rem 0.75rem; border-radius: 14px; font-size: 0.9rem;
-                line-height: 1.45; max-width: 80%; }
-  .pn-msg.from-mitra .pn-bubble { background: #eef2f7; color: #1a202c;
-                                     border-bottom-left-radius: 4px; }
-  .pn-msg.from-student .pn-bubble { background: #2A9D8F; color: #fff;
-                                       border-bottom-right-radius: 4px; }
-  .pn-avatar { width: 24px; height: 24px; border-radius: 50%; background: #2B4C7E;
-                color: #fff; font-size: 11px; font-weight: 700;
-                display: inline-flex; align-items: center; justify-content: center;
-                flex-shrink: 0; overflow: hidden; }
-  .pn-avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-  /* ===== Sample dashboard mock ===== */
-  .pn-dash { font-family: 'Inter', -apple-system, sans-serif; }
-  .pn-dash-hero { background: linear-gradient(135deg, #1B3A5C 0%, #2B4C7E 60%, #2A9D8F 140%);
-                    color: #fff; padding: 1.25rem 1.4rem; border-radius: 12px; margin-bottom: 1rem; }
-  .pn-dash-hero .head { display: flex; justify-content: space-between;
-                          flex-wrap: wrap; gap: 0.6rem; align-items: flex-start;
-                          margin-bottom: 0.9rem; }
-  .pn-dash-hero h4 { color: #fff; margin: 0 0 0.2rem; font-weight: 700; font-size: 1.25rem; }
-  .pn-dash-hero .sub { font-size: 0.86rem; opacity: 0.85; }
-  .pn-dash-hero .health { background: rgba(255,255,255,0.12);
-                            border: 1px solid rgba(255,255,255,0.3);
-                            border-radius: 10px; padding: 0.45rem 0.8rem;
-                            display: flex; align-items: center; gap: 0.6rem; }
-  .pn-dash-hero .health .score { font-family: 'DM Sans', sans-serif;
-                                    font-size: 1.6rem; font-weight: 700; line-height: 1; }
-  .pn-dash-hero .health .lab { font-size: 0.72rem; opacity: 0.85;
-                                  text-transform: uppercase; letter-spacing: 0.05em; }
-  .pn-dash-hero .health .badge { background: #2A9D8F; color: #fff;
-                                    padding: 2px 8px; border-radius: 999px;
-                                    font-size: 0.68rem; font-weight: 700;
-                                    text-transform: uppercase; letter-spacing: 0.05em;
-                                    display: inline-block; margin-top: 2px; }
-  .pn-dash-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
-  .pn-dash-stat { background: rgba(255,255,255,0.1); border-radius: 8px;
-                    padding: 0.55rem 0.7rem; }
-  .pn-dash-stat .v { font-family: 'DM Sans', sans-serif; font-size: 1.35rem;
-                       font-weight: 700; line-height: 1.05; color: #fff; }
-  .pn-dash-stat .l { font-size: 0.65rem; opacity: 0.78;
-                       text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
-
-  /* Heatmap */
-  .pn-heatmap-card { background: #fff; border: 1px solid #e2e8f0;
-                      border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
-  .pn-panel-h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
-                  text-transform: uppercase; color: #2B4C7E; margin: 0 0 0.5rem; }
-  .pn-heat-wrap { display: flex; gap: 0.4rem; align-items: flex-start; }
-  .pn-heat-labels { display: flex; flex-direction: column; gap: 2px;
-                      font-size: 0.65rem; color: #4a5568; }
-  .pn-heat-labels span { height: 18px; line-height: 18px; }
-  .pn-heat-grid { display: grid; grid-template-rows: repeat(7, 18px);
-                    grid-auto-flow: column; grid-auto-columns: 18px; gap: 2px; }
-  .pn-heat-cell { width: 18px; height: 18px; border-radius: 3px; background: #eef2f7; }
-  .pn-heat-cell.l1 { background: #c8d8eb; }
-  .pn-heat-cell.l2 { background: #93b6dd; }
-  .pn-heat-cell.l3 { background: #5b8fcc; }
-  .pn-heat-cell.l4 { background: #2B4C7E; }
-  .pn-heat-cell.l5 { background: #1B3A5C; }
-
-  /* Topics */
-  .pn-card { background: #fff; border: 1px solid #e2e8f0;
-              border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
-  .pn-topic-row { display: grid; grid-template-columns: 24px 1fr 100px;
-                    gap: 0.75rem; align-items: center; padding: 0.55rem 0;
-                    border-bottom: 1px solid #e2e8f0; }
-  .pn-topic-row:last-child { border-bottom: none; }
-  .pn-topic-rank { width: 24px; height: 24px; border-radius: 50%;
-                     background: #d6e1ee; color: #2B4C7E; font-weight: 700;
-                     font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
-                     text-align: center; line-height: 24px; }
-  .pn-topic-name { font-weight: 600; font-size: 0.92rem; color: #1a202c; }
-  .pn-topic-bar { height: 7px; background: #eef2f7; border-radius: 4px;
-                    overflow: hidden; margin-top: 0.3rem; }
-  .pn-topic-fill { height: 100%; border-radius: 4px;
-                     background: linear-gradient(90deg, #2A9D8F 0%, #2B4C7E 100%); }
-  .pn-topic-meta { font-size: 0.78rem; color: #4a5568; text-align: right;
-                     font-variant-numeric: tabular-nums; }
-  .pn-topic-meta strong { display: block; color: #1a202c;
-                            font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
-
-  /* Challenge */
-  .pn-challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
-                    border: 1px solid #fed7aa; border-left: 4px solid #f97316;
-                    border-radius: 10px; padding: 0.95rem 1.1rem;
-                    display: grid; grid-template-columns: 36px 1fr; gap: 0.85rem;
-                    margin-bottom: 1rem; }
-  .pn-challenge-icon { width: 36px; height: 36px; border-radius: 8px;
-                          background: #f97316; color: #fff; font-weight: 700;
-                          display: flex; align-items: center; justify-content: center;
-                          font-size: 1.1rem; }
-  .pn-challenge .ch-title { font-weight: 700; color: #7c2d12; font-size: 1rem;
-                              margin-bottom: 0.15rem; }
-  .pn-challenge .ch-meta { font-size: 0.78rem; color: #9a3412; margin-bottom: 0.4rem; }
-  .pn-challenge .ch-meta strong { font-weight: 700; }
-  .pn-challenge .ch-action { background: rgba(255,255,255,0.7);
-                                border-radius: 6px; padding: 0.55rem 0.7rem;
-                                font-size: 0.85rem; line-height: 1.5; color: #1a202c; }
-  .pn-challenge .ch-action b { color: #7c2d12; }
-
-  /* Per-class tile */
-  .pn-class { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
-               padding: 1rem 1.15rem; margin-bottom: 0.85rem; }
-  .pn-class-head { display: flex; justify-content: space-between; align-items: baseline;
-                      flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.85rem;
-                      padding-bottom: 0.7rem; border-bottom: 1px solid #e2e8f0; }
-  .pn-class-name { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 700;
-                      color: #2B4C7E; margin: 0; }
-  .pn-class-pill { background: #d6e1ee; color: #2B4C7E; padding: 1px 8px; border-radius: 999px;
-                      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-                      letter-spacing: 0.05em; margin-left: 0.4rem; }
-  .pn-class-counts { font-size: 0.78rem; color: #4a5568; }
-  .pn-class-counts strong { color: #1a202c; }
-  .pn-class-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .pn-class-block { padding: 0.75rem 0.85rem; border-radius: 8px; }
-  .pn-class-block.topic { background: linear-gradient(135deg, #f0f7f4 0%, #e7f3ee 100%);
-                              border: 1px solid #b6d8c9; }
-  .pn-class-block.challenge { background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
-                                  border: 1px solid #fed7aa; }
-  .pn-class-block .blk-h { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
-                              text-transform: uppercase; margin-bottom: 0.3rem; }
-  .pn-class-block.topic .blk-h { color: #2A9D8F; }
-  .pn-class-block.challenge .blk-h { color: #9a3412; }
-  .pn-class-block .blk-main { font-family: 'DM Sans', sans-serif; font-size: 0.98rem;
-                                 font-weight: 700; line-height: 1.2; color: #1a202c;
-                                 margin-bottom: 0.25rem; }
-  .pn-class-block.challenge .blk-main { color: #7c2d12; }
-  .pn-class-block .blk-meta { font-size: 0.74rem; color: #4a5568; }
-  .pn-class-block.challenge .blk-meta { color: #9a3412; }
-  .pn-class-block .blk-action { background: rgba(255,255,255,0.7);
-                                    border-radius: 6px; padding: 0.4rem 0.55rem;
-                                    font-size: 0.78rem; line-height: 1.5; margin-top: 0.4rem;
-                                    color: #1a202c; }
-  .pn-class-block .blk-action b { color: #7c2d12; }
-
-  @media (max-width: 720px) {
-    .pn-dash-stats { grid-template-columns: repeat(2, 1fr); }
-    .pn-class-grid { grid-template-columns: 1fr; }
-    .pn-topic-row { grid-template-columns: 22px 1fr 90px; }
-  }
-
-  /* ===== Parent-side dashboard sample (single-student view) ===== */
-  .pn-pd { --accent: #FF8B3D; --accent-light: #FFE5D0; --tx-main: #2C3E50; --tx-muted: #94a3b8; }
-  .pn-pd-context { text-align: center; padding: 0.5rem 0 1rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 1.25rem; }
-  .pn-pd-context .name { font-size: 1.2rem; font-weight: 600; color: #2C3E50; margin: 0; }
-  .pn-pd-context .meta { font-size: 0.8rem; color: #94a3b8; margin-top: 0.15rem; }
-  .pn-pd-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.85rem; }
-  .pn-pd-grid-2 { display: grid; grid-template-columns: 5fr 7fr; gap: 0.6rem; margin-bottom: 0.85rem; }
-  @media (max-width: 720px) { .pn-pd-grid-4 { grid-template-columns: repeat(2, 1fr); } .pn-pd-grid-2 { grid-template-columns: 1fr; } }
-  .pn-pd-mc { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; padding: 0.8rem 1rem 0.9rem; }
-  .pn-pd-mc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
-  .pn-pd-mc.time::before { background: linear-gradient(90deg, #6366f1, #a78bfa); }
-  .pn-pd-mc.work::before { background: linear-gradient(90deg, #14b8a6, #5eead4); }
-  .pn-pd-mc.q::before { background: linear-gradient(90deg, #10b981, #6ee7b7); }
-  .pn-pd-mc-l { font-size: 0.72rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
-  .pn-pd-mc-v { font-size: 1.5rem; font-weight: 700; color: var(--tx-main); line-height: 1.1; margin: 0.15rem 0; }
-  .pn-pd-mc-s { font-size: 0.72rem; margin: 0; color: var(--tx-muted); }
-  .pn-pd-mc-s.up { color: #10b981; }
-  .pn-pd-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.9rem 1rem; }
-  .pn-pd-section-title { font-size: 0.78rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.7rem; }
-  .pn-pd-heat-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; max-width: 260px; margin: 0 auto; }
-  .pn-pd-heat-cell { aspect-ratio: 1; border-radius: 2px; background: #f1f5f9; }
-  .pn-pd-heat-cell[data-c="1"] { background: var(--accent-light); }
-  .pn-pd-heat-cell[data-c="2"] { background: #ffcc99; }
-  .pn-pd-heat-cell[data-c="3"] { background: var(--accent); opacity: 0.7; }
-  .pn-pd-heat-cell[data-c="4"] { background: var(--accent); }
-  .pn-pd-heat-headers { display: flex; gap: 1px; max-width: 260px; margin: 0 auto 4px; font-size: 0.65rem; color: var(--tx-muted); }
-  .pn-pd-heat-headers span { flex: 1; text-align: center; }
-  .pn-pd-tech-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
-  .pn-pd-tech-row .name { font-size: 0.85rem; flex: 1; }
-  .pn-pd-tech-bar { height: 5px; border-radius: 3px; background: #f1f5f9; overflow: hidden; flex: 1; }
-  .pn-pd-tech-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
-  .pn-pd-tech-count { font-size: 0.75rem; color: var(--tx-muted); min-width: 22px; text-align: right; }
-  .pn-pd-frame-note { font-size: 0.85rem; color: #4a5568; background: #fff7ed; border-left: 3px solid #FF8B3D; padding: 0.7rem 0.9rem; border-radius: 6px; margin-bottom: 1.25rem; }
-  .pn-pd-footnote { font-size: 0.78rem; color: #94a3b8; font-style: italic; text-align: center; margin-top: 1.25rem; }
-
-  /* ===== Advisor conversation (long-form) ===== */
-  .pn-adv-time { font-size: 0.72rem; color: #94a3b8; text-align: center; margin: 0.4rem 0; }
-  .pn-msg.from-partner { justify-content: flex-end; flex-direction: row-reverse; }
-  .pn-msg.from-partner .pn-bubble { background: #FF8B3D; color: #fff; border-bottom-right-radius: 4px; }
-  .pn-adv-row { display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 0.6rem; }
-  .pn-adv-response { background: #eef2f7; color: #1A1A2E; border-radius: 14px; border-bottom-left-radius: 4px; padding: 1rem 1.2rem; max-width: 92%; }
-  .pn-adv-response p { margin: 0 0 0.75rem; line-height: 1.6; font-size: 0.95rem; }
-  .pn-adv-response p:last-child { margin-bottom: 0; }
-  .pn-adv-response strong { font-weight: 700; }
-</style>
-
-<div class="row justify-content-center">
-  <div class="col-lg-9">
-
-<h1 class="mb-4">For Academies, Hagwons, Schools, and Tutors</h1>
-
-<p class="lead">
-  Mitra is an AI tutor built for kids who learn differently, and it works on KakaoTalk, Telegram, and WhatsApp, the platforms your students already use every day.
-</p>
-
-<p>We partner with hagwons, schools, academies, and solo tutors who want their students supported between sessions: when homework gets stuck, when a concept doesn't click, when a kid is too embarrassed to ask the same question a fourth time.</p>
-
-<p><strong>Mitra doesn't replace what you do. It extends it.</strong></p>
-
-<h3 class="mt-5">What changes for your students</h3>
-
-<p>Students get an always-available study companion that knows your materials, your pace, and how each kid learns. They arrive at your next session less stuck and more ready. Parents notice. So do you.</p>
-
-<p>Mitra was purpose-built for students with ADHD: patient, non-judgmental, and tuned for the kind of engagement conventional tutoring tools aren't designed for.</p>
-
-<div class="accordion pn-accordion" id="studentSamples">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#studentSamplesPanel" aria-expanded="false" aria-controls="studentSamplesPanel">
-        See three sample student moments
-      </button>
-    </h2>
-    <div id="studentSamplesPanel" class="accordion-collapse collapse" data-bs-parent="#studentSamples">
-      <div class="accordion-body">
-
-        <div class="pn-chat">
-          <div class="pn-chat-title">Saturday 9pm — stuck on a worksheet</div>
-          <div class="pn-msg from-student"><div class="pn-bubble">hi mitra do u have a min? im stuck on math hw 😣</div></div>
-          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Of course. What's it on?</div></div>
-          <div class="pn-msg from-student"><div class="pn-bubble">negative numbers like -3 - 5</div></div>
-          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Picture a number line. Start at -3, then move left 5 steps for subtraction. Where do you land?</div></div>
-          <div class="pn-msg from-student"><div class="pn-bubble">-8?</div></div>
-          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Yes. Want to do the rest together?</div></div>
-          <p class="pn-sample-caption">Mitra is available between your sessions, including evenings and weekends. Your students arrive at the next session less stuck.</p>
+<!-- HERO — alliance pain absorbed -->
+<section class="wp-hero">
+  <div class="wp-wrap">
+    <div class="wp-hero-grid">
+      <div class="wp-hero-copy">
+        <p class="wp-eyebrow">For academies, schools, and tutors · US</p>
+        <p class="wp-kicker">Right now, you're up against <strong>ChatGPT</strong>, <strong>Gemini</strong>, <strong>Claude</strong>, and every other AI your students can open for free.</p>
+        <h1>Mitra is your <em>Super Suit.</em></h1>
+        <p class="wp-sub">You champion real learning. You give parents the alternative.</p>
+        <div class="cap-number" style="margin-bottom:24px;">
+          <span class="num">0 answers handed over.</span>
         </div>
-
-        <div class="pn-chat">
-          <div class="pn-chat-title">Knows your curriculum</div>
-          <div class="pn-msg from-student"><div class="pn-bubble">mr park said study chapter 3 for the quiz can u help me prep</div></div>
-          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">Got it. Pulling chapter 3 from the materials Mr. Park uploaded. There are 8 problem sets. Want to start with the proportions ones you marked tricky last time?</div></div>
-          <div class="pn-msg from-student"><div class="pn-bubble">yeah those</div></div>
-          <p class="pn-sample-caption">Mitra teaches your curriculum, your textbooks, your worksheets, your pacing. Not generic content.</p>
+        <div class="wp-cta-row">
+          <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20application">Apply to become a partner</a>
+          <a class="wp-cta secondary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20call">Talk to us</a>
         </div>
-
-        <div class="pn-chat">
-          <div class="pn-chat-title">Distracted by anime, brought back without scolding</div>
-          <div class="pn-msg from-student"><div class="pn-bubble">WAIT mitra did u see the new jjk episode??</div></div>
-          <div class="pn-msg from-mitra"><div class="pn-avatar">M</div><div class="pn-bubble">I haven't! What happened? (You have one more problem left, give me the 10-second version 😄)</div></div>
-          <div class="pn-msg from-student"><div class="pn-bubble">ok ok yuji had the most insane scene ever ill stop. ok next problem</div></div>
-          <p class="pn-sample-caption">Built for ADHD. Patient with the pivot, but the work still gets done. The kind of engagement conventional tools aren't designed for.</p>
-        </div>
-
       </div>
-    </div>
-  </div>
-</div>
+      <div class="wp-hero-art">
+        <div class="wp-case-stage">
 
-<h3 class="mt-5">What you get as a partner</h3>
-
-<ul>
-  <li>An admin portal where you upload your textbooks, worksheets, and class materials. Mitra teaches <em>your</em> curriculum, not generic content.</li>
-  <li>Class-level and org-level scoping, so Mitra references the right materials with the right students.</li>
-  <li>Aggregate curriculum analytics: where your cohort is thriving, where they're getting stuck, what to focus on next session.</li>
-  <li><strong>A pedagogical thinking partner.</strong> Mitra has a peer mode built for educators, distinct from the student-facing version. She brings what she knows: research on how ADHD learners engage, aggregate patterns from across your cohort, and a structured way to think through lesson design, learner profiles, and instructional sequencing. Most program directors and tutors don't have a colleague who's both read the research and seen what's actually working with these specific kids. Mitra is that colleague.</li>
-</ul>
-
-<div class="accordion pn-accordion" id="partnerDashSample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#partnerDashPanel" aria-expanded="false" aria-controls="partnerDashPanel">
-        See a sample partner dashboard
-      </button>
-    </h2>
-    <div id="partnerDashPanel" class="accordion-collapse collapse" data-bs-parent="#partnerDashSample">
-      <div class="accordion-body">
-
-        <div class="pn-dash">
-
-          <!-- Hero -->
-          <div class="pn-dash-hero">
-            <div class="head">
-              <div>
-                <h4>Sample Tutoring Center</h4>
-                <div class="sub">Last 30 days &middot; 16 active students &middot; 2 classes</div>
-              </div>
-              <div class="health">
-                <div class="score">87</div>
+          <!-- CASE 1 — Theo (was Junho), 9, ADHD, dinosaurs -->
+          <div class="wp-case active">
+            <div class="case-ctx">Theo · Grade 3 · ADHD</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
                 <div>
-                  <div class="lab">Engagement</div>
-                  <span class="badge">Healthy</span>
+                  <div class="name">Mitra</div>
+                  <div class="status">● online</div>
                 </div>
               </div>
+              <div class="wp-t me">Mitra!! I got 10 T-Rex toys yesterday!!! my room is jurassic park now lol</div>
+              <div class="wp-t them">That's a math problem hiding in your room. A T-Rex eats 50 kg of meat per day. 10 T-Rex would eat how much in a day?</div>
+              <div class="wp-t me">umm... 50 ten times? 50, 100, 150... wait</div>
+              <div class="wp-t me">OH!! you just put a 0 after 50?? 500???</div>
+              <div class="wp-t them">YES 🎉 You found a real math trick — multiplying by 10 just means add a zero.</div>
             </div>
-            <div class="pn-dash-stats">
-              <div class="pn-dash-stat"><div class="v">16</div><div class="l">Active students</div></div>
-              <div class="pn-dash-stat"><div class="v">107</div><div class="l">Sessions (30d)</div></div>
-              <div class="pn-dash-stat"><div class="v">982</div><div class="l">Messages exchanged</div></div>
-              <div class="pn-dash-stat"><div class="v">29</div><div class="l">Active days</div></div>
-            </div>
+            <div class="case-reveal">→ <em>Theo discovered ×10 means add a zero</em> himself. Other AIs would have just handed him "500."</div>
           </div>
 
-          <!-- Heatmap -->
-          <div class="pn-heatmap-card">
-            <div class="pn-panel-h">Activity</div>
-            <p class="text-muted small mb-2" style="font-size:0.78rem;">Last 42 days &middot; darker = more sessions</p>
-            <div class="pn-heat-wrap">
-              <div class="pn-heat-labels">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          <!-- CASE 2 — Marcus (was Minhu), 18, senior, exam prep -->
+          <div class="wp-case">
+            <div class="case-ctx">Marcus · Senior · Exam prep</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+                <div>
+                  <div class="name">Mitra</div>
+                  <div class="status">● online</div>
+                </div>
               </div>
-              <div class="pn-heat-grid">
-                <div class="pn-heat-cell l1"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
-                <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
-                <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
-                <div class="pn-heat-cell l4"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l5"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div>
-                <div class="pn-heat-cell l3"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l4"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l1"></div><div class="pn-heat-cell"></div>
-                <div class="pn-heat-cell l2"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l3"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell l2"></div><div class="pn-heat-cell"></div><div class="pn-heat-cell"></div>
-              </div>
+              <div class="wp-t me">Mitra, basic question. ∫ x·e^(x²) dx. I read the answer key but I don't get why a (1/2) shows up.</div>
+              <div class="wp-t them">The x dx is hiding in the integral as a SET. Let x² = t, then 2x dx = dt, so x dx = dt/2. Replace it, only e^t is left.</div>
+              <div class="wp-t them">Try this: ∫ 2x·cos(x²) dx. See the same set?</div>
+              <div class="wp-t me">oh yeah... 2x dx is right there. u = x², du = 2x dx, gives sin(x²) + C</div>
+              <div class="wp-t them">Perfect. The pattern works every time you spot the "set" hidden in the integral.</div>
             </div>
+            <div class="case-reveal">→ Marcus, later: <em>"If I'd just memorized the answer, I'd be stuck on the next one."</em></div>
           </div>
 
-          <!-- Top topics -->
-          <div class="pn-card">
-            <div class="pn-panel-h">What students are working on</div>
-            <div class="pn-topic-row">
-              <div class="pn-topic-rank">1</div>
-              <div>
-                <div class="pn-topic-name">Linear equations</div>
-                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
+          <!-- CASE 3 — Maya (was Seoyeon), 14, mom-late, essay -->
+          <div class="wp-case">
+            <div class="case-ctx">Maya · Grade 8 · Home alone after school</div>
+            <div class="wp-thread">
+              <div class="thread-h">
+                <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+                <div>
+                  <div class="name">Mitra</div>
+                  <div class="status">● online</div>
+                </div>
               </div>
-              <div class="pn-topic-meta"><strong>39</strong>8 students</div>
+              <div class="wp-t me">Mitra, I have to write something for class and I have no idea what</div>
+              <div class="wp-t me">my mom is going to be late again 😞</div>
+              <div class="wp-t them">Okay, let's do it together. What did the teacher ask for?</div>
+              <div class="wp-t me">the prompt is "a story that inspired me"</div>
+              <div class="wp-t them">Oh that's actually a perfect prompt, for you. What about that webtoon you've been watching? A webtoon is a story too.</div>
+              <div class="wp-t me">a webtoon counts?? then I'll write about that</div>
             </div>
-            <div class="pn-topic-row">
-              <div class="pn-topic-rank">2</div>
-              <div>
-                <div class="pn-topic-name">Main idea identification</div>
-                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:100%;"></div></div>
-              </div>
-              <div class="pn-topic-meta"><strong>39</strong>7 students</div>
-            </div>
-            <div class="pn-topic-row">
-              <div class="pn-topic-rank">3</div>
-              <div>
-                <div class="pn-topic-name">Topic sentence + detail</div>
-                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:97%;"></div></div>
-              </div>
-              <div class="pn-topic-meta"><strong>38</strong>6 students</div>
-            </div>
-            <div class="pn-topic-row">
-              <div class="pn-topic-rank">4</div>
-              <div>
-                <div class="pn-topic-name">Substitution method</div>
-                <div class="pn-topic-bar"><div class="pn-topic-fill" style="width:72%;"></div></div>
-              </div>
-              <div class="pn-topic-meta"><strong>28</strong>5 students</div>
-            </div>
+            <div class="case-reveal">→ A week later, Maya messaged: <em>"I got my essay back. I got an A."</em> She wrote it herself.</div>
           </div>
-
-          <!-- Top challenge -->
-          <div class="pn-card">
-            <div class="pn-panel-h">Where students get stuck and what to do</div>
-            <div class="pn-challenge">
-              <div class="pn-challenge-icon">!</div>
-              <div>
-                <div class="ch-title">Parallel lines case in systems</div>
-                <div class="ch-meta"><strong>11</strong> sessions &middot; <strong>5</strong> students affected</div>
-                <div class="ch-action"><b>Try:</b> Switch to graphing first to show why parallel slopes never intersect. Pair with a grid-based interest hook (Minecraft, LEGO Technic), both surface as engaged bridges in your data.</div>
-              </div>
-            </div>
-            <div class="pn-challenge">
-              <div class="pn-challenge-icon">!</div>
-              <div>
-                <div class="ch-title">Topic sentence vs supporting detail</div>
-                <div class="ch-meta"><strong>13</strong> sessions &middot; <strong>6</strong> students affected</div>
-                <div class="ch-action"><b>Try:</b> Use the one-sentence-summary drill: compress the paragraph to one sentence. That summary IS the topic sentence.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Per-class -->
-          <div class="pn-class">
-            <div class="pn-class-head">
-              <h5 class="pn-class-name">Algebra Foundations<span class="pn-class-pill">math</span></h5>
-              <div class="pn-class-counts"><strong>8</strong> students &middot; <strong>53</strong> sessions &middot; <strong>25</strong> active days</div>
-            </div>
-            <div class="pn-class-grid">
-              <div class="pn-class-block topic">
-                <div class="blk-h">Top topic</div>
-                <div class="blk-main">Linear equations</div>
-                <div class="blk-meta"><strong>39</strong> attempts &middot; <strong>8</strong> students</div>
-              </div>
-              <div class="pn-class-block challenge">
-                <div class="blk-h">Top challenge</div>
-                <div class="blk-main">Distributing across parentheses</div>
-                <div class="blk-meta"><strong>12</strong> times &middot; <strong>8</strong> students</div>
-                <div class="blk-action"><b>Try:</b> Rainbow-arrow drill: draw arcs from the outside number to each inside term. Most effective paired with a visual hook (LEGO scaling, sports-stat tables).</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="pn-class">
-            <div class="pn-class-head">
-              <h5 class="pn-class-name">Brightline ELA 6&ndash;7<span class="pn-class-pill">english language arts</span></h5>
-              <div class="pn-class-counts"><strong>8</strong> students &middot; <strong>54</strong> sessions &middot; <strong>26</strong> active days</div>
-            </div>
-            <div class="pn-class-grid">
-              <div class="pn-class-block topic">
-                <div class="blk-h">Top topic</div>
-                <div class="blk-main">Main idea identification</div>
-                <div class="blk-meta"><strong>39</strong> attempts &middot; <strong>7</strong> students</div>
-              </div>
-              <div class="pn-class-block challenge">
-                <div class="blk-h">Top challenge</div>
-                <div class="blk-main">Topic sentence vs supporting detail</div>
-                <div class="blk-meta"><strong>13</strong> times &middot; <strong>6</strong> students</div>
-                <div class="blk-action"><b>Try:</b> One-sentence-summary drill: compress the paragraph to one sentence. That summary IS the topic sentence.</div>
-              </div>
-            </div>
-          </div>
-
-          <p class="text-muted small mt-3 mb-0" style="font-size:0.82rem; font-style:italic;">Sample. Representative shape based on real partner-cohort data. Privacy floor: per-student detail, topic frequency, and challenge patterns render only when more than 5 active students are in scope.</p>
 
         </div>
 
+        <div class="wp-case-dots">
+          <span class="active" data-i="0"></span>
+          <span data-i="1"></span>
+          <span data-i="2"></span>
+        </div>
+        <div class="wp-case-foot">Real, unscripted Mitra responses.</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="accordion pn-accordion" id="parentDashSample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parentDashPanel" aria-expanded="false" aria-controls="parentDashPanel">
-        See a sample of what your students' families see
-      </button>
-    </h2>
-    <div id="parentDashPanel" class="accordion-collapse collapse" data-bs-parent="#parentDashSample">
-      <div class="accordion-body">
-
-        <div class="pn-pd-frame-note">
-          <strong>Two views, one source of truth.</strong> The cohort dashboard above is what you see as a partner. Each family separately sees a per-child dashboard like this one for their own kid. Partners never see this view; parents never see your cohort view. The transcripts themselves stay private to the student-Mitra relationship.
+<!-- ============================================================
+     SECTION 1 — Your teaching extends past the classroom door
+     (Was section 02. Honest claim: she knows your curriculum +
+     standards + uses your materials. Topic-tagging feature is in
+     backlog, not promised here yet.)
+     ============================================================ -->
+<section class="cap alt">
+  <div class="wp-wrap">
+    <div class="cap-row">
+      <div class="cap-text">
+        <p class="cap-num-label">01 · Your teaching, past the classroom door</p>
+        <h2 class="cap-pain">The moment your students leave your classroom, your visibility and quality assurance evaporate.</h2>
+        <p class="cap-capability">Mitra extends your teaching into the home. She knows and supports your curriculum, alongside established academic standards. She can use your materials, and works with students on topics relevant to your goals. The standard you set in class is the standard she carries between sessions.</p>
+        <div class="cap-number">
+          <span class="num">Your curriculum + Common Core + IB + Korean national.</span>
+          <span class="sub">Your materials uploaded. Your standard, everywhere.</span>
         </div>
+      </div>
+      <div class="cap-art">
+        <div class="s2-card">
+          <div class="card-h">Your partner dashboard · last 30 days</div>
 
-        <div class="pn-pd">
-          <div class="pn-pd-context">
-            <p class="name">Addy</p>
-            <p class="meta">Grade 7 &middot; 8 weeks with Mitra &middot; last 7 days</p>
+          <div class="s2-block">
+            <div class="s2-block-h">Top topics your students worked on</div>
+            <div class="s2-topic-row">
+              <div class="s2-topic-rank">1</div>
+              <div class="s2-topic-name">Linear equations</div>
+              <div class="s2-topic-count"><strong>39</strong></div>
+            </div>
+            <div class="s2-topic-row">
+              <div class="s2-topic-rank">2</div>
+              <div class="s2-topic-name">Main idea identification</div>
+              <div class="s2-topic-count"><strong>38</strong></div>
+            </div>
+            <div class="s2-topic-row">
+              <div class="s2-topic-rank">3</div>
+              <div class="s2-topic-name">Substitution method</div>
+              <div class="s2-topic-count"><strong>28</strong></div>
+            </div>
           </div>
 
-          <div class="pn-pd-grid-4">
-            <div class="pn-pd-mc"><p class="pn-pd-mc-l">Sessions</p><p class="pn-pd-mc-v">5</p><p class="pn-pd-mc-s up">▲ +1 vs last week</p></div>
-            <div class="pn-pd-mc time"><p class="pn-pd-mc-l">Total time</p><p class="pn-pd-mc-v">3.4h</p><p class="pn-pd-mc-s up">▲ +42 min</p></div>
-            <div class="pn-pd-mc work"><p class="pn-pd-mc-l">Work completed</p><p class="pn-pd-mc-v">17</p><p class="pn-pd-mc-s">14 correct, 1 partial, 2 set aside</p></div>
-            <div class="pn-pd-mc q"><p class="pn-pd-mc-l">Questions asked</p><p class="pn-pd-mc-v">28</p><p class="pn-pd-mc-s">by Addy</p></div>
-          </div>
-
-          <div class="pn-pd-grid-2">
-            <div class="pn-pd-card">
-              <p class="pn-pd-section-title">Activity (last 4 weeks)</p>
-              <div class="pn-pd-heat-headers"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
-              <div class="pn-pd-heat-grid">
-                <div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="0"></div>
-                <div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div>
-                <div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="0"></div>
-                <div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="2"></div><div class="pn-pd-heat-cell" data-c="1"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="3"></div><div class="pn-pd-heat-cell" data-c="0"></div><div class="pn-pd-heat-cell" data-c="2"></div>
+          <div class="s2-block">
+            <div class="s2-block-h">Top challenge to address</div>
+            <div class="s2-challenge">
+              <div class="s2-challenge-icon">!</div>
+              <div>
+                <div class="ch-name">Parallel lines case in systems</div>
+                <div class="ch-meta">11 sessions · 5 students affected</div>
               </div>
             </div>
-            <div class="pn-pd-card">
-              <p class="pn-pd-section-title">What's working</p>
-              <div class="pn-pd-tech-row"><span class="name">Walking the number line concretely</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:100%;"></div></div><span class="pn-pd-tech-count">6×</span></div>
-              <div class="pn-pd-tech-row"><span class="name">Bridging through her interests</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:83%;"></div></div><span class="pn-pd-tech-count">5×</span></div>
-              <div class="pn-pd-tech-row"><span class="name">Topic-detail-so-what scaffold</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:67%;"></div></div><span class="pn-pd-tech-count">4×</span></div>
-              <div class="pn-pd-tech-row"><span class="name">Reframing slips as fatigue</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:50%;"></div></div><span class="pn-pd-tech-count">3×</span></div>
-              <div class="pn-pd-tech-row"><span class="name">Asking what she already knows</span><div class="pn-pd-tech-bar"><div class="pn-pd-tech-fill" style="width:33%;"></div></div><span class="pn-pd-tech-count">2×</span></div>
-            </div>
           </div>
 
-          <p class="pn-pd-footnote">Sample. Representative data based on real student-Mitra sessions. Full sample dashboard with weekly letter at <a href="/en/parent-dashboard.html">parent-dashboard</a>.</p>
+          <a class="s2-see" href="/en/partners">See the full dashboard →</a>
+          <div class="s2-foot">Sample · representative shape from real partner cohorts</div>
         </div>
-
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="accordion pn-accordion" id="advisorSample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#advisorPanel" aria-expanded="false" aria-controls="advisorPanel">
-        See a sample conversation with the Mitra Tutoring Advisor
-      </button>
-    </h2>
-    <div id="advisorPanel" class="accordion-collapse collapse" data-bs-parent="#advisorSample">
-      <div class="accordion-body">
-        <p class="text-muted small mb-3" style="font-style: italic;">An actual partner-Mitra interaction. The Advisor mode is a peer mode for educators, distinct from the student-facing Mitra.</p>
-
-        <div class="pn-chat">
-          <div class="pn-adv-time">2026-05-04 11:48</div>
-          <div class="pn-msg from-partner"><div class="pn-bubble">Can you make me some suggestions on how to keep fractions interesting when teaching 6th graders?</div></div>
-
-          <div class="pn-adv-row">
-            <div class="pn-avatar">M</div>
-            <div class="pn-adv-response">
-              <p>Good question, fractions are where a lot of kids check out if it feels abstract and procedural.</p>
-              <p>A few angles worth considering, depending on what's already working in your program:</p>
-              <p><strong>Context before abstraction.</strong> If you haven't already, anchor fractions in things kids actually care about, pizza splits, recipe scaling, sports stats, split streaming revenue. The procedural stuff (LCD, equivalent fractions) makes way more sense once they've felt why you'd need it. Some tutors I know have kids design their own fair division problems first, <em>then</em> formalize the notation.</p>
-              <p><strong>Misconception-first teaching.</strong> Sixth graders often think 5/8 &gt; 3/4 because 5 &gt; 3. If you lead with that bump, actually surface it, name it, they're primed to notice why it's wrong. Beats trying to prevent it. Same with the idea that "fractions are always less than 1."</p>
-              <p><strong>Visual variety matters.</strong> Some kids lock onto number lines, some onto area models, some onto discrete objects. If one representation isn't landing, you probably don't need to convince them harder, switch mode. You might have a kid who <em>gets</em> 2/3 on a tape diagram but not on a pie chart.</p>
-              <p><strong>Build from parts to whole operations.</strong> A lot of sequences jump straight to "add 1/3 + 1/4." But can they comfortably describe <em>what's the same</em> and <em>what's different</em> about two fractions before combining? That foundation pays dividends.</p>
-              <p>What's the biggest friction point you're seeing with the 6th graders in your Algebra Foundations or ELA classes, is it getting fractions to stick, or moving from fractions into operations?</p>
+<!-- ============================================================
+     SECTION 2 — Mitra shares the value of your program
+     (Was section 03. Reframed collaborative, not adversarial.)
+     ============================================================ -->
+<section class="cap">
+  <div class="wp-wrap">
+    <div class="cap-row reverse">
+      <div class="cap-text">
+        <p class="cap-num-label">02 · Value shown, every day</p>
+        <h2 class="cap-pain">Mitra shares the value of your program with every parent, every day.</h2>
+        <p class="cap-capability">A live progress dashboard parents can check anytime. A structured weekly report auto-sent every Friday under your name. The proof is in the parent's inbox before they thought to ask. You stop having to prove your worth on every renewal cycle.</p>
+        <div class="cap-number">
+          <span class="num">Live dashboard + 52 reports / family / year.</span>
+          <span class="sub">Auto-sent Friday. No work from you.</span>
+        </div>
+      </div>
+      <div class="cap-art">
+        <div class="s3-split">
+          <div class="s3-card">
+            <div class="card-h">
+              <span><span class="live-dot"></span>Live dashboard</span>
+              <span style="color:#8896A6; letter-spacing:0; text-transform:none; font-weight:500;">updated 4 min ago</span>
             </div>
+            <div class="student-name">Addy &middot; Week 14</div>
+            <div class="s3-stat"><span class="label">Sessions this week</span><span class="val">5</span></div>
+            <div class="s3-stat"><span class="label">Total time</span><span class="val">3.4h</span></div>
+            <div class="s3-stat"><span class="label">Work completed</span><span class="val">17 items</span></div>
+            <div class="s3-stat"><span class="label">Current topic</span><span class="val">Substitution</span></div>
+            <p style="font-size:11px; color:#8896A6; margin-top:12px; text-align:center;">Parents check anytime.</p>
+          </div>
+          <div class="s3-card">
+            <div class="card-h">
+              <span>Friday email</span>
+              <span style="color:#8896A6; letter-spacing:0; text-transform:none; font-weight:500;">14 of 52 sent</span>
+            </div>
+            <div class="student-name">Addy &middot; Week 14 of 52</div>
+            <div class="s3-stat"><span class="label">Sessions</span><span class="val">5</span></div>
+            <div class="s3-stat"><span class="label">What's clicking</span><span class="val">Substitution</span></div>
+            <div class="s3-stat"><span class="label">Where she's growing</span><span class="val">Walking the steps</span></div>
+            <div class="s3-quote">"Addy held a clean substitution end-to-end this week without prompting. The topic-sentence work is still bumpy but she's asking better questions about it."</div>
+            <div class="s3-badge">Auto-sent Friday · From [Academy]</div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<h3 class="mt-5">What it costs you: nothing</h3>
-
-<p>Mitra is paid for directly by parents, not by your program. There's no license fee, no per-seat charge, no minimum commitment from your side.</p>
-
-<p>We share revenue back with partners beyond a small threshold. We'd rather grow alongside partners than ask them to underwrite us. Your endorsement to a parent is worth more than a license fee. Details in the conversation.</p>
-
-<p>We're early, and our partner model is still evolving. Founding partners help shape it.</p>
-
-<h3 class="mt-5">How we protect the partnership</h3>
-
-<p>The trust parents and students place in Mitra is what makes this whole thing work, for them, for their kids, and for you. A few things we hold firm on, because they're what make the trust real:</p>
-
-<ul>
-  <li><strong>Every student has a parent on file.</strong> Real email, real phone. This is both a structural requirement of how Mitra works and how we interpret our obligations under the Korean AI Act. Parent contact is what enables reports, escalation, and account ownership. Students enrolled through your program are no different in this respect from any other student.</li>
-
-  <li><strong>Accounts belong to the family. Materials belong to you.</strong> The student's Mitra account is owned by the parent. If a student moves on from your program, they keep Mitra. But your bookshelf stays yours. The textbooks, worksheets, and curriculum you upload remain your IP, and a departing student's access to your materials ends with the partnership. Only what the parent owns travels with them.</li>
-
-  <li><strong>You see the cohort. Parents see the child.</strong> Partners receive aggregate analytics across your students. Parents receive structured reports on their own child. If a parent chooses to share their child's report with you, that's their call.</li>
-
-  <li><strong>Mitra never reports on individual students to partners, and we hold the student-Mitra relationship as the highest priority.</strong> As Mitra puts it in <a href="/en/how-to-work-with-mitra.html">her letter to families</a>, students need a tutor who's genuinely on their side. To protect that, we don't share session transcripts with <em>anyone</em>: not partners, and not even parents. Parents get progress reports; partners get cohort analytics; the conversation itself stays between Mitra and the student. <em>(Narrow exceptions: credible safety concerns, or a valid legal order we're compelled to comply with. We treat both as rare.)</em></li>
-
-  <li><strong>Student interest comes first, including ahead of ours.</strong> If a partnership ever starts working against the kid we're meant to be serving, we'll have an honest conversation about it.</li>
-</ul>
-
-<p>These aren't conditions we impose. They're the reason parents say yes to Mitra in the first place, which is what lets you offer it credibly.</p>
-
-<h3 class="mt-5">Is Mitra a fit for your program?</h3>
-
-<p>Likely yes if you're a hagwon, school, or tutor who:</p>
-
-<ul>
-  <li>Works with kids who learn differently, or wants to better serve the ones who do</li>
-  <li>Wants parents to see real value between your sessions</li>
-  <li>Cares about being differentiated by the <em>quality</em> of what you offer, not just the hours</li>
-</ul>
-
-<p>Likely not a fit if you need direct visibility into individual student conversations, or want to control student accounts independent of the parent. We'll say so early. Neither of us benefits from a slow no.</p>
-
-<h3 class="mt-5">Let's talk</h3>
-
-<p>
-  Reach out to <a href="mailto:partnerships@mitratutor.com">partnerships@mitratutor.com</a>. We'll set up a conversation, walk through how Mitra works alongside your program, and get you onboarded if it's a good fit.
-</p>
-
+<!-- ============================================================
+     SECTION 3 — Class planning at any scale, with worksheets
+     (Was section 04. Expanded: 30-min class up to 6-month program.
+     Worksheets implied as Mitra-generated artifacts.)
+     ============================================================ -->
+<section class="cap alt">
+  <div class="wp-wrap">
+    <div class="cap-row">
+      <div class="cap-text">
+        <p class="cap-num-label">03 · Plans ready before you sit down</p>
+        <h2 class="cap-pain">Class planning never stops and you never have enough time to do it well.</h2>
+        <p class="cap-capability">Mitra plans at any scale your program needs. A 30-minute warm-up. A Monday lesson. A six-month program. Structured <strong>what</strong> / <strong>how</strong> / <strong>how-else</strong>, with worksheets ready to print or push to students.</p>
+        <div class="cap-number">
+          <span class="num">From a 30-minute warm-up to a 6-month roadmap.</span>
+          <span class="sub">Generated from your cohort's actual data, not generic templates.</span>
+        </div>
+        <p class="cap-scale">Same engine, any scale: <strong>30-minute warm-up</strong> &middot; <strong>weekly lesson</strong> &middot; <strong>full unit plan</strong> &middot; <strong>6-month program roadmap</strong></p>
+      </div>
+      <div class="cap-art">
+        <div class="s4-plan">
+          <div class="s4-plan-head">
+            <div class="title">Algebra Foundations · Monday</div>
+            <div class="when">Generated Sun 9:00 PM</div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">What</div>
+            <div class="body">
+              <div class="main">Distributing across parentheses</div>
+              <div class="meta">Pre-requisite for next week's quadratics unit. Your cohort: 12 of 16 still stuck here.</div>
+            </div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">How</div>
+            <div class="body">
+              <div class="main">Rainbow-arrow drill</div>
+              <div class="meta">Draw arcs from the outside number to each inside term. Visual lock for kids who think in pictures.</div>
+              <span class="s4-worksheet">Worksheet ready · 12 problems</span>
+            </div>
+          </div>
+          <div class="s4-plan-row">
+            <div class="tag">How-else</div>
+            <div class="body">
+              <div class="main">Box notation</div>
+              <div class="meta">If rainbow doesn't land, switch to a 2x2 box. Slower start but generalizes to FOIL later.</div>
+              <span class="s4-worksheet">Worksheet ready · 8 problems</span>
+            </div>
+          </div>
+          <div class="s4-cohort">
+            <div class="ch-h">Cohort signal · last 7 days</div>
+            <div class="ch-body">8 of 16 still confusing topic sentence with supporting detail. Carry the one-sentence-summary drill from last Thursday into the warm-up.</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- Carousel rotation JS (drives the .wp-case-stage in the hero) -->
+<script>
+  (function() {
+    var cases = document.querySelectorAll('.wp-case');
+    var dots = document.querySelectorAll('.wp-case-dots span');
+    if (cases.length < 2) return;
+    var i = 0;
+    function show(n) {
+      cases.forEach(function(c, idx) { c.classList.toggle('active', idx === n); });
+      dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
+      i = n;
+    }
+    var timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+    dots.forEach(function(d, idx) {
+      d.addEventListener('click', function() {
+        clearInterval(timer);
+        show(idx);
+        timer = setInterval(function() { show((i + 1) % cases.length); }, 7000);
+      });
+    });
+  })();
+</script>
+
+<!-- COST -->
+<section class="wp-cost">
+  <div class="wp-wrap">
+    <p class="wp-eyebrow">The model</p>
+    <h2><span class="currency">$</span>0 to your program.</h2>
+    <p class="cost-sub">Parents pay for Mitra directly. No license fee. No per-seat charge. You earn revenue share as your students grow. Founding partners help shape the terms.</p>
+    <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20founding%20partner%20application">Apply to be a founding partner</a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="wp-final">
+  <div class="wp-narrow">
+    <h2>Ready when you are.</h2>
+    <p>Apply takes 2 minutes. If it's a fit, we'll have you onboarded inside a week. If it isn't, we'll say so early.</p>
+    <div class="wp-cta-row">
+      <a class="wp-cta primary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20application">Apply to become a partner</a>
+      <a class="wp-cta secondary" href="mailto:partnerships@mitratutor.com?subject=Mitra%20partner%20call">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPTH -->
+<section class="wp-depth">
+  <div class="wp-wrap">
+    <h3>For the visitor who wants to go deeper</h3>
+    <div class="wp-depth-grid">
+      <a class="wp-depth-link" href="/en/parent-dashboard">See a full sample parent dashboard <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/how-to-work-with-mitra">How Mitra works with families <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/partner-agreement-v1.0">Partner agreement v1.0 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/partner-guidelines-v1.0">Partner guidelines v1.0 <span class="arrow">→</span></a>
+      <a class="wp-depth-link" href="/en/compliance">Compliance and AI safety <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Header and footer now come from src/_layout.html (site-wide chrome). -->
+
 </div>
