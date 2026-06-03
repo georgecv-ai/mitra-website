@@ -195,10 +195,14 @@ def render_footer_columns(columns: list[dict]) -> str:
 
 
 def render_footer_admin(muted: list[dict]) -> str:
-    """Render footer_muted items (Admin link) for the new footer bottom-right slot."""
+    """Render footer_muted items (Admin link) as an inline trailing element
+    appended to the legal subheading. Returns " · <a>...</a>" with a leading
+    separator when content exists, "" when not. The leading separator is
+    intentional so the template can concatenate cleanly without producing
+    a dangling middot on languages that filter out the link (e.g., KO)."""
     if not muted:
         return ""
-    return " · ".join(
+    return " &middot; " + " &middot; ".join(
         f'<a href="{item["href"]}">{item["label"]}</a>'
         for item in muted
     )
