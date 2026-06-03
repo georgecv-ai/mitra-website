@@ -49,7 +49,7 @@ def build_url(site: str, slug: str, source: str, medium: str, creative: str) -> 
         "utm_campaign": f"pain-{slug}",
         "utm_content": creative,
     }
-    return f"{site}/en/pain-{slug}?{urlencode(params)}"
+    return f"{site}/en/{slug}?{urlencode(params)}"
 
 
 def main():
@@ -81,7 +81,7 @@ def main():
 
     site = SITES[args.env]
     print(f"# Pain landing UTMs — slug='{args.slug}' creative='{args.creative}' env={args.env}")
-    print(f"# Base: {site}/en/pain-{args.slug}")
+    print(f"# Base: {site}/en/{args.slug}")
     print()
     for source, medium in PLATFORMS:
         url = build_url(site, args.slug, source, medium, args.creative)

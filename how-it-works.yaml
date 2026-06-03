@@ -46,10 +46,12 @@ description: |
     - Manifest: data/pains.json — one entry per pain (label, headline lines,
       promise, bullets, hero image, closing callback, meta).
     - Generator: scripts/generate_pain_pages.py — reads the manifest and
-      writes src/en/pain-{slug}.html + .head.html. After running, run
-      build.py to assemble final outputs. Source files carry a "do not
-      hand-edit" banner; edits go in the manifest.
-    - URL pattern: /en/pain-{slug}. Pages are noindex while in draft.
+      writes src/en/{slug}.html + .head.html. After running, run build.py
+      to assemble final outputs. Source files carry a "do not hand-edit"
+      banner; edits go in the manifest.
+    - URL pattern: /en/{slug} (no "pain-" prefix — that's marketing-internal
+      and we don't want parents seeing the label we use for them). Pages
+      are noindex while in draft.
     - Attribution: same page, different UTM. utm_source distinguishes
       platform (facebook, linkedin, instagram, kakao, whatsapp, email);
       utm_content distinguishes creative variant for A/B on the same pain.

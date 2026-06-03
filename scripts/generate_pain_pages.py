@@ -2,8 +2,10 @@
 Pain landing-page generator.
 
 Reads data/pains.json and writes one pair of source files per pain:
-  src/en/pain-{slug}.html      (page body, consumed by build.py)
-  src/en/pain-{slug}.head.html (style sidecar, also consumed by build.py)
+  src/en/{slug}.html      (page body, consumed by build.py)
+  src/en/{slug}.head.html (style sidecar, also consumed by build.py)
+
+URLs come out as /en/{slug} — no "pain-" prefix, that's marketing-internal.
 
 After running this, run `python build.py --env staging` (or production)
 to assemble the final HTML at en/pain-{slug}.html.
@@ -27,7 +29,7 @@ SRC_EN = ROOT / "src" / "en"
 PAGE_TEMPLATE = """<!-- META
 title: __META_TITLE__
 description: __META_DESCRIPTION__
-slug: pain-__SLUG__.html
+slug: __SLUG__.html
 og_description: __META_OG_DESCRIPTION__
 twitter_description: __META_OG_DESCRIPTION__
 main_class: pain-landing-main
@@ -514,8 +516,8 @@ def main():
 
         page = render_page(pain)
         head = render_head(pain)
-        page_path = SRC_EN / f"pain-{pain['slug']}.html"
-        head_path = SRC_EN / f"pain-{pain['slug']}.head.html"
+        page_path = SRC_EN / f"{pain['slug']}.html"
+        head_path = SRC_EN / f"{pain['slug']}.head.html"
         page_path.write_text(page, encoding="utf-8")
         head_path.write_text(head, encoding="utf-8")
         print(f"  wrote {page_path.relative_to(ROOT)}")
