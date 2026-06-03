@@ -146,38 +146,37 @@ def parse_fragment(text: str) -> tuple[dict, str]:
 
 
 def render_nav_items(nav_items: list[dict], current_href: str) -> str:
+    """Render nav_items into the new wp-nav-* dropdown markup. Items with
+    `style: cta` render as the pill CTA. Children with `style: sub` render
+    with the .sub accent class. Top-level non-dropdown items render as plain
+    wp-nav-link pills."""
     out = []
-    for idx, item in enumerate(nav_items):
+    for item in nav_items:
         if "children" in item:
-            dropdown_id = f"navDropdown{idx}"
-            any_active = any(current_href == c["href"] for c in item["children"])
-            parent_active = " active" if any_active else ""
             child_html = []
             for child in item["children"]:
-                child_active = " active" if current_href == child["href"] else ""
+                child_cls = ' class="sub"' if child.get("style") == "sub" else ''
                 child_html.append(
-                    f'            <li><a class="dropdown-item{child_active}" href="{child["href"]}">{child["label"]}</a></li>'
+                    f'          <li><a{child_cls} href="{child["href"]}">{child["label"]}</a></li>'
                 )
             out.append(
-                f'        <li class="nav-item dropdown">\n'
-                f'          <a class="nav-link dropdown-toggle{parent_active}" href="#" role="button" '
-                f'id="{dropdown_id}" data-bs-toggle="dropdown" aria-expanded="false">{item["label"]}</a>\n'
-                f'          <ul class="dropdown-menu" aria-labelledby="{dropdown_id}">\n'
+                f'      <li class="wp-nav-dd" data-dd>\n'
+                f'        <button class="wp-nav-link" data-dd-trigger>{item["label"]} <span class="caret">▾</span></button>\n'
+                f'        <ul class="wp-nav-dd-menu">\n'
                 + "\n".join(child_html) + "\n"
-                f'          </ul>\n'
-                f'        </li>'
+                f'        </ul>\n'
+                f'      </li>'
             )
         else:
-            active = ' active' if current_href == item["href"] else ''
+            cls = ' cta' if item.get("style") == "cta" else ''
             out.append(
-                f'        <li class="nav-item">'
-                f'<a class="nav-link{active}" href="{item["href"]}">'
-                f'{item["label"]}</a></li>'
+                f'      <li><a class="wp-nav-link{cls}" href="{item["href"]}">{item["label"]}</a></li>'
             )
     return "\n".join(out)
 
 
-def render_footer_columns(columns: list[dict], muted: list[dict]) -> str:
+def render_footer_columns(columns: list[dict]) -> str:
+    """Render footer_columns into the new wp-footer-col markup."""
     col_html = []
     for col in columns:
         links_html = "\n".join(
@@ -185,22 +184,28 @@ def render_footer_columns(columns: list[dict], muted: list[dict]) -> str:
             for link in col["links"]
         )
         col_html.append(
-            f'      <div class="footer-col">\n'
-            f'        <h6 class="footer-col-heading">{col["heading"]}</h6>\n'
-            f'        <ul class="footer-col-links">\n'
+            f'      <div class="wp-footer-col">\n'
+            f'        <h6>{col["heading"]}</h6>\n'
+            f'        <ul>\n'
             f'{links_html}\n'
             f'        </ul>\n'
             f'      </div>'
         )
-    columns_block = "\n".join(col_html)
-    muted_block = ""
-    if muted:
-        muted_links = " · ".join(
-            f'<a href="{item["href"]}" class="text-muted">{item["label"]}</a>'
-            for item in muted
-        )
-        muted_block = f'\n    <div class="footer-muted small text-muted text-center mt-3">{muted_links}</div>'
-    return columns_block + muted_block
+    return "\n".join(col_html)
+
+
+def render_footer_admin(muted: list[dict]) -> str:
+    """Render footer_muted items (Admin link) as an inline trailing element
+    appended to the legal subheading. Returns " · <a>...</a>" with a leading
+    separator when content exists, "" when not. The leading separator is
+    intentional so the template can concatenate cleanly without producing
+    a dangling middot on languages that filter out the link (e.g., KO)."""
+    if not muted:
+        return ""
+    return " &middot; " + " &middot; ".join(
+        f'<a href="{item["href"]}">{item["label"]}</a>'
+        for item in muted
+    )
 
 
 def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
@@ -219,7 +224,8 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
 
     current_href = f"/{lang}/{slug}" if slug else f"/{lang}/"
     nav_items_html = render_nav_items(nav_items, current_href)
-    footer_links_html = render_footer_columns(footer_columns, footer_muted)
+    footer_columns_html = render_footer_columns(footer_columns)
+    footer_admin_html = render_footer_admin(footer_muted)
 
     en_active = "active" if lang == "en" else ""
     ko_active = "active" if lang == "ko" else ""
@@ -250,11 +256,10 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
         "{{ extra_head }}": meta.get("extra_head", ""),
         "{{ extra_scripts }}": meta.get("extra_scripts", ""),
         "{{ nav_items_html }}": nav_items_html,
-        "{{ footer_links_html }}": footer_links_html,
+        "{{ footer_columns_html }}": footer_columns_html,
+        "{{ footer_admin_html }}": footer_admin_html,
         "{{ footer_copyright }}": lang_cfg["footer_copyright"],
         "{{ footer_legal_html }}": lang_cfg["footer_legal_html"],
-        "{{ lang_toggle_current_flag }}": toggle["current_flag"],
-        "{{ lang_toggle_current_alt }}": toggle["current_alt"],
         "{{ en_active_class }}": en_active,
         "{{ ko_active_class }}": ko_active,
         "{{ content_block }}": content_block,

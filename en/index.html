@@ -518,48 +518,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="/en/"><img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="navbar-logo">Mitra AI Tutor</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navLinks">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown1" data-bs-toggle="dropdown" aria-expanded="false">About</a>
-          <ul class="dropdown-menu" aria-labelledby="navDropdown1">
-            <li><a class="dropdown-item" href="/en/principles.html">Principles & Practice</a></li>
-            <li><a class="dropdown-item" href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
-            <li><a class="dropdown-item" href="/en/for-parents.html">For Parents</a></li>
-            <li><a class="dropdown-item" href="/en/for-students.html">For Students</a></li>
-            <li><a class="dropdown-item" href="/en/partners.html">For Academies, Hagwons, Schools & Tutors</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" id="navDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
-          <ul class="dropdown-menu" aria-labelledby="navDropdown2">
-            <li><a class="dropdown-item" href="/en/faq.html">FAQ</a></li>
-            <li><a class="dropdown-item" href="/en/compliance.html">Compliance</a></li>
-            <li><a class="dropdown-item" href="/en/about.html">Why Build Mitra</a></li>
-            <li><a class="dropdown-item" href="/en/blog/">Blog</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="https://mitratutor.com/en/enroll">Enroll</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://mitratutor.com/en/parent/login">Parent Login</a></li>
-        <!-- Language toggle -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" style="border-radius:2px;">
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item active" href="/en/index.html"><img src="/en/static/images/flag-en.png" width="24" height="16" alt="EN" class="me-2" style="border-radius:2px;"> English</a></li>
-            <li><a class="dropdown-item " href="/ko/index.html"><img src="/ko/static/images/flag-kr.png" width="24" height="16" alt="KR" class="me-2" style="border-radius:2px;"> 한국어</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+<nav class="wp-nav">
+  <div class="wp-wrap wp-nav-row">
+    <a class="wp-nav-logo" href="/en/">
+      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
+    </a>
+    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
+    <ul class="wp-nav-items" data-nav-items>
+      <li><a class="wp-nav-link" href="https://mitratutor.com/en/enroll">Enroll</a></li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>Parents <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/en/for-parents.html">Mitra for Parents</a></li>
+          <li><a href="https://mitratutor.com/en/parent/login">Parent sign in →</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>Academies <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/en/partners.html">Mitra for Academies</a></li>
+          <li><a href="https://mitratutor.com/en/org/login">Academy sign in →</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>About <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/en/faq.html">FAQ</a></li>
+          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+          <li><a href="/en/principles.html">Principles & Practice</a></li>
+          <li><a href="/en/about.html">Why Build Mitra</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-lang">
+        <a class="active" href="/en/index.html">EN</a>
+        <a class="" href="/ko/index.html">KO</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -1084,60 +1079,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-brand mb-4">
-      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" class="footer-logo-img">
-      <span class="footer-logo">Mitra AI Tutor</span>
+<footer class="wp-footer">
+  <div class="wp-wrap">
+    <div class="wp-footer-brand">
+      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
     </div>
-    <div class="footer-columns">
-      <div class="footer-col">
-        <h6 class="footer-col-heading">Learn</h6>
-        <ul class="footer-col-links">
-          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+    <div class="wp-footer-cols">
+      <div class="wp-footer-col">
+        <h6>Learn</h6>
+        <ul>
           <li><a href="/en/for-parents.html">For Parents</a></li>
           <li><a href="/en/for-students.html">For Students</a></li>
-          <li><a href="/en/partners.html">For Partners</a></li>
+          <li><a href="/en/partners.html">For Academies</a></li>
+          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h6 class="footer-col-heading">Resources</h6>
-        <ul class="footer-col-links">
+      <div class="wp-footer-col">
+        <h6>Resources</h6>
+        <ul>
           <li><a href="/en/faq.html">FAQ</a></li>
-          <li><a href="/en/compliance.html">Compliance</a></li>
           <li><a href="/en/about.html">Why Build Mitra</a></li>
+          <li><a href="/en/principles.html">Principles</a></li>
+          <li><a href="/en/compliance.html">Compliance</a></li>
           <li><a href="/en/blog/">Blog</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h6 class="footer-col-heading">Legal</h6>
-        <ul class="footer-col-links">
+      <div class="wp-footer-col">
+        <h6>Legal</h6>
+        <ul>
           <li><a href="/en/privacy.html">Privacy</a></li>
           <li><a href="/en/terms.html">Terms</a></li>
           <li><a href="/en/refund.html">Refund Policy</a></li>
+          <li><a href="/en/partner-agreement-v1.0.html">Partner Agreement</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h6 class="footer-col-heading">Get started</h6>
-        <ul class="footer-col-links">
+      <div class="wp-footer-col">
+        <h6>Get Started</h6>
+        <ul>
           <li><a href="https://mitratutor.com/en/enroll">Enroll</a></li>
-          <li><a href="https://mitratutor.com/en/parent/login">Parent Login</a></li>
-          <li><a href="https://mitratutor.com/en/org/login">Partner Login</a></li>
           <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
         </ul>
       </div>
-    <div class="footer-muted small text-muted text-center mt-3"><a href="https://mitratutor.com/admin/login" class="text-muted">Admin</a></div>
     </div>
-    <div class="footer-bottom">
-      <div class="mb-1">&copy; 2026 Mitra AI &middot; 미트라 AI</div>
-      <div class="small text-muted">
-        상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a>
+    <div class="wp-footer-bottom">
+      <div>
+        <div>&copy; 2026 Mitra AI &middot; 미트라 AI</div>
+        <div class="wp-footer-legal">상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a> &middot; <a href="https://mitratutor.com/admin/login">Admin</a></div>
       </div>
     </div>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Dropdown + mobile nav toggling (site-wide)
+  (function() {
+    var dds = document.querySelectorAll('.wp-nav [data-dd]');
+    dds.forEach(function(dd) {
+      var trigger = dd.querySelector('[data-dd-trigger]');
+      if (!trigger) return;
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var wasOpen = dd.classList.contains('open');
+        dds.forEach(function(other) { other.classList.remove('open'); });
+        if (!wasOpen) dd.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function() {
+      dds.forEach(function(dd) { dd.classList.remove('open'); });
+    });
+    var burger = document.querySelector('.wp-nav [data-burger]');
+    var items = document.querySelector('.wp-nav [data-nav-items]');
+    if (burger && items) {
+      burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        items.classList.toggle('mobile-open');
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
