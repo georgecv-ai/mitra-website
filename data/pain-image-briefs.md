@@ -8,7 +8,7 @@ applies to all 11 so the set reads as one system.
 
 - **Medium:** digital illustration, editorial style. Not flat cartoon. Not photo-real.
   Think New Yorker editorial illustration meets warm modern brand work.
-- **Aspect:** 4:5 portrait. Subject occupies upper-middle; breathe at bottom.
+- **Aspect:** 3:4 portrait (e.g. 1200x1600). Subject occupies upper-middle; breathe at bottom.
 - **Mood:** observational, intimate, real. We're catching a moment, not staging a photo.
 - **Lighting:** soft, directional, usually single-source (lamp, window, screen).
   Avoid flat studio light. Avoid neon. Avoid stark drama.
