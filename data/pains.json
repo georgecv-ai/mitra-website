@@ -23,7 +23,7 @@
         "Knows your child's curriculum, so the answers match what their teacher is asking.",
         "You don't have to pretend you remember 7th-grade physics. Mitra has it."
       ],
-      "hero_image": null,
+      "hero_image": "/en/static/images/pain/parent-stuck.webp",
       "hero_alt": "A parent and child stuck on homework at the kitchen table at 8 p.m.",
       "closing": {
         "left_lines": ["8 p.m.", "or 2 a.m."],
