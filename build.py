@@ -230,6 +230,15 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
     en_active = "active" if lang == "en" else ""
     ko_active = "active" if lang == "ko" else ""
 
+    # Language toggle: if a peer-language source file doesn't exist, point that
+    # toggle at the peer language home (/en/ or /ko/) instead of /{peer}/{slug}
+    # which would 404. Same-language link always points at the current page.
+    slug_filename = slug if slug.endswith(".html") else f"{slug}.html"
+    peer_en_exists = (SRC / "en" / slug_filename).exists() if slug else True
+    peer_ko_exists = (SRC / "ko" / slug_filename).exists() if slug else True
+    en_slug = slug if (lang == "en" or peer_en_exists) else ""
+    ko_slug = slug if (lang == "ko" or peer_ko_exists) else ""
+
     toggle = lang_cfg["lang_toggle"]
 
     if meta.get("raw", "").lower() == "true":
@@ -253,6 +262,8 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
         "{{ og_image }}": og_image,
         "{{ slug }}": slug,
         "{{ slug_clean }}": slug_clean,
+        "{{ en_slug }}": en_slug,
+        "{{ ko_slug }}": ko_slug,
         "{{ extra_head }}": meta.get("extra_head", ""),
         "{{ extra_scripts }}": meta.get("extra_scripts", ""),
         "{{ nav_items_html }}": nav_items_html,
