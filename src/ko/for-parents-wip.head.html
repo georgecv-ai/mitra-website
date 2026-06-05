@@ -243,30 +243,36 @@
   background: var(--kakao);
 }
 
-/* White subscribe card (right) */
-.fpv2-subscribe-card {
-  background: #fff; border-radius: 18px;
-  padding: 1.5rem 1.5rem 1.75rem;
+/* Gradient-frame "가격 안내" card (right) — frame asset supplies the
+   rounded gradient border + mint fill; we lay out content over it. */
+.fpv2-frame-card {
+  background-image: url('/ko/static/images/parents-wip/frame-gradient.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2.25rem 2rem 2rem;
   display: flex; flex-direction: column;
-  align-items: center; text-align: center; gap: 1rem;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+  align-items: center; text-align: center; gap: 1.5rem;
+  min-height: 460px;
 }
-.fpv2-subscribe-image-slot {
-  width: 100%; aspect-ratio: 16/9;
-  border-radius: 12px;
-  background: repeating-linear-gradient(45deg, #f1f5f9, #f1f5f9 12px, #e6ebe8 12px, #e6ebe8 24px);
-  border: 2px dashed #94a3b8;
-  display: flex; align-items: center; justify-content: center;
+.fpv2-frame-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem; font-weight: 800;
+  color: var(--ink); margin: 0; letter-spacing: -0.01em;
 }
-.fpv2-todo-tag {
-  font-size: 0.78rem; font-weight: 700;
-  color: #475569; letter-spacing: 0.04em;
-  padding: 6px 12px; background: #fff; border-radius: 999px;
+.fpv2-frame-body {
+  display: flex; flex-direction: column; gap: 1.1rem;
+  margin: 0; padding: 0 0.25rem;
 }
-.fpv2-subscribe-message {
-  font-size: 1rem; font-weight: 600;
-  color: var(--ink); line-height: 1.55; margin: 0;
+.fpv2-frame-body p {
+  margin: 0; font-size: 0.95rem; line-height: 1.65;
+  color: var(--ink); font-weight: 500;
 }
+.fpv2-frame-cta {
+  background: var(--green); color: #fff;
+  margin-top: auto;
+}
+.fpv2-frame-cta:hover { background: var(--green-dark); color: #fff; }
 
 /* ===== Responsive ===== */
 @media (max-width: 860px) {
