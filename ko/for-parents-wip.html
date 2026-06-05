@@ -248,46 +248,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   max-width: 760px; margin: 0 auto;
 }
 
-/* Yellow KakaoTalk QR card (left) */
-.fpv2-phone-card {
+/* KakaoTalk card (left) — yellow background, two stacked sections:
+   barcode (QR + caption) on top, official KT channel-add button below. */
+.fpv2-kt-card {
   background: var(--kakao); border-radius: 18px;
-  padding: 1.5rem 1.25rem 1.4rem;
+  padding: 1.5rem 1.25rem 1.5rem;
   display: flex; flex-direction: column;
-  align-items: center; gap: 0.85rem;
+  align-items: center; gap: 1.1rem;
   box-shadow: 0 8px 22px rgba(0,0,0,0.12);
 }
-.fpv2-phone-screen {
+.fpv2-kt-barcode {
   background: #fff; border-radius: 14px;
-  width: 100%; max-width: 200px; aspect-ratio: 1/1;
-  display: flex; align-items: center; justify-content: center;
-  padding: 0.85rem;
+  width: 100%; max-width: 220px;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1rem 0.85rem 0.95rem; gap: 0.65rem;
 }
-.fpv2-phone-qr {
-  width: 100%; height: 100%;
+.fpv2-kt-qr {
+  width: 100%; max-width: 170px; aspect-ratio: 1/1;
   object-fit: contain; display: block;
 }
-.fpv2-phone-label {
-  font-size: 0.92rem; font-weight: 700;
-  color: #3a2e00; margin: 0; text-align: center;
+.fpv2-kt-caption {
+  font-size: 0.85rem; font-weight: 700;
+  color: #3a2e00; margin: 0; text-align: center; line-height: 1.4;
 }
-.fpv2-phone-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: #3a2e00; color: #fff;
-  font-weight: 700; font-size: 0.92rem;
-  padding: 0.65rem 1.2rem; border-radius: 999px;
+.fpv2-kt-button {
+  display: block; width: 100%; max-width: 240px;
   text-decoration: none;
-  transition: background .15s ease;
+  transition: transform .15s ease;
 }
-.fpv2-phone-cta:hover { background: #1f1700; color: #fff; }
-.fpv2-phone-dot {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--kakao);
+.fpv2-kt-button:hover { transform: translateY(-1px); }
+.fpv2-kt-button img {
+  width: 100%; height: auto; display: block;
 }
 
 /* Gradient-frame "가격 안내" card (right) — frame asset supplies the
    rounded gradient border + mint fill; we lay out content over it. */
 .fpv2-frame-card {
-  background-image: url('/ko/static/images/parents-wip/frame-gradient.png');
+  background-image: url('/ko/static/images/parents-wip/frame-gradient-alpha.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -549,18 +546,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="fpv2-pricing">
     <div class="fpv2-wrap fpv2-pricing-grid">
 
-      <!-- LEFT: KakaoTalk channel QR card (yellow) -->
-      <div class="fpv2-phone-card">
-        <div class="fpv2-phone-screen">
+      <!-- LEFT: KakaoTalk card — barcode section above, KT button section below -->
+      <div class="fpv2-kt-card">
+        <div class="fpv2-kt-barcode">
           <img
             src="/ko/static/images/parents-wip/mitra-kakaotalk-qr.png"
             alt="미트라 카카오톡 채널 QR 코드"
-            class="fpv2-phone-qr">
+            class="fpv2-kt-qr">
+          <p class="fpv2-kt-caption">카카오톡으로 미트라 만나기</p>
         </div>
-        <p class="fpv2-phone-label">카카오톡으로 미트라 만나기</p>
-        <a class="fpv2-phone-cta" href="https://pf.kakao.com/_mitra" target="_blank" rel="noopener">
-          <span class="fpv2-phone-dot" aria-hidden="true"></span>
-          <span>친구 추가</span>
+        <a class="fpv2-kt-button" href="https://pf.kakao.com/_mitra" target="_blank" rel="noopener">
+          <img
+            src="/ko/static/images/parents-wip/kt-channel-add.png"
+            alt="카카오톡 채널 추가">
         </a>
       </div>
 
