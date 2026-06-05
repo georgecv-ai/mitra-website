@@ -77,7 +77,7 @@ main_class: fpv2-main
     </div>
   </section>
 
-  <!-- 4. LIVE DASHBOARD -->
+  <!-- 4. LIVE DASHBOARD — crisp HTML mock lifted from /ko/partners (#parentDashSample) -->
   <section class="fpv2-dash">
     <div class="fpv2-wrap fpv2-center">
       <h2 class="fpv2-h2">
@@ -87,12 +87,46 @@ main_class: fpv2-main
         <!-- TODO: confirm dashboard subhead from Canva -->
         '광고'가 아닌 데이터로 보고, 아이의 강점/약점 모두 한눈에 확인합니다.
       </p>
-      <a href="/ko/parent-dashboard" class="fpv2-dash-shot-link">
-        <img
-          src="/ko/static/images/parents-wip/dashboard-shot.png"
-          alt="미트라 실시간 학부모 대시보드 샘플 화면"
-          class="fpv2-dash-shot">
-      </a>
+
+      <div class="fpv2-dash-frame">
+        <div class="fpv2-pd">
+          <div class="fpv2-pd-context">
+            <p class="name">애디</p>
+            <p class="meta">7학년 &middot; 미트라와 함께한 지 8주 &middot; 최근 7일</p>
+          </div>
+
+          <div class="fpv2-pd-grid-4">
+            <div class="fpv2-pd-mc"><p class="fpv2-pd-mc-l">세션</p><p class="fpv2-pd-mc-v">5</p><p class="fpv2-pd-mc-s up">&#9650; 지난주 대비 +1</p></div>
+            <div class="fpv2-pd-mc time"><p class="fpv2-pd-mc-l">총 학습 시간</p><p class="fpv2-pd-mc-v">3.4시간</p><p class="fpv2-pd-mc-s up">&#9650; +42분</p></div>
+            <div class="fpv2-pd-mc work"><p class="fpv2-pd-mc-l">완료한 학습</p><p class="fpv2-pd-mc-v">17</p><p class="fpv2-pd-mc-s">정답 14, 부분 1, 보류 2</p></div>
+            <div class="fpv2-pd-mc q"><p class="fpv2-pd-mc-l">학생 질문 수</p><p class="fpv2-pd-mc-v">28</p><p class="fpv2-pd-mc-s">애디가 한 질문</p></div>
+          </div>
+
+          <div class="fpv2-pd-grid-2">
+            <div class="fpv2-pd-card">
+              <p class="fpv2-pd-section-title">활동 (최근 4주)</p>
+              <div class="fpv2-pd-heat-headers"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span></div>
+              <div class="fpv2-pd-heat-grid">
+                <div class="fpv2-pd-heat-cell" data-c="2"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="0"></div>
+                <div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="2"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="0"></div>
+                <div class="fpv2-pd-heat-cell" data-c="2"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="0"></div>
+                <div class="fpv2-pd-heat-cell" data-c="2"></div><div class="fpv2-pd-heat-cell" data-c="2"></div><div class="fpv2-pd-heat-cell" data-c="1"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="3"></div><div class="fpv2-pd-heat-cell" data-c="0"></div><div class="fpv2-pd-heat-cell" data-c="2"></div>
+              </div>
+            </div>
+            <div class="fpv2-pd-card">
+              <p class="fpv2-pd-section-title">효과가 있는 것들</p>
+              <div class="fpv2-pd-tech-row"><span class="name">수직선을 구체적으로 따라가기</span><div class="fpv2-pd-tech-bar"><div class="fpv2-pd-tech-fill" style="width:100%;"></div></div><span class="fpv2-pd-tech-count">6회</span></div>
+              <div class="fpv2-pd-tech-row"><span class="name">관심사를 연결고리로 활용</span><div class="fpv2-pd-tech-bar"><div class="fpv2-pd-tech-fill" style="width:83%;"></div></div><span class="fpv2-pd-tech-count">5회</span></div>
+              <div class="fpv2-pd-tech-row"><span class="name">주제-세부-그래서 구조</span><div class="fpv2-pd-tech-bar"><div class="fpv2-pd-tech-fill" style="width:67%;"></div></div><span class="fpv2-pd-tech-count">4회</span></div>
+              <div class="fpv2-pd-tech-row"><span class="name">실수를 피로로 재해석</span><div class="fpv2-pd-tech-bar"><div class="fpv2-pd-tech-fill" style="width:50%;"></div></div><span class="fpv2-pd-tech-count">3회</span></div>
+              <div class="fpv2-pd-tech-row"><span class="name">이미 아는 것 묻기</span><div class="fpv2-pd-tech-bar"><div class="fpv2-pd-tech-fill" style="width:33%;"></div></div><span class="fpv2-pd-tech-count">2회</span></div>
+            </div>
+          </div>
+
+          <p class="fpv2-pd-footnote">샘플입니다. 실제 학생-미트라 세션 기반의 대표 데이터입니다. 전체 샘플 대시보드는 <a href="/ko/parent-dashboard">학부모 대시보드</a>에서 확인하실 수 있습니다.</p>
+        </div>
+      </div>
+
       <a class="fpv2-pill" href="/ko/parent-dashboard">샘플 대시보드 살펴보기 &rarr;</a>
     </div>
   </section>

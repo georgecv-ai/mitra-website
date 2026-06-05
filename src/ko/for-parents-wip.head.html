@@ -117,25 +117,57 @@
 }
 .fpv2-letter-more:hover { color: #fff; }
 
-/* ===== 4. LIVE DASHBOARD ===== */
+/* ===== 4. LIVE DASHBOARD — crisp HTML mock (mirrors /ko/partners) ===== */
 .fpv2-dash { background: var(--green-mint-soft); }
 .fpv2-dash-sub {
   font-size: 1rem; color: var(--muted); margin: -1rem auto 2rem;
   max-width: 720px;
 }
-.fpv2-dash-shot-link {
-  display: block; max-width: 920px; margin: 0 auto 2rem;
-  border-radius: 16px; overflow: hidden;
-  box-shadow: 0 12px 30px rgba(31,42,38,0.12);
-  transition: transform .2s ease, box-shadow .2s ease;
+.fpv2-dash-frame {
+  max-width: 920px; margin: 0 auto 2rem;
+  background: #fafbfc; border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 12px 30px rgba(31,42,38,0.10);
+  text-align: left;
 }
-.fpv2-dash-shot-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(31,42,38,0.18);
-}
-.fpv2-dash-shot {
-  display: block; width: 100%; height: auto;
-  background: #fff;
+
+/* Parent-side dashboard mock — namespaced mirror of partners.html .pn-pd-* */
+.fpv2-pd { --accent: #FF8B3D; --accent-light: #FFE5D0; --tx-main: #2C3E50; --tx-muted: #94a3b8; }
+.fpv2-pd-context { text-align: center; padding: 0.25rem 0 1rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 1.25rem; }
+.fpv2-pd-context .name { font-size: 1.2rem; font-weight: 600; color: #2C3E50; margin: 0; }
+.fpv2-pd-context .meta { font-size: 0.8rem; color: #94a3b8; margin-top: 0.15rem; }
+.fpv2-pd-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.85rem; }
+.fpv2-pd-grid-2 { display: grid; grid-template-columns: 5fr 7fr; gap: 0.6rem; margin-bottom: 0.85rem; }
+.fpv2-pd-mc { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; padding: 0.8rem 1rem 0.9rem; }
+.fpv2-pd-mc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+.fpv2-pd-mc.time::before { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+.fpv2-pd-mc.work::before { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+.fpv2-pd-mc.q::before { background: linear-gradient(90deg, #10b981, #6ee7b7); }
+.fpv2-pd-mc-l { font-size: 0.72rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+.fpv2-pd-mc-v { font-size: 1.5rem; font-weight: 700; color: var(--tx-main); line-height: 1.1; margin: 0.15rem 0; }
+.fpv2-pd-mc-s { font-size: 0.72rem; margin: 0; color: var(--tx-muted); }
+.fpv2-pd-mc-s.up { color: #10b981; }
+.fpv2-pd-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.9rem 1rem; }
+.fpv2-pd-section-title { font-size: 0.78rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.7rem; }
+.fpv2-pd-heat-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; max-width: 260px; margin: 0 auto; }
+.fpv2-pd-heat-cell { aspect-ratio: 1; border-radius: 2px; background: #f1f5f9; }
+.fpv2-pd-heat-cell[data-c="1"] { background: var(--accent-light); }
+.fpv2-pd-heat-cell[data-c="2"] { background: #ffcc99; }
+.fpv2-pd-heat-cell[data-c="3"] { background: var(--accent); opacity: 0.7; }
+.fpv2-pd-heat-cell[data-c="4"] { background: var(--accent); }
+.fpv2-pd-heat-headers { display: flex; gap: 1px; max-width: 260px; margin: 0 auto 4px; font-size: 0.65rem; color: var(--tx-muted); }
+.fpv2-pd-heat-headers span { flex: 1; text-align: center; }
+.fpv2-pd-tech-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+.fpv2-pd-tech-row .name { font-size: 0.85rem; flex: 1; }
+.fpv2-pd-tech-bar { height: 5px; border-radius: 3px; background: #f1f5f9; overflow: hidden; flex: 1; }
+.fpv2-pd-tech-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+.fpv2-pd-tech-count { font-size: 0.75rem; color: var(--tx-muted); min-width: 22px; text-align: right; }
+.fpv2-pd-footnote { font-size: 0.78rem; color: #94a3b8; font-style: italic; text-align: center; margin-top: 1.25rem; }
+.fpv2-pd-footnote a { color: var(--green); font-weight: 600; text-decoration: none; }
+.fpv2-pd-footnote a:hover { text-decoration: underline; }
+@media (max-width: 720px) {
+  .fpv2-pd-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .fpv2-pd-grid-2 { grid-template-columns: 1fr; }
 }
 
 /* ===== 5. FAQ ===== */
