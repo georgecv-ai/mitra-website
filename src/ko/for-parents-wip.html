@@ -179,34 +179,38 @@ main_class: fpv2-main
   <section class="fpv2-pricing">
     <div class="fpv2-wrap fpv2-pricing-grid">
 
-      <!-- LEFT: KT phone-frame card — channel pill at top, QR tile in middle, label at bottom -->
-      <div class="fpv2-kt-card">
-        <a class="fpv2-kt-channel-pill" href="https://pf.kakao.com/_mitra" target="_blank" rel="noopener">
+      <!-- LEFT: two separate stacked elements
+           (1) yellow rectangle containing the barcode
+           (2) channel-add pill below, NOT part of the rectangle -->
+      <div class="fpv2-bottom-left">
+        <div class="fpv2-kt-rect">
+          <img
+            src="/ko/static/images/parents-wip/mitra-kakaotalk-qr.png"
+            alt="미트라 카카오톡 채널 QR 코드"
+            class="fpv2-kt-rect-qr">
+        </div>
+        <a class="fpv2-kt-pill" href="https://pf.kakao.com/_mitra" target="_blank" rel="noopener">
           <img
             src="/ko/static/images/parents-wip/kt-channel-add.png"
             alt="카카오톡 채널 추가">
         </a>
-        <div class="fpv2-kt-qr-tile">
-          <img
-            src="/ko/static/images/parents-wip/mitra-kakaotalk-qr.png"
-            alt="미트라 카카오톡 채널 QR 코드"
-            class="fpv2-kt-qr">
-        </div>
-        <p class="fpv2-kt-label">카카오톡으로 연결</p>
       </div>
 
-      <!-- RIGHT: Gradient-frame "가격 안내" card -->
-      <div class="fpv2-frame-card">
-        <h3 class="fpv2-frame-title">가격 안내</h3>
-        <div class="fpv2-frame-body">
-          <p>미트라를 더 많은 아이들이 제약없이 만나,<br>다양한 학습과 성장의 기회를 갖길 바랍니다.</p>
-          <p>아이들과의 대화로 미트라도 배우고 자라며<br>더 넓고 깊은 학습이 이뤄집니다</p>
-          <p>결제 후 7일은 &ldquo;무료 체험&rdquo;을 진행하며<br>신개념 튜터를 만나보고 결정하세요</p>
+      <!-- RIGHT: phone frame (dark bezel + light-mint screen) with title + body + pill inside.
+           Frame pattern lifted from /ko/home-v2 `.kv2-phone`, resized to 9:16-ish. -->
+      <div class="fpv2-phone-frame">
+        <div class="fpv2-phone-screen-mint">
+          <h3 class="fpv2-frame-title">가격 안내</h3>
+          <div class="fpv2-frame-body">
+            <p>미트라를 더 많은 아이들이 제약없이 만나,<br>다양한 학습과 성장의 기회를 갖길 바랍니다.</p>
+            <p>아이들과의 대화로 미트라도 배우고 자라며<br>더 넓고 깊은 학습이 이뤄집니다</p>
+            <p>결제 후 7일은 &ldquo;무료 체험&rdquo;을 진행하며<br>신개념 튜터를 만나보고 결정하세요</p>
+          </div>
+          <!-- TODO(george): confirm destination URL for "아이 맞춤 상담 신청" pill (currently routed to /ko/enroll) -->
+          <a class="fpv2-pill fpv2-frame-cta" href="{{app_base}}/ko/enroll">
+            아이 맞춤 상담 신청
+          </a>
         </div>
-        <!-- TODO(george): confirm destination URL for "아이 맞춤 상담 신청" pill (currently routed to /ko/enroll) -->
-        <a class="fpv2-pill fpv2-frame-cta" href="{{app_base}}/ko/enroll">
-          아이 맞춤 상담 신청
-        </a>
       </div>
 
     </div>
