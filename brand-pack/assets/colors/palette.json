@@ -1,0 +1,45 @@
+{
+  "version": "2026-06-05",
+  "primary": {
+    "teal": "#2A9D8F",
+    "teal_dark": "#21867A",
+    "teal_hover": "#1F7A6E",
+    "teal_border": "#1A6D63",
+    "teal_soft": "#6BBE9F"
+  },
+  "secondary_navy": {
+    "primary": "#2B4C7E",
+    "dark": "#1B3A5C",
+    "tint": "#D6E1EE"
+  },
+  "kakao_yellow": {
+    "fill": "#FEE500",
+    "border": "#C9B600",
+    "cream": "#FFF7E6"
+  },
+  "coral": {
+    "accent": "#E8736B"
+  },
+  "text": {
+    "ink": "#1A1A2E",
+    "body": "#1f2937",
+    "muted": "#6b7280",
+    "light_muted": "#4A5568",
+    "subtle": "#8896A6"
+  },
+  "background": {
+    "white": "#FFFFFF",
+    "page": "#F0F2F5",
+    "mint_soft": "#F2F9F5",
+    "mint": "#EAF5F0",
+    "lavender": "#EEEFF4",
+    "section_card": "#D9E2EC"
+  },
+  "rules": [
+    "Primary CTA color is teal (#2A9D8F). Hover state is teal_dark (#21867A).",
+    "teal_dark is reserved for navigation and footer. Do not use on body content backgrounds.",
+    "Kakao yellow is accent only. Never primary background. Never CTA.",
+    "Coral is sparing. One coral accent per page max.",
+    "Backgrounds default to white, mint, or lavender. Yellow cream is reserved for notepaper-feel moments."
+  ]
+}
