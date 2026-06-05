@@ -1,4 +1,283 @@
 <style>
-    body { font-family: 'Noto Sans KR', 'DM Sans', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Noto Sans KR', 'DM Sans', sans-serif; }
-  </style>
+/* ============================================================
+   FOR-PARENTS-WIP — Korean parent landing, real HTML rebuild
+   Visual reference: ko/static/images/parents-wip/for-parents.png
+   Color palette mirrors Canva comp: green hero, mint sections,
+   dark-blue letter card, yellow phone callout.
+   ============================================================ */
+
+.fpv2-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+
+.fpv2-page {
+  --green: #2A9D8F;
+  --green-dark: #1f7a6e;
+  --green-mint: #EAF5F0;
+  --green-mint-soft: #F2F9F5;
+  --blue-deep: #1B3A5C;
+  --kakao: #FEE500;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  color: var(--ink);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.fpv2-page section { padding: 4.5rem 1.5rem; }
+.fpv2-wrap { max-width: 1120px; margin: 0 auto; }
+.fpv2-narrow { max-width: 760px; }
+.fpv2-center { text-align: center; }
+
+.fpv2-h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800; line-height: 1.4; color: var(--ink);
+  margin: 0 0 2rem;
+}
+.fpv2-h2-left {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 800; line-height: 1.45; color: var(--ink);
+  margin: 0 0 1.75rem;
+}
+.fpv2-mitra-en { color: var(--green); }
+
+/* Shared pill button */
+.fpv2-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green); color: #fff; font-weight: 700;
+  font-size: 0.95rem; padding: 0.7rem 1.6rem;
+  border-radius: 999px; text-decoration: none;
+  transition: background .15s ease, transform .15s ease;
+  box-shadow: 0 4px 14px rgba(42,157,143,0.25);
+}
+.fpv2-pill:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
+.fpv2-pill-dark { background: var(--blue-deep); box-shadow: 0 4px 14px rgba(27,58,92,0.25); }
+.fpv2-pill-dark:hover { background: #122a44; }
+
+/* ===== 1. HERO ===== */
+.fpv2-hero {
+  background: linear-gradient(180deg, var(--green) 0%, #34a99c 100%);
+  color: #fff;
+  padding: 3.5rem 1.5rem 4rem !important;
+}
+.fpv2-hero h1 {
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
+  font-weight: 700; line-height: 1.55; color: #fff;
+  margin: 1.25rem 0 0; text-wrap: balance;
+}
+.fpv2-hero .fpv2-mitra-en { color: #fff; font-weight: 800; }
+.fpv2-hero-mark {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: #fff; color: var(--green);
+  font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ===== 2. STEPS ===== */
+.fpv2-steps { background: var(--green-mint-soft); }
+.fpv2-step-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem; margin-top: 1.5rem;
+}
+.fpv2-step-card {
+  background: #fff; border-radius: 16px; padding: 1.75rem 1.25rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(31,42,38,0.06);
+  text-align: center; display: flex; flex-direction: column; align-items: center;
+}
+.fpv2-step-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; line-height: 1; }
+.fpv2-step-pill {
+  display: inline-block; background: var(--green); color: #fff;
+  font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em;
+  padding: 4px 14px; border-radius: 999px; margin: 0.5rem 0 0.85rem;
+}
+.fpv2-step-body { font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.7; }
+
+/* ===== 3. TALK + LETTER ===== */
+.fpv2-talk { background: var(--green-mint); }
+.fpv2-talk-grid {
+  display: grid; grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem; align-items: center;
+}
+.fpv2-letter-card {
+  background: var(--blue-deep); color: #e2e8f0;
+  border-radius: 18px; padding: 1.75rem 1.75rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(27,58,92,0.25);
+}
+.fpv2-letter-eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  color: #FEE500; text-transform: uppercase; margin-bottom: 0.85rem;
+}
+.fpv2-letter-body p {
+  font-size: 0.92rem; line-height: 1.75; margin: 0 0 0.75rem; color: #e8edf3;
+}
+.fpv2-letter-body em { color: #fff; font-style: italic; }
+.fpv2-letter-more {
+  display: inline-block; margin-top: 0.9rem;
+  color: #FEE500; font-size: 0.88rem; font-weight: 700;
+  text-decoration: none; letter-spacing: 0.01em;
+}
+.fpv2-letter-more:hover { color: #fff; }
+
+/* ===== 4. LIVE DASHBOARD — crisp HTML mock (mirrors /ko/partners) ===== */
+.fpv2-dash { background: var(--green-mint-soft); }
+.fpv2-dash-sub {
+  font-size: 1rem; color: var(--muted); margin: -1rem auto 2rem;
+  max-width: 720px;
+}
+.fpv2-dash-frame {
+  max-width: 920px; margin: 0 auto 2rem;
+  background: #fafbfc; border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 12px 30px rgba(31,42,38,0.10);
+  text-align: left;
+}
+
+/* Parent-side dashboard mock — namespaced mirror of partners.html .pn-pd-* */
+.fpv2-pd { --accent: #FF8B3D; --accent-light: #FFE5D0; --tx-main: #2C3E50; --tx-muted: #94a3b8; }
+.fpv2-pd-context { text-align: center; padding: 0.25rem 0 1rem; border-bottom: 1px solid #e2e8f0; margin-bottom: 1.25rem; }
+.fpv2-pd-context .name { font-size: 1.2rem; font-weight: 600; color: #2C3E50; margin: 0; }
+.fpv2-pd-context .meta { font-size: 0.8rem; color: #94a3b8; margin-top: 0.15rem; }
+.fpv2-pd-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.85rem; }
+.fpv2-pd-grid-2 { display: grid; grid-template-columns: 5fr 7fr; gap: 0.6rem; margin-bottom: 0.85rem; }
+.fpv2-pd-mc { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; padding: 0.8rem 1rem 0.9rem; }
+.fpv2-pd-mc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+.fpv2-pd-mc.time::before { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+.fpv2-pd-mc.work::before { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+.fpv2-pd-mc.q::before { background: linear-gradient(90deg, #10b981, #6ee7b7); }
+.fpv2-pd-mc-l { font-size: 0.72rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+.fpv2-pd-mc-v { font-size: 1.5rem; font-weight: 700; color: var(--tx-main); line-height: 1.1; margin: 0.15rem 0; }
+.fpv2-pd-mc-s { font-size: 0.72rem; margin: 0; color: var(--tx-muted); }
+.fpv2-pd-mc-s.up { color: #10b981; }
+.fpv2-pd-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.9rem 1rem; }
+.fpv2-pd-section-title { font-size: 0.78rem; font-weight: 600; color: var(--tx-muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.7rem; }
+.fpv2-pd-heat-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; max-width: 260px; margin: 0 auto; }
+.fpv2-pd-heat-cell { aspect-ratio: 1; border-radius: 2px; background: #f1f5f9; }
+.fpv2-pd-heat-cell[data-c="1"] { background: var(--accent-light); }
+.fpv2-pd-heat-cell[data-c="2"] { background: #ffcc99; }
+.fpv2-pd-heat-cell[data-c="3"] { background: var(--accent); opacity: 0.7; }
+.fpv2-pd-heat-cell[data-c="4"] { background: var(--accent); }
+.fpv2-pd-heat-headers { display: flex; gap: 1px; max-width: 260px; margin: 0 auto 4px; font-size: 0.65rem; color: var(--tx-muted); }
+.fpv2-pd-heat-headers span { flex: 1; text-align: center; }
+.fpv2-pd-tech-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+.fpv2-pd-tech-row .name { font-size: 0.85rem; flex: 1; }
+.fpv2-pd-tech-bar { height: 5px; border-radius: 3px; background: #f1f5f9; overflow: hidden; flex: 1; }
+.fpv2-pd-tech-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), #FFB347); }
+.fpv2-pd-tech-count { font-size: 0.75rem; color: var(--tx-muted); min-width: 22px; text-align: right; }
+.fpv2-pd-footnote { font-size: 0.78rem; color: #94a3b8; font-style: italic; text-align: center; margin-top: 1.25rem; }
+.fpv2-pd-footnote a { color: var(--green); font-weight: 600; text-decoration: none; }
+.fpv2-pd-footnote a:hover { text-decoration: underline; }
+@media (max-width: 720px) {
+  .fpv2-pd-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .fpv2-pd-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ===== 5. FAQ ===== */
+.fpv2-faq { background: #fff; }
+.fpv2-faq .fpv2-h2 { margin-bottom: 2rem; }
+.fpv2-faq-item {
+  background: #fff; border: 1px solid #e6ebe8;
+  border-radius: 14px; margin-bottom: 0.7rem;
+  box-shadow: 0 1px 4px rgba(31,42,38,0.03); overflow: hidden;
+}
+.fpv2-faq-item summary {
+  list-style: none; cursor: pointer;
+  padding: 1.05rem 1.4rem; font-weight: 600; font-size: 1rem;
+  color: var(--ink);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem;
+}
+.fpv2-faq-item summary::-webkit-details-marker { display: none; }
+.fpv2-faq-item summary::after {
+  content: "+"; color: var(--green); font-size: 1.4rem;
+  font-weight: 400; flex: 0 0 auto;
+}
+.fpv2-faq-item[open] summary::after { content: "\00d7"; }
+.fpv2-faq-body { padding: 0 1.4rem 1.2rem; }
+.fpv2-faq-body p {
+  margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.75;
+}
+
+/* ===== 6. PRICING + CLOSING ===== */
+.fpv2-pricing {
+  background: linear-gradient(180deg, var(--green-mint) 0%, var(--green) 100%);
+  padding: 4.5rem 1.5rem 5rem !important;
+}
+.fpv2-pricing-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem; align-items: stretch;
+  max-width: 760px; margin: 0 auto;
+}
+
+/* LEFT: two separate stacked elements (yellow KT rectangle + standalone pill) */
+.fpv2-bottom-left {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 1.25rem;
+}
+.fpv2-kt-rect {
+  background: var(--kakao); border-radius: 18px;
+  padding: 1.25rem;
+  width: 100%; max-width: 260px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+.fpv2-kt-rect-qr {
+  width: 100%; aspect-ratio: 1/1;
+  object-fit: contain; display: block;
+}
+.fpv2-kt-pill {
+  display: block; width: 100%; max-width: 200px;
+  text-decoration: none;
+  transition: transform .15s ease;
+}
+.fpv2-kt-pill:hover { transform: translateY(-1px); }
+.fpv2-kt-pill img {
+  width: 100%; height: auto; display: block;
+}
+
+/* RIGHT: phone frame — dark bezel around a light-mint "screen"
+   (pattern lifted from /ko/home-v2 .kv2-phone, sized for content). */
+.fpv2-phone-frame {
+  background: #20242e;
+  border-radius: 36px;
+  padding: 9px;
+  box-shadow: 0 16px 36px rgba(31,42,38,0.28);
+  width: 100%; max-width: 320px;
+  margin: 0 auto;
+}
+.fpv2-phone-screen-mint {
+  background: #E8F5EE;
+  border-radius: 28px;
+  padding: 2rem 1.5rem 1.75rem;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center; gap: 1.4rem;
+  min-height: 480px;
+  overflow: hidden;
+}
+.fpv2-frame-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem; font-weight: 800;
+  color: var(--ink); margin: 0; letter-spacing: -0.01em;
+}
+.fpv2-frame-body {
+  display: flex; flex-direction: column; gap: 1.1rem;
+  margin: 0; padding: 0 0.25rem;
+}
+.fpv2-frame-body p {
+  margin: 0; font-size: 0.95rem; line-height: 1.65;
+  color: var(--ink); font-weight: 500;
+}
+.fpv2-frame-cta {
+  background: var(--green); color: #fff;
+  margin-top: auto;
+}
+.fpv2-frame-cta:hover { background: var(--green-dark); color: #fff; }
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  .fpv2-page section { padding: 3rem 1.1rem; }
+  .fpv2-step-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .fpv2-talk-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .fpv2-dash-grid { grid-template-columns: 1fr; }
+  .fpv2-pricing-grid { grid-template-columns: 1fr; }
+  .fpv2-h2 { font-size: 1.4rem; }
+  .fpv2-h2-left { font-size: 1.3rem; }
+}
+</style>
