@@ -2,12 +2,6 @@
 # Note: Cloudflare Pages has built-in pretty URLs (.html extension stripping)
 # so /en/for-students automatically serves /en/for-students.html
 
-# Block internal-only paths from being publicly served (404, not 301).
-# These are reference / source material that lives in the repo but should
-# not be discoverable at mitratutor.com.
-/brand-pack/* /en/ 404
-/assets/* /en/ 404
-
 # Old-style paths (without /en/ or /ko/ prefix) redirect to English
 /for-parents /en/for-parents 301
 /for-students /en/for-students 301
