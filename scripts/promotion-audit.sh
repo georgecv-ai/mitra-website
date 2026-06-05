@@ -22,7 +22,7 @@ git fetch --quiet origin master staging 2>/dev/null || true
 
 # Paths that are intentionally staging-only (drafts, prototypes). Update
 # this list when WIP areas change.
-WIP_PATTERNS="src/en/home-v2 src/en/for-parents-v2 en/home-v2 en/for-parents-v2 en/static/images/home-v2 HOME-V2-KO-NOTES.md"
+WIP_PATTERNS="src/en/home-v2 src/en/for-parents-v2 en/home-v2 en/for-parents-v2 en/static/images/home-v2 HOME-V2-KO-NOTES.md src/ko/for-parents-wip ko/for-parents-wip ko/static/images/parents-wip"
 
 # How many master..staging commits are there?
 total=$(git log master..staging --oneline | wc -l | tr -d ' ')
