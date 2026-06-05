@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="미트라 학부모 안내 페이지 작업 미리보기. 비공개 검토용입니다." />
+  <meta name="description" content="미트라가 아이의 공부를 어떻게 돕는지, 학부모님이 무엇을 보시게 되는지. 작업 미리보기." />
   <title>학부모님께 — Mitra AI Tutor (WIP)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="/ko/static/images/mitra-logo-icon-v2_003.png">
   <link rel="canonical" href="https://www.mitratutor.com/ko/for-parents-wip" />
   <meta property="og:title" content="학부모님께 — Mitra AI Tutor (WIP)" />
-  <meta property="og:description" content="미트라 학부모 안내 페이지 작업 미리보기. 비공개 검토용입니다." />
+  <meta property="og:description" content="미트라가 아이의 공부를 어떻게 돕는지, 학부모님이 무엇을 보시게 되는지. 작업 미리보기." />
   <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -21,7 +21,7 @@
   <meta property="og:url" content="https://www.mitratutor.com/ko/for-parents-wip" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="학부모님께 — Mitra AI Tutor (WIP)" />
-  <meta name="twitter:description" content="미트라 학부모 안내 페이지 작업 미리보기. 비공개 검토용입니다." />
+  <meta name="twitter:description" content="미트라가 아이의 공부를 어떻게 돕는지, 학부모님이 무엇을 보시게 되는지. 작업 미리보기." />
   <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
   <link rel="alternate" hreflang="en" href="https://www.mitratutor.com/en/for-parents-wip" />
   <link rel="alternate" hreflang="ko" href="https://www.mitratutor.com/ko/for-parents-wip" />
@@ -41,16 +41,233 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta name="robots" content="noindex, nofollow">
 <style>
-.fpwip-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
-.fpwip-page { background: #fafafa; padding: 0 0 64px; }
-.fpwip-canvas { display: block; max-width: 1100px; width: 100%; margin: 0 auto; height: auto; }
-.fpwip-cta-row { text-align: center; padding: 32px 24px; }
-.fpwip-cta {
-  display: inline-block; background: #2A9D8F; color: #fff; font-weight: 700;
-  font-size: 1.05rem; padding: 0.95rem 2.2rem; border-radius: 999px;
-  text-decoration: none; transition: transform .15s ease;
+/* ============================================================
+   FOR-PARENTS-WIP — Korean parent landing, real HTML rebuild
+   Visual reference: ko/static/images/parents-wip/for-parents.png
+   Color palette mirrors Canva comp: green hero, mint sections,
+   dark-blue letter card, yellow phone callout.
+   ============================================================ */
+
+.fpv2-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+
+.fpv2-page {
+  --green: #2A9D8F;
+  --green-dark: #1f7a6e;
+  --green-mint: #EAF5F0;
+  --green-mint-soft: #F2F9F5;
+  --blue-deep: #1B3A5C;
+  --kakao: #FEE500;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  color: var(--ink);
+  line-height: 1.65;
+  word-break: keep-all;
 }
-.fpwip-cta:hover { transform: translateY(-1px); background: #1f7a6e; }
+.fpv2-page section { padding: 4.5rem 1.5rem; }
+.fpv2-wrap { max-width: 1120px; margin: 0 auto; }
+.fpv2-narrow { max-width: 760px; }
+.fpv2-center { text-align: center; }
+
+.fpv2-h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800; line-height: 1.4; color: var(--ink);
+  margin: 0 0 2rem;
+}
+.fpv2-h2-left {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 800; line-height: 1.45; color: var(--ink);
+  margin: 0 0 1.75rem;
+}
+.fpv2-mitra-en { color: var(--green); }
+
+/* Shared pill button */
+.fpv2-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green); color: #fff; font-weight: 700;
+  font-size: 0.95rem; padding: 0.7rem 1.6rem;
+  border-radius: 999px; text-decoration: none;
+  transition: background .15s ease, transform .15s ease;
+  box-shadow: 0 4px 14px rgba(42,157,143,0.25);
+}
+.fpv2-pill:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
+.fpv2-pill-dark { background: var(--blue-deep); box-shadow: 0 4px 14px rgba(27,58,92,0.25); }
+.fpv2-pill-dark:hover { background: #122a44; }
+
+/* ===== 1. HERO ===== */
+.fpv2-hero {
+  background: linear-gradient(180deg, var(--green) 0%, #34a99c 100%);
+  color: #fff;
+  padding: 3.5rem 1.5rem 4rem !important;
+}
+.fpv2-hero h1 {
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
+  font-weight: 700; line-height: 1.55; color: #fff;
+  margin: 1.25rem 0 0; text-wrap: balance;
+}
+.fpv2-hero .fpv2-mitra-en { color: #fff; font-weight: 800; }
+.fpv2-hero-mark {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: #fff; color: var(--green);
+  font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ===== 2. STEPS ===== */
+.fpv2-steps { background: var(--green-mint-soft); }
+.fpv2-step-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem; margin-top: 1.5rem;
+}
+.fpv2-step-card {
+  background: #fff; border-radius: 16px; padding: 1.75rem 1.25rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(31,42,38,0.06);
+  text-align: center; display: flex; flex-direction: column; align-items: center;
+}
+.fpv2-step-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; line-height: 1; }
+.fpv2-step-pill {
+  display: inline-block; background: var(--green); color: #fff;
+  font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em;
+  padding: 4px 14px; border-radius: 999px; margin: 0.5rem 0 0.85rem;
+}
+.fpv2-step-body { font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.7; }
+
+/* ===== 3. TALK + LETTER ===== */
+.fpv2-talk { background: var(--green-mint); }
+.fpv2-talk-grid {
+  display: grid; grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem; align-items: center;
+}
+.fpv2-letter-card {
+  background: var(--blue-deep); color: #e2e8f0;
+  border-radius: 18px; padding: 1.75rem 1.75rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(27,58,92,0.25);
+}
+.fpv2-letter-eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  color: #FEE500; text-transform: uppercase; margin-bottom: 0.85rem;
+}
+.fpv2-letter-body p {
+  font-size: 0.92rem; line-height: 1.75; margin: 0 0 0.75rem; color: #e8edf3;
+}
+.fpv2-letter-body em { color: #fff; font-style: italic; }
+.fpv2-letter-more {
+  display: inline-block; margin-top: 0.9rem;
+  color: #FEE500; font-size: 0.88rem; font-weight: 700;
+  text-decoration: none; letter-spacing: 0.01em;
+}
+.fpv2-letter-more:hover { color: #fff; }
+
+/* ===== 4. LIVE DASHBOARD ===== */
+.fpv2-dash { background: var(--green-mint-soft); }
+.fpv2-dash-sub {
+  font-size: 1rem; color: var(--muted); margin: -1rem 0 2rem;
+  max-width: 720px; margin-left: auto; margin-right: auto;
+}
+.fpv2-dash-grid {
+  display: grid; grid-template-columns: 1.2fr 1.2fr 0.85fr;
+  gap: 1rem; margin-bottom: 2rem; text-align: left;
+}
+.fpv2-dash-card {
+  background: #fff; border-radius: 14px; padding: 1rem 1.1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.fpv2-dash-title {
+  font-size: 0.78rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.65rem;
+}
+.fpv2-canvas-wrap { height: 170px; }
+.fpv2-canvas-wrap-pie { height: 170px; display: flex; justify-content: center; }
+
+/* ===== 5. FAQ ===== */
+.fpv2-faq { background: #fff; }
+.fpv2-faq .fpv2-h2 { margin-bottom: 2rem; }
+.fpv2-faq-item {
+  background: #fff; border: 1px solid #e6ebe8;
+  border-radius: 14px; margin-bottom: 0.7rem;
+  box-shadow: 0 1px 4px rgba(31,42,38,0.03); overflow: hidden;
+}
+.fpv2-faq-item summary {
+  list-style: none; cursor: pointer;
+  padding: 1.05rem 1.4rem; font-weight: 600; font-size: 1rem;
+  color: var(--ink);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem;
+}
+.fpv2-faq-item summary::-webkit-details-marker { display: none; }
+.fpv2-faq-item summary::after {
+  content: "+"; color: var(--green); font-size: 1.4rem;
+  font-weight: 400; flex: 0 0 auto;
+}
+.fpv2-faq-item[open] summary::after { content: "\00d7"; }
+.fpv2-faq-body { padding: 0 1.4rem 1.2rem; }
+.fpv2-faq-body p {
+  margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.75;
+}
+
+/* ===== 6. PRICING + CLOSING ===== */
+.fpv2-pricing {
+  background: linear-gradient(180deg, var(--green-mint) 0%, var(--green) 100%);
+  padding: 4.5rem 1.5rem 5rem !important;
+}
+.fpv2-pricing-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem; align-items: stretch;
+  max-width: 760px; margin: 0 auto;
+}
+
+/* Yellow phone-style card (left) */
+.fpv2-phone-card {
+  background: var(--kakao); border-radius: 18px;
+  padding: 1.5rem 1.25rem; display: flex; flex-direction: column;
+  align-items: center; gap: 1rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+.fpv2-phone-screen {
+  background: #fff; border-radius: 14px;
+  width: 100%; max-width: 180px; aspect-ratio: 3/4;
+  display: flex; align-items: center; justify-content: center;
+}
+.fpv2-phone-logo { max-width: 60%; height: auto; }
+.fpv2-phone-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #3a2e00; color: #fff;
+  font-weight: 700; font-size: 0.92rem;
+  padding: 0.65rem 1.2rem; border-radius: 999px;
+}
+.fpv2-phone-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--kakao);
+}
+
+/* White pricing card (right) */
+.fpv2-price-card {
+  background: #fff; border-radius: 18px;
+  padding: 2rem 1.75rem; display: flex; flex-direction: column;
+  align-items: center; text-align: center; gap: 0.5rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+}
+.fpv2-price-eyebrow {
+  font-size: 0.78rem; font-weight: 700; color: var(--green);
+  letter-spacing: 0.08em; text-transform: uppercase; margin: 0;
+}
+.fpv2-price-amount {
+  font-size: 2.4rem; font-weight: 800; color: var(--blue-deep);
+  margin: 0.25rem 0 0.1rem; line-height: 1;
+}
+.fpv2-price-unit { font-size: 1rem; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.fpv2-price-note { font-size: 0.85rem; color: var(--muted); margin: 0 0 1rem; }
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  .fpv2-page section { padding: 3rem 1.1rem; }
+  .fpv2-step-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .fpv2-talk-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .fpv2-dash-grid { grid-template-columns: 1fr; }
+  .fpv2-pricing-grid { grid-template-columns: 1fr; }
+  .fpv2-h2 { font-size: 1.4rem; }
+  .fpv2-h2-left { font-size: 1.3rem; }
+}
 </style>
 </head>
 <body>
@@ -92,20 +309,237 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </li>
       <li class="wp-nav-lang">
-        <a class="" href="/en/">EN</a>
+        <a class="" href="/en/for-parents-wip.html">EN</a>
         <a class="active" href="/ko/for-parents-wip.html">KO</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<main class="fpwip-main">
-<div class="fpwip-page">
-  <img src="/ko/static/images/parents-wip/for-parents.png" alt="학부모님께 — 미트라 안내" class="fpwip-canvas">
-  <div class="fpwip-cta-row">
-    <a class="fpwip-cta" href="https://staging.mitratutor.com/ko/enroll">7일 무료 체험 시작하기</a>
-  </div>
+<main class="fpv2-main">
+<div class="fpv2-page">
+
+  <!-- 1. HERO -->
+  <section class="fpv2-hero">
+    <div class="fpv2-wrap fpv2-center">
+      <div class="fpv2-hero-mark" aria-hidden="true">M</div>
+      <h1>
+        아이를 아끼고 걱정하는 부모님의 마음을<br>
+        <span class="fpv2-mitra-en">MITRA</span>가 닮아갑니다
+      </h1>
+    </div>
+  </section>
+
+  <!-- 2. THREE STEPS -->
+  <section class="fpv2-steps">
+    <div class="fpv2-wrap fpv2-center">
+      <h2 class="fpv2-h2">
+        아이에게 공부 부담이 계속되더라도<br>
+        <span class="fpv2-mitra-en">미트라</span>와 함께라면 공부 습관은 좋아질 수 있어요
+      </h2>
+      <div class="fpv2-step-grid">
+        <div class="fpv2-step-card">
+          <div class="fpv2-step-emoji" aria-hidden="true">&#x1F4A1;</div>
+          <p class="fpv2-step-pill">Step 1</p>
+          <p class="fpv2-step-body">
+            <!-- TODO: confirm Step 1 copy from Canva -->
+            아이의 학습 스타일과 관심사를 파악하고, 친구처럼 자연스럽게 대화를 시작해요.
+          </p>
+        </div>
+        <div class="fpv2-step-card">
+          <div class="fpv2-step-emoji" aria-hidden="true">&#x1F44D;</div>
+          <p class="fpv2-step-pill">Step 2</p>
+          <p class="fpv2-step-body">
+            <!-- TODO: confirm Step 2 copy from Canva -->
+            매일의 작은 성공을 쌓아가며 아이가 스스로 공부할 수 있는 자신감을 길러요.
+          </p>
+        </div>
+        <div class="fpv2-step-card">
+          <div class="fpv2-step-emoji" aria-hidden="true">&#x1F4DA;</div>
+          <p class="fpv2-step-pill">Step 3</p>
+          <p class="fpv2-step-body">
+            <!-- TODO: confirm Step 3 copy from Canva -->
+            교과 과정에 맞춰 약점을 메우고 강점을 단단히 다지며 학습 습관을 완성해요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TALK + WEEKLY LETTER -->
+  <section class="fpv2-talk">
+    <div class="fpv2-wrap fpv2-talk-grid">
+      <div class="fpv2-talk-left">
+        <h2 class="fpv2-h2-left">
+          우리 아이가 궁금한 부모님들에게도,<br>
+          <span class="fpv2-mitra-en">미트라</span>가 대화합니다.
+        </h2>
+        <a class="fpv2-pill" href="https://staging.mitratutor.com/ko/enroll">자녀 등록하기 &rarr;</a>
+      </div>
+      <div class="fpv2-letter-card">
+        <div class="fpv2-letter-eyebrow">샘플 &middot; 주간 편지</div>
+        <div class="fpv2-letter-body">
+          <p>안녕하세요 사라님,</p>
+          <p>이번 주 애디와 좋은 시간을 보냈어요. 다섯 번의 세션 중 세 번은 애디가 먼저 시작했어요 &mdash; 자신이 먼저 다가오는 게 점점 패턴이 되어가고 있어요. 이번 주 어떤 일이 있었는지, 그리고 제가 무엇을 보고 있는지 말씀드릴게요.</p>
+          <p>이번 주 수학은 음수 연산을 더 깊이 다뤘어요. 애디가 수직선 접근법으로 음수를 직관적으로 이해하게 되었어요. 예전에 헷갈려하던 것 &mdash; 이중 부정 처리 &mdash; 이제 제가 짚어주기 전에 본인이 알아채고 말로 표현해요.</p>
+          <p>이번 주 더 큰 일은 화요일 밤에 당황한 채로 온 산업 혁명 에세이였어요. 애디와 작업할 때 정말 좋은 점은, 본인의 관심사를 산만한 주제로 보지 않고 글의 재료로 가져온다는 거예요.</p>
+          <p style="margin-bottom: 0;"><em>&mdash; 미트라</em></p>
+        </div>
+        <a class="fpv2-letter-more" href="/ko/parent-dashboard">전체 샘플 편지 보기 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. LIVE DASHBOARD -->
+  <section class="fpv2-dash">
+    <div class="fpv2-wrap fpv2-center">
+      <h2 class="fpv2-h2">
+        <span class="fpv2-mitra-en">미트라</span>의 실시간 대시보드
+      </h2>
+      <p class="fpv2-dash-sub">
+        <!-- TODO: confirm dashboard subhead from Canva -->
+        '광고'가 아닌 데이터로 보고, 아이의 강점/약점 모두 한눈에 확인합니다.
+      </p>
+      <div class="fpv2-dash-grid">
+        <div class="fpv2-dash-card">
+          <p class="fpv2-dash-title">세션 및 시간 (최근 8주)</p>
+          <div class="fpv2-canvas-wrap"><canvas id="fpv2ComboChart"></canvas></div>
+        </div>
+        <div class="fpv2-dash-card">
+          <p class="fpv2-dash-title">애디가 미트라에게 한 질문</p>
+          <div class="fpv2-canvas-wrap"><canvas id="fpv2QuestionsChart"></canvas></div>
+        </div>
+        <div class="fpv2-dash-card fpv2-dash-card-pie">
+          <p class="fpv2-dash-title">다룬 과목</p>
+          <div class="fpv2-canvas-wrap-pie"><canvas id="fpv2SubjectsChart"></canvas></div>
+        </div>
+      </div>
+      <a class="fpv2-pill" href="/ko/parent-dashboard">샘플 대시보드 살펴보기 &rarr;</a>
+    </div>
+  </section>
+
+  <!-- 5. FAQ -->
+  <section class="fpv2-faq">
+    <div class="fpv2-wrap fpv2-narrow">
+      <h2 class="fpv2-h2 fpv2-center">
+        <span class="fpv2-mitra-en">미트라 MITRA</span>가 자주 듣는 부모님의 질문
+      </h2>
+      <details class="fpv2-faq-item" open>
+        <summary>
+          <!-- TODO: confirm exact FAQ question 1 from Canva -->
+          공부보다 스마트폰이 먼저인 아이도 미트라와 잘 맞을까요?
+        </summary>
+        <div class="fpv2-faq-body"><p>네. 미트라는 카카오톡, 텔레그램, 왓츠앱처럼 아이가 이미 쓰는 메신저에서 친구처럼 대화해요. "공부 앱을 따로 켜야 한다"는 진입 장벽이 없어서, 스마트폰에 익숙한 아이일수록 미트라가 더 잘 맞아요.</p></div>
+      </details>
+      <details class="fpv2-faq-item">
+        <summary>
+          <!-- TODO: confirm FAQ question 2 from Canva -->
+          학원 진도와 충돌하지 않을까요?
+        </summary>
+        <div class="fpv2-faq-body"><p>미트라는 아이가 다니는 학원의 교재와 진도를 알고 함께 공부해요. 학원을 대체하는 게 아니라, 학원 사이의 시간에 막힌 부분을 풀어주는 학습 동반자예요.</p></div>
+      </details>
+      <details class="fpv2-faq-item">
+        <summary>
+          <!-- TODO: confirm FAQ question 3 from Canva -->
+          아이마다 다르게 맞춰주나요?
+        </summary>
+        <div class="fpv2-faq-body"><p>네. 미트라는 아이의 학습 스타일, 관심사, 지난 대화를 기억합니다. 같은 개념을 두 아이에게 설명할 때도, 한 아이에게는 좋아하는 게임으로, 다른 아이에게는 그림으로 연결해서 풀어주는 방식이에요.</p></div>
+      </details>
+      <details class="fpv2-faq-item">
+        <summary>
+          <!-- TODO: confirm FAQ question 4 from Canva -->
+          아이의 대화 내용은 어떻게 보호되나요?
+        </summary>
+        <div class="fpv2-faq-body"><p>아이의 모든 대화는 암호화되어 안전하게 저장되고, 학부모님께는 학습 진도와 주간 편지만 공유됩니다. 친구·가족 이야기 같은 사적인 내용은 보고서에 절대 인용되지 않아요.</p></div>
+      </details>
+      <details class="fpv2-faq-item">
+        <summary>
+          <!-- TODO: confirm FAQ question 5 from Canva -->
+          미트라가 안 맞으면 어떻게 하나요?
+        </summary>
+        <div class="fpv2-faq-body"><p>처음 7일은 무료 체험이에요. 아이와 잘 맞지 않으면 7일 안에 해지하시면 비용이 청구되지 않습니다. 최소 약정 기간은 없어요.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 6. PRICING + CLOSING CTA -->
+  <section class="fpv2-pricing">
+    <div class="fpv2-wrap fpv2-pricing-grid">
+      <div class="fpv2-phone-card">
+        <div class="fpv2-phone-screen">
+          <img src="/ko/static/images/mitra-logo-icon_001.png" alt="미트라" class="fpv2-phone-logo">
+        </div>
+        <div class="fpv2-phone-cta">
+          <span class="fpv2-phone-dot" aria-hidden="true"></span>
+          <span>무료 카카오톡 가입</span>
+        </div>
+      </div>
+      <div class="fpv2-price-card">
+        <p class="fpv2-price-eyebrow">가격 안내</p>
+        <p class="fpv2-price-amount">50,000<span class="fpv2-price-unit">원/월</span></p>
+        <p class="fpv2-price-note">
+          <!-- TODO: confirm pricing footnote from Canva -->
+          첫 7일 무료 체험 &middot; 언제든 해지 가능
+        </p>
+        <a class="fpv2-pill fpv2-pill-dark" href="https://staging.mitratutor.com/ko/enroll">회원가입 알아보기 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
 </div>
+
+<script>
+(function() {
+  if (typeof Chart === 'undefined') return;
+  var weekLabels = ['1주','2주','3주','4주','5주','6주','7주','8주'];
+
+  new Chart(document.getElementById('fpv2ComboChart'), {
+    type: 'bar',
+    data: { labels: weekLabels, datasets: [
+      { label: '세션', data: [3,4,3,4,4,5,4,5], backgroundColor: '#2A9D8F', yAxisID: 'y' },
+      { label: '분', data: [78,102,91,110,124,138,132,168], type: 'line', borderColor: '#1B3A5C', backgroundColor: 'rgba(27,58,92,0.1)', tension: 0.3, yAxisID: 'y1' }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, labels: { font: { size: 10 } } } },
+      scales: {
+        y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+        y1: { position: 'right', beginAtZero: true, ticks: { font: { size: 10 } }, grid: { display: false } },
+        x: { ticks: { font: { size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('fpv2QuestionsChart'), {
+    type: 'line',
+    data: { labels: weekLabels, datasets: [{
+      label: '질문', data: [12,17,14,21,19,24,22,28],
+      borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.15)',
+      fill: true, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#10b981'
+    }]},
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { font: { size: 10 } }, grid: { color: '#f1f5f9' } },
+                x: { ticks: { font: { size: 10 } }, grid: { display: false } } }
+    }
+  });
+
+  new Chart(document.getElementById('fpv2SubjectsChart'), {
+    type: 'doughnut',
+    data: { labels: ['수학','영어','사회'],
+            datasets: [{ data: [14,8,6], backgroundColor: ['#2A9D8F','#1B3A5C','#10b981'], borderWidth: 0 }] },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 8 } } }, cutout: '55%' }
+  });
+
+  var items = document.querySelectorAll('.fpv2-faq-item');
+  items.forEach(function(d) {
+    d.addEventListener('toggle', function() {
+      if (!d.open) return;
+      items.forEach(function(o) { if (o !== d) o.open = false; });
+    });
+  });
+})();
+</script>
 </main>
 
 <footer class="wp-footer">
@@ -186,6 +620,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   })();
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </body>
 </html>

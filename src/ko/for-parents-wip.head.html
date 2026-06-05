@@ -1,13 +1,230 @@
 <meta name="robots" content="noindex, nofollow">
 <style>
-.fpwip-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
-.fpwip-page { background: #fafafa; padding: 0 0 64px; }
-.fpwip-canvas { display: block; max-width: 1100px; width: 100%; margin: 0 auto; height: auto; }
-.fpwip-cta-row { text-align: center; padding: 32px 24px; }
-.fpwip-cta {
-  display: inline-block; background: #2A9D8F; color: #fff; font-weight: 700;
-  font-size: 1.05rem; padding: 0.95rem 2.2rem; border-radius: 999px;
-  text-decoration: none; transition: transform .15s ease;
+/* ============================================================
+   FOR-PARENTS-WIP — Korean parent landing, real HTML rebuild
+   Visual reference: ko/static/images/parents-wip/for-parents.png
+   Color palette mirrors Canva comp: green hero, mint sections,
+   dark-blue letter card, yellow phone callout.
+   ============================================================ */
+
+.fpv2-main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+
+.fpv2-page {
+  --green: #2A9D8F;
+  --green-dark: #1f7a6e;
+  --green-mint: #EAF5F0;
+  --green-mint-soft: #F2F9F5;
+  --blue-deep: #1B3A5C;
+  --kakao: #FEE500;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  color: var(--ink);
+  line-height: 1.65;
+  word-break: keep-all;
 }
-.fpwip-cta:hover { transform: translateY(-1px); background: #1f7a6e; }
+.fpv2-page section { padding: 4.5rem 1.5rem; }
+.fpv2-wrap { max-width: 1120px; margin: 0 auto; }
+.fpv2-narrow { max-width: 760px; }
+.fpv2-center { text-align: center; }
+
+.fpv2-h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800; line-height: 1.4; color: var(--ink);
+  margin: 0 0 2rem;
+}
+.fpv2-h2-left {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 800; line-height: 1.45; color: var(--ink);
+  margin: 0 0 1.75rem;
+}
+.fpv2-mitra-en { color: var(--green); }
+
+/* Shared pill button */
+.fpv2-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green); color: #fff; font-weight: 700;
+  font-size: 0.95rem; padding: 0.7rem 1.6rem;
+  border-radius: 999px; text-decoration: none;
+  transition: background .15s ease, transform .15s ease;
+  box-shadow: 0 4px 14px rgba(42,157,143,0.25);
+}
+.fpv2-pill:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
+.fpv2-pill-dark { background: var(--blue-deep); box-shadow: 0 4px 14px rgba(27,58,92,0.25); }
+.fpv2-pill-dark:hover { background: #122a44; }
+
+/* ===== 1. HERO ===== */
+.fpv2-hero {
+  background: linear-gradient(180deg, var(--green) 0%, #34a99c 100%);
+  color: #fff;
+  padding: 3.5rem 1.5rem 4rem !important;
+}
+.fpv2-hero h1 {
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
+  font-weight: 700; line-height: 1.55; color: #fff;
+  margin: 1.25rem 0 0; text-wrap: balance;
+}
+.fpv2-hero .fpv2-mitra-en { color: #fff; font-weight: 800; }
+.fpv2-hero-mark {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: #fff; color: var(--green);
+  font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ===== 2. STEPS ===== */
+.fpv2-steps { background: var(--green-mint-soft); }
+.fpv2-step-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem; margin-top: 1.5rem;
+}
+.fpv2-step-card {
+  background: #fff; border-radius: 16px; padding: 1.75rem 1.25rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(31,42,38,0.06);
+  text-align: center; display: flex; flex-direction: column; align-items: center;
+}
+.fpv2-step-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; line-height: 1; }
+.fpv2-step-pill {
+  display: inline-block; background: var(--green); color: #fff;
+  font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em;
+  padding: 4px 14px; border-radius: 999px; margin: 0.5rem 0 0.85rem;
+}
+.fpv2-step-body { font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.7; }
+
+/* ===== 3. TALK + LETTER ===== */
+.fpv2-talk { background: var(--green-mint); }
+.fpv2-talk-grid {
+  display: grid; grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem; align-items: center;
+}
+.fpv2-letter-card {
+  background: var(--blue-deep); color: #e2e8f0;
+  border-radius: 18px; padding: 1.75rem 1.75rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(27,58,92,0.25);
+}
+.fpv2-letter-eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  color: #FEE500; text-transform: uppercase; margin-bottom: 0.85rem;
+}
+.fpv2-letter-body p {
+  font-size: 0.92rem; line-height: 1.75; margin: 0 0 0.75rem; color: #e8edf3;
+}
+.fpv2-letter-body em { color: #fff; font-style: italic; }
+.fpv2-letter-more {
+  display: inline-block; margin-top: 0.9rem;
+  color: #FEE500; font-size: 0.88rem; font-weight: 700;
+  text-decoration: none; letter-spacing: 0.01em;
+}
+.fpv2-letter-more:hover { color: #fff; }
+
+/* ===== 4. LIVE DASHBOARD ===== */
+.fpv2-dash { background: var(--green-mint-soft); }
+.fpv2-dash-sub {
+  font-size: 1rem; color: var(--muted); margin: -1rem 0 2rem;
+  max-width: 720px; margin-left: auto; margin-right: auto;
+}
+.fpv2-dash-grid {
+  display: grid; grid-template-columns: 1.2fr 1.2fr 0.85fr;
+  gap: 1rem; margin-bottom: 2rem; text-align: left;
+}
+.fpv2-dash-card {
+  background: #fff; border-radius: 14px; padding: 1rem 1.1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.fpv2-dash-title {
+  font-size: 0.78rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 0.65rem;
+}
+.fpv2-canvas-wrap { height: 170px; }
+.fpv2-canvas-wrap-pie { height: 170px; display: flex; justify-content: center; }
+
+/* ===== 5. FAQ ===== */
+.fpv2-faq { background: #fff; }
+.fpv2-faq .fpv2-h2 { margin-bottom: 2rem; }
+.fpv2-faq-item {
+  background: #fff; border: 1px solid #e6ebe8;
+  border-radius: 14px; margin-bottom: 0.7rem;
+  box-shadow: 0 1px 4px rgba(31,42,38,0.03); overflow: hidden;
+}
+.fpv2-faq-item summary {
+  list-style: none; cursor: pointer;
+  padding: 1.05rem 1.4rem; font-weight: 600; font-size: 1rem;
+  color: var(--ink);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem;
+}
+.fpv2-faq-item summary::-webkit-details-marker { display: none; }
+.fpv2-faq-item summary::after {
+  content: "+"; color: var(--green); font-size: 1.4rem;
+  font-weight: 400; flex: 0 0 auto;
+}
+.fpv2-faq-item[open] summary::after { content: "\00d7"; }
+.fpv2-faq-body { padding: 0 1.4rem 1.2rem; }
+.fpv2-faq-body p {
+  margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.75;
+}
+
+/* ===== 6. PRICING + CLOSING ===== */
+.fpv2-pricing {
+  background: linear-gradient(180deg, var(--green-mint) 0%, var(--green) 100%);
+  padding: 4.5rem 1.5rem 5rem !important;
+}
+.fpv2-pricing-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem; align-items: stretch;
+  max-width: 760px; margin: 0 auto;
+}
+
+/* Yellow phone-style card (left) */
+.fpv2-phone-card {
+  background: var(--kakao); border-radius: 18px;
+  padding: 1.5rem 1.25rem; display: flex; flex-direction: column;
+  align-items: center; gap: 1rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+.fpv2-phone-screen {
+  background: #fff; border-radius: 14px;
+  width: 100%; max-width: 180px; aspect-ratio: 3/4;
+  display: flex; align-items: center; justify-content: center;
+}
+.fpv2-phone-logo { max-width: 60%; height: auto; }
+.fpv2-phone-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #3a2e00; color: #fff;
+  font-weight: 700; font-size: 0.92rem;
+  padding: 0.65rem 1.2rem; border-radius: 999px;
+}
+.fpv2-phone-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--kakao);
+}
+
+/* White pricing card (right) */
+.fpv2-price-card {
+  background: #fff; border-radius: 18px;
+  padding: 2rem 1.75rem; display: flex; flex-direction: column;
+  align-items: center; text-align: center; gap: 0.5rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+}
+.fpv2-price-eyebrow {
+  font-size: 0.78rem; font-weight: 700; color: var(--green);
+  letter-spacing: 0.08em; text-transform: uppercase; margin: 0;
+}
+.fpv2-price-amount {
+  font-size: 2.4rem; font-weight: 800; color: var(--blue-deep);
+  margin: 0.25rem 0 0.1rem; line-height: 1;
+}
+.fpv2-price-unit { font-size: 1rem; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.fpv2-price-note { font-size: 0.85rem; color: var(--muted); margin: 0 0 1rem; }
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  .fpv2-page section { padding: 3rem 1.1rem; }
+  .fpv2-step-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .fpv2-talk-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .fpv2-dash-grid { grid-template-columns: 1fr; }
+  .fpv2-pricing-grid { grid-template-columns: 1fr; }
+  .fpv2-h2 { font-size: 1.4rem; }
+  .fpv2-h2-left { font-size: 1.3rem; }
+}
 </style>
