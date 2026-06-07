@@ -39,6 +39,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 LAYOUT_PATH = SRC / "_layout.html"
+LAUNCHER_PATH = SRC / "_launcher.html"
 CONFIG_PATH = SRC / "_config.json"
 NAV_CONFIG_PATH = ROOT / "shared" / "nav-config.json"
 
@@ -58,6 +59,14 @@ def load_nav_config() -> dict:
 
 def load_layout() -> str:
     return LAYOUT_PATH.read_text(encoding="utf-8")
+
+
+def load_launcher() -> str:
+    """Read the Mitra try-Mitra launcher snippet. Returns empty string if file
+    is missing (graceful degradation — pages still build without the launcher)."""
+    if not LAUNCHER_PATH.exists():
+        return ""
+    return LAUNCHER_PATH.read_text(encoding="utf-8")
 
 
 def resolve_vars(text: str, app_base: str, site_base: str, lang: str) -> str:
@@ -252,6 +261,10 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
     # Resolve {{app_base}} in page content (CTA buttons, contact links, etc.)
     content_block = resolve_vars(content_block, app_base, site_base, lang)
 
+    # Mitra launcher: the same Intercom-style try-Mitra component on every page.
+    # Resolve {{app_base}} and {{lang}} so it points at the right API.
+    launcher_html = resolve_vars(load_launcher(), app_base, site_base, lang)
+
     replacements = {
         "{{ html_lang }}": lang_cfg["html_lang"],
         "{{ fonts_url }}": lang_cfg.get("fonts_url", ""),
@@ -274,6 +287,7 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
         "{{ en_active_class }}": en_active,
         "{{ ko_active_class }}": ko_active,
         "{{ content_block }}": content_block,
+        "{{ launcher_html }}": launcher_html,
     }
 
     out = layout

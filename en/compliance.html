@@ -369,5 +369,546 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
+<!-- Mitra launcher: collapsed pill (bottom-right) → click expands to a try-Mitra
+     chat overlay. State persists in localStorage across page navigation.
+     API calls go to https://staging.mitratutor.com/try/send (CORS-allowed on the app origin).
+     Scoped under #mitra-launcher-root so the marketing site's CSS doesn't bleed. -->
+<div id="mitra-launcher-root">
+  <button id="ml-pill" type="button" aria-label="Try Mitra">
+    <img src="/{{ lang }}/static/images/mitra-logo-icon-v2_003.png" alt="" />
+    <span>Try Mitra</span>
+  </button>
+
+  <div id="ml-panel" hidden role="dialog" aria-modal="false" aria-label="Try Mitra demo">
+    <div class="ml-modal">
+      <div class="ml-chat-col">
+        <header class="ml-header">
+          <img class="ml-logo" src="/{{ lang }}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" />
+          <div class="ml-title">
+            <div class="ml-h1">Mitra</div>
+            <div class="ml-sub">A short sample. The real Mitra remembers you.</div>
+          </div>
+          <span class="ml-turns-pill" id="ml-turnsPill" hidden>0 / 8</span>
+          <button type="button" class="ml-reset" id="ml-resetBtn" title="Start a fresh demo">Reset</button>
+          <button type="button" class="ml-close" id="ml-closeBtn" aria-label="Close">&times;</button>
+        </header>
+
+        <div class="ml-ticker" id="ml-ticker">
+          <span class="ml-ticker-label">Safety:</span>
+          <span class="ml-light" id="ml-lightHarm" data-key="harm">harm</span>
+          <span class="ml-light" id="ml-lightBullying" data-key="bullying">bullying</span>
+          <span class="ml-light" id="ml-lightTroll" data-key="troll">trolling</span>
+        </div>
+
+        <main class="ml-main" id="ml-main">
+          <div class="ml-messages" id="ml-messages">
+            <div class="ml-bubble teacher">Hey — I'm Mitra. Tell me about yourself on the side, or just say hi and we'll start there. What's on your mind?</div>
+          </div>
+        </main>
+
+        <footer class="ml-footer">
+          <form class="ml-composer" id="ml-composer" autocomplete="off">
+            <textarea class="ml-input" id="ml-textInput" placeholder="What's on your mind?" rows="1"></textarea>
+            <button type="submit" class="ml-send" id="ml-sendBtn" disabled aria-label="Send">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </button>
+          </form>
+        </footer>
+      </div>
+
+      <aside class="ml-panel-col">
+        <div class="ml-panel-section">
+          <h3 class="ml-h3">About the student <span class="ml-lock" id="ml-lockBadge" hidden>🔒 locked</span></h3>
+          <p class="ml-hint" id="ml-panelHint">Edit these before you start. Once you send a message, they lock so Mitra stays consistent.</p>
+          <div class="ml-field"><label>Name</label><input type="text" id="ml-panelName" maxlength="40" value="WebSurfer" /></div>
+          <div class="ml-field"><label>Age</label><input type="text" id="ml-panelAge" maxlength="10" value="15" /></div>
+          <div class="ml-field"><label>Subjects (comma-separated)</label><input type="text" id="ml-panelSubjects" maxlength="120" value="Math, Science, Philosophy" /></div>
+          <div class="ml-field"><label>Interests (comma-separated)</label><input type="text" id="ml-panelInterests" maxlength="120" value="Video Games" /></div>
+        </div>
+        <div class="ml-panel-section ml-panel-scroll">
+          <h3 class="ml-h3">Mitra noticed</h3>
+          <p class="ml-hint">Updates as Mitra picks things up from the chat.</p>
+          <ul class="ml-noticed-list" id="ml-noticedList">
+            <li class="ml-noticed-empty">Nothing yet. Start chatting.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<style>
+#mitra-launcher-root {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #1a3a3a;
+}
+#mitra-launcher-root *, #mitra-launcher-root *::before, #mitra-launcher-root *::after { box-sizing: border-box; }
+
+/* Pill */
+#mitra-launcher-root #ml-pill {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #2e6e6e;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1rem 0.55rem 0.55rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s, transform 0.4s, background 0.15s;
+  animation: ml-fade-in 0.5s 1.2s forwards;
+}
+#mitra-launcher-root #ml-pill:hover { background: #205050; }
+#mitra-launcher-root #ml-pill img { width: 28px; height: 28px; border-radius: 50%; background: white; padding: 3px; }
+#mitra-launcher-root #ml-pill.hidden { display: none; }
+@keyframes ml-fade-in { to { opacity: 1; transform: translateY(0); } }
+
+/* Panel container */
+#mitra-launcher-root #ml-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  width: min(900px, calc(100vw - 40px));
+  height: min(720px, calc(100dvh - 40px));
+}
+#mitra-launcher-root #ml-panel .ml-modal {
+  width: 100%; height: 100%;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+#mitra-launcher-root .ml-chat-col {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+#mitra-launcher-root .ml-panel-col {
+  width: 320px;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  border-left: 1px solid #e8e3d8;
+  background: #faf7f0;
+  overflow: hidden;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Header */
+#mitra-launcher-root .ml-header {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #e8e3d8;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+#mitra-launcher-root .ml-logo { width: 28px; height: 28px; }
+#mitra-launcher-root .ml-title { flex: 1; min-width: 0; }
+#mitra-launcher-root .ml-h1 { font-size: 0.95rem; font-weight: 600; color: #1a3a3a; }
+#mitra-launcher-root .ml-sub { font-size: 0.74rem; color: #6c7676; }
+#mitra-launcher-root .ml-turns-pill {
+  font-size: 0.7rem; color: #2e6e6e; background: #d8eaea;
+  padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 500;
+}
+#mitra-launcher-root .ml-reset, #mitra-launcher-root .ml-close {
+  background: transparent; border: 1px solid #e8e3d8; color: #6c7676;
+  border-radius: 999px; cursor: pointer; font-family: inherit;
+}
+#mitra-launcher-root .ml-reset { font-size: 0.7rem; padding: 0.15rem 0.5rem; }
+#mitra-launcher-root .ml-close { font-size: 1.1rem; padding: 0 0.45rem; line-height: 1; }
+#mitra-launcher-root .ml-reset:hover, #mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+
+/* Ticker */
+#mitra-launcher-root .ml-ticker {
+  display: flex; align-items: center; gap: 0.35rem;
+  padding: 0.35rem 1rem; background: #f6f3ec; border-bottom: 1px solid #e8e3d8;
+  flex-shrink: 0; flex-grow: 0; font-size: 0.7rem;
+}
+#mitra-launcher-root .ml-ticker-label { color: #6c7676; margin-right: 0.3rem; }
+#mitra-launcher-root .ml-light {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.1rem 0.5rem; border-radius: 999px;
+  background: #e3f0e3; color: #2e6e3e; font-weight: 500;
+}
+#mitra-launcher-root .ml-light::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #4caf50; }
+#mitra-launcher-root .ml-light.warn { background: #fef5e0; color: #8a6300; }
+#mitra-launcher-root .ml-light.warn::before { background: #e8a93e; animation: ml-pulse-slow 2s infinite; }
+#mitra-launcher-root .ml-light.on { background: #fce6e1; color: #c14e3e; }
+#mitra-launcher-root .ml-light.on::before { background: #c14e3e; animation: ml-pulse 1s infinite; }
+@keyframes ml-pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes ml-pulse-slow { 0%,100%{opacity:1} 50%{opacity:0.55} }
+
+/* Main chat region */
+#mitra-launcher-root .ml-main { flex: 1 1 0; overflow-y: auto; padding: 1rem; min-height: 0; }
+#mitra-launcher-root .ml-messages { display: flex; flex-direction: column; gap: 0.5rem; }
+#mitra-launcher-root .ml-bubble {
+  max-width: 85%; padding: 0.5rem 0.8rem; border-radius: 16px;
+  line-height: 1.45; white-space: pre-wrap; word-wrap: break-word; font-size: 0.94rem;
+}
+#mitra-launcher-root .ml-bubble.teacher { background: #f6f3ec; color: #1a3a3a; border-bottom-left-radius: 4px; align-self: flex-start; }
+#mitra-launcher-root .ml-bubble.student { background: #2e6e6e; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+#mitra-launcher-root .ml-typing { font-style: italic; color: #6c7676; padding: 0.2rem 0.8rem; align-self: flex-start; font-size: 0.85rem; }
+#mitra-launcher-root .ml-convert {
+  background: linear-gradient(180deg, #fffbef 0%, #fef3d3 100%);
+  border: 1px solid #f3dca5; border-radius: 14px; padding: 0.9rem;
+  margin-top: 0.5rem; text-align: center;
+}
+#mitra-launcher-root .ml-convert p { margin: 0 0 0.5rem; color: #604200; font-size: 0.9rem; }
+#mitra-launcher-root .ml-convert a {
+  display: inline-block; background: #2e6e6e; color: white; text-decoration: none;
+  padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+}
+#mitra-launcher-root .ml-convert a:hover { background: #205050; }
+
+/* Footer composer */
+#mitra-launcher-root .ml-footer { padding: 0.7rem 1rem; border-top: 1px solid #e8e3d8; background: white; flex-shrink: 0; flex-grow: 0; }
+#mitra-launcher-root .ml-composer { background: #f6f3ec; border-radius: 14px; padding: 0.4rem 0.5rem 0.4rem 0.85rem; display: flex; align-items: flex-end; gap: 0.4rem; }
+#mitra-launcher-root .ml-input {
+  flex: 1; border: none; outline: none; resize: none; font-family: inherit;
+  font-size: 0.95rem; max-height: 160px; min-height: 1.4rem; line-height: 1.45;
+  padding: 0.2rem 0; background: transparent; color: #1a3a3a;
+}
+#mitra-launcher-root .ml-input:disabled { color: #6c7676; cursor: not-allowed; }
+#mitra-launcher-root .ml-send {
+  border: none; background: #2e6e6e; color: white; cursor: pointer; padding: 0;
+  border-radius: 50%; width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+}
+#mitra-launcher-root .ml-send:disabled { background: #b8c6c6; cursor: not-allowed; }
+#mitra-launcher-root .ml-send:not(:disabled):hover { background: #205050; }
+
+/* Side panel sections */
+#mitra-launcher-root .ml-panel-section { padding: 0.85rem 1rem; border-bottom: 1px solid #e8e3d8; }
+#mitra-launcher-root .ml-panel-section.ml-panel-scroll { min-height: 0; overflow-y: auto; border-bottom: none; }
+#mitra-launcher-root .ml-h3 { font-size: 0.82rem; margin: 0 0 0.4rem; font-weight: 600; color: #1a3a3a; display: flex; align-items: center; gap: 0.35rem; }
+#mitra-launcher-root .ml-lock { color: #6c7676; font-size: 0.7rem; font-weight: 400; }
+#mitra-launcher-root .ml-hint { font-size: 0.7rem; color: #6c7676; margin: 0.15rem 0 0.4rem; font-style: italic; }
+#mitra-launcher-root .ml-field { margin-bottom: 0.55rem; }
+#mitra-launcher-root .ml-field label { display: block; font-size: 0.65rem; color: #6c7676; margin-bottom: 0.15rem; letter-spacing: 0.02em; text-transform: uppercase; }
+#mitra-launcher-root .ml-field input { width: 100%; border: 1px solid #e8e3d8; border-radius: 8px; padding: 0.3rem 0.55rem; font-family: inherit; font-size: 0.88rem; color: #1a3a3a; background: white; outline: none; }
+#mitra-launcher-root .ml-field input:focus { border-color: #2e6e6e; }
+#mitra-launcher-root .ml-field input:disabled { background: #f5f2ea; color: #6c7676; cursor: not-allowed; }
+#mitra-launcher-root .ml-noticed-list { display: flex; flex-direction: column; gap: 0.35rem; list-style: none; padding: 0; margin: 0; }
+#mitra-launcher-root .ml-noticed-empty { color: #6c7676; font-size: 0.78rem; font-style: italic; }
+#mitra-launcher-root .ml-noticed-pill { background: white; border: 1px solid #e8e3d8; border-left: 3px solid #2e6e6e; border-radius: 6px; padding: 0.3rem 0.5rem; font-size: 0.76rem; color: #1a3a3a; line-height: 1.35; }
+#mitra-launcher-root .ml-noticed-pill.kind-interest { border-left-color: #c97a2e; }
+#mitra-launcher-root .ml-noticed-pill.kind-research { border-left-color: #5e4ca5; }
+#mitra-launcher-root .ml-noticed-pill.kind-behavior { border-left-color: #2e6e6e; }
+#mitra-launcher-root .ml-noticed-pill.kind-memory { border-left-color: #6e2e2e; }
+#mitra-launcher-root .ml-noticed-kind { display: block; font-size: 0.62rem; color: #6c7676; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.1rem; }
+
+/* Mobile: fullscreen panel, smaller pill, column layout */
+@media (max-width: 760px) {
+  #mitra-launcher-root #ml-pill { right: 12px; bottom: 12px; padding: 0.45rem 0.85rem 0.45rem 0.45rem; font-size: 0.85rem; }
+  #mitra-launcher-root #ml-pill img { width: 24px; height: 24px; }
+  #mitra-launcher-root #ml-panel { right: 0; bottom: 0; width: 100vw; height: 100dvh; }
+  #mitra-launcher-root #ml-panel .ml-modal { border-radius: 0; }
+  #mitra-launcher-root .ml-modal { flex-direction: column; }
+  #mitra-launcher-root .ml-panel-col { width: 100%; max-height: 32dvh; border-left: none; border-bottom: 1px solid #e8e3d8; order: 0; }
+  #mitra-launcher-root .ml-chat-col { order: 1; }
+  #mitra-launcher-root .ml-panel-section { padding: 0.55rem 0.85rem; }
+  #mitra-launcher-root .ml-h3 { font-size: 0.78rem; }
+  #mitra-launcher-root .ml-hint { font-size: 0.66rem; }
+  #mitra-launcher-root .ml-field { margin-bottom: 0.4rem; }
+  #mitra-launcher-root .ml-field input { font-size: 0.85rem; padding: 0.28rem 0.5rem; }
+}
+</style>
+
+<script>
+(function() {
+  var API_BASE = "https://staging.mitratutor.com";
+  var STORAGE_KEY = 'mitra_launcher_v1';
+  var OPEN_KEY = 'mitra_launcher_open_v1';
+  var MAX_TURNS = 8;
+
+  var pillBtn = document.getElementById('ml-pill');
+  var panelEl = document.getElementById('ml-panel');
+  var closeBtn = document.getElementById('ml-closeBtn');
+  var resetBtn = document.getElementById('ml-resetBtn');
+  var messagesEl = document.getElementById('ml-messages');
+  var mainEl = document.getElementById('ml-main');
+  var composer = document.getElementById('ml-composer');
+  var textInput = document.getElementById('ml-textInput');
+  var sendBtn = document.getElementById('ml-sendBtn');
+  var turnsPill = document.getElementById('ml-turnsPill');
+  var lockBadge = document.getElementById('ml-lockBadge');
+  var panelHint = document.getElementById('ml-panelHint');
+  var noticedList = document.getElementById('ml-noticedList');
+
+  var panelInputs = {
+    name: document.getElementById('ml-panelName'),
+    age: document.getElementById('ml-panelAge'),
+    subjects: document.getElementById('ml-panelSubjects'),
+    interests: document.getElementById('ml-panelInterests'),
+  };
+  var ticker = {
+    harm: document.getElementById('ml-lightHarm'),
+    bullying: document.getElementById('ml-lightBullying'),
+    troll: document.getElementById('ml-lightTroll'),
+  };
+
+  var state = {
+    history: [],
+    turnsUsed: 0,
+    noticed: [],
+    panelLocked: false,
+    ended: false,
+    panel: null,
+    demoId: null,
+    safety: {hard:{harm:false,bullying:false,troll:false}, soft:{harm:false,bullying:false,troll:false}},
+  };
+  var inflight = false;
+
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) { var p = JSON.parse(raw); for (var k in p) state[k] = p[k]; }
+    } catch(e) {}
+  }
+  function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {} }
+  function openPanel(persist) {
+    panelEl.hidden = false;
+    pillBtn.classList.add('hidden');
+    if (persist !== false) try { localStorage.setItem(OPEN_KEY, '1'); } catch(e) {}
+    setTimeout(function() { textInput && textInput.focus(); }, 50);
+  }
+  function closePanel() {
+    panelEl.hidden = true;
+    pillBtn.classList.remove('hidden');
+    try { localStorage.removeItem(OPEN_KEY); } catch(e) {}
+  }
+  function scrollBottom() { requestAnimationFrame(function(){ mainEl.scrollTop = mainEl.scrollHeight; }); }
+  function scrollNoticedBottom() {
+    requestAnimationFrame(function(){
+      var sc = noticedList.closest('.ml-panel-scroll');
+      if (sc) sc.scrollTop = sc.scrollHeight;
+    });
+  }
+  function addBubble(role, content) {
+    var div = document.createElement('div');
+    div.className = 'ml-bubble ' + role;
+    div.textContent = content;
+    messagesEl.appendChild(div);
+    scrollBottom();
+  }
+  function showTyping() {
+    var div = document.createElement('div');
+    div.className = 'ml-typing'; div.textContent = 'Mitra is typing…'; div.id = 'ml-__typing';
+    messagesEl.appendChild(div); scrollBottom();
+  }
+  function clearTyping() { var t = document.getElementById('ml-__typing'); if (t) t.remove(); }
+  function gatherPanel() {
+    return {
+      name: panelInputs.name.value.trim(),
+      age: panelInputs.age.value.trim(),
+      subjects: panelInputs.subjects.value.split(',').map(function(s){return s.trim();}).filter(Boolean),
+      interests: panelInputs.interests.value.split(',').map(function(s){return s.trim();}).filter(Boolean),
+    };
+  }
+  function lockPanel() {
+    if (state.panel) {
+      panelInputs.name.value = state.panel.name || '';
+      panelInputs.age.value = state.panel.age || '';
+      panelInputs.subjects.value = (state.panel.subjects || []).join(', ');
+      panelInputs.interests.value = (state.panel.interests || []).join(', ');
+    }
+    for (var k in panelInputs) panelInputs[k].disabled = true;
+    lockBadge.hidden = false;
+    panelHint.textContent = 'Locked. Mitra is working with this snapshot.';
+    state.panelLocked = true;
+    saveState();
+  }
+  function updatePill() { turnsPill.hidden = false; turnsPill.textContent = state.turnsUsed + ' / ' + MAX_TURNS; }
+  function updateTicker(payload) {
+    if (!payload) return;
+    var hard = payload.hard || payload;
+    var soft = payload.soft || {};
+    Object.keys(ticker).forEach(function(key) {
+      var el = ticker[key];
+      if (hard && hard[key]) { el.classList.remove('warn'); el.classList.add('on'); }
+      else if (soft && soft[key] && !el.classList.contains('on')) { el.classList.add('warn'); }
+    });
+  }
+  function renderNoticed() {
+    noticedList.innerHTML = '';
+    if (state.noticed.length === 0) {
+      var li = document.createElement('li'); li.className = 'ml-noticed-empty';
+      li.textContent = 'Nothing yet. Start chatting.'; noticedList.appendChild(li); return;
+    }
+    state.noticed.forEach(function(item) {
+      var li = document.createElement('li');
+      li.className = 'ml-noticed-pill kind-' + (item.kind || 'memory');
+      var kind = document.createElement('span'); kind.className = 'ml-noticed-kind'; kind.textContent = item.kind || 'memory';
+      var txt = document.createElement('span'); txt.textContent = item.text;
+      li.appendChild(kind); li.appendChild(txt); noticedList.appendChild(li);
+    });
+    scrollNoticedBottom();
+  }
+  function showConversionCTA() {
+    var cta = document.createElement('div'); cta.className = 'ml-convert';
+    var p = document.createElement('p');
+    p.textContent = "That's your demo. The real Mitra would remember all of this for next time.";
+    var link = document.createElement('a');
+    var name = panelInputs.name.value || '';
+    link.href = API_BASE + '/enroll' + (name ? '?student_name=' + encodeURIComponent(name) : '');
+    link.target = '_blank';
+    link.textContent = 'Set up real tutoring →';
+    cta.appendChild(p); cta.appendChild(link);
+    messagesEl.appendChild(cta); scrollBottom();
+  }
+  function endDemo() {
+    state.ended = true; saveState();
+    textInput.disabled = true; textInput.placeholder = 'Demo complete.';
+    sendBtn.disabled = true;
+    showConversionCTA();
+  }
+  function rehydrate() {
+    if (state.panelLocked) lockPanel();
+    if (state.history.length > 0) {
+      messagesEl.innerHTML = '';
+      state.history.forEach(function(m) {
+        var div = document.createElement('div');
+        div.className = 'ml-bubble ' + m.role;
+        div.textContent = m.content;
+        messagesEl.appendChild(div);
+      });
+    }
+    if (state.turnsUsed > 0) updatePill();
+    renderNoticed();
+    if (state.safety) updateTicker(state.safety);
+    if (state.ended) endDemo();
+  }
+
+  pillBtn.addEventListener('click', function() { openPanel(true); });
+  closeBtn.addEventListener('click', closePanel);
+  resetBtn.addEventListener('click', function() {
+    if (!confirm('Start a fresh demo? Your current chat will be cleared.')) return;
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    try { localStorage.removeItem(OPEN_KEY); } catch(e) {}
+    location.reload();
+  });
+
+  textInput.addEventListener('input', function() {
+    textInput.style.height = 'auto';
+    textInput.style.height = Math.min(textInput.scrollHeight, 160) + 'px';
+    sendBtn.disabled = state.ended || textInput.value.trim().length === 0;
+  });
+  textInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!sendBtn.disabled) composer.requestSubmit(); }
+  });
+
+  composer.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (state.ended || inflight) return;
+    var text = textInput.value.trim();
+    if (!text) return;
+    inflight = true; sendBtn.disabled = true;
+
+    if (state.history.length === 0) messagesEl.innerHTML = '';
+    addBubble('student', text);
+    state.history.push({role:'student', content:text});
+
+    if (!state.panelLocked) { state.panel = gatherPanel(); lockPanel(); }
+    if (!state.demoId) state.demoId = 'demo-' + Math.random().toString(36).slice(2, 18);
+
+    textInput.value = ''; textInput.style.height = 'auto'; showTyping();
+
+    var body = {
+      text: text,
+      history: state.history.slice(0, -1),
+      panel: state.panel,
+      turns_used: state.turnsUsed,
+      safety_state: state.safety,
+      demo_id: state.demoId,
+    };
+
+    var resp;
+    try {
+      resp = await fetch(API_BASE + '/try/send', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body),
+      });
+    } catch (err) {
+      clearTyping(); addBubble('teacher', 'Connection blip. Try again?');
+      inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
+    }
+    if (resp.status === 429) { clearTyping(); endDemo(); inflight = false; return; }
+    if (!resp.ok || !resp.body) {
+      clearTyping(); addBubble('teacher', 'Something went wrong. Try again?');
+      inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
+    }
+
+    var reader = resp.body.getReader();
+    var decoder = new TextDecoder();
+    var buf = '';
+    var typingCleared = false;
+    var capReason = null;
+    while (true) {
+      var r = await reader.read();
+      if (r.done) break;
+      buf += decoder.decode(r.value, {stream: true});
+      var idx;
+      while ((idx = buf.indexOf('\n\n')) !== -1) {
+        var block = buf.slice(0, idx);
+        buf = buf.slice(idx + 2);
+        var lines = block.split('\n');
+        var eventLine = lines.find(function(l){return l.indexOf('event: ')===0;});
+        var dataLine = lines.find(function(l){return l.indexOf('data: ')===0;});
+        if (!eventLine || !dataLine) continue;
+        var evt = eventLine.slice(7).trim();
+        var data = dataLine.slice(6);
+        try {
+          var obj = JSON.parse(data);
+          if (evt === 'meta' && typeof obj.turns_used === 'number') {
+            state.turnsUsed = obj.turns_used; updatePill();
+          } else if (evt === 'safety') {
+            if (obj.hard || obj.soft) {
+              state.safety = {hard: obj.hard || state.safety.hard, soft: obj.soft || state.safety.soft};
+            }
+            updateTicker(state.safety);
+          } else if (evt === 'message') {
+            if (!typingCleared) { clearTyping(); typingCleared = true; }
+            if (obj.text) { addBubble('teacher', obj.text); state.history.push({role:'teacher', content:obj.text}); }
+          } else if (evt === 'noticed' && Array.isArray(obj.items)) {
+            state.noticed = state.noticed.concat(obj.items); renderNoticed();
+          } else if (evt === 'cap') {
+            capReason = obj.reason || 'limit_reached';
+          }
+        } catch(e) {}
+      }
+    }
+    if (!typingCleared) clearTyping();
+    saveState();
+    if (capReason || state.turnsUsed >= MAX_TURNS) endDemo();
+    else { textInput.focus(); sendBtn.disabled = textInput.value.trim().length === 0; }
+    inflight = false;
+  });
+
+  loadState();
+  rehydrate();
+  // Restore open state across page navigation.
+  try { if (localStorage.getItem(OPEN_KEY) === '1') openPanel(false); } catch(e) {}
+})();
+</script>
+
 </body>
 </html>
