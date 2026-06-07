@@ -644,10 +644,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 (function() {
   var API_BASE = "https://staging.mitratutor.com";
-  var ENV = "staging";  // "production" or "staging"
+  var ENV = "staging";       // "production" or "staging"
+  var UI_LANG = "en";  // "en" or "ko" — sent to API so Mitra defaults to this language
   var STORAGE_KEY = 'mitra_launcher_v1';
   var OPEN_KEY = 'mitra_launcher_open_v1';
   var MAX_TURNS = 8;
+  var STR_TYPING = "Mitra is typing…";
+  var STR_PANEL_LOCKED_HINT = "Locked. Mitra is working with this snapshot.";
+  var STR_NOTICED_EMPTY = "Nothing yet. Start chatting.";
+  var STR_CONVERT_TEXT = "That's your demo. The real Mitra would remember all of this for next time.";
+  var STR_CONVERT_LINK = "Set up real tutoring →";
+  var STR_DEMO_COMPLETE = "Demo complete.";
+  var STR_RESET_CONFIRM = "Start a fresh demo? Your current chat will be cleared.";
+  var STR_ERR_CONNECTION = "Connection blip. Try again?";
+  var STR_ERR_GENERIC = "Something went wrong. Try again?";
 
   var pillBtn = document.getElementById('ml-pill');
   var panelEl = document.getElementById('ml-panel');
@@ -721,7 +731,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   function showTyping() {
     var div = document.createElement('div');
-    div.className = 'ml-typing'; div.textContent = 'Mitra is typing…'; div.id = 'ml-__typing';
+    div.className = 'ml-typing'; div.textContent = STR_TYPING; div.id = 'ml-__typing';
     messagesEl.appendChild(div); scrollBottom();
   }
   function clearTyping() { var t = document.getElementById('ml-__typing'); if (t) t.remove(); }
@@ -742,7 +752,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     for (var k in panelInputs) panelInputs[k].disabled = true;
     lockBadge.hidden = false;
-    panelHint.textContent = 'Locked. Mitra is working with this snapshot.';
+    panelHint.textContent = STR_PANEL_LOCKED_HINT;
     state.panelLocked = true;
     saveState();
   }
@@ -761,7 +771,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     noticedList.innerHTML = '';
     if (state.noticed.length === 0) {
       var li = document.createElement('li'); li.className = 'ml-noticed-empty';
-      li.textContent = 'Nothing yet. Start chatting.'; noticedList.appendChild(li); return;
+      li.textContent = STR_NOTICED_EMPTY; noticedList.appendChild(li); return;
     }
     state.noticed.forEach(function(item) {
       var li = document.createElement('li');
@@ -775,18 +785,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function showConversionCTA() {
     var cta = document.createElement('div'); cta.className = 'ml-convert';
     var p = document.createElement('p');
-    p.textContent = "That's your demo. The real Mitra would remember all of this for next time.";
+    p.textContent = STR_CONVERT_TEXT;
     var link = document.createElement('a');
     var name = panelInputs.name.value || '';
-    link.href = API_BASE + '/enroll' + (name ? '?student_name=' + encodeURIComponent(name) : '');
+    link.href = API_BASE + '/' + UI_LANG + '/enroll' + (name ? '?student_name=' + encodeURIComponent(name) : '');
     link.target = '_blank';
-    link.textContent = 'Set up real tutoring →';
+    link.textContent = STR_CONVERT_LINK;
     cta.appendChild(p); cta.appendChild(link);
     messagesEl.appendChild(cta); scrollBottom();
   }
   function endDemo() {
     state.ended = true; saveState();
-    textInput.disabled = true; textInput.placeholder = 'Demo complete.';
+    textInput.disabled = true; textInput.placeholder = STR_DEMO_COMPLETE;
     sendBtn.disabled = true;
     showConversionCTA();
   }
@@ -814,7 +824,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   pillBtn.addEventListener('click', function() { openPanel(true); });
   closeBtn.addEventListener('click', closePanel);
   resetBtn.addEventListener('click', function() {
-    if (!confirm('Start a fresh demo? Your current chat will be cleared.')) return;
+    if (!confirm(STR_RESET_CONFIRM)) return;
     try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
     try { localStorage.removeItem(OPEN_KEY); } catch(e) {}
     location.reload();
@@ -852,6 +862,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       turns_used: state.turnsUsed,
       safety_state: state.safety,
       demo_id: state.demoId,
+      lang: UI_LANG,
     };
 
     var resp;
@@ -862,12 +873,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         body: JSON.stringify(body),
       });
     } catch (err) {
-      clearTyping(); addBubble('teacher', 'Connection blip. Try again?');
+      clearTyping(); addBubble('teacher', STR_ERR_CONNECTION);
       inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
     }
     if (resp.status === 429) { clearTyping(); endDemo(); inflight = false; return; }
     if (!resp.ok || !resp.body) {
-      clearTyping(); addBubble('teacher', 'Something went wrong. Try again?');
+      clearTyping(); addBubble('teacher', STR_ERR_GENERIC);
       inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
     }
 

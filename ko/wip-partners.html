@@ -773,9 +773,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      API calls go to https://staging.mitratutor.com/try/send (CORS-allowed on the app origin).
      Scoped under #mitra-launcher-root so the marketing site's CSS doesn't bleed. -->
 <div id="mitra-launcher-root">
-  <button id="ml-pill" type="button" aria-label="Try Mitra">
+  <button id="ml-pill" type="button" aria-label="미트라 체험하기">
     <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="" />
-    <span>Try Mitra</span>
+    <span>미트라 체험</span>
   </button>
 
   <div id="ml-panel" hidden role="dialog" aria-modal="false" aria-label="Try Mitra demo">
@@ -784,30 +784,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <header class="ml-header">
           <img class="ml-logo" src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" />
           <div class="ml-title">
-            <div class="ml-h1">Mitra</div>
-            <div class="ml-sub">Subscription Mitra offers much more.</div>
+            <div class="ml-h1">미트라</div>
+            <div class="ml-sub">구독하시면 미트라가 훨씬 더 많은 것을 해드려요.</div>
           </div>
           <span class="ml-turns-pill" id="ml-turnsPill" hidden>0 / 8</span>
-          <button type="button" class="ml-reset" id="ml-resetBtn" title="Start a fresh demo" data-env="staging">Reset</button>
-          <button type="button" class="ml-close" id="ml-closeBtn" aria-label="Close">&times;</button>
+          <button type="button" class="ml-reset" id="ml-resetBtn" title="새 데모 시작" data-env="staging">다시 시작</button>
+          <button type="button" class="ml-close" id="ml-closeBtn" aria-label="닫기">&times;</button>
         </header>
 
         <div class="ml-ticker" id="ml-ticker">
-          <span class="ml-ticker-label">Safety:</span>
-          <span class="ml-light" id="ml-lightHarm" data-key="harm">harm</span>
-          <span class="ml-light" id="ml-lightBullying" data-key="bullying">bullying</span>
-          <span class="ml-light" id="ml-lightTroll" data-key="troll">trolling</span>
+          <span class="ml-ticker-label">안전:</span>
+          <span class="ml-light" id="ml-lightHarm" data-key="harm">위해</span>
+          <span class="ml-light" id="ml-lightBullying" data-key="bullying">괴롭힘</span>
+          <span class="ml-light" id="ml-lightTroll" data-key="troll">장난</span>
         </div>
 
         <main class="ml-main" id="ml-main">
           <div class="ml-messages" id="ml-messages">
-            <div class="ml-bubble teacher">Hey — I'm Mitra. Tell me about yourself on the side, or just say hi and we'll start there. What's on your mind?</div>
+            <div class="ml-bubble teacher">안녕! 나는 미트라야. 옆에 정보를 입력하거나, 그냥 인사하면서 시작해도 돼. 지금 뭐가 머리에 있어?</div>
           </div>
         </main>
 
         <footer class="ml-footer">
           <form class="ml-composer" id="ml-composer" autocomplete="off">
-            <textarea class="ml-input" id="ml-textInput" placeholder="What's on your mind?" rows="1"></textarea>
+            <textarea class="ml-input" id="ml-textInput" placeholder="지금 뭐가 머리에 있어?" rows="1"></textarea>
             <button type="submit" class="ml-send" id="ml-sendBtn" disabled aria-label="Send">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
             </button>
@@ -817,18 +817,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <aside class="ml-panel-col">
         <div class="ml-panel-section">
-          <h3 class="ml-h3">About the student <span class="ml-lock" id="ml-lockBadge" hidden>🔒 locked</span></h3>
-          <p class="ml-hint" id="ml-panelHint">Edit these before you start. Once you send a message, they lock so Mitra stays consistent.</p>
-          <div class="ml-field"><label>Name</label><input type="text" id="ml-panelName" maxlength="40" value="WebSurfer" /></div>
-          <div class="ml-field"><label>Age</label><input type="text" id="ml-panelAge" maxlength="10" value="15" /></div>
-          <div class="ml-field"><label>Subjects (comma-separated)</label><input type="text" id="ml-panelSubjects" maxlength="120" value="Math, Science, Philosophy" /></div>
-          <div class="ml-field"><label>Interests (comma-separated)</label><input type="text" id="ml-panelInterests" maxlength="120" value="Video Games" /></div>
+          <h3 class="ml-h3">학생 정보 <span class="ml-lock" id="ml-lockBadge" hidden>🔒 잠김</span></h3>
+          <p class="ml-hint" id="ml-panelHint">시작하기 전에 편집해줘. 메시지를 보내면 잠겨서 미트라가 일관되게 도와줄 수 있어.</p>
+          <div class="ml-field"><label>이름</label><input type="text" id="ml-panelName" maxlength="40" value="웹서퍼" /></div>
+          <div class="ml-field"><label>나이</label><input type="text" id="ml-panelAge" maxlength="10" value="15" /></div>
+          <div class="ml-field"><label>과목 (쉼표로 구분)</label><input type="text" id="ml-panelSubjects" maxlength="120" value="수학, 과학, 국어" /></div>
+          <div class="ml-field"><label>관심사 (쉼표로 구분)</label><input type="text" id="ml-panelInterests" maxlength="120" value="게임" /></div>
         </div>
         <div class="ml-panel-section ml-panel-scroll">
-          <h3 class="ml-h3">Mitra noticed</h3>
-          <p class="ml-hint">Updates as Mitra picks things up from the chat.</p>
+          <h3 class="ml-h3">미트라가 알아챈 것</h3>
+          <p class="ml-hint">대화하면서 미트라가 알아챈 것들이 여기 쌓여요.</p>
           <ul class="ml-noticed-list" id="ml-noticedList">
-            <li class="ml-noticed-empty">Nothing yet. Start chatting.</li>
+            <li class="ml-noticed-empty">아직 없어. 대화를 시작해 봐.</li>
           </ul>
         </div>
       </aside>
@@ -1034,10 +1034,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 (function() {
   var API_BASE = "https://staging.mitratutor.com";
-  var ENV = "staging";  // "production" or "staging"
+  var ENV = "staging";       // "production" or "staging"
+  var UI_LANG = "ko";  // "en" or "ko" — sent to API so Mitra defaults to this language
   var STORAGE_KEY = 'mitra_launcher_v1';
   var OPEN_KEY = 'mitra_launcher_open_v1';
   var MAX_TURNS = 8;
+  var STR_TYPING = "미트라가 입력 중…";
+  var STR_PANEL_LOCKED_HINT = "잠김. 미트라가 이 정보로 도와주고 있어요.";
+  var STR_NOTICED_EMPTY = "아직 없어. 대화를 시작해 봐.";
+  var STR_CONVERT_TEXT = "여기까지가 데모예요. 실제 구독하시면 미트라가 이 모든 걸 다음에도 기억해줘요.";
+  var STR_CONVERT_LINK = "정식 튜터링 시작하기 →";
+  var STR_DEMO_COMPLETE = "데모 완료.";
+  var STR_RESET_CONFIRM = "새 데모를 시작할까요? 지금 대화는 지워집니다.";
+  var STR_ERR_CONNECTION = "연결 문제예요. 다시 시도해 볼래?";
+  var STR_ERR_GENERIC = "문제가 생겼어요. 다시 시도해 볼래?";
 
   var pillBtn = document.getElementById('ml-pill');
   var panelEl = document.getElementById('ml-panel');
@@ -1111,7 +1121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   function showTyping() {
     var div = document.createElement('div');
-    div.className = 'ml-typing'; div.textContent = 'Mitra is typing…'; div.id = 'ml-__typing';
+    div.className = 'ml-typing'; div.textContent = STR_TYPING; div.id = 'ml-__typing';
     messagesEl.appendChild(div); scrollBottom();
   }
   function clearTyping() { var t = document.getElementById('ml-__typing'); if (t) t.remove(); }
@@ -1132,7 +1142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     for (var k in panelInputs) panelInputs[k].disabled = true;
     lockBadge.hidden = false;
-    panelHint.textContent = 'Locked. Mitra is working with this snapshot.';
+    panelHint.textContent = STR_PANEL_LOCKED_HINT;
     state.panelLocked = true;
     saveState();
   }
@@ -1151,7 +1161,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     noticedList.innerHTML = '';
     if (state.noticed.length === 0) {
       var li = document.createElement('li'); li.className = 'ml-noticed-empty';
-      li.textContent = 'Nothing yet. Start chatting.'; noticedList.appendChild(li); return;
+      li.textContent = STR_NOTICED_EMPTY; noticedList.appendChild(li); return;
     }
     state.noticed.forEach(function(item) {
       var li = document.createElement('li');
@@ -1165,18 +1175,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function showConversionCTA() {
     var cta = document.createElement('div'); cta.className = 'ml-convert';
     var p = document.createElement('p');
-    p.textContent = "That's your demo. The real Mitra would remember all of this for next time.";
+    p.textContent = STR_CONVERT_TEXT;
     var link = document.createElement('a');
     var name = panelInputs.name.value || '';
-    link.href = API_BASE + '/enroll' + (name ? '?student_name=' + encodeURIComponent(name) : '');
+    link.href = API_BASE + '/' + UI_LANG + '/enroll' + (name ? '?student_name=' + encodeURIComponent(name) : '');
     link.target = '_blank';
-    link.textContent = 'Set up real tutoring →';
+    link.textContent = STR_CONVERT_LINK;
     cta.appendChild(p); cta.appendChild(link);
     messagesEl.appendChild(cta); scrollBottom();
   }
   function endDemo() {
     state.ended = true; saveState();
-    textInput.disabled = true; textInput.placeholder = 'Demo complete.';
+    textInput.disabled = true; textInput.placeholder = STR_DEMO_COMPLETE;
     sendBtn.disabled = true;
     showConversionCTA();
   }
@@ -1204,7 +1214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   pillBtn.addEventListener('click', function() { openPanel(true); });
   closeBtn.addEventListener('click', closePanel);
   resetBtn.addEventListener('click', function() {
-    if (!confirm('Start a fresh demo? Your current chat will be cleared.')) return;
+    if (!confirm(STR_RESET_CONFIRM)) return;
     try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
     try { localStorage.removeItem(OPEN_KEY); } catch(e) {}
     location.reload();
@@ -1242,6 +1252,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       turns_used: state.turnsUsed,
       safety_state: state.safety,
       demo_id: state.demoId,
+      lang: UI_LANG,
     };
 
     var resp;
@@ -1252,12 +1263,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         body: JSON.stringify(body),
       });
     } catch (err) {
-      clearTyping(); addBubble('teacher', 'Connection blip. Try again?');
+      clearTyping(); addBubble('teacher', STR_ERR_CONNECTION);
       inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
     }
     if (resp.status === 429) { clearTyping(); endDemo(); inflight = false; return; }
     if (!resp.ok || !resp.body) {
-      clearTyping(); addBubble('teacher', 'Something went wrong. Try again?');
+      clearTyping(); addBubble('teacher', STR_ERR_GENERIC);
       inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
     }
 

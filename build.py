@@ -40,6 +40,7 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 LAYOUT_PATH = SRC / "_layout.html"
 LAUNCHER_PATH = SRC / "_launcher.html"
+LAUNCHER_STRINGS_PATH = SRC / "_launcher_strings.json"
 CONFIG_PATH = SRC / "_config.json"
 NAV_CONFIG_PATH = ROOT / "shared" / "nav-config.json"
 
@@ -67,6 +68,26 @@ def load_launcher() -> str:
     if not LAUNCHER_PATH.exists():
         return ""
     return LAUNCHER_PATH.read_text(encoding="utf-8")
+
+
+def load_launcher_strings() -> dict:
+    """Read the localized launcher string table. Keyed by lang (en/ko). Each
+    section is a flat dict of {key: translated string}. Returns {} on miss."""
+    if not LAUNCHER_STRINGS_PATH.exists():
+        return {}
+    return json.loads(LAUNCHER_STRINGS_PATH.read_text(encoding="utf-8"))
+
+
+def resolve_launcher_strings(text: str, strings: dict) -> str:
+    """Replace every {{str_<key>}} placeholder in the launcher template with
+    its translation from `strings`. Keys not in the dict are left as-is so
+    they're easy to spot when a translation is missing."""
+    for key, value in strings.items():
+        if key.startswith("_"):  # skip _comment etc.
+            continue
+        placeholder = "{{str_" + key + "}}"
+        text = text.replace(placeholder, value)
+    return text
 
 
 def resolve_vars(text: str, app_base: str, site_base: str, lang: str, env: str = "production") -> str:
@@ -254,10 +275,13 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
     content_block = resolve_vars(content_block, app_base, site_base, lang)
 
     # Mitra launcher: the same Intercom-style try-Mitra component on every page.
-    # Resolve {{app_base}}, {{lang}}, and {{env}} so it points at the right
-    # API and so prod-only behaviors (e.g. hide the dev Reset button) gate
-    # correctly.
-    launcher_html = resolve_vars(load_launcher(), app_base, site_base, lang, env)
+    # Pick the localized string set for this page's lang and substitute
+    # {{str_<key>}} placeholders, then resolve {{app_base}}, {{lang}}, {{env}}.
+    launcher_raw = load_launcher()
+    all_strings = load_launcher_strings()
+    page_strings = all_strings.get(lang) or all_strings.get("en") or {}
+    launcher_html = resolve_launcher_strings(launcher_raw, page_strings)
+    launcher_html = resolve_vars(launcher_html, app_base, site_base, lang, env)
 
     replacements = {
         "{{ html_lang }}": lang_cfg["html_lang"],
