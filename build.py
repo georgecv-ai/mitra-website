@@ -69,12 +69,13 @@ def load_launcher() -> str:
     return LAUNCHER_PATH.read_text(encoding="utf-8")
 
 
-def resolve_vars(text: str, app_base: str, site_base: str, lang: str) -> str:
-    """Replace {{app_base}}, {{site_base}}, and {{lang}} in a string."""
+def resolve_vars(text: str, app_base: str, site_base: str, lang: str, env: str = "production") -> str:
+    """Replace {{app_base}}, {{site_base}}, {{lang}}, and {{env}} in a string."""
     return (text
             .replace("{{app_base}}", app_base)
             .replace("{{site_base}}", site_base)
-            .replace("{{lang}}", lang))
+            .replace("{{lang}}", lang)
+            .replace("{{env}}", env))
 
 
 def _resolve_link(item: dict, lang: str, app_base: str, site_base: str) -> dict | None:
@@ -220,7 +221,7 @@ def render_footer_admin(muted: list[dict]) -> str:
 def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
                   nav_items: list[dict], footer_columns: list[dict],
                   footer_muted: list[dict],
-                  app_base: str, site_base: str) -> str:
+                  app_base: str, site_base: str, env: str = "production") -> str:
     slug = meta.get("slug", "")
     slug_clean = slug[:-5] if slug.endswith(".html") else slug
     if slug_clean == "index":
@@ -262,8 +263,10 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
     content_block = resolve_vars(content_block, app_base, site_base, lang)
 
     # Mitra launcher: the same Intercom-style try-Mitra component on every page.
-    # Resolve {{app_base}} and {{lang}} so it points at the right API.
-    launcher_html = resolve_vars(load_launcher(), app_base, site_base, lang)
+    # Resolve {{app_base}}, {{lang}}, and {{env}} so it points at the right
+    # API and so prod-only behaviors (e.g. hide the dev Reset button) gate
+    # correctly.
+    launcher_html = resolve_vars(load_launcher(), app_base, site_base, lang, env)
 
     replacements = {
         "{{ html_lang }}": lang_cfg["html_lang"],
@@ -355,7 +358,7 @@ def build(env: str):
                 meta["extra_head"] = sidecar.read_text(encoding="utf-8").rstrip()
             assembled = assemble_page(layout, lang_cfg, lang, meta, body,
                                       nav_items, footer_columns, footer_muted,
-                                      app_base, site_base)
+                                      app_base, site_base, env)
             out_file = out_dir / src_file.name
             out_file.write_text(assembled, encoding="utf-8")
             total += 1
