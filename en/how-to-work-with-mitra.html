@@ -337,7 +337,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ml-sub">Subscription Mitra offers much more.</div>
           </div>
           <span class="ml-turns-pill" id="ml-turnsPill" hidden>0 / 8</span>
-          <button type="button" class="ml-reset" id="ml-resetBtn" title="Start a fresh demo" data-env="staging">Reset</button>
           <button type="button" class="ml-close" id="ml-closeBtn" aria-label="Close">&times;</button>
         </header>
 
@@ -601,7 +600,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var pillBtn = document.getElementById('ml-pill');
   var panelEl = document.getElementById('ml-panel');
   var closeBtn = document.getElementById('ml-closeBtn');
-  var resetBtn = document.getElementById('ml-resetBtn');
   var messagesEl = document.getElementById('ml-messages');
   var mainEl = document.getElementById('ml-main');
   var composer = document.getElementById('ml-composer');
@@ -756,18 +754,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (state.ended) endDemo();
   }
 
-  // Hide the Reset button on production. It's a dev/testing convenience that
-  // would confuse a real prospect ("did I do something wrong?").
-  if (ENV === "production" && resetBtn) { resetBtn.style.display = 'none'; }
-
   pillBtn.addEventListener('click', function() { openPanel(true); });
   closeBtn.addEventListener('click', closePanel);
-  resetBtn.addEventListener('click', function() {
-    if (!confirm(STR_RESET_CONFIRM)) return;
-    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
-    try { localStorage.removeItem(OPEN_KEY); } catch(e) {}
-    location.reload();
-  });
 
   textInput.addEventListener('input', function() {
     textInput.style.height = 'auto';
