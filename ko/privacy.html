@@ -483,7 +483,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* Match #ml-panel scope so we beat the desktop two-id selectors. */
   #mitra-launcher-root #ml-panel { right: 0; bottom: 0; width: 100vw; height: 100dvh; }
   #mitra-launcher-root #ml-panel .ml-modal { border-radius: 0; flex-direction: column; }
-  #mitra-launcher-root #ml-panel .ml-panel-col { width: 100%; max-height: 32dvh; border-left: none; border-bottom: 1px solid #e8e3d8; order: 0; }
+  /* On mobile: drop the grid + per-section overflow model from desktop. The
+     panel-col itself scrolls; About and Mitra noticed both render at natural
+     height inside one scroll context. Fixes "About hides Mitra noticed" +
+     "About not scrollable" + "Mitra noticed gone entirely" all at once. */
+  #mitra-launcher-root #ml-panel .ml-panel-col {
+    display: block;
+    width: 100%;
+    max-height: 40dvh;
+    border-left: none;
+    border-bottom: 1px solid #e8e3d8;
+    order: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #mitra-launcher-root #ml-panel .ml-panel-section.ml-panel-scroll {
+    overflow-y: visible;
+    min-height: auto;
+    border-bottom: none;
+  }
   #mitra-launcher-root #ml-panel .ml-chat-col { order: 1; }
   #mitra-launcher-root #ml-panel .ml-panel-section { padding: 0.55rem 0.85rem; }
   #mitra-launcher-root #ml-panel .ml-h3 { font-size: 0.78rem; }
