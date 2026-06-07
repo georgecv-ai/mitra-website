@@ -372,7 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      Scoped under #mitra-launcher-root so the marketing site's CSS doesn't bleed. -->
 <div id="mitra-launcher-root">
   <button id="ml-pill" type="button" aria-label="Try Mitra">
-    <img src="/{{ lang }}/static/images/mitra-logo-icon-v2_003.png" alt="" />
+    <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="" />
     <span>Try Mitra</span>
   </button>
 
@@ -380,13 +380,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ml-modal">
       <div class="ml-chat-col">
         <header class="ml-header">
-          <img class="ml-logo" src="/{{ lang }}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" />
+          <img class="ml-logo" src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" />
           <div class="ml-title">
             <div class="ml-h1">Mitra</div>
-            <div class="ml-sub">A short sample. The real Mitra remembers you.</div>
+            <div class="ml-sub">Subscription Mitra offers much more.</div>
           </div>
           <span class="ml-turns-pill" id="ml-turnsPill" hidden>0 / 8</span>
-          <button type="button" class="ml-reset" id="ml-resetBtn" title="Start a fresh demo">Reset</button>
+          <button type="button" class="ml-reset" id="ml-resetBtn" title="Start a fresh demo" data-env="staging">Reset</button>
           <button type="button" class="ml-close" id="ml-closeBtn" aria-label="Close">&times;</button>
         </header>
 
@@ -632,6 +632,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 (function() {
   var API_BASE = "https://staging.mitratutor.com";
+  var ENV = "staging";  // "production" or "staging"
   var STORAGE_KEY = 'mitra_launcher_v1';
   var OPEN_KEY = 'mitra_launcher_open_v1';
   var MAX_TURNS = 8;
@@ -793,6 +794,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (state.safety) updateTicker(state.safety);
     if (state.ended) endDemo();
   }
+
+  // Hide the Reset button on production. It's a dev/testing convenience that
+  // would confuse a real prospect ("did I do something wrong?").
+  if (ENV === "production" && resetBtn) { resetBtn.style.display = 'none'; }
 
   pillBtn.addEventListener('click', function() { openPanel(true); });
   closeBtn.addEventListener('click', closePanel);
