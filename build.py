@@ -39,6 +39,8 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 LAYOUT_PATH = SRC / "_layout.html"
+LAUNCHER_PATH = SRC / "_launcher.html"
+LAUNCHER_STRINGS_PATH = SRC / "_launcher_strings.json"
 CONFIG_PATH = SRC / "_config.json"
 NAV_CONFIG_PATH = ROOT / "shared" / "nav-config.json"
 
@@ -60,12 +62,41 @@ def load_layout() -> str:
     return LAYOUT_PATH.read_text(encoding="utf-8")
 
 
-def resolve_vars(text: str, app_base: str, site_base: str, lang: str) -> str:
-    """Replace {{app_base}}, {{site_base}}, and {{lang}} in a string."""
+def load_launcher() -> str:
+    """Read the Mitra try-Mitra launcher snippet. Returns empty string if file
+    is missing (graceful degradation — pages still build without the launcher)."""
+    if not LAUNCHER_PATH.exists():
+        return ""
+    return LAUNCHER_PATH.read_text(encoding="utf-8")
+
+
+def load_launcher_strings() -> dict:
+    """Read the localized launcher string table. Keyed by lang (en/ko). Each
+    section is a flat dict of {key: translated string}. Returns {} on miss."""
+    if not LAUNCHER_STRINGS_PATH.exists():
+        return {}
+    return json.loads(LAUNCHER_STRINGS_PATH.read_text(encoding="utf-8"))
+
+
+def resolve_launcher_strings(text: str, strings: dict) -> str:
+    """Replace every {{str_<key>}} placeholder in the launcher template with
+    its translation from `strings`. Keys not in the dict are left as-is so
+    they're easy to spot when a translation is missing."""
+    for key, value in strings.items():
+        if key.startswith("_"):  # skip _comment etc.
+            continue
+        placeholder = "{{str_" + key + "}}"
+        text = text.replace(placeholder, value)
+    return text
+
+
+def resolve_vars(text: str, app_base: str, site_base: str, lang: str, env: str = "production") -> str:
+    """Replace {{app_base}}, {{site_base}}, {{lang}}, and {{env}} in a string."""
     return (text
             .replace("{{app_base}}", app_base)
             .replace("{{site_base}}", site_base)
-            .replace("{{lang}}", lang))
+            .replace("{{lang}}", lang)
+            .replace("{{env}}", env))
 
 
 def _resolve_link(item: dict, lang: str, app_base: str, site_base: str) -> dict | None:
@@ -211,7 +242,7 @@ def render_footer_admin(muted: list[dict]) -> str:
 def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
                   nav_items: list[dict], footer_columns: list[dict],
                   footer_muted: list[dict],
-                  app_base: str, site_base: str) -> str:
+                  app_base: str, site_base: str, env: str = "production") -> str:
     slug = meta.get("slug", "")
     slug_clean = slug[:-5] if slug.endswith(".html") else slug
     if slug_clean == "index":
@@ -252,6 +283,15 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
     # Resolve {{app_base}} in page content (CTA buttons, contact links, etc.)
     content_block = resolve_vars(content_block, app_base, site_base, lang)
 
+    # Mitra launcher: the same Intercom-style try-Mitra component on every page.
+    # Pick the localized string set for this page's lang and substitute
+    # {{str_<key>}} placeholders, then resolve {{app_base}}, {{lang}}, {{env}}.
+    launcher_raw = load_launcher()
+    all_strings = load_launcher_strings()
+    page_strings = all_strings.get(lang) or all_strings.get("en") or {}
+    launcher_html = resolve_launcher_strings(launcher_raw, page_strings)
+    launcher_html = resolve_vars(launcher_html, app_base, site_base, lang, env)
+
     replacements = {
         "{{ html_lang }}": lang_cfg["html_lang"],
         "{{ fonts_url }}": lang_cfg.get("fonts_url", ""),
@@ -274,6 +314,7 @@ def assemble_page(layout: str, lang_cfg: dict, lang: str, meta: dict, body: str,
         "{{ en_active_class }}": en_active,
         "{{ ko_active_class }}": ko_active,
         "{{ content_block }}": content_block,
+        "{{ launcher_html }}": launcher_html,
     }
 
     out = layout
@@ -341,7 +382,7 @@ def build(env: str):
                 meta["extra_head"] = sidecar.read_text(encoding="utf-8").rstrip()
             assembled = assemble_page(layout, lang_cfg, lang, meta, body,
                                       nav_items, footer_columns, footer_muted,
-                                      app_base, site_base)
+                                      app_base, site_base, env)
             out_file = out_dir / src_file.name
             out_file.write_text(assembled, encoding="utf-8")
             total += 1

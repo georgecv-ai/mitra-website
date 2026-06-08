@@ -1,0 +1,93 @@
+{
+  "_comment": "Localized UI strings for the Mitra try-demo launcher. Build picks the section matching the page's lang. Keys are referenced in src/_launcher.html as {{str_<key>}}. Korean copy is a v1 draft for founder review — refine in place.",
+
+  "en": {
+    "pill_label": "Try Mitra",
+    "pill_aria": "Try Mitra",
+    "title": "Mitra",
+    "subtitle": "Subscription Mitra offers much more.",
+    "reset_label": "Reset",
+    "reset_title": "Start a fresh demo",
+    "close_aria": "Close",
+
+    "ticker_label": "Safety:",
+    "ticker_harm": "harm",
+    "ticker_bullying": "bullying",
+    "ticker_troll": "trolling",
+
+    "seed_greeting": "Hey — I'm Mitra. Tell me about yourself on the side, or just say hi and we'll start there. What's on your mind?",
+    "typing": "Mitra is typing…",
+    "input_placeholder": "What's on your mind?",
+
+    "panel_about_title": "About the student",
+    "panel_lock_badge": "🔒 locked",
+    "panel_about_hint_unlocked": "Edit these before you start. Once you send a message, they lock so Mitra stays consistent.",
+    "panel_about_hint_locked": "Locked. Mitra is working with this snapshot.",
+    "panel_field_name": "Name",
+    "panel_field_age": "Age",
+    "panel_field_subjects": "Subjects (comma-separated)",
+    "panel_field_interests": "Interests (comma-separated)",
+
+    "panel_noticed_title": "Mitra noticed",
+    "panel_noticed_hint": "Updates as Mitra picks things up from the chat.",
+    "panel_noticed_empty": "Nothing yet. Start chatting.",
+
+    "convert_text": "That's your demo. The real Mitra would remember all of this for next time.",
+    "convert_link": "Set up real tutoring →",
+    "demo_complete_placeholder": "Demo complete.",
+    "reset_confirm": "Start a fresh demo? Your current chat will be cleared.",
+    "err_connection": "Connection blip. Try again?",
+    "err_generic": "Something went wrong. Try again?",
+    "turns_separator": " / ",
+
+    "default_name": "WebSurfer",
+    "default_age": "15",
+    "default_subjects": "Math, Science, Philosophy",
+    "default_interests": "Video Games"
+  },
+
+  "ko": {
+    "pill_label": "미트라 체험",
+    "pill_aria": "미트라 체험하기",
+    "title": "미트라",
+    "subtitle": "구독하시면 미트라가 훨씬 더 많은 것을 해드려요.",
+    "reset_label": "다시 시작",
+    "reset_title": "새 데모 시작",
+    "close_aria": "닫기",
+
+    "ticker_label": "안전:",
+    "ticker_harm": "위해",
+    "ticker_bullying": "괴롭힘",
+    "ticker_troll": "장난",
+
+    "seed_greeting": "안녕! 나는 미트라야. 옆에 정보를 입력하거나, 그냥 인사하면서 시작해도 돼. 지금 뭐가 머리에 있어?",
+    "typing": "미트라가 입력 중…",
+    "input_placeholder": "지금 뭐가 머리에 있어?",
+
+    "panel_about_title": "학생 정보",
+    "panel_lock_badge": "🔒 잠김",
+    "panel_about_hint_unlocked": "시작하기 전에 편집해줘. 메시지를 보내면 잠겨서 미트라가 일관되게 도와줄 수 있어.",
+    "panel_about_hint_locked": "잠김. 미트라가 이 정보로 도와주고 있어요.",
+    "panel_field_name": "이름",
+    "panel_field_age": "나이",
+    "panel_field_subjects": "과목 (쉼표로 구분)",
+    "panel_field_interests": "관심사 (쉼표로 구분)",
+
+    "panel_noticed_title": "미트라가 알아챈 것",
+    "panel_noticed_hint": "대화하면서 미트라가 알아챈 것들이 여기 쌓여요.",
+    "panel_noticed_empty": "아직 없어. 대화를 시작해 봐.",
+
+    "convert_text": "여기까지가 데모예요. 실제 구독하시면 미트라가 이 모든 걸 다음에도 기억해줘요.",
+    "convert_link": "정식 튜터링 시작하기 →",
+    "demo_complete_placeholder": "데모 완료.",
+    "reset_confirm": "새 데모를 시작할까요? 지금 대화는 지워집니다.",
+    "err_connection": "연결 문제예요. 다시 시도해 볼래?",
+    "err_generic": "문제가 생겼어요. 다시 시도해 볼래?",
+    "turns_separator": " / ",
+
+    "default_name": "웹서퍼",
+    "default_age": "15",
+    "default_subjects": "수학, 과학, 국어",
+    "default_interests": "게임"
+  }
+}
