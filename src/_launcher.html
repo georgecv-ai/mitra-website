@@ -18,6 +18,7 @@
             <div class="ml-sub">{{str_subtitle}}</div>
           </div>
           <span class="ml-turns-pill" id="ml-turnsPill" hidden>0{{str_turns_separator}}20</span>
+          <button type="button" class="ml-reset" id="ml-resetBtn" title="{{str_reset_title}}">{{str_reset_label}}</button>
           <button type="button" class="ml-close" id="ml-closeBtn" aria-label="{{str_close_aria}}">&times;</button>
         </header>
 
@@ -156,13 +157,18 @@
   font-size: 0.7rem; color: #2e6e6e; background: #d8eaea;
   padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 500;
 }
-#mitra-launcher-root .ml-reset, #mitra-launcher-root .ml-close {
+#mitra-launcher-root .ml-close {
   background: transparent; border: 1px solid #e8e3d8; color: #6c7676;
   border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 1.1rem; padding: 0 0.45rem; line-height: 1;
 }
-#mitra-launcher-root .ml-reset { font-size: 0.7rem; padding: 0.15rem 0.5rem; }
-#mitra-launcher-root .ml-close { font-size: 1.1rem; padding: 0 0.45rem; line-height: 1; }
-#mitra-launcher-root .ml-reset:hover, #mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+#mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+#mitra-launcher-root .ml-reset {
+  background: white; border: 1px solid #2e6e6e; color: #2e6e6e;
+  border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 0.76rem; padding: 0.2rem 0.65rem; font-weight: 500;
+}
+#mitra-launcher-root .ml-reset:hover { color: white; background: #2e6e6e; }
 
 /* Ticker */
 #mitra-launcher-root .ml-ticker {
@@ -299,6 +305,7 @@
   var pillBtn = document.getElementById('ml-pill');
   var panelEl = document.getElementById('ml-panel');
   var closeBtn = document.getElementById('ml-closeBtn');
+  var resetBtn = document.getElementById('ml-resetBtn');
   var messagesEl = document.getElementById('ml-messages');
   var mainEl = document.getElementById('ml-main');
   var composer = document.getElementById('ml-composer');
@@ -455,6 +462,26 @@
 
   pillBtn.addEventListener('click', function() { openPanel(true); });
   closeBtn.addEventListener('click', closePanel);
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      if (!confirm(STR_RESET_CONFIRM)) return;
+      // Preserve turn counter across reset so a fresh conversation cannot exceed MAX_TURNS.
+      var preservedTurns = state.turnsUsed || 0;
+      var stillEnded = preservedTurns >= MAX_TURNS;
+      var fresh = {
+        history: [],
+        turnsUsed: preservedTurns,
+        noticed: [],
+        panelLocked: false,
+        ended: stillEnded,
+        panel: null,
+        demoId: null,
+        safety: {hard:{harm:false,bullying:false,troll:false}, soft:{harm:false,bullying:false,troll:false}},
+      };
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh)); } catch(e) {}
+      location.reload();
+    });
+  }
 
   textInput.addEventListener('input', function() {
     textInput.style.height = 'auto';
