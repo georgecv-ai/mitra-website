@@ -386,6 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ml-sub">구독하시면 미트라가 훨씬 더 많은 것을 해드려요.</div>
           </div>
           <span class="ml-turns-pill" id="ml-turnsPill" hidden>0 / 20</span>
+          <button type="button" class="ml-reset" id="ml-resetBtn" title="대화와 학생 정보를 초기화합니다. 사용한 횟수는 그대로 유지됩니다.">다시 시작</button>
           <button type="button" class="ml-close" id="ml-closeBtn" aria-label="닫기">&times;</button>
         </header>
 
@@ -398,7 +399,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <main class="ml-main" id="ml-main">
           <div class="ml-messages" id="ml-messages">
-            <div class="ml-bubble teacher">안녕! 나는 미트라야. 옆에 정보를 입력하거나, 그냥 인사하면서 시작해도 돼. 지금 뭐가 머리에 있어?</div>
+            <div class="ml-bubble teacher">시작하려면 옆 '학생 정보'에서 미트라가 이야기할 학생의 정보를 입력해줘 (모바일에서는 위쪽). 그러고 나서 메시지를 보내면 시작할게.</div>
           </div>
         </main>
 
@@ -524,13 +525,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   font-size: 0.7rem; color: #2e6e6e; background: #d8eaea;
   padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 500;
 }
-#mitra-launcher-root .ml-reset, #mitra-launcher-root .ml-close {
+#mitra-launcher-root .ml-close {
   background: transparent; border: 1px solid #e8e3d8; color: #6c7676;
   border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 1.1rem; padding: 0 0.45rem; line-height: 1;
 }
-#mitra-launcher-root .ml-reset { font-size: 0.7rem; padding: 0.15rem 0.5rem; }
-#mitra-launcher-root .ml-close { font-size: 1.1rem; padding: 0 0.45rem; line-height: 1; }
-#mitra-launcher-root .ml-reset:hover, #mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+#mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+#mitra-launcher-root .ml-reset {
+  background: white; border: 1px solid #2e6e6e; color: #2e6e6e;
+  border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 0.76rem; padding: 0.2rem 0.65rem; font-weight: 500;
+}
+#mitra-launcher-root .ml-reset:hover { color: white; background: #2e6e6e; }
 
 /* Ticker */
 #mitra-launcher-root .ml-ticker {
@@ -660,13 +666,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var STR_CONVERT_TEXT = "여기까지가 데모예요. 실제 구독하시면 미트라가 이 모든 걸 다음에도 기억해줘요.";
   var STR_CONVERT_LINK = "정식 튜터링 시작하기 →";
   var STR_DEMO_COMPLETE = "데모 완료.";
-  var STR_RESET_CONFIRM = "새 데모를 시작할까요? 지금 대화는 지워집니다.";
+  var STR_RESET_CONFIRM = "대화와 학생 정보를 초기화할까요? 사용한 횟수는 그대로 유지됩니다.";
   var STR_ERR_CONNECTION = "연결 문제예요. 다시 시도해 볼래?";
   var STR_ERR_GENERIC = "문제가 생겼어요. 다시 시도해 볼래?";
 
   var pillBtn = document.getElementById('ml-pill');
   var panelEl = document.getElementById('ml-panel');
   var closeBtn = document.getElementById('ml-closeBtn');
+  var resetBtn = document.getElementById('ml-resetBtn');
   var messagesEl = document.getElementById('ml-messages');
   var mainEl = document.getElementById('ml-main');
   var composer = document.getElementById('ml-composer');
@@ -823,6 +830,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   pillBtn.addEventListener('click', function() { openPanel(true); });
   closeBtn.addEventListener('click', closePanel);
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      if (!confirm(STR_RESET_CONFIRM)) return;
+      // Preserve turn counter across reset so a fresh conversation cannot exceed MAX_TURNS.
+      var preservedTurns = state.turnsUsed || 0;
+      var stillEnded = preservedTurns >= MAX_TURNS;
+      var fresh = {
+        history: [],
+        turnsUsed: preservedTurns,
+        noticed: [],
+        panelLocked: false,
+        ended: stillEnded,
+        panel: null,
+        demoId: null,
+        safety: {hard:{harm:false,bullying:false,troll:false}, soft:{harm:false,bullying:false,troll:false}},
+      };
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh)); } catch(e) {}
+      location.reload();
+    });
+  }
 
   textInput.addEventListener('input', function() {
     textInput.style.height = 'auto';

@@ -203,6 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ml-sub">Subscription Mitra offers much more.</div>
           </div>
           <span class="ml-turns-pill" id="ml-turnsPill" hidden>0 / 20</span>
+          <button type="button" class="ml-reset" id="ml-resetBtn" title="Reset the conversation and student. Turns used carry over.">Reset</button>
           <button type="button" class="ml-close" id="ml-closeBtn" aria-label="Close">&times;</button>
         </header>
 
@@ -215,7 +216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <main class="ml-main" id="ml-main">
           <div class="ml-messages" id="ml-messages">
-            <div class="ml-bubble teacher">Hey — I'm Mitra. Tell me about yourself on the side, or just say hi and we'll start there. What's on your mind?</div>
+            <div class="ml-bubble teacher">To start, fill in who Mitra is speaking with in the "About the student" panel on the right (top on mobile). Then send a message and we'll go from there.</div>
           </div>
         </main>
 
@@ -341,13 +342,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   font-size: 0.7rem; color: #2e6e6e; background: #d8eaea;
   padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 500;
 }
-#mitra-launcher-root .ml-reset, #mitra-launcher-root .ml-close {
+#mitra-launcher-root .ml-close {
   background: transparent; border: 1px solid #e8e3d8; color: #6c7676;
   border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 1.1rem; padding: 0 0.45rem; line-height: 1;
 }
-#mitra-launcher-root .ml-reset { font-size: 0.7rem; padding: 0.15rem 0.5rem; }
-#mitra-launcher-root .ml-close { font-size: 1.1rem; padding: 0 0.45rem; line-height: 1; }
-#mitra-launcher-root .ml-reset:hover, #mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+#mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+#mitra-launcher-root .ml-reset {
+  background: white; border: 1px solid #2e6e6e; color: #2e6e6e;
+  border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 0.76rem; padding: 0.2rem 0.65rem; font-weight: 500;
+}
+#mitra-launcher-root .ml-reset:hover { color: white; background: #2e6e6e; }
 
 /* Ticker */
 #mitra-launcher-root .ml-ticker {
@@ -477,13 +483,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var STR_CONVERT_TEXT = "That's your demo. The real Mitra would remember all of this for next time.";
   var STR_CONVERT_LINK = "Set up real tutoring →";
   var STR_DEMO_COMPLETE = "Demo complete.";
-  var STR_RESET_CONFIRM = "Start a fresh demo? Your current chat will be cleared.";
+  var STR_RESET_CONFIRM = "Reset the conversation and student? Turns used carry over.";
   var STR_ERR_CONNECTION = "Connection blip. Try again?";
   var STR_ERR_GENERIC = "Something went wrong. Try again?";
 
   var pillBtn = document.getElementById('ml-pill');
   var panelEl = document.getElementById('ml-panel');
   var closeBtn = document.getElementById('ml-closeBtn');
+  var resetBtn = document.getElementById('ml-resetBtn');
   var messagesEl = document.getElementById('ml-messages');
   var mainEl = document.getElementById('ml-main');
   var composer = document.getElementById('ml-composer');
@@ -640,6 +647,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   pillBtn.addEventListener('click', function() { openPanel(true); });
   closeBtn.addEventListener('click', closePanel);
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      if (!confirm(STR_RESET_CONFIRM)) return;
+      // Preserve turn counter across reset so a fresh conversation cannot exceed MAX_TURNS.
+      var preservedTurns = state.turnsUsed || 0;
+      var stillEnded = preservedTurns >= MAX_TURNS;
+      var fresh = {
+        history: [],
+        turnsUsed: preservedTurns,
+        noticed: [],
+        panelLocked: false,
+        ended: stillEnded,
+        panel: null,
+        demoId: null,
+        safety: {hard:{harm:false,bullying:false,troll:false}, soft:{harm:false,bullying:false,troll:false}},
+      };
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh)); } catch(e) {}
+      location.reload();
+    });
+  }
 
   textInput.addEventListener('input', function() {
     textInput.style.height = 'auto';
