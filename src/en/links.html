@@ -1,0 +1,84 @@
+<!-- META
+title: Mitra AI Tutor — Start here
+description: Everything Mitra in one place. Start free, read the blog, meet the manifesto, find answers for parents.
+slug: links.html
+raw: true
+-->
+<section class="lk">
+  <div class="lk-avatar">
+    <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+  </div>
+  <h1 class="lk-name">Mitra AI Tutor</h1>
+  <p class="lk-tagline">Personalized AI tutoring for kids who learn differently.</p>
+
+  <div class="lk-btns">
+    <a class="lk-btn lk-primary" data-dest="start" href="{{app_base}}/en/enroll">
+      <span class="lk-ico">✨</span> Start with Mitra
+    </a>
+    <a class="lk-btn" data-dest="blog" href="/en/blog/">
+      <span class="lk-ico">📖</span> Latest from the blog
+    </a>
+    <a class="lk-btn" data-dest="manifesto" href="/en/principles.html">
+      <span class="lk-ico">🌱</span> The Mitra Manifesto
+    </a>
+    <a class="lk-btn" data-dest="faq" href="/en/faq.html">
+      <span class="lk-ico">💬</span> For Parents: FAQ
+    </a>
+    <a class="lk-btn" data-dest="contact" href="mailto:support@mitratutor.com">
+      <span class="lk-ico">👋</span> Contact / say hello
+    </a>
+  </div>
+
+  <div class="lk-foot">
+    &copy; 2026 Mitra AI &middot; <a href="/en/privacy.html">Privacy</a> &middot; <a href="/en/terms.html">Terms</a>
+  </div>
+</section>
+
+<script>
+  // Link-in-bio attribution. The bio URL carries ?src={channel} (e.g. /links?src=ig).
+  // We map it to a utm_source and stamp every outbound button so GA4 + the Meta
+  // Pixel (both inherited from the GTM container in <head>) can attribute bio traffic.
+  (function () {
+    var SRC_MAP = {
+      ig: 'instagram', instagram: 'instagram',
+      fb: 'facebook',  facebook: 'facebook',
+      li: 'linkedin',  linkedin: 'linkedin',
+      yt: 'youtube',   youtube: 'youtube',
+      tt: 'tiktok',    tiktok: 'tiktok',
+      x:  'x',         twitter: 'x'
+    };
+    var params = new URLSearchParams(window.location.search);
+    var rawSrc = (params.get('src') || '').toLowerCase();
+    var source = SRC_MAP[rawSrc] || (rawSrc ? rawSrc : 'links_page');
+
+    // Tell GTM which channel this bio visit came from (for GA4 segmentation).
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'links_page_view', link_source: source });
+
+    function stampUtm(url) {
+      // Only stamp same-origin / http(s) links. Leave mailto, tel, anchors alone.
+      if (!/^https?:|^\//i.test(url)) return url;
+      try {
+        var u = new URL(url, window.location.origin);
+        u.searchParams.set('utm_source', source);
+        u.searchParams.set('utm_medium', 'bio_link');
+        u.searchParams.set('utm_campaign', 'links_page');
+        return u.toString();
+      } catch (e) { return url; }
+    }
+
+    var btns = document.querySelectorAll('.lk-btn');
+    btns.forEach(function (btn) {
+      var href = btn.getAttribute('href');
+      var stamped = stampUtm(href);
+      if (stamped !== href) btn.setAttribute('href', stamped);
+      btn.addEventListener('click', function () {
+        window.dataLayer.push({
+          event: 'links_click',
+          link_source: source,
+          link_destination: btn.getAttribute('data-dest')
+        });
+      });
+    });
+  })();
+</script>
