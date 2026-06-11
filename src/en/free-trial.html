@@ -295,6 +295,11 @@ document.getElementById("trial-form").addEventListener("submit", function(e) {
     .then(r => r.json())
     .then(data => {
       if (data.ok) {
+        (window.dataLayer = window.dataLayer || []).push({
+          event: 'trial_started',
+          platform: data.platform || '',
+          lang: 'en'
+        });
         renderTrialSuccess(data);
         document.getElementById("trial-open").style.display = "none";
         document.getElementById("trial-success").style.display = "block";
