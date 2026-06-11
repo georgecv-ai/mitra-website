@@ -1,0 +1,13 @@
+graph TD
+    AD["Ad / post<br/>UTM tags: source, medium, campaign, content"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
+    WWW --> GTM["Google Tag Manager<br/>GTM-5S43DC8L (one container, both surfaces)"]
+    GTM --> GA4["GA4 G-SJ6F9560BW<br/>page_view + trial_started"]
+    GTM --> META["Meta Pixel<br/>2399972447153801"]
+    GTM --> ADS["Google Ads<br/>conversion linker (572-702-7541)"]
+    WWW --> ENROLL["Click Enroll"]
+    ENROLL -->|"_gl linker carries the visitor"| PORTAL["mitratutor.com portal<br/>Railway · same GTM container · CSP-gated"]
+    PORTAL --> PAY["Stripe payment → /enroll/success"]
+    PAY --> PURCHASE["purchase event<br/>value + currency + transaction_id"]
+    PURCHASE --> GA4
+    PURCHASE --> META
+    FILTER["Internal traffic from 218.152.204.80 (VPN off)<br/>flagged internal → excluded from reports"] -.-> GA4

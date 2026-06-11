@@ -1,0 +1,14 @@
+graph TD
+    USER["Visitor"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
+    WWW --> LANG{"Browser language?"}
+    LANG -->|en| EN["/en/ pages"]
+    LANG -->|ko| KO["/ko/ pages"]
+    EN --> ENROLL["Click Enroll"]
+    KO --> ENROLL
+    ENROLL --> PORTAL["mitratutor.com/enroll<br/>(?lang=ko for Korean)"]
+    EN --> LOGIN["Click Parent Login"]
+    KO --> LOGIN
+    LOGIN --> PORTAL_LOGIN["mitratutor.com/parent/login"]
+
+    BARE["mitratutor.com/"] -->|301 redirect| WWW
+    BARE_ABOUT["mitratutor.com/about"] -->|301 redirect| WWW

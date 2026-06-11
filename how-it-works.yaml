@@ -64,21 +64,11 @@ description: |
       a dashed placeholder block renders so the page reads as draft. Real
       art is generated per-pain via VideoLab before launch.
 
-flowchart: |
-  graph TD
-    USER["Visitor"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
-    WWW --> LANG{"Browser language?"}
-    LANG -->|en| EN["/en/ pages"]
-    LANG -->|ko| KO["/ko/ pages"]
-    EN --> ENROLL["Click Enroll"]
-    KO --> ENROLL
-    ENROLL --> PORTAL["mitratutor.com/enroll<br/>(?lang=ko for Korean)"]
-    EN --> LOGIN["Click Parent Login"]
-    KO --> LOGIN
-    LOGIN --> PORTAL_LOGIN["mitratutor.com/parent/login"]
-
-    BARE["mitratutor.com/"] -->|301 redirect| WWW
-    BARE_ABOUT["mitratutor.com/about"] -->|301 redirect| WWW
+system_flow:
+  - label: "Visitor Flow"
+    flowchart_file: .claude/hiaw/visitor-flow.mmd
+  - label: "Tracking & Attribution"
+    flowchart_file: .claude/hiaw/tracking-attribution.mmd
 
 human_interaction:
   activation:
@@ -114,3 +104,11 @@ human_documents:
     path: "docs/ko-site-rebuild-decisions.md"
     category: "decision"
     summary: "Working notes from the Korean home-v2 rebuild (May 2026). Tracks placeholders that needed founder input and choices Praxis made (palette, FAQ selection, copy fixes, link targets) that George should confirm or override."
+  - name: "Attribution, Operator's Guide"
+    path: "docs/attribution-operator-guide.md"
+    category: "guide"
+    summary: "The full tag/attribution architecture and how to run it: the UTM taxonomy, how to build a tracking link, Meta dynamic params for your own ads, how to verify in GA4, internal-traffic filtering, the live conversion events (trial_started, purchase), and a troubleshooting table. See the System Flow → Tracking & Attribution tab for the diagram. The canonical 'how Mitra tracking works' doc."
+  - name: "Partner Link Guide (EN + KO)"
+    path: "docs/partner-link-guide.md"
+    category: "guide"
+    summary: "Reader-friendly, bilingual (English + Korean) instructions you hand to a marketing or content partner so they build properly-attributed links to Mitra. One rule: use the link we give you, change only utm_content per post. Korean copy pending native-team review before sending to a real partner."
