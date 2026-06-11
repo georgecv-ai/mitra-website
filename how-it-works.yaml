@@ -64,11 +64,37 @@ description: |
       a dashed placeholder block renders so the page reads as draft. Real
       art is generated per-pain via VideoLab before launch.
 
-system_flow:
-  - label: "Visitor Flow"
-    flowchart_file: .claude/hiaw/visitor-flow.mmd
+flowchart: |
+  graph TD
+    USER["Visitor"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
+    WWW --> LANG{"Browser language?"}
+    LANG -->|en| EN["/en/ pages"]
+    LANG -->|ko| KO["/ko/ pages"]
+    EN --> ENROLL["Click Enroll"]
+    KO --> ENROLL
+    ENROLL --> PORTAL["mitratutor.com/enroll<br/>(?lang=ko for Korean)"]
+    EN --> LOGIN["Click Parent Login"]
+    KO --> LOGIN
+    LOGIN --> PORTAL_LOGIN["mitratutor.com/parent/login"]
+    BARE["mitratutor.com/"] -->|301 redirect| WWW
+    BARE_ABOUT["mitratutor.com/about"] -->|301 redirect| WWW
+
+flowcharts:
   - label: "Tracking & Attribution"
-    flowchart_file: .claude/hiaw/tracking-attribution.mmd
+    chart: |
+      graph TD
+        AD["Ad / post<br/>UTM: source, medium, campaign, content"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
+        WWW --> GTM["Google Tag Manager<br/>GTM-5S43DC8L (one container, both surfaces)"]
+        GTM --> GA4["GA4 G-SJ6F9560BW<br/>page_view + trial_started"]
+        GTM --> META["Meta Pixel<br/>2399972447153801"]
+        GTM --> ADS["Google Ads<br/>conversion linker (572-702-7541)"]
+        WWW --> ENROLL["Click Enroll"]
+        ENROLL -->|"_gl linker carries the visitor"| PORTAL["mitratutor.com portal<br/>Railway, same GTM, CSP-gated"]
+        PORTAL --> PAY["Stripe payment to /enroll/success"]
+        PAY --> PURCHASE["purchase event<br/>value + currency + transaction_id"]
+        PURCHASE --> GA4
+        PURCHASE --> META
+        FILTER["Internal traffic from 218.152.204.80 (VPN off)<br/>flagged internal, excluded"] -.-> GA4
 
 human_interaction:
   activation:
