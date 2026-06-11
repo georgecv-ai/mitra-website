@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Everything Mitra in one place. Start free, read the blog, meet the manifesto, find answers for parents." />
+  <title>Mitra AI Tutor — Start here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/en/static/style.css" />
+  <link rel="icon" type="image/png" href="/en/static/images/mitra-logo-icon-v2_003.png">
+  <link rel="canonical" href="https://www.mitratutor.com/en/links" />
+  <meta property="og:title" content="Mitra AI Tutor — Start here" />
+  <meta property="og:description" content="Everything Mitra in one place. Start free, read the blog, meet the manifesto, find answers for parents." />
+  <meta property="og:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mitratutor.com/en/links" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mitra AI Tutor — Start here" />
+  <meta name="twitter:description" content="Everything Mitra in one place. Start free, read the blog, meet the manifesto, find answers for parents." />
+  <meta name="twitter:image" content="https://mitratutor.com/static/images/mitra-og-image.png" />
+  <link rel="alternate" hreflang="en" href="https://www.mitratutor.com/en/links" />
+  <link rel="alternate" hreflang="ko" href="https://www.mitratutor.com/ko/links" />
+  <link rel="alternate" hreflang="x-default" href="https://www.mitratutor.com/en/links" />
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-LsAoaHD8Mux3yrUonjE7S.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5S43DC8L');</script>
+<!-- End Google Tag Manager -->
+<style>
+  /* /links is a standalone link-in-bio hub: hide the marketing chrome. */
+  .wp-nav, .wp-footer { display: none !important; }
+  body { background: linear-gradient(180deg, #EAF4F1 0%, #F0F2F5 45%, #FFFFFF 100%); }
+
+  .lk {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 40px 22px 56px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .lk-avatar {
+    width: 92px; height: 92px;
+    margin: 8px auto 14px;
+    border-radius: 24px;
+    background: #fff;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 22px rgba(27, 58, 92, 0.10);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lk-avatar img { width: 64px; height: 64px; }
+  .lk-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-dk);
+    margin: 0 0 6px;
+  }
+  .lk-tagline {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 auto 26px;
+    max-width: 340px;
+  }
+  .lk-btns { display: flex; flex-direction: column; gap: 13px; }
+  .lk-btn {
+    display: flex; align-items: center; justify-content: center;
+    gap: 9px;
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--primary-dk);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(27, 58, 92, 0.05);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .lk-btn:hover, .lk-btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 58, 92, 0.12);
+    color: var(--primary-dk);
+  }
+  .lk-btn .lk-ico { font-size: 1.2rem; line-height: 1; }
+  /* Primary CTA — visually dominant */
+  .lk-btn.lk-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-size: 1.18rem;
+    padding: 19px 18px;
+    box-shadow: 0 8px 22px rgba(42, 157, 143, 0.32);
+  }
+  .lk-btn.lk-primary:hover, .lk-btn.lk-primary:focus {
+    background: var(--accent-dk);
+    border-color: var(--accent-dk);
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(42, 157, 143, 0.40);
+  }
+  .lk-foot {
+    margin-top: auto;
+    padding-top: 34px;
+    color: var(--text-light);
+    font-size: 0.82rem;
+  }
+  .lk-foot a { color: var(--text-light); text-decoration: none; }
+  .lk-foot a:hover { color: var(--text-muted); }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S43DC8L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="wp-nav">
+  <div class="wp-wrap wp-nav-row">
+    <a class="wp-nav-logo" href="/en/">
+      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
+    </a>
+    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
+    <ul class="wp-nav-items" data-nav-items>
+      <li><a class="wp-nav-link" href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>Parents <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/en/for-parents.html">Mitra for Parents</a></li>
+          <li><a href="https://staging.mitratutor.com/en/parent/login">Parent sign in →</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>Academies <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/en/partners.html">Mitra for Academies</a></li>
+          <li><a href="https://staging.mitratutor.com/en/org/login">Academy sign in →</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>About <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/en/faq.html">FAQ</a></li>
+          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+          <li><a href="/en/principles.html">Principles & Practice</a></li>
+          <li><a href="/en/about.html">Why Build Mitra</a></li>
+        </ul>
+      </li>
+      <li class="wp-nav-lang">
+        <a class="active" href="/en/links.html">EN</a>
+        <a class="" href="/ko/links.html">KO</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<section class="lk">
+  <div class="lk-avatar">
+    <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+  </div>
+  <h1 class="lk-name">Mitra AI Tutor</h1>
+  <p class="lk-tagline">Personalized AI tutoring for kids who learn differently.</p>
+
+  <div class="lk-btns">
+    <a class="lk-btn lk-primary" data-dest="start" href="https://staging.mitratutor.com/en/enroll">
+      <span class="lk-ico">✨</span> Start with Mitra
+    </a>
+    <a class="lk-btn" data-dest="blog" href="/en/blog/">
+      <span class="lk-ico">📖</span> Latest from the blog
+    </a>
+    <a class="lk-btn" data-dest="manifesto" href="/en/principles.html">
+      <span class="lk-ico">🌱</span> The Mitra Manifesto
+    </a>
+    <a class="lk-btn" data-dest="faq" href="/en/faq.html">
+      <span class="lk-ico">💬</span> For Parents: FAQ
+    </a>
+    <a class="lk-btn" data-dest="contact" href="mailto:support@mitratutor.com">
+      <span class="lk-ico">👋</span> Contact / say hello
+    </a>
+  </div>
+
+  <div class="lk-foot">
+    &copy; 2026 Mitra AI &middot; <a href="/en/privacy.html">Privacy</a> &middot; <a href="/en/terms.html">Terms</a>
+  </div>
+</section>
+
+<script>
+  // Link-in-bio attribution. The bio URL carries ?src={channel} (e.g. /links?src=ig).
+  // We map it to a utm_source and stamp every outbound button so GA4 + the Meta
+  // Pixel (both inherited from the GTM container in <head>) can attribute bio traffic.
+  (function () {
+    var SRC_MAP = {
+      ig: 'instagram', instagram: 'instagram',
+      fb: 'facebook',  facebook: 'facebook',
+      li: 'linkedin',  linkedin: 'linkedin',
+      yt: 'youtube',   youtube: 'youtube',
+      tt: 'tiktok',    tiktok: 'tiktok',
+      x:  'x',         twitter: 'x'
+    };
+    var params = new URLSearchParams(window.location.search);
+    var rawSrc = (params.get('src') || '').toLowerCase();
+    var source = SRC_MAP[rawSrc] || (rawSrc ? rawSrc : 'links_page');
+
+    // Tell GTM which channel this bio visit came from (for GA4 segmentation).
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'links_page_view', link_source: source });
+
+    function stampUtm(url) {
+      // Only stamp same-origin / http(s) links. Leave mailto, tel, anchors alone.
+      if (!/^https?:|^\//i.test(url)) return url;
+      try {
+        var u = new URL(url, window.location.origin);
+        u.searchParams.set('utm_source', source);
+        u.searchParams.set('utm_medium', 'bio_link');
+        u.searchParams.set('utm_campaign', 'links_page');
+        return u.toString();
+      } catch (e) { return url; }
+    }
+
+    var btns = document.querySelectorAll('.lk-btn');
+    btns.forEach(function (btn) {
+      var href = btn.getAttribute('href');
+      var stamped = stampUtm(href);
+      if (stamped !== href) btn.setAttribute('href', stamped);
+      btn.addEventListener('click', function () {
+        window.dataLayer.push({
+          event: 'links_click',
+          link_source: source,
+          link_destination: btn.getAttribute('data-dest')
+        });
+      });
+    });
+  })();
+</script>
+
+<footer class="wp-footer">
+  <div class="wp-wrap">
+    <div class="wp-footer-brand">
+      <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
+      <span>Mitra AI Tutor</span>
+    </div>
+    <div class="wp-footer-cols">
+      <div class="wp-footer-col">
+        <h6>Learn</h6>
+        <ul>
+          <li><a href="/en/for-parents.html">For Parents</a></li>
+          <li><a href="/en/for-students.html">For Students</a></li>
+          <li><a href="/en/partners.html">For Academies</a></li>
+          <li><a href="/en/how-to-work-with-mitra.html">How to work with Mitra</a></li>
+        </ul>
+      </div>
+      <div class="wp-footer-col">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="/en/faq.html">FAQ</a></li>
+          <li><a href="/en/about.html">Why Build Mitra</a></li>
+          <li><a href="/en/principles.html">Principles</a></li>
+          <li><a href="/en/compliance.html">Compliance</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="wp-footer-col">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="/en/privacy.html">Privacy</a></li>
+          <li><a href="/en/terms.html">Terms</a></li>
+          <li><a href="/en/refund.html">Refund Policy</a></li>
+          <li><a href="/en/partner-agreement-v1.0.html">Partner Agreement</a></li>
+        </ul>
+      </div>
+      <div class="wp-footer-col">
+        <h6>Get Started</h6>
+        <ul>
+          <li><a href="https://staging.mitratutor.com/en/enroll">Enroll</a></li>
+          <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wp-footer-bottom">
+      <div>
+        <div>&copy; 2026 Mitra AI &middot; 미트라 AI</div>
+        <div class="wp-footer-legal">상호: 미트라 AI &middot; 대표자: NEAL GEORGE CLARY &middot; 사업자등록번호: 332-06-03605 &middot; 서울특별시 강남구 영동대로 602, 6층 Z183호 &middot; 전화: 010-3094-9059 &middot; <a href="mailto:support@mitratutor.com" class="text-muted">support@mitratutor.com</a> &middot; <a href="https://staging.mitratutor.com/admin/login">Admin</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Dropdown + mobile nav toggling (site-wide)
+  (function() {
+    var dds = document.querySelectorAll('.wp-nav [data-dd]');
+    dds.forEach(function(dd) {
+      var trigger = dd.querySelector('[data-dd-trigger]');
+      if (!trigger) return;
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var wasOpen = dd.classList.contains('open');
+        dds.forEach(function(other) { other.classList.remove('open'); });
+        if (!wasOpen) dd.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function() {
+      dds.forEach(function(dd) { dd.classList.remove('open'); });
+    });
+    var burger = document.querySelector('.wp-nav [data-burger]');
+    var items = document.querySelector('.wp-nav [data-nav-items]');
+    if (burger && items) {
+      burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        items.classList.toggle('mobile-open');
+      });
+    }
+  })();
+</script>
+
+<!-- Mitra launcher: collapsed pill (bottom-right) → click expands to a try-Mitra
+     chat overlay. State persists in localStorage across page navigation.
+     API calls go to https://staging.mitratutor.com/try/send (CORS-allowed on the app origin).
+     Scoped under #mitra-launcher-root so the marketing site's CSS doesn't bleed. -->
+<div id="mitra-launcher-root">
+  <button id="ml-pill" type="button" aria-label="Try Mitra">
+    <img src="/en/static/images/mitra-logo-icon-v2_003.png" alt="" />
+    <span>Try Mitra</span>
+  </button>
+
+  <div id="ml-panel" hidden role="dialog" aria-modal="false" aria-label="Try Mitra demo">
+    <div class="ml-modal">
+      <div class="ml-chat-col">
+        <header class="ml-header">
+          <img class="ml-logo" src="/en/static/images/mitra-logo-icon-v2_003.png" alt="Mitra" />
+          <div class="ml-title">
+            <div class="ml-h1">Mitra</div>
+            <div class="ml-sub">Subscription Mitra offers much more.</div>
+          </div>
+          <span class="ml-turns-pill" id="ml-turnsPill" hidden>0 / 20</span>
+          <button type="button" class="ml-reset" id="ml-resetBtn" title="Reset the conversation and student. Turns used carry over.">Reset</button>
+          <button type="button" class="ml-close" id="ml-closeBtn" aria-label="Close">&times;</button>
+        </header>
+
+        <div class="ml-ticker" id="ml-ticker">
+          <span class="ml-ticker-label">Safety:</span>
+          <span class="ml-light" id="ml-lightHarm" data-key="harm">harm</span>
+          <span class="ml-light" id="ml-lightBullying" data-key="bullying">bullying</span>
+          <span class="ml-light" id="ml-lightTroll" data-key="troll">trolling</span>
+        </div>
+
+        <main class="ml-main" id="ml-main">
+          <div class="ml-messages" id="ml-messages">
+            <div class="ml-bubble teacher">To start, fill in who Mitra is speaking with in the "About the student" panel on the right (top on mobile). Then send a message and we'll go from there.</div>
+          </div>
+        </main>
+
+        <footer class="ml-footer">
+          <form class="ml-composer" id="ml-composer" autocomplete="off">
+            <textarea class="ml-input" id="ml-textInput" placeholder="What's on your mind?" rows="1"></textarea>
+            <button type="submit" class="ml-send" id="ml-sendBtn" disabled aria-label="Send">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </button>
+          </form>
+        </footer>
+      </div>
+
+      <aside class="ml-panel-col">
+        <div class="ml-panel-section">
+          <h3 class="ml-h3">About the student <span class="ml-lock" id="ml-lockBadge" hidden>🔒 locked</span></h3>
+          <p class="ml-hint" id="ml-panelHint">Edit these before you start. Once you send a message, they lock so Mitra stays consistent.</p>
+          <div class="ml-field"><label>Name</label><input type="text" id="ml-panelName" maxlength="40" value="WebSurfer" /></div>
+          <div class="ml-field"><label>Age</label><input type="text" id="ml-panelAge" maxlength="10" value="15" /></div>
+          <div class="ml-field"><label>Subjects (comma-separated)</label><input type="text" id="ml-panelSubjects" maxlength="120" value="Math, Science, Philosophy" /></div>
+          <div class="ml-field"><label>Interests (comma-separated)</label><input type="text" id="ml-panelInterests" maxlength="120" value="Video Games" /></div>
+        </div>
+        <div class="ml-panel-section ml-panel-scroll">
+          <h3 class="ml-h3">Mitra noticed</h3>
+          <p class="ml-hint">Updates as Mitra picks things up from the chat.</p>
+          <ul class="ml-noticed-list" id="ml-noticedList">
+            <li class="ml-noticed-empty">Nothing yet. Start chatting.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<style>
+#mitra-launcher-root {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #1a3a3a;
+}
+#mitra-launcher-root *, #mitra-launcher-root *::before, #mitra-launcher-root *::after { box-sizing: border-box; }
+
+/* Pill */
+#mitra-launcher-root #ml-pill {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #2e6e6e;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1rem 0.55rem 0.55rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s, transform 0.4s, background 0.15s;
+  animation: ml-fade-in 0.5s 1.2s forwards;
+}
+#mitra-launcher-root #ml-pill:hover { background: #205050; }
+#mitra-launcher-root #ml-pill img { width: 28px; height: 28px; border-radius: 50%; background: white; padding: 3px; }
+#mitra-launcher-root #ml-pill.hidden { display: none; }
+@keyframes ml-fade-in { to { opacity: 1; transform: translateY(0); } }
+
+/* Panel container */
+#mitra-launcher-root #ml-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  width: min(900px, calc(100vw - 40px));
+  height: min(720px, calc(100dvh - 40px));
+}
+#mitra-launcher-root #ml-panel .ml-modal {
+  width: 100%; height: 100%;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+#mitra-launcher-root .ml-chat-col {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+#mitra-launcher-root .ml-panel-col {
+  width: 320px;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  border-left: 1px solid #e8e3d8;
+  background: #faf7f0;
+  overflow: hidden;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Header */
+#mitra-launcher-root .ml-header {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #e8e3d8;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+#mitra-launcher-root .ml-logo { width: 28px; height: 28px; }
+#mitra-launcher-root .ml-title { flex: 1; min-width: 0; }
+#mitra-launcher-root .ml-h1 { font-size: 0.95rem; font-weight: 600; color: #1a3a3a; }
+#mitra-launcher-root .ml-sub { font-size: 0.74rem; color: #6c7676; }
+#mitra-launcher-root .ml-turns-pill {
+  font-size: 0.7rem; color: #2e6e6e; background: #d8eaea;
+  padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 500;
+}
+#mitra-launcher-root .ml-close {
+  background: transparent; border: 1px solid #e8e3d8; color: #6c7676;
+  border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 1.1rem; padding: 0 0.45rem; line-height: 1;
+}
+#mitra-launcher-root .ml-close:hover { color: #1a3a3a; border-color: #1a3a3a; }
+#mitra-launcher-root .ml-reset {
+  background: white; border: 1px solid #2e6e6e; color: #2e6e6e;
+  border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: 0.76rem; padding: 0.2rem 0.65rem; font-weight: 500;
+}
+#mitra-launcher-root .ml-reset:hover { color: white; background: #2e6e6e; }
+
+/* Ticker */
+#mitra-launcher-root .ml-ticker {
+  display: flex; align-items: center; gap: 0.35rem;
+  padding: 0.35rem 1rem; background: #f6f3ec; border-bottom: 1px solid #e8e3d8;
+  flex-shrink: 0; flex-grow: 0; font-size: 0.7rem;
+}
+#mitra-launcher-root .ml-ticker-label { color: #6c7676; margin-right: 0.3rem; }
+#mitra-launcher-root .ml-light {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.1rem 0.5rem; border-radius: 999px;
+  background: #e3f0e3; color: #2e6e3e; font-weight: 500;
+}
+#mitra-launcher-root .ml-light::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #4caf50; }
+#mitra-launcher-root .ml-light.warn { background: #fef5e0; color: #8a6300; }
+#mitra-launcher-root .ml-light.warn::before { background: #e8a93e; animation: ml-pulse-slow 2s infinite; }
+#mitra-launcher-root .ml-light.on { background: #fce6e1; color: #c14e3e; }
+#mitra-launcher-root .ml-light.on::before { background: #c14e3e; animation: ml-pulse 1s infinite; }
+@keyframes ml-pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes ml-pulse-slow { 0%,100%{opacity:1} 50%{opacity:0.55} }
+
+/* Main chat region */
+#mitra-launcher-root .ml-main { flex: 1 1 0; overflow-y: auto; padding: 1rem; min-height: 0; }
+#mitra-launcher-root .ml-messages { display: flex; flex-direction: column; gap: 0.5rem; }
+#mitra-launcher-root .ml-bubble {
+  max-width: 85%; padding: 0.5rem 0.8rem; border-radius: 16px;
+  line-height: 1.45; white-space: pre-wrap; word-wrap: break-word; font-size: 0.94rem;
+}
+#mitra-launcher-root .ml-bubble.teacher { background: #f6f3ec; color: #1a3a3a; border-bottom-left-radius: 4px; align-self: flex-start; }
+#mitra-launcher-root .ml-bubble.student { background: #2e6e6e; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+#mitra-launcher-root .ml-typing { font-style: italic; color: #6c7676; padding: 0.2rem 0.8rem; align-self: flex-start; font-size: 0.85rem; }
+#mitra-launcher-root .ml-convert {
+  background: linear-gradient(180deg, #fffbef 0%, #fef3d3 100%);
+  border: 1px solid #f3dca5; border-radius: 14px; padding: 0.9rem;
+  margin-top: 0.5rem; text-align: center;
+}
+#mitra-launcher-root .ml-convert p { margin: 0 0 0.5rem; color: #604200; font-size: 0.9rem; }
+#mitra-launcher-root .ml-convert a {
+  display: inline-block; background: #2e6e6e; color: white; text-decoration: none;
+  padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+}
+#mitra-launcher-root .ml-convert a:hover { background: #205050; }
+
+/* Footer composer */
+#mitra-launcher-root .ml-footer { padding: 0.7rem 1rem; border-top: 1px solid #e8e3d8; background: white; flex-shrink: 0; flex-grow: 0; }
+#mitra-launcher-root .ml-composer { background: #f6f3ec; border-radius: 14px; padding: 0.4rem 0.5rem 0.4rem 0.85rem; display: flex; align-items: flex-end; gap: 0.4rem; }
+#mitra-launcher-root .ml-input {
+  flex: 1; border: none; outline: none; resize: none; font-family: inherit;
+  font-size: 0.95rem; max-height: 160px; min-height: 1.4rem; line-height: 1.45;
+  padding: 0.2rem 0; background: transparent; color: #1a3a3a;
+}
+#mitra-launcher-root .ml-input:disabled { color: #6c7676; cursor: not-allowed; }
+#mitra-launcher-root .ml-send {
+  border: none; background: #2e6e6e; color: white; cursor: pointer; padding: 0;
+  border-radius: 50%; width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+}
+#mitra-launcher-root .ml-send:disabled { background: #b8c6c6; cursor: not-allowed; }
+#mitra-launcher-root .ml-send:not(:disabled):hover { background: #205050; }
+
+/* Side panel sections */
+#mitra-launcher-root .ml-panel-section { padding: 0.85rem 1rem; border-bottom: 1px solid #e8e3d8; }
+#mitra-launcher-root .ml-panel-section.ml-panel-scroll { min-height: 0; overflow-y: auto; border-bottom: none; }
+#mitra-launcher-root .ml-h3 { font-size: 0.82rem; margin: 0 0 0.4rem; font-weight: 600; color: #1a3a3a; display: flex; align-items: center; gap: 0.35rem; }
+#mitra-launcher-root .ml-lock { color: #6c7676; font-size: 0.7rem; font-weight: 400; }
+#mitra-launcher-root .ml-hint { font-size: 0.7rem; color: #6c7676; margin: 0.15rem 0 0.4rem; font-style: italic; }
+#mitra-launcher-root .ml-field { margin-bottom: 0.55rem; }
+#mitra-launcher-root .ml-field label { display: block; font-size: 0.65rem; color: #6c7676; margin-bottom: 0.15rem; letter-spacing: 0.02em; text-transform: uppercase; }
+#mitra-launcher-root .ml-field input { width: 100%; border: 1px solid #e8e3d8; border-radius: 8px; padding: 0.3rem 0.55rem; font-family: inherit; font-size: 0.88rem; color: #1a3a3a; background: white; outline: none; }
+#mitra-launcher-root .ml-field input:focus { border-color: #2e6e6e; }
+#mitra-launcher-root .ml-field input:disabled { background: #f5f2ea; color: #6c7676; cursor: not-allowed; }
+#mitra-launcher-root .ml-noticed-list { display: flex; flex-direction: column; gap: 0.35rem; list-style: none; padding: 0; margin: 0; }
+#mitra-launcher-root .ml-noticed-empty { color: #6c7676; font-size: 0.78rem; font-style: italic; }
+#mitra-launcher-root .ml-noticed-pill { background: white; border: 1px solid #e8e3d8; border-left: 3px solid #2e6e6e; border-radius: 6px; padding: 0.3rem 0.5rem; font-size: 0.76rem; color: #1a3a3a; line-height: 1.35; }
+#mitra-launcher-root .ml-noticed-pill.kind-interest { border-left-color: #c97a2e; }
+#mitra-launcher-root .ml-noticed-pill.kind-research { border-left-color: #5e4ca5; }
+#mitra-launcher-root .ml-noticed-pill.kind-behavior { border-left-color: #2e6e6e; }
+#mitra-launcher-root .ml-noticed-pill.kind-memory { border-left-color: #6e2e2e; }
+#mitra-launcher-root .ml-noticed-kind { display: block; font-size: 0.62rem; color: #6c7676; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.1rem; }
+
+/* Mobile: fullscreen panel, smaller pill, column layout */
+@media (max-width: 760px) {
+  #mitra-launcher-root #ml-pill { right: 12px; bottom: 12px; padding: 0.45rem 0.85rem 0.45rem 0.45rem; font-size: 0.85rem; }
+  #mitra-launcher-root #ml-pill img { width: 24px; height: 24px; }
+  /* Match #ml-panel scope so we beat the desktop two-id selectors. */
+  #mitra-launcher-root #ml-panel { right: 0; bottom: 0; width: 100vw; height: 100dvh; }
+  #mitra-launcher-root #ml-panel .ml-modal { border-radius: 0; flex-direction: column; }
+  /* On mobile: drop the grid + per-section overflow model from desktop. The
+     panel-col itself scrolls; About and Mitra noticed both render at natural
+     height inside one scroll context. Fixes "About hides Mitra noticed" +
+     "About not scrollable" + "Mitra noticed gone entirely" all at once. */
+  #mitra-launcher-root #ml-panel .ml-panel-col {
+    display: block;
+    width: 100%;
+    max-height: 40dvh;
+    border-left: none;
+    border-bottom: 1px solid #e8e3d8;
+    order: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #mitra-launcher-root #ml-panel .ml-panel-section.ml-panel-scroll {
+    overflow-y: visible;
+    min-height: auto;
+    border-bottom: none;
+  }
+  #mitra-launcher-root #ml-panel .ml-chat-col { order: 1; }
+  #mitra-launcher-root #ml-panel .ml-panel-section { padding: 0.55rem 0.85rem; }
+  #mitra-launcher-root #ml-panel .ml-h3 { font-size: 0.78rem; }
+  #mitra-launcher-root #ml-panel .ml-hint { font-size: 0.66rem; }
+  #mitra-launcher-root #ml-panel .ml-field { margin-bottom: 0.4rem; }
+  #mitra-launcher-root #ml-panel .ml-field input { font-size: 0.85rem; padding: 0.28rem 0.5rem; }
+}
+</style>
+
+<script>
+(function() {
+  var API_BASE = "https://staging.mitratutor.com";
+  var ENV = "staging";       // "production" or "staging"
+  var UI_LANG = "en";  // "en" or "ko" — sent to API so Mitra defaults to this language
+  var STORAGE_KEY = 'mitra_launcher_v1';
+  var OPEN_KEY = 'mitra_launcher_open_v1';
+  var MAX_TURNS = 20;
+  var STR_TYPING = "Mitra is typing…";
+  var STR_PANEL_LOCKED_HINT = "Locked. Mitra is working with this snapshot.";
+  var STR_NOTICED_EMPTY = "Nothing yet. Start chatting.";
+  var STR_CONVERT_TEXT = "That's your demo. The real Mitra would remember all of this for next time.";
+  var STR_CONVERT_LINK = "Set up real tutoring →";
+  var STR_DEMO_COMPLETE = "Demo complete.";
+  var STR_RESET_CONFIRM = "Reset the conversation and student? Turns used carry over.";
+  var STR_ERR_CONNECTION = "Connection blip. Try again?";
+  var STR_ERR_GENERIC = "Something went wrong. Try again?";
+
+  var pillBtn = document.getElementById('ml-pill');
+  var panelEl = document.getElementById('ml-panel');
+  var closeBtn = document.getElementById('ml-closeBtn');
+  var resetBtn = document.getElementById('ml-resetBtn');
+  var messagesEl = document.getElementById('ml-messages');
+  var mainEl = document.getElementById('ml-main');
+  var composer = document.getElementById('ml-composer');
+  var textInput = document.getElementById('ml-textInput');
+  var sendBtn = document.getElementById('ml-sendBtn');
+  var turnsPill = document.getElementById('ml-turnsPill');
+  var lockBadge = document.getElementById('ml-lockBadge');
+  var panelHint = document.getElementById('ml-panelHint');
+  var noticedList = document.getElementById('ml-noticedList');
+
+  var panelInputs = {
+    name: document.getElementById('ml-panelName'),
+    age: document.getElementById('ml-panelAge'),
+    subjects: document.getElementById('ml-panelSubjects'),
+    interests: document.getElementById('ml-panelInterests'),
+  };
+  var ticker = {
+    harm: document.getElementById('ml-lightHarm'),
+    bullying: document.getElementById('ml-lightBullying'),
+    troll: document.getElementById('ml-lightTroll'),
+  };
+
+  var state = {
+    history: [],
+    turnsUsed: 0,
+    noticed: [],
+    panelLocked: false,
+    ended: false,
+    panel: null,
+    demoId: null,
+    safety: {hard:{harm:false,bullying:false,troll:false}, soft:{harm:false,bullying:false,troll:false}},
+  };
+  var inflight = false;
+
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) { var p = JSON.parse(raw); for (var k in p) state[k] = p[k]; }
+    } catch(e) {}
+  }
+  function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {} }
+  function openPanel(persist) {
+    panelEl.hidden = false;
+    pillBtn.classList.add('hidden');
+    if (persist !== false) try { localStorage.setItem(OPEN_KEY, '1'); } catch(e) {}
+    setTimeout(function() { textInput && textInput.focus(); }, 50);
+  }
+  function closePanel() {
+    panelEl.hidden = true;
+    pillBtn.classList.remove('hidden');
+    try { localStorage.removeItem(OPEN_KEY); } catch(e) {}
+  }
+  function scrollBottom() { requestAnimationFrame(function(){ mainEl.scrollTop = mainEl.scrollHeight; }); }
+  function scrollNoticedBottom() {
+    requestAnimationFrame(function(){
+      var sc = noticedList.closest('.ml-panel-scroll');
+      if (sc) sc.scrollTop = sc.scrollHeight;
+    });
+  }
+  function addBubble(role, content) {
+    var div = document.createElement('div');
+    div.className = 'ml-bubble ' + role;
+    div.textContent = content;
+    messagesEl.appendChild(div);
+    scrollBottom();
+  }
+  function showTyping() {
+    var div = document.createElement('div');
+    div.className = 'ml-typing'; div.textContent = STR_TYPING; div.id = 'ml-__typing';
+    messagesEl.appendChild(div); scrollBottom();
+  }
+  function clearTyping() { var t = document.getElementById('ml-__typing'); if (t) t.remove(); }
+  function gatherPanel() {
+    return {
+      name: panelInputs.name.value.trim(),
+      age: panelInputs.age.value.trim(),
+      subjects: panelInputs.subjects.value.split(',').map(function(s){return s.trim();}).filter(Boolean),
+      interests: panelInputs.interests.value.split(',').map(function(s){return s.trim();}).filter(Boolean),
+    };
+  }
+  function lockPanel() {
+    if (state.panel) {
+      panelInputs.name.value = state.panel.name || '';
+      panelInputs.age.value = state.panel.age || '';
+      panelInputs.subjects.value = (state.panel.subjects || []).join(', ');
+      panelInputs.interests.value = (state.panel.interests || []).join(', ');
+    }
+    for (var k in panelInputs) panelInputs[k].disabled = true;
+    lockBadge.hidden = false;
+    panelHint.textContent = STR_PANEL_LOCKED_HINT;
+    state.panelLocked = true;
+    saveState();
+  }
+  function updatePill() { turnsPill.hidden = false; turnsPill.textContent = state.turnsUsed + ' / ' + MAX_TURNS; }
+  function updateTicker(payload) {
+    if (!payload) return;
+    var hard = payload.hard || payload;
+    var soft = payload.soft || {};
+    Object.keys(ticker).forEach(function(key) {
+      var el = ticker[key];
+      if (hard && hard[key]) { el.classList.remove('warn'); el.classList.add('on'); }
+      else if (soft && soft[key] && !el.classList.contains('on')) { el.classList.add('warn'); }
+    });
+  }
+  function renderNoticed() {
+    noticedList.innerHTML = '';
+    if (state.noticed.length === 0) {
+      var li = document.createElement('li'); li.className = 'ml-noticed-empty';
+      li.textContent = STR_NOTICED_EMPTY; noticedList.appendChild(li); return;
+    }
+    state.noticed.forEach(function(item) {
+      var li = document.createElement('li');
+      li.className = 'ml-noticed-pill kind-' + (item.kind || 'memory');
+      var kind = document.createElement('span'); kind.className = 'ml-noticed-kind'; kind.textContent = item.kind || 'memory';
+      var txt = document.createElement('span'); txt.textContent = item.text;
+      li.appendChild(kind); li.appendChild(txt); noticedList.appendChild(li);
+    });
+    scrollNoticedBottom();
+  }
+  function showConversionCTA() {
+    var cta = document.createElement('div'); cta.className = 'ml-convert';
+    var p = document.createElement('p');
+    p.textContent = STR_CONVERT_TEXT;
+    var link = document.createElement('a');
+    var name = panelInputs.name.value || '';
+    link.href = API_BASE + '/' + UI_LANG + '/enroll' + (name ? '?student_name=' + encodeURIComponent(name) : '');
+    link.target = '_blank';
+    link.textContent = STR_CONVERT_LINK;
+    cta.appendChild(p); cta.appendChild(link);
+    messagesEl.appendChild(cta); scrollBottom();
+  }
+  function endDemo() {
+    state.ended = true; saveState();
+    textInput.disabled = true; textInput.placeholder = STR_DEMO_COMPLETE;
+    sendBtn.disabled = true;
+    showConversionCTA();
+  }
+  function rehydrate() {
+    if (state.panelLocked) lockPanel();
+    if (state.history.length > 0) {
+      messagesEl.innerHTML = '';
+      state.history.forEach(function(m) {
+        var div = document.createElement('div');
+        div.className = 'ml-bubble ' + m.role;
+        div.textContent = m.content;
+        messagesEl.appendChild(div);
+      });
+    }
+    if (state.turnsUsed > 0) updatePill();
+    renderNoticed();
+    if (state.safety) updateTicker(state.safety);
+    if (state.ended) endDemo();
+  }
+
+  pillBtn.addEventListener('click', function() { openPanel(true); });
+  closeBtn.addEventListener('click', closePanel);
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      if (!confirm(STR_RESET_CONFIRM)) return;
+      // Preserve turn counter across reset so a fresh conversation cannot exceed MAX_TURNS.
+      var preservedTurns = state.turnsUsed || 0;
+      var stillEnded = preservedTurns >= MAX_TURNS;
+      var fresh = {
+        history: [],
+        turnsUsed: preservedTurns,
+        noticed: [],
+        panelLocked: false,
+        ended: stillEnded,
+        panel: null,
+        demoId: null,
+        safety: {hard:{harm:false,bullying:false,troll:false}, soft:{harm:false,bullying:false,troll:false}},
+      };
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh)); } catch(e) {}
+      location.reload();
+    });
+  }
+
+  textInput.addEventListener('input', function() {
+    textInput.style.height = 'auto';
+    textInput.style.height = Math.min(textInput.scrollHeight, 160) + 'px';
+    sendBtn.disabled = state.ended || textInput.value.trim().length === 0;
+  });
+  textInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!sendBtn.disabled) composer.requestSubmit(); }
+  });
+
+  composer.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (state.ended || inflight) return;
+    var text = textInput.value.trim();
+    if (!text) return;
+    inflight = true; sendBtn.disabled = true;
+
+    if (state.history.length === 0) messagesEl.innerHTML = '';
+    addBubble('student', text);
+    state.history.push({role:'student', content:text});
+
+    if (!state.panelLocked) { state.panel = gatherPanel(); lockPanel(); }
+    if (!state.demoId) state.demoId = 'demo-' + Math.random().toString(36).slice(2, 18);
+
+    textInput.value = ''; textInput.style.height = 'auto'; showTyping();
+
+    var body = {
+      text: text,
+      history: state.history.slice(0, -1),
+      panel: state.panel,
+      turns_used: state.turnsUsed,
+      safety_state: state.safety,
+      demo_id: state.demoId,
+      lang: UI_LANG,
+    };
+
+    var resp;
+    try {
+      resp = await fetch(API_BASE + '/try/send', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body),
+      });
+    } catch (err) {
+      clearTyping(); addBubble('teacher', STR_ERR_CONNECTION);
+      inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
+    }
+    if (resp.status === 429) { clearTyping(); endDemo(); inflight = false; return; }
+    if (!resp.ok || !resp.body) {
+      clearTyping(); addBubble('teacher', STR_ERR_GENERIC);
+      inflight = false; sendBtn.disabled = textInput.value.trim().length === 0; return;
+    }
+
+    var reader = resp.body.getReader();
+    var decoder = new TextDecoder();
+    var buf = '';
+    var typingCleared = false;
+    var capReason = null;
+    while (true) {
+      var r = await reader.read();
+      if (r.done) break;
+      buf += decoder.decode(r.value, {stream: true});
+      var idx;
+      while ((idx = buf.indexOf('\n\n')) !== -1) {
+        var block = buf.slice(0, idx);
+        buf = buf.slice(idx + 2);
+        var lines = block.split('\n');
+        var eventLine = lines.find(function(l){return l.indexOf('event: ')===0;});
+        var dataLine = lines.find(function(l){return l.indexOf('data: ')===0;});
+        if (!eventLine || !dataLine) continue;
+        var evt = eventLine.slice(7).trim();
+        var data = dataLine.slice(6);
+        try {
+          var obj = JSON.parse(data);
+          if (evt === 'meta' && typeof obj.turns_used === 'number') {
+            state.turnsUsed = obj.turns_used; updatePill();
+          } else if (evt === 'safety') {
+            if (obj.hard || obj.soft) {
+              state.safety = {hard: obj.hard || state.safety.hard, soft: obj.soft || state.safety.soft};
+            }
+            updateTicker(state.safety);
+          } else if (evt === 'message') {
+            if (!typingCleared) { clearTyping(); typingCleared = true; }
+            if (obj.text) { addBubble('teacher', obj.text); state.history.push({role:'teacher', content:obj.text}); }
+          } else if (evt === 'noticed' && Array.isArray(obj.items)) {
+            state.noticed = state.noticed.concat(obj.items); renderNoticed();
+          } else if (evt === 'cap') {
+            capReason = obj.reason || 'limit_reached';
+          }
+        } catch(e) {}
+      }
+    }
+    if (!typingCleared) clearTyping();
+    saveState();
+    if (capReason || state.turnsUsed >= MAX_TURNS) endDemo();
+    else { textInput.focus(); sendBtn.disabled = textInput.value.trim().length === 0; }
+    inflight = false;
+  });
+
+  loadState();
+  rehydrate();
+  // Restore open state across page navigation.
+  try { if (localStorage.getItem(OPEN_KEY) === '1') openPanel(false); } catch(e) {}
+})();
+</script>
+
+</body>
+</html>
