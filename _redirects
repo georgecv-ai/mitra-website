@@ -9,3 +9,7 @@
 /privacy /en/privacy 301
 /terms /en/terms 301
 /refund /en/refund 301
+
+# Link-in-bio hub (query string e.g. ?src=ig is preserved through the redirect)
+/links /en/links 301
+/go /en/links 301

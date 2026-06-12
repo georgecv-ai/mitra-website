@@ -427,7 +427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           우리 아이가 궁금한 부모님들에게도,<br>
           <span class="fpv2-mitra-en">미트라</span>가 대화합니다.
         </h2>
-        <a class="fpv2-pill" href="https://staging.mitratutor.com/ko/enroll">자녀 등록하기 &rarr;</a>
+        <a class="fpv2-pill" href="https://mitratutor.com/ko/enroll">자녀 등록하기 &rarr;</a>
       </div>
       <div class="fpv2-letter-card">
         <div class="fpv2-letter-eyebrow">샘플 &middot; 주간 편지</div>
@@ -573,7 +573,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>결제 후 7일은 &ldquo;무료 체험&rdquo;을 진행하며<br>신개념 튜터를 만나보고 결정하세요</p>
           </div>
           <!-- TODO(george): confirm destination URL for "아이 맞춤 상담 신청" pill (currently routed to /ko/enroll) -->
-          <a class="fpv2-pill fpv2-frame-cta" href="https://staging.mitratutor.com/ko/enroll">
+          <a class="fpv2-pill fpv2-frame-cta" href="https://mitratutor.com/ko/enroll">
             아이 맞춤 상담 신청
           </a>
         </div>
@@ -678,7 +678,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Mitra launcher: collapsed pill (bottom-right) → click expands to a try-Mitra
      chat overlay. State persists in localStorage across page navigation.
-     API calls go to https://staging.mitratutor.com/try/send (CORS-allowed on the app origin).
+     API calls go to https://mitratutor.com/try/send (CORS-allowed on the app origin).
      Scoped under #mitra-launcher-root so the marketing site's CSS doesn't bleed. -->
 <div id="mitra-launcher-root">
   <button id="ml-pill" type="button" aria-label="미트라 체험하기">
@@ -964,8 +964,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 (function() {
-  var API_BASE = "https://staging.mitratutor.com";
-  var ENV = "staging";       // "production" or "staging"
+  var API_BASE = "https://mitratutor.com";
+  var ENV = "production";       // "production" or "staging"
   var UI_LANG = "ko";  // "en" or "ko" — sent to API so Mitra defaults to this language
   var STORAGE_KEY = 'mitra_launcher_v1';
   var OPEN_KEY = 'mitra_launcher_open_v1';

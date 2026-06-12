@@ -76,9 +76,25 @@ flowchart: |
     EN --> LOGIN["Click Parent Login"]
     KO --> LOGIN
     LOGIN --> PORTAL_LOGIN["mitratutor.com/parent/login"]
-
     BARE["mitratutor.com/"] -->|301 redirect| WWW
     BARE_ABOUT["mitratutor.com/about"] -->|301 redirect| WWW
+
+flowcharts:
+  - label: "Tracking & Attribution"
+    chart: |
+      graph TD
+        AD["Ad / post<br/>UTM: source, medium, campaign, content"] --> WWW["www.mitratutor.com<br/>Cloudflare Pages"]
+        WWW --> GTM["Google Tag Manager<br/>GTM-5S43DC8L (one container, both surfaces)"]
+        GTM --> GA4["GA4 G-SJ6F9560BW<br/>page_view + trial_started"]
+        GTM --> META["Meta Pixel<br/>2399972447153801"]
+        GTM --> ADS["Google Ads<br/>conversion linker (572-702-7541)"]
+        WWW --> ENROLL["Click Enroll"]
+        ENROLL -->|"_gl linker carries the visitor"| PORTAL["mitratutor.com portal<br/>Railway, same GTM, CSP-gated"]
+        PORTAL --> PAY["Stripe payment to /enroll/success"]
+        PAY --> PURCHASE["purchase event<br/>value + currency + transaction_id"]
+        PURCHASE --> GA4
+        PURCHASE --> META
+        FILTER["Internal traffic from 218.152.204.80 (VPN off)<br/>flagged internal, excluded"] -.-> GA4
 
 human_interaction:
   activation:
@@ -114,3 +130,11 @@ human_documents:
     path: "docs/ko-site-rebuild-decisions.md"
     category: "decision"
     summary: "Working notes from the Korean home-v2 rebuild (May 2026). Tracks placeholders that needed founder input and choices Praxis made (palette, FAQ selection, copy fixes, link targets) that George should confirm or override."
+  - name: "Attribution, Operator's Guide"
+    path: "docs/attribution-operator-guide.md"
+    category: "guide"
+    summary: "The full tag/attribution architecture and how to run it: the UTM taxonomy, how to build a tracking link, Meta dynamic params for your own ads, how to verify in GA4, internal-traffic filtering, the live conversion events (trial_started, purchase), and a troubleshooting table. See the System Flow → Tracking & Attribution tab for the diagram. The canonical 'how Mitra tracking works' doc."
+  - name: "Partner Link Guide (EN + KO)"
+    path: "docs/partner-link-guide.md"
+    category: "guide"
+    summary: "Reader-friendly, bilingual (English + Korean) instructions you hand to a marketing or content partner so they build properly-attributed links to Mitra. One rule: use the link we give you, change only utm_content per post. Korean copy pending native-team review before sending to a real partner."

@@ -102,7 +102,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </li>
       <li class="wp-nav-lang">
         <a class="active" href="/en/free-trial.html">EN</a>
-        <a class="" href="/ko/free-trial.html">KO</a>
+        <a class="" href="/ko/">KO</a>
       </li>
     </ul>
   </div>
@@ -399,6 +399,11 @@ document.getElementById("trial-form").addEventListener("submit", function(e) {
     .then(r => r.json())
     .then(data => {
       if (data.ok) {
+        (window.dataLayer = window.dataLayer || []).push({
+          event: 'trial_started',
+          platform: data.platform || '',
+          lang: 'en'
+        });
         renderTrialSuccess(data);
         document.getElementById("trial-open").style.display = "none";
         document.getElementById("trial-success").style.display = "block";
@@ -539,7 +544,7 @@ document.getElementById("waitlist-form").addEventListener("submit", function(e) 
 
 <!-- Mitra launcher: collapsed pill (bottom-right) → click expands to a try-Mitra
      chat overlay. State persists in localStorage across page navigation.
-     API calls go to https://staging.mitratutor.com/try/send (CORS-allowed on the app origin).
+     API calls go to https://mitratutor.com/try/send (CORS-allowed on the app origin).
      Scoped under #mitra-launcher-root so the marketing site's CSS doesn't bleed. -->
 <div id="mitra-launcher-root">
   <button id="ml-pill" type="button" aria-label="Try Mitra">
@@ -825,8 +830,8 @@ document.getElementById("waitlist-form").addEventListener("submit", function(e) 
 
 <script>
 (function() {
-  var API_BASE = "https://staging.mitratutor.com";
-  var ENV = "staging";       // "production" or "staging"
+  var API_BASE = "https://mitratutor.com";
+  var ENV = "production";       // "production" or "staging"
   var UI_LANG = "en";  // "en" or "ko" — sent to API so Mitra defaults to this language
   var STORAGE_KEY = 'mitra_launcher_v1';
   var OPEN_KEY = 'mitra_launcher_open_v1';
