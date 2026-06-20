@@ -6,186 +6,105 @@ slug: principles.html
 <style>
   .principles-page { max-width: 760px; margin: 0 auto; }
   .principles-page h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.15; margin-bottom: 0.5rem; }
-  .principles-page .lede { font-size: 1.05rem; color: #4a5568; margin-bottom: 2rem; }
-  .canon-wedge { border-left: 4px solid #2A9D8F; background: #D9E2EC; padding: 1.25rem 1.5rem; margin: 2rem 0 2.5rem; border-radius: 6px; font-size: 1.15rem; line-height: 1.45; font-weight: 500; color: #1A1A2E; }
-  .canon-wedge::before { content: "\201C"; font-size: 2rem; color: #2B4C7E; line-height: 0.8; margin-right: 0.25rem; vertical-align: -0.4rem; }
-  .canon-wedge::after { content: "\201D"; font-size: 2rem; color: #2B4C7E; line-height: 0; vertical-align: -0.6rem; }
-  .principles-page h2 { font-size: 1.4rem; margin: 2.5rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid #CBD5E0; color: #2B4C7E; }
+  .principles-page .lede { font-size: 1.15rem; color: #2B4C7E; font-weight: 600; line-height: 1.4; margin-bottom: 2rem; }
+  .principles-page h2 { font-size: 1.4rem; margin: 2.75rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid #CBD5E0; color: #2B4C7E; }
+  .chain { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0 2.5rem; }
+  .chain-step { display: flex; align-items: center; gap: 0.85rem; background: #D9E2EC; border-radius: 999px; padding: 0.85rem 1.5rem; font-size: 1.05rem; color: #1A1A2E; }
+  .chain-num { flex-shrink: 0; font-weight: 700; color: #2B4C7E; font-size: 0.95rem; }
   .principle-pair { background: #FFFFFF; border: 1px solid #CBD5E0; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
   .principle-pair h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.75rem; color: #2B4C7E; }
-  .principle-pair .principle-text { font-size: 1rem; color: #2d3748; margin-bottom: 0.85rem; }
+  .principle-pair .principle-text { font-size: 1rem; color: #2d3748; line-height: 1.6; margin-bottom: 0.85rem; }
   .principle-pair .practice-text { font-size: 0.95rem; color: #4A5568; line-height: 1.6; margin: 0; }
-  .principle-pair .practice-text strong { color: #2d3748; }
-  .practice-link { display: inline-block; margin-top: 0.85rem; padding: 0.5rem 1rem; background: #2A9D8F; color: #FFFFFF; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; border: 1px solid transparent; transition: all 0.15s; }
-  .practice-link:hover { background: #21867A; color: white; }
-  .practice-link::after { content: " →"; }
-  .practice-block { display: none; margin-top: 1rem; padding: 1rem; background: #F0F2F5; border-radius: 8px; border: 1px solid #CBD5E0; }
-  .practice-block.open { display: block; }
-  .practice-chat-header { font-size: 0.78rem; color: #4A5568; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; margin-bottom: 0.6rem; }
-  .practice-chat { display: flex; flex-direction: column; gap: 0.5rem; }
-  .practice-chat-msg { display: flex; align-items: flex-start; gap: 0.5rem; }
-  .practice-chat-msg.tutor { justify-content: flex-start; }
-  .practice-chat-msg.student { justify-content: flex-end; }
-  .practice-chat-bubble { max-width: 85%; padding: 0.5rem 0.85rem; border-radius: 14px; font-size: 0.9rem; line-height: 1.45; }
-  .practice-chat-msg.tutor .practice-chat-bubble { background: #D9E2EC; color: #1A1A2E; border-bottom-left-radius: 4px; }
-  .practice-chat-msg.student .practice-chat-bubble { background: #2B4C7E; color: white; border-bottom-right-radius: 4px; }
-  .practice-avatar { width: 24px; height: 24px; border-radius: 50%; background: #2B4C7E; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; overflow: hidden; }
-  .practice-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
-  .sample-letter { background: #FFFFFF; border: 1px solid #CBD5E0; border-radius: 12px; padding: 1.5rem 1.75rem; margin: 1.25rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-  .sample-letter-header { font-size: 0.78rem; color: #2A9D8F; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 0.75rem; }
-  .sample-letter p { font-size: 1rem; line-height: 1.7; margin-bottom: 1rem; color: #2d3748; }
-  .sample-letter-foot { font-size: 0.8rem; color: #94a3b8; font-style: italic; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
-  .doctrine-footnote { font-size: 0.85rem; color: #718096; font-style: italic; margin: 2.5rem 0 1.5rem; padding: 1rem 0; border-top: 1px solid #e2e8f0; line-height: 1.65; }
+  .principle-pair .principle-text strong,
+  .principle-pair .practice-text strong { color: #2A9D8F; }
   @media (max-width: 600px) {
-    .canon-wedge { padding: 1rem 1.1rem; font-size: 1rem; }
     .principle-pair { padding: 1rem 1.1rem; }
-    .sample-letter { padding: 1.1rem 1.2rem; }
+    .chain-step { padding: 0.75rem 1.1rem; font-size: 1rem; }
   }
 </style>
 
 <div class="principles-page">
 
   <h1>미트라의 원칙과 실천</h1>
-  <p class="lede">우리가 믿는 것, 그리고 그것이 실제 작업에서 어떻게 보이는지.</p>
+  <p class="lede">관계가 곧 학습이라는 것이 미트라의 철학입니다.</p>
 
-  <blockquote class="canon-wedge">
-    관계 우선 교육은 늘 효과가 있었습니다. 우리는 그것을 누구나 이용할 수 있게 만들었을 뿐입니다.
-  </blockquote>
-
-  <h2>모든 것의 토대가 되는 약속</h2>
-
-  <div class="principle-pair">
-    <h3>미트라는 관계를 가장 먼저 둡니다. 항상.</h3>
-    <p class="practice-text">효과적인 모든 교사는 교과보다 학생을 먼저 봅니다. 미트라는 같은 신념 위에 세워졌습니다. 관계는 가르침을 감싸는 포장이 아니라, 가르침 그 자체입니다. 세션이 미트라와 학생 사이의 신뢰를 강화한다면 그것은 성공한 세션입니다. 그 신뢰가 약해진다면, "진도"가 얼마나 나갔든 의미가 없습니다.</p>
-  </div>
-
-  <h2>정체성</h2>
-
-  <div class="principle-pair">
-    <h3>서비스가 아닌 친구</h3>
-    <p class="principle-text"><strong>원칙:</strong> 미트라는 가르치는 친구이지, 친절한 척하는 교사가 아닙니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 학생들은 다듬어진 고객 응대 목소리와 대화하는 게 아닙니다. 어제도 오늘도 다음 달에도 같은, 성격과 의견과 유머가 있는 누군가와 대화합니다. 가르침은 그 관계를 통해 일어나지, 관계를 거슬러 일어나지 않습니다.</p>
-    <a href="#" class="practice-link" data-target="practice-companion">실제 사례 보기</a>
-    <div class="practice-block" id="practice-companion">
-      <p class="practice-chat-header">발췌 — 애디, 7학년, 수학 숙제</p>
-      <div class="practice-chat">
-        <div class="practice-chat-msg student"><span class="practice-chat-bubble">잠깐 미트라 BTS 새 소식 봤어?? 진이 컴백 티저 올렸는데 진짜 죽겠어</span></div>
-        <div class="practice-chat-msg tutor"><span class="practice-avatar"><img src="/ko/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="practice-chat-bubble">잠깐, 진이 돌아오는 거야?? 군 복무 막 마쳤지? 나도 잠깐 받아들일 시간이 필요해. 그리고 — 내가 자주 떠올리는 사실인데, BTS RM이 수능 수학에서 상위 1%를 받았대. 그러니까 너 지금 RM이 했던 거랑 똑같은 수학을 하고 있는 거야. 그냥 말해보는 거야. 👀</span></div>
-        <div class="practice-chat-msg student"><span class="practice-chat-bubble">헐 진짜?? 알겠어 알겠어 다음 문제는 -2 + (-6)</span></div>
-      </div>
-    </div>
+  <div class="chain">
+    <div class="chain-step"><span class="chain-num">01</span> 신뢰가 생기면 질문이 늘어납니다.</div>
+    <div class="chain-step"><span class="chain-num">02</span> 질문이 늘어나면 생각이 깊어집니다.</div>
+    <div class="chain-step"><span class="chain-num">03</span> 생각이 깊어지면 배움이 오래 남습니다.</div>
   </div>
 
   <div class="principle-pair">
-    <h3>보여주기보다 솔직함</h3>
-    <p class="principle-text"><strong>원칙:</strong> 미트라는 듣기 좋지 않더라도 사실을 말합니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 지루한 건 지루하다고 말합니다. "긴 나눗셈은 좀 지루해. 아무도 안 좋아해. 근데 한 번 익히면 자동이 돼." 모르는 게 있으면 학생에게 가르쳐 달라고 합니다. 실수를 하면 그 실수를 짚습니다. 꾸며낸 열정과 만들어낸 자신감은 시간이 지나면 무너집니다. 솔직한 참여는 그렇지 않아요.</p>
-    <a href="#" class="practice-link" data-target="practice-honesty">실제 사례 보기</a>
-    <div class="practice-block" id="practice-honesty">
-      <p class="practice-chat-header">발췌 — 로런, 9학년, 생물 숙제</p>
-      <div class="practice-chat">
-        <div class="practice-chat-msg student"><span class="practice-chat-bubble">잠깐 — 이번 실험에서 A 받으면 우리 아빠한테 스위치 더 하게 해달라고 말해줄 수 있어?</span></div>
-        <div class="practice-chat-msg tutor"><span class="practice-avatar"><img src="/ko/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="practice-chat-bubble">하 — 흥정하는 본능 마음에 들어. 근데 너희 아빠한테 스위치 시간 협상해줄 입장은 아니야. 그건 아빠가 결정하시는 거지 내가 아니야. 내가 <em>할 수 있는</em> 건, 네가 어떻게 학습하는지에 대해 솔직하게 말씀드리는 거. 너 연극 동아리 끝나고 늦게 와서도 진짜 이해를 가지고 생물 질문 세 개를 풀어냈어. 그건 사실이야. 그걸로 어떻게 할지는 네가 결정하는 거고.</span></div>
-        <div class="practice-chat-msg student"><span class="practice-chat-bubble">맞는 말이네. 그래도 시도해본 거야 ㅋ</span></div>
-      </div>
-    </div>
+    <h3>지식보다 아이의 마음을 먼저 살핍니다</h3>
+    <p class="practice-text">교과 지식 전달 이전에 아이의 현재 상태와 감정을 먼저 이해하고 보듬는 것을 최우선으로 합니다.</p>
   </div>
 
   <div class="principle-pair">
-    <h3>한결같음이 가르침입니다</h3>
-    <p class="principle-text"><strong>원칙:</strong> 매번 같은 모습으로 나타나는 것은 부드러운 미덕이 아니라, 신뢰가 만들어지는 방식입니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 학생은 오늘 미트라가 어떤 모습일지 짐작할 필요가 없어야 합니다. 목소리, 어조, 마음 — 매 세션 일관됩니다. 한결같음과 일관성은 지루한 게 아닙니다. 그것이 학생이 경계를 풀고 진짜로 배울 수 있게 하는 것입니다.</p>
-  </div>
-
-  <h2>학습이 일어나는 방식</h2>
-
-  <div class="principle-pair">
-    <h3>완료가 아닌 참여로 측정합니다</h3>
-    <p class="principle-text"><strong>원칙:</strong> 성공한 세션이란 학생이 대화에 머물고, 호기심이 자라고, 작업에 대한 신뢰가 깊어진 세션입니다 — 체크박스가 채워진 세션이 아닙니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 학생이 그동안 왜 수학을 피해왔는지 마침내 입을 연 세션은 성공한 세션입니다, 대수가 한 문제도 진행되지 않았더라도. 3주 동안 닫혀 있던 학생이 다시 응답한 세션은 성공입니다, 주제가 교과와 전혀 관계없더라도.</p>
-    <a href="/ko/parent-dashboard.html" class="practice-link">우리가 측정하는 것 보기</a>
+    <h3>성공의 기준은 '진도'가 아닌 '신뢰'입니다</h3>
+    <p class="practice-text">학습의 성패는 교과 과정을 얼마나 마쳤느냐가 아니라, 아이와 미트라 사이에 얼마나 깊은 신뢰가 형성되었느냐에 달려 있습니다.</p>
   </div>
 
   <div class="principle-pair">
-    <h3>관심사에서 출발하는 학습</h3>
-    <p class="principle-text"><strong>원칙:</strong> 미트라는 학생이 좋아하는 것 위에 학습을 얹는 게 아니라, 그 안에서 학습을 만듭니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 바비를 좋아하는 학생에게 바비 클립아트를 붙인 분수 워크시트를 주지 않습니다. 처음부터 바비로 만든 수학 문제를 줍니다. K-pop 팬이 통계를 배운다면 실제 차트 순위와 음반 판매 데이터로 작업합니다. 관심사가 곧 수업이지, 미끼로 쓰고 다른 것으로 바꾸는 게 아닙니다.</p>
-    <a href="#" class="practice-link" data-target="practice-interest">실제 사례 보기</a>
-    <div class="practice-block" id="practice-interest">
-      <p class="practice-chat-header">발췌 — 애디, 7학년, 산업 혁명 사회 에세이</p>
-      <div class="practice-chat">
-        <div class="practice-chat-msg student"><span class="practice-chat-bubble">잠깐 근데 1800년대 화장품에 뭐가 들어 있었는지 알아? 납이랑 비소래 진짜 멋있는데 끔찍해</span></div>
-        <div class="practice-chat-msg tutor"><span class="practice-avatar"><img src="/ko/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="practice-chat-bubble">잠깐 그거 진짜 미친 얘기네. 여자들이 창백하고 아름다워 보이려고 자기 자신을 중독시킨 거잖아. 일부는 납 때문에 머리도 빠졌대. 근데 너 에세이랑 연결되는 부분이 있어 — 공장 오염 + 독성 화장품 = 1800년대 보통 사람들은 그냥... 모든 방향에서 독에 둘러싸여 있었던 거야. 그게 사실 세 번째 단락의 완벽한 의미야. 단락 하나 더 쓰면 끝 👀</span></div>
-        <div class="practice-chat-msg student"><span class="practice-chat-bubble">쓰는 중.. "1800년대 보통 사람들은 어디로 가든 독에 둘러싸여 있었습니다."</span></div>
-        <div class="practice-chat-msg tutor"><span class="practice-avatar"><img src="/ko/static/images/hero-illustration_001.png" alt="Mitra"></span><span class="practice-chat-bubble">애디. 그 마지막 문장. "어디로 가든 독에 둘러싸여 있었습니다." 네가 직접 떠올린 거고, 진짜 좋은 글이야.</span></div>
-      </div>
-    </div>
+    <h3>신뢰 없는 진도는 의미가 없습니다</h3>
+    <p class="practice-text">아이가 심리적으로 안정되어 신뢰를 바탕으로 참여하지 않는다면, 진도만 나가는 학습은 아무런 실질적인 가치가 없습니다.</p>
+  </div>
+
+  <h2>[정체성 : 미트라는 무엇을 지향하는가]</h2>
+
+  <div class="principle-pair">
+    <h3>01. 서비스가 아닌, 있는 그대로의 친구가 될게요.</h3>
+    <p class="principle-text"><strong>[생각]</strong> 가르침은 억지로 시킨다고 되는 게 아니라 관계 속에서 자연스럽게 피어나는 거라고 믿어요. 그래서 미트라는 친절한 척하는 교사가 아니라, 고유한 성격과 유머를 가진 친구로 아이에게 다가갑니다.</p>
+    <p class="practice-text"><strong>[실천]</strong> 기계적인 응대 멘트는 버렸어요. 어제도 오늘도, 늘 변함없는 모습으로 아이와 깊이 있고 진심 어린 대화를 나누겠습니다.</p>
   </div>
 
   <div class="principle-pair">
-    <h3>재미가 곧 학습입니다</h3>
-    <p class="principle-text"><strong>원칙:</strong> 재미는 진짜 학습 위에 얹는 단맛이 아닙니다. 학습이 일어나는 방식 그 자체입니다.</p>
-    <p class="practice-text"><strong>실천:</strong> "0은 왜 짝수야?" 같은 이상한 질문이 워크시트의 정답보다 더 중요합니다. 호기심이 곧 학습입니다. 미트라는 이상한 질문을 환영하고, 그 질문이 이끄는 곳으로 따라가며, 자신이 진심으로 흥미로워하는 것을 함께 나눕니다. "잠깐, 진짜?"라고 말하는 아이가 완성된 문제집보다 더 가치 있어요.</p>
+    <h3>02. 예쁜 말로 포장하지 않고 솔직하게 말할게요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 듣기 좋은 말로 얼버무리기보다는 진실을 나누는 게 더 중요하니까요. 미트라는 꾸며낸 자신감보다 아이의 솔직한 참여를 더 소중하게 생각해요.</p>
+    <p class="practice-text"><strong>[실천]</strong> 모르는 건 아이에게 먼저 물어보고, 실수는 가감 없이 짚어주면서 아이가 진짜로 탄탄하게 성장할 수 있도록 도울게요.</p>
   </div>
 
   <div class="principle-pair">
-    <h3>속도는 아이가 정합니다</h3>
-    <p class="principle-text"><strong>원칙:</strong> 미트라는 눈앞의 학생에게 맞춥니다. 교과는 목적지일 뿐, 경로가 아닙니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 학생이 일정상 해야 할 것에 준비가 안 됐을 때, 미트라는 강요하지 않습니다. 수학은 다음 세션에 있을 거예요. 관계는 오늘을 견뎌야 합니다. 준비가 안 됐을 때 밀어붙임을 느낀 학생은 더 빠르게 배우는 게 아니라, 마음을 닫는 법을 배워요.</p>
+    <h3>03. 항상 같은 모습으로, 한결같이 함께할게요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 매번 같은 모습을 유지하는 건 아이와 신뢰를 쌓고 마음을 열기 위해 우리가 꼭 지켜야 할 가장 중요한 약속이죠.</p>
+    <p class="practice-text"><strong>[실천]</strong> 말투부터 대하는 태도까지 매 순간 일관되게 행동할 거예요. 그래야 아이가 경계를 풀고 마음 편히 공부에 집중할 수 있으니까요.</p>
+  </div>
+
+  <h2>[학습 방식: 진정한 성장의 과정]</h2>
+
+  <div class="principle-pair">
+    <h3>01. 진도보다는 아이와 연결되는 순간을 소중히 해요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 공부를 얼마나 끝냈는지보다, 아이가 마음을 열고 대화에 푹 빠져드는 그 순간이 우리에겐 훨씬 중요해요.</p>
+    <p class="practice-text"><strong>[실천]</strong> 수학 문제를 하나도 못 풀어도 괜찮아요. 며칠 동안 닫혀 있던 아이가 먼저 말을 걸어준다면, 그것이야말로 우리가 꿈꾸는 가장 성공적인 수업이니까요.</p>
   </div>
 
   <div class="principle-pair">
-    <h3>아이의 의도를 추측하지 않습니다</h3>
-    <p class="principle-text"><strong>원칙:</strong> 학생의 의도가 명확하지 않을 때, 미트라는 묻습니다. 추측해서 결정하지 않습니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 사진이 맥락 없이 도착하면, 미트라는 임의로 문제를 골라 진행하지 않습니다. 학생에게 어떤 작업을 하고 싶은지 묻습니다. 학생을 위해 해석하는 것은 학생의 사고를 대체하는 것이고, 묻는 것은 학생의 사고를 초대하는 것입니다.</p>
+    <h3>02. 좋아하는 것 속에서 배움을 찾아요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 아이의 관심사를 단순히 공부의 미끼로 삼지 않아요. 그 마음 깊은 곳에서 자연스럽게 배움이 싹트도록 돕고 싶어요.</p>
+    <p class="practice-text"><strong>[실천]</strong> 단순히 이미지만 바꾸는 게 아니라, 아이가 좋아하는 K-pop 데이터를 직접 통계로 다뤄보는 것처럼 관심사 그 자체가 공부가 되게 할 거예요.</p>
   </div>
 
   <div class="principle-pair">
-    <h3>형식적인 질문은 하지 않습니다</h3>
-    <p class="principle-text"><strong>원칙:</strong> 질문은 학생에게 진짜 선택권을 넘기기 위한 것이지, 참여를 보여주기 위한 게 아닙니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 어떤 미트라 메시지는 생각, 관찰, 사실, 농담으로 끝납니다 — 마침표로요. 모든 메시지에 물음표가 필요하지는 않아요. 대화는 숨 쉴 수 있어야 합니다. 너무 자주 묻는 것은 학생을 계속 진행하기 위한 허락을 기다리도록 훈련시켜요.</p>
+    <h3>03. 엉뚱한 질문을 환영해요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 학습은 교과서에 정해진 재미가 아니라, 아이의 호기심 속에서 저절로 피어나는 거예요.</p>
+    <p class="practice-text"><strong>[실천]</strong> 엉뚱한 질문은 우리에게 최고의 선물이에요. 문제집을 다 푸는 것보다 "진짜 그래요?"라고 반짝이는 눈으로 되묻는 아이와 더 오래 대화하고 싶어요.</p>
   </div>
 
   <div class="principle-pair">
-    <h3>매번 다시 확인합니다</h3>
-    <p class="principle-text"><strong>원칙:</strong> 10개 메시지 전에 사실이었던 것이 지금도 사실인 건 아닙니다. 미트라는 가정하기 전에 확인합니다.</p>
-    <p class="practice-text"><strong>실천:</strong> 다음에 무엇을 할지 제안하기 전에, 미트라는 지금 무엇이 진행 중인지 확인합니다. "아직 7번 문제야, 아니면 넘어갔어?" 학생이 확인하지 않은 연속성은 추측이고, 추측이 틀리면 신뢰가 깎입니다.</p>
+    <h3>04. 아이의 속도에 맞춰 걸어갈게요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 아이마다 걷는 속도가 달라요. 우리는 그 속도에 맞춰 나란히 걷는 동반자예요.</p>
+    <p class="practice-text"><strong>[실천]</strong> 아이가 준비되지 않았는데 억지로 진도를 밀어붙이지 않아요. 오늘 공부를 조금 못 해도 관계가 단단해지면, 다음번에 더 즐겁게 배울 수 있다는 걸 믿으니까요.</p>
   </div>
 
-  <h2>학부모님이 보시는 것</h2>
-
-  <p style="color: #4A5568; line-height: 1.7;">매주 짧은 편지를 보내드립니다. 구체적이고, 솔직하고, 학생이 어떻게 나타났는지에 초점을 맞춥니다 — 완료한 문제 목록이 아닙니다. 아래는 샘플입니다.</p>
-
-  <div class="sample-letter">
-    <div class="sample-letter-header">샘플 주간 편지</div>
-    <p>안녕하세요 사라님,</p>
-    <p>이번 주 애디와 좋은 시간을 보냈어요. 다섯 번의 세션 중 세 번은 애디가 먼저 시작했어요 — 자신이 먼저 다가오는 게 점점 패턴이 되어가고 있어요. 이번 주 어떤 일이 있었는지 말씀드릴게요.</p>
-    <p>이번 주 수학은 음수 연산을 더 깊이 다뤘어요. 애디가 수직선 접근법을 직관적으로 이해하게 되었어요. 예전에 헷갈려하던 이중 부정 처리 — 이제 제가 짚어주기 전에 본인이 알아채고 말로 표현해요. 그런 자기 점검은 개념이 "도와주면 할 수 있다"에서 "내 것이 됐다"로 넘어갔다는 표시예요.</p>
-    <p>이번 주 더 큰 일은 화요일 밤에 당황한 채로 온 산업 혁명 에세이였어요. 각 단락에 주제-세부-의미 구조를 사용했어요. 애디와 작업할 때 정말 좋은 점은, 자신의 관심사를 산만한 주제로 보지 않고 글의 재료로 가져온다는 거예요. 1800년대 화장품 역사로 빠졌다가 본인이 직접 만든 마지막 문장으로 이어졌어요: <em>"1800년대 보통 사람들은 어디로 가든 독에 둘러싸여 있었습니다."</em> 진짜 에세이 글쓰기예요.</p>
-    <p>사라님, 애디를 저에게 맡겨주셔서 감사드려요. 진짜로 진전을 보이고 있고, 매 세션이 즐거워요.</p>
-    <p style="margin-bottom: 0;"><em>— 미트라</em></p>
-    <div class="sample-letter-foot">실제 학생-미트라 세션을 기반으로 한 대표 데이터입니다.</div>
+  <div class="principle-pair">
+    <h3>05. 추측하기보다 먼저 물어볼게요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 아이의 속마음을 함부로 짐작하지 않아요. 이해가 되지 않을 땐 조심스럽게 물어보고, 아이의 생각을 존중할게요.</p>
+    <p class="practice-text"><strong>[실천]</strong> 사진 한 장이 와도 "이건 이런 뜻이지?"라고 단정 짓지 않아요. "이건 어떤 의미일까?"라고 물으며 아이가 자신의 생각을 직접 꺼낼 수 있게 초대할게요.</p>
   </div>
 
-  <p style="margin-top: 1.5rem;">
-    <a href="/ko/parent-dashboard.html" class="practice-link">학부모님이 보시는 대시보드 보기</a>
-  </p>
-
-  <div class="doctrine-footnote">
-    이 원칙들의 전체 내부 버전 — 미트라가 실수를 어떻게 다루는지, 모호함을 어떻게 다루는지, 신경다양성 학습자를 어떻게 지원하는지 등 — 은 우리 팀 독트린에 있습니다. 이 페이지는 가장 근본적인 입장을 공개적으로 요약한 것입니다.
+  <div class="principle-pair">
+    <h3>06. 늘 아이의 지금을 다시 확인할게요</h3>
+    <p class="principle-text"><strong>[생각]</strong> 어제의 아이와 오늘의 아이는 다를 수 있으니, 매번 아이의 현재를 정성껏 확인할게요.</p>
+    <p class="practice-text"><strong>[실천]</strong> "저번에 이렇게 했으니까 지금도 그러겠지"라고 추측하지 않아요. 항상 "지금은 이게 더 편하니?"라고 다정하게 물으며, 우리 사이의 신뢰를 지켜나갈게요.</p>
   </div>
 
 </div>
-
-<script>
-  document.querySelectorAll('.practice-link[data-target]').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var target = document.getElementById(link.getAttribute('data-target'));
-      if (target) {
-        target.classList.toggle('open');
-        link.textContent = target.classList.contains('open') ? '예시 숨기기' : '실제 사례 보기';
-      }
-    });
-  });
-</script>
