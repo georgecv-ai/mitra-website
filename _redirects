@@ -13,7 +13,3 @@
 # Link-in-bio hub (query string e.g. ?src=ig is preserved through the redirect)
 /links /en/links 301
 /go /en/links 301
-
-# Dynamic marketing landings — bare /dynamic/* maps to the EN pages.
-# 302 (not 301) while these are evolving so nothing gets hard-cached.
-/dynamic/* /en/dynamic/:splat 302

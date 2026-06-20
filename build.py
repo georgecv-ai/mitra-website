@@ -370,25 +370,20 @@ def build(env: str):
 
         out_dir = ROOT / lang
         out_dir.mkdir(parents=True, exist_ok=True)
-        # Recurse so grouped pages under subdirs (e.g. src/en/dynamic/*.html for
-        # the marketing dynamic-landing system) build too. Output mirrors the
-        # source subdir so /en/dynamic/ig.html lands at en/dynamic/ig.html.
-        for src_file in sorted(src_dir.glob("**/*.html")):
+        for src_file in sorted(src_dir.glob("*.html")):
             if src_file.name.endswith(".head.html"):
                 continue
-            rel = src_file.relative_to(src_dir)
             text = src_file.read_text(encoding="utf-8")
             meta, body = parse_fragment(text)
             if not meta.get("slug"):
-                meta["slug"] = rel.as_posix()
+                meta["slug"] = src_file.name
             sidecar = src_file.with_suffix(".head.html")
             if sidecar.exists():
                 meta["extra_head"] = sidecar.read_text(encoding="utf-8").rstrip()
             assembled = assemble_page(layout, lang_cfg, lang, meta, body,
                                       nav_items, footer_columns, footer_muted,
                                       app_base, site_base, env)
-            out_file = out_dir / rel
-            out_file.parent.mkdir(parents=True, exist_ok=True)
+            out_file = out_dir / src_file.name
             out_file.write_text(assembled, encoding="utf-8")
             total += 1
             print(f"  wrote {out_file.relative_to(ROOT)}")
