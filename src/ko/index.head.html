@@ -79,10 +79,11 @@
     background: var(--mint-soft);
     border: 1px solid #e0ede7;
     cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .kv2-dcard-popup img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .kv2-dcard-popup img { width: 100%; max-height: 120px; object-fit: contain; display: block; margin-bottom: 0.6rem; }
+  .kv2-dcard-popup h4 { margin: auto 0 0; font-size: 1rem; font-weight: 700; color: var(--green-dark); line-height: 1.35; }
   .kv2-dcard-popup:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,42,38,0.18); }
   .kv2-dcard-popup:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
 
@@ -244,18 +245,19 @@
   .kv2-reviews-marks-open  { top: 0;     left: 0; }
   .kv2-reviews-marks-close { bottom: 0;  right: 0; transform: scale(-1, -1); }
   .kv2-reviews-text {
-    height: 6rem;
+    height: 8.5rem;
     overflow: hidden;
     position: relative;
     padding: 0 22px;  /* clear the marks at left/right edges */
   }
+  .kv2-review-tag { display: block; font-weight: 800; color: var(--green); font-size: 0.8rem; margin-bottom: 0.4rem; }
   .kv2-reviews-track {
     display: flex;
     flex-direction: column;
     animation: kv2-review-scroll 12s ease-in-out infinite;
   }
   .kv2-review {
-    height: 6rem;
+    height: 8.5rem;
     margin: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
@@ -272,9 +274,9 @@
   }
   @keyframes kv2-review-scroll {
     0%, 22%    { transform: translateY(0); }
-    28%, 47%   { transform: translateY(-6rem); }
-    53%, 72%   { transform: translateY(-12rem); }
-    78%, 100%  { transform: translateY(-18rem); }
+    28%, 47%   { transform: translateY(-8.5rem); }
+    53%, 72%   { transform: translateY(-17rem); }
+    78%, 100%  { transform: translateY(-25.5rem); }
   }
   /* §3 worry-card popups (modal dialogs matched to card colors) */
   .kv2-worry-popup {
@@ -446,6 +448,18 @@
   .kv2-talk-btn { display: flex; width: max-content; margin: 0 auto; transform: translateY(-10px); align-items: center; gap: 8px; background: var(--kakao); color: #3a2e00; font-weight: 700; padding: 0.7rem 1.6rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
   .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
   .kv2-closing { padding-bottom: 2.5rem; }
+
+  /* ===== KORENEWAL-PRX renewal additions ===== */
+  .kv2-hero-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.6; margin: -1rem 0 1.8rem; }
+  .kv2-dash-caption { text-align: center; margin-bottom: 0.9rem; }
+  .kv2-dash-caption strong { display: block; font-size: 1.15rem; font-weight: 800; color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem; }
+  .kv2-dash-caption span { display: block; font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+  .kv2-principle { background: var(--mint-soft); }
+  .kv2-principle-link { display: block; text-decoration: none; color: inherit; padding: 0.5rem 0; border-radius: 18px; transition: transform 0.15s ease; }
+  .kv2-principle-link:hover { transform: translateY(-2px); }
+  .kv2-worry-popup-tagline { font-size: 1rem; font-weight: 600; margin: -0.6rem 0 1.1rem; color: rgba(255,255,255,0.92); }
+  .kv2-worry-popup-list li strong { font-weight: 800; color: #fff; }
+  .kv2-closing-cta { display: block; width: max-content; margin: 0 auto; transform: translateY(-10px); }
 
   /* ---- Responsive ---- */
   @media (max-width: 860px) {

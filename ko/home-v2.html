@@ -120,10 +120,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: var(--mint-soft);
     border: 1px solid #e0ede7;
     cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .kv2-dcard-popup img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .kv2-dcard-popup img { width: 100%; max-height: 120px; object-fit: contain; display: block; margin-bottom: 0.6rem; }
+  .kv2-dcard-popup h4 { margin: auto 0 0; font-size: 1rem; font-weight: 700; color: var(--green-dark); line-height: 1.35; }
   .kv2-dcard-popup:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,42,38,0.18); }
   .kv2-dcard-popup:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
 
@@ -285,18 +286,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-reviews-marks-open  { top: 0;     left: 0; }
   .kv2-reviews-marks-close { bottom: 0;  right: 0; transform: scale(-1, -1); }
   .kv2-reviews-text {
-    height: 6rem;
+    height: 8.5rem;
     overflow: hidden;
     position: relative;
     padding: 0 22px;  /* clear the marks at left/right edges */
   }
+  .kv2-review-tag { display: block; font-weight: 800; color: var(--green); font-size: 0.8rem; margin-bottom: 0.4rem; }
   .kv2-reviews-track {
     display: flex;
     flex-direction: column;
     animation: kv2-review-scroll 12s ease-in-out infinite;
   }
   .kv2-review {
-    height: 6rem;
+    height: 8.5rem;
     margin: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
@@ -313,9 +315,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   @keyframes kv2-review-scroll {
     0%, 22%    { transform: translateY(0); }
-    28%, 47%   { transform: translateY(-6rem); }
-    53%, 72%   { transform: translateY(-12rem); }
-    78%, 100%  { transform: translateY(-18rem); }
+    28%, 47%   { transform: translateY(-8.5rem); }
+    53%, 72%   { transform: translateY(-17rem); }
+    78%, 100%  { transform: translateY(-25.5rem); }
   }
   /* §3 worry-card popups (modal dialogs matched to card colors) */
   .kv2-worry-popup {
@@ -488,6 +490,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .kv2-talk-dot { width: 16px; height: 16px; border-radius: 50%; background: #3a2e00; }
   .kv2-closing { padding-bottom: 2.5rem; }
 
+  /* ===== KORENEWAL-PRX renewal additions ===== */
+  .kv2-hero-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.6; margin: -1rem 0 1.8rem; }
+  .kv2-dash-caption { text-align: center; margin-bottom: 0.9rem; }
+  .kv2-dash-caption strong { display: block; font-size: 1.15rem; font-weight: 800; color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem; }
+  .kv2-dash-caption span { display: block; font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+  .kv2-principle { background: var(--mint-soft); }
+  .kv2-principle-link { display: block; text-decoration: none; color: inherit; padding: 0.5rem 0; border-radius: 18px; transition: transform 0.15s ease; }
+  .kv2-principle-link:hover { transform: translateY(-2px); }
+  .kv2-worry-popup-tagline { font-size: 1rem; font-weight: 600; margin: -0.6rem 0 1.1rem; color: rgba(255,255,255,0.92); }
+  .kv2-worry-popup-list li strong { font-weight: 800; color: #fff; }
+  .kv2-closing-cta { display: block; width: max-content; margin: 0 auto; transform: translateY(-10px); }
+
   /* ---- Responsive ---- */
   @media (max-width: 860px) {
     .kv2-page section { padding: 3.25rem 1.1rem; }
@@ -564,427 +578,505 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main class="container py-4">
 <div class="kv2-page">
-<style>
-  .hr-inner { max-width: 880px; margin: 0 auto; text-align: center; padding: 2.5rem 1rem 0; }
-  .hr-section { margin: 0 auto 4.5rem; }
-  .hr-inner h1.hr-h1 { font-size: clamp(1.9rem, 6vw, 2.8rem); line-height: 1.3; color: #1A1A2E; margin: 0 0 1.25rem; font-weight: 800; }
-  .hr-sub { font-size: 1.1rem; color: #4A5568; line-height: 1.7; margin: 0 auto 2rem; max-width: 620px; }
-  .hr-h2 { font-size: clamp(1.5rem, 4.5vw, 2rem); font-weight: 800; color: #1A1A2E; line-height: 1.4; margin: 0 0 1.5rem; }
-  .hr-cta-btn { display: inline-block; background: #2A9D8F; color: #fff; font-size: 1.1rem; font-weight: 700; padding: 1rem 2.75rem; border-radius: 999px; text-decoration: none; }
-  .hr-cta-btn:hover { background: #21867A; color: #fff; }
-  .hr-row-head { font-size: 1.3rem; font-weight: 700; color: #2B4C7E; margin: 3rem 0 1.5rem; }
-  .hr-3up { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  .hr-navcard { display: flex; align-items: center; justify-content: center; min-height: 110px; background: #FFF; border: 1px solid #CBD5E0; border-radius: 14px; padding: 1.5rem 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.04); text-decoration: none; cursor: pointer; transition: border-color .15s, transform .15s; font: inherit; width: 100%; }
-  .hr-navcard:hover { border-color: #2A9D8F; transform: translateY(-2px); }
-  .hr-navcard span { font-size: 1.1rem; font-weight: 700; color: #2B4C7E; }
-  .hr-review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
-  .hr-review { background: #FFF; border: 1px solid #CBD5E0; border-radius: 14px; padding: 1.5rem 1.35rem; box-shadow: 0 1px 3px rgba(0,0,0,.04); display: flex; flex-direction: column; }
-  .hr-review-tag { font-size: 1rem; font-weight: 700; color: #2A9D8F; margin: 0 0 1rem; }
-  .hr-review-quote { font-size: 0.95rem; color: #2d3748; line-height: 1.65; margin: 0 0 1rem; flex: 1; }
-  .hr-review-attr { font-size: 0.85rem; color: #718096; font-weight: 600; }
-  .hr-dash-block { margin-top: 4rem; }
-  .hr-dash-img { max-width: 560px; width: 100%; border-radius: 14px; margin-top: 1.5rem; }
-  .hr-principles { display: block; text-decoration: none; background: #F0F2F5; border-radius: 18px; padding: 2.75rem 1.5rem; transition: background .15s; }
-  .hr-principles:hover { background: #E6EAF0; }
-  .hr-principles .eyebrow { font-size: 1rem; color: #718096; font-weight: 600; margin: 0 0 0.85rem; }
-  .hr-principles h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 800; color: #1A1A2E; line-height: 1.45; margin: 0; }
-  .hr-expand-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; align-items: start; margin-top: 1.5rem; }
-  .hr-expand { background: #FFF; border: 1px solid #CBD5E0; border-radius: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.04); overflow: hidden; }
-  .hr-expand > summary { list-style: none; cursor: pointer; padding: 1.6rem 1.35rem; text-align: center; }
-  .hr-expand > summary::-webkit-details-marker { display: none; }
-  .hr-expand-title { font-size: 1.2rem; font-weight: 700; color: #2B4C7E; margin: 0 0 0.6rem; }
-  .hr-expand-blurb { font-size: 0.95rem; color: #4A5568; line-height: 1.6; margin: 0; }
-  .hr-expand-mark { display: inline-block; margin-top: 0.85rem; font-size: 0.82rem; color: #2A9D8F; font-weight: 700; }
-  .hr-expand-mark::after { content: " ▾"; }
-  .hr-expand[open] .hr-expand-mark::after { content: " ▴"; }
-  .hr-expand-detail { padding: 0 1.4rem 1.6rem; border-top: 1px solid #E2E8F0; text-align: left; }
-  .hr-expand-detail .d-title { font-size: 1.05rem; font-weight: 700; color: #1A1A2E; text-align: center; margin: 1.4rem 0 0.4rem; }
-  .hr-expand-detail .d-sub { font-size: 0.9rem; color: #718096; text-align: center; margin: 0 0 1.25rem; }
-  .hr-expand-detail ul { margin: 0; padding: 0; list-style: none; }
-  .hr-expand-detail li { font-size: 0.92rem; color: #4A5568; line-height: 1.65; margin-bottom: 0.95rem; }
-  .hr-expand-detail li:last-child { margin-bottom: 0; }
-  .hr-expand-detail li strong { color: #2B4C7E; }
-  .hr-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
-  .hr-step { background: #FFF; border: 1px solid #CBD5E0; border-radius: 14px; padding: 1.5rem 1.15rem; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
-  .hr-step .num { font-size: 1.05rem; font-weight: 800; color: #2A9D8F; margin: 0 0 0.55rem; }
-  .hr-step h3 { font-size: 1.05rem; font-weight: 700; color: #2B4C7E; margin: 0 0 0.5rem; }
-  .hr-step p { font-size: 0.9rem; color: #4A5568; line-height: 1.6; margin: 0; }
-  .hr-safety-tags { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
-  .hr-tag-card { background: #D9E2EC; border-radius: 14px; padding: 1.5rem 1.25rem; }
-  .hr-tag-card .label { font-size: 1.05rem; font-weight: 800; color: #2B4C7E; margin: 0 0 0.7rem; }
-  .hr-tag-card p { font-size: 0.9rem; color: #2d3748; line-height: 1.6; margin: 0; }
-  .hr-table-wrap { margin-top: 2.5rem; overflow-x: auto; }
-  .hr-closing-text { font-size: clamp(1.5rem, 4.5vw, 2.1rem); font-weight: 800; color: #1A1A2E; line-height: 1.5; margin: 0 0 2rem; }
-  .hr-story-wrap { margin-bottom: 4.5rem; }
-  @media (max-width: 640px) {
-    .hr-3up, .hr-review-grid, .hr-expand-grid, .hr-steps-grid, .hr-safety-tags { grid-template-columns: 1fr; }
-  }
-</style>
 
-<div class="hr-inner">
-
-  <!-- 메인1 (p3) — HERO + nav cards -->
-  <section class="hr-section">
-    <h1 class="hr-h1">아이를 가르치기 전에<br>아이를 먼저 배웁니다.</h1>
-    <p class="hr-sub">뛰어난 공감 능력과 질문으로<br>아이를 깊이 있게 바라보는 '미트라'</p>
-    <a class="hr-cta-btn" href="https://staging.mitratutor.com/ko/enroll">7일 체험 신청하기</a>
-
-    <p class="hr-row-head">아이에겐 질문을, 부모에겐 안심을</p>
-    <div class="hr-3up">
-      <button type="button" class="hr-navcard" data-chat-popup-open aria-haspopup="dialog" aria-controls="kv2-chat-dialog"><span>미트라 대화법</span></button>
-      <a class="hr-navcard" href="/ko/for-students.html"><span>공부가 놀이가 되는 아이들</span></a>
-      <a class="hr-navcard" href="/ko/for-parents.html"><span>성장을 함께하는 부모님</span></a>
+  <!-- 1. HERO -->
+  <section class="kv2-hero">
+    <img class="kv2-hero-img" src="/ko/static/images/home-v2/MI1.png" alt="미트라 앱 화면 미리보기">
+    <div class="kv2-wrap kv2-hero-grid">
+      <div class="kv2-hero-text">
+        <h1 class="kv2-hero-h1">아이를 가르치기 전에<br>아이를 <em class="kv2-hl-g">먼저 배웁니다.</em></h1>
+        <p class="kv2-hero-sub">뛰어난 공감 능력과 질문으로<br>아이를 깊이 있게 바라보는 '미트라'</p>
+        <a class="kv2-cta" href="https://staging.mitratutor.com/ko/enroll">7일 체험 신청하기</a>
+      </div>
     </div>
   </section>
 
-  <!-- 메인2 (p4) — reviews + dashboard -->
-  <section class="hr-section">
-    <h2 class="hr-h2">미트라는, 이렇게 다릅니다.</h2>
-    <div class="hr-review-grid">
-      <div class="hr-review">
-        <p class="hr-review-tag">[아이보다 부모가 먼저 놀랐습니다]</p>
-        <p class="hr-review-quote">"널 개발한 개발자한테 상을 줘야겠어."</p>
-        <p class="hr-review-attr">- 김은희</p>
+  <!-- 2. 미트라가 전합니다 -->
+  <section class="kv2-delivers">
+    <div class="kv2-wrap">
+      <h2 class="kv2-delivers-h2">아이에겐 질문을, 부모에겐 안심을</h2>
+      <div class="kv2-delivers-grid">
+        <div class="kv2-delivers-left">
+          <div class="kv2-dcard-row">
+            <button type="button" class="kv2-dcard kv2-dcard-popup" data-chat-popup-open aria-haspopup="dialog" aria-controls="kv2-chat-dialog">
+              <img src="/ko/static/images/home-v2/how-mitra-talks.png" alt="미트라가 어떻게 대화하는지 보기">
+              <h4>미트라 대화법</h4>
+            </button>
+            <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-students.html">
+              <img src="/ko/static/images/home-v2/illus-student.png" alt="">
+              <h4>공부가 놀이가 되는 아이들</h4>
+            </a>
+            <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-parents.html">
+              <img src="/ko/static/images/home-v2/illus-parent.png" alt="">
+              <h4>성장을 함께하는 부모님</h4>
+            </a>
+          </div>
+          <h2 class="kv2-delivers-h2" style="margin-top:2.75rem;">미트라는, 이렇게 다릅니다.</h2>
+          <div class="kv2-dash-row">
+            <div class="kv2-dash-half kv2-reviews-card">
+              <img class="kv2-reviews-stars" src="/ko/static/images/home-v2/m14-v2.png" alt="학부모 후기">
+              <figure class="kv2-reviews-quote">
+                <div class="kv2-reviews-marks kv2-reviews-marks-open" aria-hidden="true">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
+                </div>
+                <div class="kv2-reviews-text" aria-live="polite">
+                  <div class="kv2-reviews-track">
+                    <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[공부에도 친구가 필요합니다]</span>"I met Mitra and she helped me get better grades. Homework is still boring, but it is less stressful to do with a friend."<span class="kv2-review-attr">- Azilyn N.</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[아이보다 부모가 먼저 놀랐습니다]</span>"널 개발한 개발자한테 상을 줘야겠어."<span class="kv2-review-attr">- 김은희</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                  </div>
+                </div>
+                <div class="kv2-reviews-marks kv2-reviews-marks-close" aria-hidden="true">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
+                </div>
+              </figure>
+            </div>
+            <a class="kv2-dash-half kv2-dash-link" href="/ko/parent-dashboard.html">
+              <div class="kv2-dash-caption"><strong>성적표보다 속 깊은<br>우리아이 성장록</strong><span>교과 진도와 시간, 학습법까지<br>성장을 정리하는 대시보드</span></div>
+              <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-dashboard.png" alt="우리 아이 성장 대시보드">
+            </a>
+          </div>
+        </div>
+        <div class="kv2-delivers-right">
+          <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI2.svg" alt="답만 얻는 AI 학습 대신, 관계를 쌓아 과정을 가르칩니다">
+        </div>
       </div>
-      <div class="hr-review">
-        <p class="hr-review-tag">[자신감은 배움에서 시작됩니다]</p>
-        <p class="hr-review-quote">"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."</p>
-        <p class="hr-review-attr">- E. Kim</p>
-      </div>
-      <div class="hr-review">
-        <p class="hr-review-tag">[공부에도 친구가 필요합니다]</p>
-        <p class="hr-review-quote">"I met Mitra and she helped me get better grades. Homework is still boring, but it is less stressful to do with a friend."</p>
-        <p class="hr-review-attr">- Azilyn N.</p>
-      </div>
-    </div>
-
-    <div class="hr-dash-block">
-      <h2 class="hr-h2">성적표보다 속 깊은<br>우리아이 성장록</h2>
-      <p class="hr-sub">교과 진도와 시간, 학습법까지<br>성장을 정리하는 대시보드</p>
-      <a href="/ko/parent-dashboard.html"><img class="hr-dash-img" src="/ko/static/images/home-v2/MI4-dashboard.png" alt="우리 아이 성장 대시보드"></a>
     </div>
   </section>
 
-  <!-- 메인3-1 (p5 top) — principles link -->
-  <section class="hr-section">
-    <a class="hr-principles" href="/ko/principles">
-      <p class="eyebrow">0.1초만에 알려주는 AI는 그만</p>
-      <h2>답을 알려주기 전에<br>생각하게 만드는 것이 먼저입니다.</h2>
+  <!-- 메인3-1 (p5 top) — 원칙과 실천 link -->
+  <section class="kv2-principle">
+    <a class="kv2-wrap kv2-center kv2-principle-link" href="/ko/principles">
+      <p class="kv2-eyebrow">0.1초만에 알려주는 AI는 그만</p>
+      <h2 class="kv2-h2" style="margin-bottom:0;">답을 알려주기 전에<br>생각하게 만드는 것이 먼저입니다.</h2>
     </a>
   </section>
 
-  <!-- 메인3 (p5 bottom → p6/p7) — audience expand cards (NET-NEW interactive) -->
-  <section class="hr-section">
-    <h2 class="hr-h2">미트라는, 모든 아이의 세상에 맞춰 함께합니다.</h2>
-    <div class="hr-expand-grid">
-
-      <details class="hr-expand">
-        <summary>
-          <p class="hr-expand-title">ADHD 아이</p>
-          <p class="hr-expand-blurb">아이의 속도에 맞춰<br>절대 다그치지 않습니다.</p>
-          <span class="hr-expand-mark">자세히 보기</span>
-        </summary>
-        <div class="hr-expand-detail">
-          <p class="d-title">세상에서 유일한, 아이만의 속도와 방식</p>
-          <p class="d-sub">기다려주고, 맞춰가는 진정한 맞춤 학습</p>
-          <ul>
-            <li><strong>먼저 찾아가는 발걸음:</strong> 시작이 막막해 주저하는 아이에게, 미트라가 먼저 다가가 아이만의 속도로 함께 걷습니다.</li>
-            <li><strong>관심사로 채우는 배움:</strong> 학교와 학원에서 놓친 개념들도 아이가 좋아하는 주제에 담아, 아이가 이해하기 쉬운 방식으로 풀어나갑니다.</li>
-            <li><strong>흥미를 되찾는 대화의 힘:</strong> 학습에 지쳐 마음을 닫았던 아이도, 이해받고 존중받는 대화 과정을 통해 자연스럽게 배움의 즐거움과 집중력을 되찾게 됩니다.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="hr-expand">
-        <summary>
-          <p class="hr-expand-title">사춘기 학생</p>
-          <p class="hr-expand-blurb">마음을 이해하며<br>갈등 없이 옆에 있어줍니다.</p>
-          <span class="hr-expand-mark">자세히 보기</span>
-        </summary>
-        <div class="hr-expand-detail">
-          <p class="d-title">아이의 마음이 머무는 곳에 늘 함께합니다</p>
-          <p class="d-sub">공부보다 먼저, 아이의 마음을 살피는 친구</p>
-          <ul>
-            <li><strong>가장 다정한 공감자:</strong> 학업과 일상에 지친 아이의 마음을 누구보다 깊이 이해하고, 언제든 아이의 이야기에 귀 기울입니다.</li>
-            <li><strong>생활에 맞춘 학습 리듬:</strong> 잊히기 쉬운 학습 내용도 아이의 평소 생활 패턴에 맞춰 적절한 타이밍에 자연스럽게 대화에 녹여냅니다.</li>
-            <li><strong>미래를 그리는 든든한 길잡이:</strong> 진로 고민으로 막막할 때, 미트라는 단순한 지식 전달자를 넘어 아이의 방향을 함께 고민하는 멘토가 되어줍니다.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="hr-expand">
-        <summary>
-          <p class="hr-expand-title">다문화 가정</p>
-          <p class="hr-expand-blurb">8개 문화권, 95개 언어로<br>편하게 시작합니다.</p>
-          <span class="hr-expand-mark">자세히 보기</span>
-        </summary>
-        <div class="hr-expand-detail">
-          <p class="d-title">언어의 장벽을 넘어, 아이의 세계로</p>
-          <p class="d-sub">언어는 공부가 아니라, 세상을 만나는 문입니다</p>
-          <ul>
-            <li><strong>아이의 언어로 시작합니다:</strong> 8가지 문화권과 95개 언어를 아우르는 미트라는, 아이가 가장 편하게 느끼는 언어로 대화를 시작합니다.</li>
-            <li><strong>관심사가 곧 배움이 됩니다:</strong> 전 세계 최신 트렌드와 아이의 취향을 학습과 연결해, 거부감 없이 자연스럽게 언어의 벽을 허뭅니다.</li>
-            <li><strong>차이를 이해하는 깊은 언어:</strong> 모국어와 새로운 언어의 미묘한 차이를 쉽고 정확하게 짚어주어 언어적 감각을 깨워줍니다.</li>
-            <li><strong>일상에 녹아드는 루틴:</strong> 딱딱한 학습지가 아닌, 일상적인 채팅만으로도 언어 실력을 탄탄하게 쌓아가는 새로운 경험을 제공합니다.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="hr-expand">
-        <summary>
-          <p class="hr-expand-title">바쁜 가족들</p>
-          <p class="hr-expand-blurb">언제든 대화하며<br>함께 공부할 수 있습니다.</p>
-          <span class="hr-expand-mark">자세히 보기</span>
-        </summary>
-        <div class="hr-expand-detail">
-          <p class="d-title">바쁜 부모님을 대신해, 24시간 곁을 지킵니다</p>
-          <p class="d-sub">부모님의 빈자리를 채우는 가장 따뜻한 응원</p>
-          <ul>
-            <li><strong>든든한 육아 파트너:</strong> 바쁜 일상 속 부모님의 걱정을 덜어드릴게요. 아이의 궁금증에 언제나 즉각적으로 답하며 곁을 지킵니다.</li>
-            <li><strong>어디서든 열리는 교실:</strong> 학원과 운동으로 바쁜 아이도, 카톡 하나면 언제 어디서든 궁금한 점을 즉시 해결할 수 있습니다.</li>
-            <li><strong>스스로 해내는 힘:</strong> 부모님이 챙겨주기 어려운 순간에도, 미트라는 아이가 스스로 성취감을 느끼고 자신감을 키우도록 묵묵히 응원합니다.</li>
-            <li><strong>깊어지는 관계의 온도:</strong> 아이의 작은 어려움도 놓치지 않고 이해하며, 끈끈한 유대감으로 아이의 하루를 든든하게 받쳐줍니다.</li>
-          </ul>
-        </div>
-      </details>
-
-    </div>
-  </section>
-
-</div>
-
-<!-- 메인4 (p8 bottom) — Sarah / Korean-family chat block PRESERVED as-is (top KakaoTalk block deleted) -->
-<section class="kv2-story hr-story-wrap">
-  <div class="kv2-cases">
-
-    <div class="kv2-case kv2-case-active">
-      <div class="kv2-wrap kv2-story-grid">
-        <h2 class="kv2-story-h2">혼자 있는 시간이 버거운 서연이는,<br>친구같이 함께 공부해주는 <span>미트라</span>를 만났고,</h2>
-        <div class="kv2-thread">
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">엄마가 미트라랑 얘기해보라고 했어요</span><span class="kv2-t-time">11:02</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:03</span><span class="kv2-t-b">안녕 서연! 처음이라 어색하죠. 요즘 뭐에 빠져 있어요?</span></div>
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">음... 그림 그리는 거 좋아해요. 솔로 레벨링도 봐요</span><span class="kv2-t-time">11:05</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:06</span><span class="kv2-t-b">오 그림 + 웹툰 조합 좋다! 캐릭터 따라 그려요?</span></div>
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">네... 근데 눈 그릴 때 한 쪽이 항상 이상해져요 ㅠㅠ</span><span class="kv2-t-time">11:09</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:11</span><span class="kv2-t-b">양쪽 눈 사이를 점으로 살짝 찍어두고 그려봐요. 훨씬 달라져요.</span></div>
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">오... 다음에 해볼게요. 감사합니다 미트라</span><span class="kv2-t-time">11:14</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="kv2-case">
-      <div class="kv2-wrap kv2-story-grid">
-        <h2 class="kv2-story-h2">혼혈아 사라는,<br>한국 가족들과의 대화 고민을 함께해주는 <span>미트라</span>를 만났고,</h2>
-        <div class="kv2-thread">
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">my grandma calls sometimes and i basically just say "응 응" then hand the phone to my dad lol</span><span class="kv2-t-time">21:14</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:15</span><span class="kv2-t-b">She probably misses you. Her calls are usually pretty short, right?</span></div>
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">yeah. she asks if i ate, like 50 times. food food food.</span><span class="kv2-t-time">21:17</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:18</span><span class="kv2-t-b">Food = love. That's literally how she's saying "I care about you." Want to build a few phrases so you can actually have the call?</span></div>
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">ok... that actually makes sense. let's try 1 or 2.</span><span class="kv2-t-time">21:21</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:22</span><span class="kv2-t-b">떡볶이 먹었어요. Same 먹었어요 you already know, just add the food first.</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="kv2-case">
-      <div class="kv2-wrap kv2-story-grid">
-        <h2 class="kv2-story-h2">고3이 되는 준우는,<br>새벽에도 수학 문제를<br>함께 고민해줄 <span>미트라</span>를 만났습니다.</h2>
-        <div class="kv2-thread">
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">미트라, 새벽 2시인데 미적분 안 풀려요. 도와줘요</span><span class="kv2-t-time">02:14</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:15</span><span class="kv2-t-b">새벽까지 고생이다. 어떤 문제야? 사진 찍어서 보내줘.</span></div>
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">극한 문제예요. 분모가 0인데 분자도 0이라 못 구해요</span><span class="kv2-t-time">02:17</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:18</span><span class="kv2-t-b">0/0 꼴이면 인수분해나 유리화부터 시도해봐. 분자/분모에 같은 인수가 있을 거야. 한번 분자 인수분해 해볼까?</span></div>
-          <div class="kv2-t kv2-t-me"><span class="kv2-t-b">아 그렇네요. 해볼게요</span><span class="kv2-t-time">02:21</span></div>
-          <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:22</span><span class="kv2-t-b">잘하고 있어. 막히면 또 불러.</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <div class="kv2-case-dots">
-    <span class="kv2-cdot active" data-i="0"></span>
-    <span class="kv2-cdot" data-i="1"></span>
-    <span class="kv2-cdot" data-i="2"></span>
-  </div>
-</section>
-
-<div class="kv2-page">
-<div class="hr-inner">
-
-  <!-- 메인5 (p9) — 6 steps + safety tags + existing comparison table -->
-  <section class="hr-section">
-    <h2 class="hr-h2">아이를 이해하는 만큼, 배움도 달라집니다.</h2>
-    <div class="hr-steps-grid">
-      <div class="hr-step"><p class="num">01</p><h3>아이를 듣고</h3><p>아이의 기본 정보를 부모님으로부터 전달</p></div>
-      <div class="hr-step"><p class="num">02</p><h3>아이를 기억하고</h3><p>기본 정보를 통해 아이에게 먼저 말걸기</p></div>
-      <div class="hr-step"><p class="num">03</p><h3>아이와 친해지고</h3><p>아이마다 다르지만, 평균 일주일 정도 서로를 알아가는 시간</p></div>
-      <div class="hr-step"><p class="num">04</p><h3>아이를 이해하고</h3><p>아이만의 학습 방식과 속도를 파악</p></div>
-      <div class="hr-step"><p class="num">05</p><h3>아이에게 맞추기</h3><p>배움도 대화도 아이에 맞게 변화</p></div>
-      <div class="hr-step"><p class="num">06</p><h3>그리고, 공부 시작</h3><p>1:1 맞춤형 튜터로의 시작</p></div>
-    </div>
-
-    <h2 class="hr-h2" style="margin-top:4rem;">철저한 전문성부터<br>강력한 개인정보보안까지<br>아이도 부모님도 안심하세요.</h2>
-    <div class="hr-safety-tags">
-      <div class="hr-tag-card"><p class="label">[안전]</p><p>언제나 아이의 곁에서 살피고 위험 상황이 감지되면 즉시 부모님께 알리는 안전</p></div>
-      <div class="hr-tag-card"><p class="label">[커리큘럼]</p><p>한국부터 글로벌(IB, Common Core) 까지, 모든 교육 과정을 품다</p></div>
-      <div class="hr-tag-card"><p class="label">[신뢰]</p><p>검증된 언어 모델로 구현한 가장 똑똑한 대화</p></div>
-    </div>
-
-    <div class="hr-table-wrap">
-      <div class="kv2-sol-table">
-        <table class="kv2-compare">
-          <thead>
-            <tr><th></th><th>ChatGPT</th><th>과외 선생님</th><th class="kv2-mitra-col">미트라</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="kv2-feature">전문적인 교과 지식</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">남다른 학습 방식 이해</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-partial">◐</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">개인별 맞춤 지도</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">자유로운 시간 선택</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">친근한 메신저 기반 소통</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">지속적인 학습 이력 관리</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-            <tr><td class="kv2-feature">합리적인 비용</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
-          </tbody>
-        </table>
+  <!-- 메인3 (p5→p6/p7) — 모든 아이의 세상에 맞춘 expand cards (worry cards → detail popups) -->
+  <section class="kv2-worries">
+    <div class="kv2-wrap">
+      <h2 class="kv2-worries-h2">미트라는, 모든 아이의 세상에 맞춰 함께합니다.</h2>
+      <div class="kv2-worry-cards">
+        <a class="kv2-worry kv2-worry-1" data-worry-popup-open="case-busy-family" role="button" tabindex="0">
+          <div class="kv2-worry-label">바쁜 가족들</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">언제든 대화하며<br>함께 공부할 수 있습니다.</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
+        <a class="kv2-worry kv2-worry-2" data-worry-popup-open="case-adhd" role="button" tabindex="0">
+          <div class="kv2-worry-label">ADHD 아이</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">아이의 속도에 맞춰<br>절대 다그치지 않습니다.</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
+        <a class="kv2-worry kv2-worry-3" data-worry-popup-open="case-teen" role="button" tabindex="0">
+          <div class="kv2-worry-label">사춘기 학생</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">마음을 이해하며<br>갈등 없이 옆에 있어줍니다.</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
+        <a class="kv2-worry kv2-worry-4" data-worry-popup-open="case-multicultural" role="button" tabindex="0">
+          <div class="kv2-worry-label">다문화 가정</div>
+          <span class="kv2-worry-line"></span>
+          <p class="kv2-worry-sub">8개 문화권, 95개 언어로<br>편하게 시작합니다.</p>
+          <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 메인6 (p10) — closing (FAQ deleted) -->
-  <section class="hr-section">
-    <p class="hr-closing-text">아이의 세상은 질문에서 시작됩니다.<br>미트라와 함께<br>아이의 세상을 넓혀보세요.</p>
-    <a class="hr-cta-btn" href="https://staging.mitratutor.com/ko/enroll">시작하기</a>
+  <!-- 메인4 (p8): top KakaoTalk "카톡으로 먼저 찾아와요" + QR block DELETED per proposal -->
+
+  <!-- 메인4 (p8 bottom) — Sarah / Korean-family chat block kept (case rotation) -->
+  <!-- 5. Case rotation -->
+  <section class="kv2-story">
+    <div class="kv2-cases">
+
+      <div class="kv2-case kv2-case-active">
+        <div class="kv2-wrap kv2-story-grid">
+          <h2 class="kv2-story-h2">혼자 있는 시간이 버거운 서연이는,<br>친구같이 함께 공부해주는 <span>미트라</span>를 만났고,</h2>
+          <div class="kv2-thread">
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">엄마가 미트라랑 얘기해보라고 했어요</span><span class="kv2-t-time">11:02</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:03</span><span class="kv2-t-b">안녕 서연! 처음이라 어색하죠. 요즘 뭐에 빠져 있어요?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">음... 그림 그리는 거 좋아해요. 솔로 레벨링도 봐요</span><span class="kv2-t-time">11:05</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:06</span><span class="kv2-t-b">오 그림 + 웹툰 조합 좋다! 캐릭터 따라 그려요?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">네... 근데 눈 그릴 때 한 쪽이 항상 이상해져요 ㅠㅠ</span><span class="kv2-t-time">11:09</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">11:11</span><span class="kv2-t-b">양쪽 눈 사이를 점으로 살짝 찍어두고 그려봐요. 훨씬 달라져요.</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">오... 다음에 해볼게요. 감사합니다 미트라</span><span class="kv2-t-time">11:14</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kv2-case">
+        <div class="kv2-wrap kv2-story-grid">
+          <h2 class="kv2-story-h2">혼혈아 사라는,<br>한국 가족들과의 대화 고민을 함께해주는 <span>미트라</span>를 만났고,</h2>
+          <div class="kv2-thread">
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">my grandma calls sometimes and i basically just say "응 응" then hand the phone to my dad lol</span><span class="kv2-t-time">21:14</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:15</span><span class="kv2-t-b">She probably misses you. Her calls are usually pretty short, right?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">yeah. she asks if i ate, like 50 times. food food food.</span><span class="kv2-t-time">21:17</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:18</span><span class="kv2-t-b">Food = love. That's literally how she's saying "I care about you." Want to build a few phrases so you can actually have the call?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">ok... that actually makes sense. let's try 1 or 2.</span><span class="kv2-t-time">21:21</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">21:22</span><span class="kv2-t-b">떡볶이 먹었어요. Same 먹었어요 you already know, just add the food first.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kv2-case">
+        <div class="kv2-wrap kv2-story-grid">
+          <h2 class="kv2-story-h2">고3이 되는 준우는,<br>새벽에도 수학 문제를<br>함께 고민해줄 <span>미트라</span>를 만났습니다.</h2>
+          <div class="kv2-thread">
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">미트라, 새벽 2시인데 미적분 안 풀려요. 도와줘요</span><span class="kv2-t-time">02:14</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:15</span><span class="kv2-t-b">새벽까지 고생이다. 어떤 문제야? 사진 찍어서 보내줘.</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">극한 문제예요. 분모가 0인데 분자도 0이라 못 구해요</span><span class="kv2-t-time">02:17</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:18</span><span class="kv2-t-b">0/0 꼴이면 인수분해나 유리화부터 시도해봐. 분자/분모에 같은 인수가 있을 거야. 한번 분자 인수분해 해볼까?</span></div>
+            <div class="kv2-t kv2-t-me"><span class="kv2-t-b">아 그렇네요. 해볼게요</span><span class="kv2-t-time">02:21</span></div>
+            <div class="kv2-t kv2-t-them"><span class="kv2-t-time">02:22</span><span class="kv2-t-b">잘하고 있어. 막히면 또 불러.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="kv2-case-dots">
+      <span class="kv2-cdot active" data-i="0"></span>
+      <span class="kv2-cdot" data-i="1"></span>
+      <span class="kv2-cdot" data-i="2"></span>
+    </div>
   </section>
 
-</div>
-</div>
-
-<!-- Chat preview popup (opened by 메인1 "미트라 대화법" nav card) -->
-<dialog id="kv2-chat-dialog" class="kv2-chat-dialog">
-  <button type="button" class="kv2-chat-dialog-close" aria-label="닫기" data-chat-popup-close>×</button>
-  <div class="kv2-popup-mock-frame">
-    <div class="kv2-popup-mock-inner">
-      <div class="kv2-popup-mock-header">
-        <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
-        <div class="kv2-popup-mock-title">미트라<small>온라인 · 보통 1분 내 답장</small></div>
+  <!-- 6. 미트라는 이렇게 계속 배워갑니다 -->
+  <section class="kv2-learns">
+    <div class="kv2-wrap kv2-narrow">
+      <h2 class="kv2-h2 kv2-center">아이를 이해하는 만큼, 배움도 달라집니다.</h2>
+      <div class="kv2-steps">
+        <div class="kv2-step"><span class="kv2-step-pill">01</span><p><span class="kv2-hl-g">아이를 듣고</span> — 아이의 기본 정보를 부모님으로부터 전달</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">02</span><p><span class="kv2-hl-g">아이를 기억하고</span> — 기본 정보를 통해 아이에게 먼저 말걸기</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">03</span><p><span class="kv2-hl-g">아이와 친해지고</span> — 아이마다 다르지만, 평균 일주일 정도 서로를 알아가는 시간</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">04</span><p><span class="kv2-hl-g">아이를 이해하고</span> — 아이만의 학습 방식과 속도를 파악</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">05</span><p><span class="kv2-hl-g">아이에게 맞추기</span> — 배움도 대화도 아이에 맞게 변화</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill kv2-step-start">06</span><p><span class="kv2-hl-g">그리고, 공부 시작</span> — 1:1 맞춤형 튜터로의 시작</p></div>
       </div>
-      <div class="kv2-popup-chat-viewport">
-        <div class="kv2-popup-chat-track">
+    </div>
+  </section>
 
+  <!-- 7. 미트라 솔루션 -->
+  <section class="kv2-solution">
+    <div class="kv2-wrap">
+      <h2 class="kv2-h2 kv2-center">철저한 전문성부터<br>강력한 개인정보보안까지<br>아이도 부모님도 안심하세요.</h2>
+      <div class="kv2-sol-grid">
+        <div class="kv2-sol-points">
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V10m14 11V10M3 10l9-6 9 6M9 21v-6h6v6"/></svg>
+            <p><strong class="kv2-hl-g">[안전]</strong> 언제나 아이의 곁에서 살피고 위험 상황이 감지되면 즉시 부모님께 알리는 안전</p>
+          </div>
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M12 2l2.5 2 3.5-.5 1 3.4 3 1.6-1.5 3.2 1.5 3.2-3 1.6-1 3.4-3.5-.5L12 22l-2.5-2-3.5.5-1-3.4-3-1.6L3.5 11 2 7.8l3-1.6 1-3.4L9.5 4z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
+            <p><strong class="kv2-hl-g">[커리큘럼]</strong> 한국부터 글로벌(IB, Common Core) 까지, 모든 교육 과정을 품다</p>
+          </div>
+          <div class="kv2-sol-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7"/></svg>
+            <p><strong class="kv2-hl-g">[신뢰]</strong> 검증된 언어 모델로 구현한 가장 똑똑한 대화</p>
+          </div>
+        </div>
+        <div class="kv2-sol-table">
+          <table class="kv2-compare">
+            <thead>
+              <tr><th></th><th>ChatGPT</th><th>과외 선생님</th><th class="kv2-mitra-col">미트라</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="kv2-feature">전문적인 교과 지식</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">남다른 학습 방식 이해</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-partial">◐</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">개인별 맞춤 지도</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">자유로운 시간 선택</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">친근한 메신저 기반 소통</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">지속적인 학습 이력 관리</td><td><span class="kv2-cross">✕</span></td><td><span class="kv2-check">✓</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+              <tr><td class="kv2-feature">합리적인 비용</td><td><span class="kv2-check">✓</span></td><td><span class="kv2-cross">✕</span></td><td class="kv2-mitra-cell"><span class="kv2-check">✓</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="kv2-privacy-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="1.8" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
+        <p>강력한 개인정보보안으로 아이도 부모님도 안심하세요</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 메인6 (p10): FAQ block DELETED per proposal -->
+
+  <!-- 9. CLOSING (메인6) -->
+  <section class="kv2-closing">
+    <div class="kv2-closing-inner">
+      <div class="kv2-closing-text kv2-closing-left">아이의 세상은<br>질문에서 시작됩니다.</div>
+      <div class="kv2-closing-phone">
+        <img class="kv2-cphone-img" src="/ko/static/images/home-v2/MI-last.png" alt="미트라 앱">
+      </div>
+      <div class="kv2-closing-text kv2-closing-right">미트라와 함께<br>아이의 세상을 넓혀보세요.</div>
+    </div>
+    <a class="kv2-cta kv2-closing-cta" href="https://staging.mitratutor.com/ko/enroll">시작하기</a>
+  </section>
+
+
+  <!-- Chat preview popup (opened by §2 "how MITRA talks" banner) -->
+  <dialog id="kv2-chat-dialog" class="kv2-chat-dialog">
+    <button type="button" class="kv2-chat-dialog-close" aria-label="닫기" data-chat-popup-close>×</button>
+    <div class="kv2-popup-mock-frame">
+      <div class="kv2-popup-mock-inner">
+        <div class="kv2-popup-mock-header">
+          <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="미트라">
+          <div class="kv2-popup-mock-title">미트라<small>온라인 · 보통 1분 내 답장</small></div>
+        </div>
+        <div class="kv2-popup-chat-viewport">
+          <!-- chat-track is duplicated for seamless scroll loop via translateY(-50%).
+               Dialogue from docs/marketing/personas/seoyeon.md Days 1-4. -->
+          <div class="kv2-popup-chat-track">
+
+
+          <!-- Loop A: Seoyeon's arc — first meeting → lonely bid → writing breakthrough → A grade -->
           <div class="kv2-popup-chat-msg from-student">안녕하세요... 엄마가 미트라랑 얘기해보라고 했어요</div>
           <div class="kv2-popup-chat-msg from-student">음... 뭐 해야 하는지 잘 모르겠어요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">안녕 서연! 나는 미트라야 😊</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">처음이라 어색하죠. 나도 알아요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">요즘 뭐에 빠져 있어요? 게임이든 유튜브든 뭐든요</div>
+
           <div class="kv2-popup-chat-msg from-student">음... 그림 그리는 거 좋아해요. 웹툰도 봐요. 솔로 레벨링이요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">오 솔로 레벨링!! 성진우가 점점 강해지는 거 좋아하죠? 😄</div>
+
           <div class="kv2-popup-chat-msg from-student">오늘 혼자 있어요. 그래서 솔로 레벨링 보고 있어요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">혼자 있을 때 웹툰 보면 덜 외롭다는 거, 저도 좀 이해해요</div>
+
           <div class="kv2-popup-chat-msg from-student">미트라, 저 숙제 해야 하는데 뭘 써야 할지 모르겠어요</div>
           <div class="kv2-popup-chat-msg from-student">엄마는 또 늦을 것 같아요 ㅠㅠ</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">괜찮아요, 같이 해봐요. 선생님이 뭐 쓰라고 했어요?</div>
+
           <div class="kv2-popup-chat-msg from-student">주제는 '나에게 영감을 준 이야기'예요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">오, 그거 사실 딱 맞는 주제예요 — 서연이한테. 솔로 레벨링 어때요? 웹툰도 '이야기'잖아요</div>
+
           <div class="kv2-popup-chat-msg from-student">웹툰도 돼요? 그럼 솔로 레벨링 얘기 써볼래요</div>
+
           <div class="kv2-popup-chat-msg from-student">미트라, 글쓰기 점수 잘 받았어요. A 받았어요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">A 받았어요!! 진짜 잘 썼네요 🎉 자기 이야기 솔직하게 쓴 게 통한 거예요</div>
+
           <div class="kv2-popup-chat-msg from-student">근데 엄마는 아직 못 봤어요. 어제도 늦게 오셔서</div>
           <div class="kv2-popup-chat-msg from-student">엄마는 제가 쓴 거 안 보실 거 같아요. 너무 바쁘셔서</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">책상 위에 그냥 두지 말고, 다음에 엄마 오시면 "이거 봐" 하고 직접 건네봐요. A짜리인데 보여줄 가치 있잖아요</div>
+
           <div class="kv2-popup-chat-msg from-student">근데 엄마 피곤하실 텐데... 괜히 신경 쓰시게 하는 거 아닐까요?</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">A 받은 거 보여주는 건 신경 쓰이게 하는 게 아니에요. 오히려 엄마 입장에선 그런 소식이 기운 나는 거거든요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">피곤할 때 좋은 소식 들으면 더 반갑지, 더 힘든 게 아니잖아요</div>
 
+          <!-- Loop B (duplicate of A for seamless scroll) -->
           <div class="kv2-popup-chat-msg from-student">안녕하세요... 엄마가 미트라랑 얘기해보라고 했어요</div>
           <div class="kv2-popup-chat-msg from-student">음... 뭐 해야 하는지 잘 모르겠어요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">안녕 서연! 나는 미트라야 😊</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">처음이라 어색하죠. 나도 알아요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">요즘 뭐에 빠져 있어요? 게임이든 유튜브든 뭐든요</div>
+
           <div class="kv2-popup-chat-msg from-student">음... 그림 그리는 거 좋아해요. 웹툰도 봐요. 솔로 레벨링이요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">오 솔로 레벨링!! 성진우가 점점 강해지는 거 좋아하죠? 😄</div>
+
           <div class="kv2-popup-chat-msg from-student">오늘 혼자 있어요. 그래서 솔로 레벨링 보고 있어요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">혼자 있을 때 웹툰 보면 덜 외롭다는 거, 저도 좀 이해해요</div>
+
           <div class="kv2-popup-chat-msg from-student">미트라, 저 숙제 해야 하는데 뭘 써야 할지 모르겠어요</div>
           <div class="kv2-popup-chat-msg from-student">엄마는 또 늦을 것 같아요 ㅠㅠ</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">괜찮아요, 같이 해봐요. 선생님이 뭐 쓰라고 했어요?</div>
+
           <div class="kv2-popup-chat-msg from-student">주제는 '나에게 영감을 준 이야기'예요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">오, 그거 사실 딱 맞는 주제예요 — 서연이한테. 솔로 레벨링 어때요? 웹툰도 '이야기'잖아요</div>
+
           <div class="kv2-popup-chat-msg from-student">웹툰도 돼요? 그럼 솔로 레벨링 얘기 써볼래요</div>
+
           <div class="kv2-popup-chat-msg from-student">미트라, 글쓰기 점수 잘 받았어요. A 받았어요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">A 받았어요!! 진짜 잘 썼네요 🎉 자기 이야기 솔직하게 쓴 게 통한 거예요</div>
+
           <div class="kv2-popup-chat-msg from-student">근데 엄마는 아직 못 봤어요. 어제도 늦게 오셔서</div>
           <div class="kv2-popup-chat-msg from-student">엄마는 제가 쓴 거 안 보실 거 같아요. 너무 바쁘셔서</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">책상 위에 그냥 두지 말고, 다음에 엄마 오시면 "이거 봐" 하고 직접 건네봐요. A짜리인데 보여줄 가치 있잖아요</div>
+
           <div class="kv2-popup-chat-msg from-student">근데 엄마 피곤하실 텐데... 괜히 신경 쓰시게 하는 거 아닐까요?</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">A 받은 거 보여주는 건 신경 쓰이게 하는 게 아니에요. 오히려 엄마 입장에선 그런 소식이 기운 나는 거거든요</div>
+
           <div class="kv2-popup-chat-name">미트라</div>
           <div class="kv2-popup-chat-msg from-mitra">피곤할 때 좋은 소식 들으면 더 반갑지, 더 힘든 게 아니잖아요</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</dialog>
+  </dialog>
 
-<script>
-  (function() {
-    // 메인4 case rotation every 5s
-    var cases = document.querySelectorAll('.kv2-case');
-    var dots = document.querySelectorAll('.kv2-cdot');
-    if (cases.length >= 2) {
-      var i = 0;
-      function show(n) {
-        cases.forEach(function(c, idx) { c.classList.toggle('kv2-case-active', idx === n); });
-        dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
-        i = n;
+  <!-- Worry-card popups: opened by §3 cards via data-worry-popup-open -->
+  <dialog id="case-busy-family" class="kv2-worry-popup kv2-worry-popup-1">
+    <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
+    <h3 class="kv2-worry-popup-h3">바쁜 부모님을 대신해, 24시간 곁을 지킵니다</h3>
+    <p class="kv2-worry-popup-tagline">부모님의 빈자리를 채우는 가장 따뜻한 응원</p>
+    <ol class="kv2-worry-popup-list">
+      <li><strong>든든한 육아 파트너:</strong> 바쁜 일상 속 부모님의 걱정을 덜어드릴게요. 아이의 궁금증에 언제나 즉각적으로 답하며 곁을 지킵니다.</li>
+      <li><strong>어디서든 열리는 교실:</strong> 학원과 운동으로 바쁜 아이도, 카톡 하나면 언제 어디서든 궁금한 점을 즉시 해결할 수 있습니다.</li>
+      <li><strong>스스로 해내는 힘:</strong> 부모님이 챙겨주기 어려운 순간에도, 미트라는 아이가 스스로 성취감을 느끼고 자신감을 키우도록 묵묵히 응원합니다.</li>
+      <li><strong>깊어지는 관계의 온도:</strong> 아이의 작은 어려움도 놓치지 않고 이해하며, 끈끈한 유대감으로 아이의 하루를 든든하게 받쳐줍니다.</li>
+    </ol>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+  </dialog>
+
+  <dialog id="case-adhd" class="kv2-worry-popup kv2-worry-popup-2">
+    <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
+    <h3 class="kv2-worry-popup-h3">세상에서 유일한, 아이만의 속도와 방식</h3>
+    <p class="kv2-worry-popup-tagline">기다려주고, 맞춰가는 진정한 맞춤 학습</p>
+    <ol class="kv2-worry-popup-list">
+      <li><strong>먼저 찾아가는 발걸음:</strong> 시작이 막막해 주저하는 아이에게, 미트라가 먼저 다가가 아이만의 속도로 함께 걷습니다.</li>
+      <li><strong>관심사로 채우는 배움:</strong> 학교와 학원에서 놓친 개념들도 아이가 좋아하는 주제에 담아, 아이가 이해하기 쉬운 방식으로 풀어나갑니다.</li>
+      <li><strong>흥미를 되찾는 대화의 힘:</strong> 학습에 지쳐 마음을 닫았던 아이도, 이해받고 존중받는 대화 과정을 통해 자연스럽게 배움의 즐거움과 집중력을 되찾게 됩니다.</li>
+    </ol>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+  </dialog>
+
+  <dialog id="case-teen" class="kv2-worry-popup kv2-worry-popup-3">
+    <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
+    <h3 class="kv2-worry-popup-h3">아이의 마음이 머무는 곳에 늘 함께합니다</h3>
+    <p class="kv2-worry-popup-tagline">공부보다 먼저, 아이의 마음을 살피는 친구</p>
+    <ol class="kv2-worry-popup-list">
+      <li><strong>가장 다정한 공감자:</strong> 학업과 일상에 지친 아이의 마음을 누구보다 깊이 이해하고, 언제든 아이의 이야기에 귀 기울입니다.</li>
+      <li><strong>생활에 맞춘 학습 리듬:</strong> 잊히기 쉬운 학습 내용도 아이의 평소 생활 패턴에 맞춰 적절한 타이밍에 자연스럽게 대화에 녹여냅니다.</li>
+      <li><strong>미래를 그리는 든든한 길잡이:</strong> 진로 고민으로 막막할 때, 미트라는 단순한 지식 전달자를 넘어 아이의 방향을 함께 고민하는 멘토가 되어줍니다.</li>
+    </ol>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+  </dialog>
+
+  <dialog id="case-multicultural" class="kv2-worry-popup kv2-worry-popup-4">
+    <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
+    <h3 class="kv2-worry-popup-h3">언어의 장벽을 넘어, 아이의 세계로</h3>
+    <p class="kv2-worry-popup-tagline">언어는 공부가 아니라, 세상을 만나는 문입니다</p>
+    <ol class="kv2-worry-popup-list">
+      <li><strong>아이의 언어로 시작합니다:</strong> 8가지 문화권과 95개 언어를 아우르는 미트라는, 아이가 가장 편하게 느끼는 언어로 대화를 시작합니다.</li>
+      <li><strong>관심사가 곧 배움이 됩니다:</strong> 전 세계 최신 트렌드와 아이의 취향을 학습과 연결해, 거부감 없이 자연스럽게 언어의 벽을 허뭅니다.</li>
+      <li><strong>차이를 이해하는 깊은 언어:</strong> 모국어와 새로운 언어의 미묘한 차이를 쉽고 정확하게 짚어주어 언어적 감각을 깨워줍니다.</li>
+      <li><strong>일상에 녹아드는 루틴:</strong> 딱딱한 학습지가 아닌, 일상적인 채팅만으로도 언어 실력을 탄탄하게 쌓아가는 새로운 경험을 제공합니다.</li>
+    </ol>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+  </dialog>
+
+  <script>
+    (function() {
+      // §5 case rotation every 5s
+      var cases = document.querySelectorAll('.kv2-case');
+      var dots = document.querySelectorAll('.kv2-cdot');
+      if (cases.length >= 2) {
+        var i = 0;
+        function show(n) {
+          cases.forEach(function(c, idx) { c.classList.toggle('kv2-case-active', idx === n); });
+          dots.forEach(function(d, idx) { d.classList.toggle('active', idx === n); });
+          i = n;
+        }
+        var timer = setInterval(function() { show((i + 1) % cases.length); }, 5000);
+        dots.forEach(function(d, idx) {
+          d.addEventListener('click', function() {
+            clearInterval(timer);
+            show(idx);
+            timer = setInterval(function() { show((i + 1) % cases.length); }, 5000);
+          });
+        });
       }
-      var timer = setInterval(function() { show((i + 1) % cases.length); }, 5000);
-      dots.forEach(function(d, idx) {
-        d.addEventListener('click', function() {
-          clearInterval(timer);
-          show(idx);
-          timer = setInterval(function() { show((i + 1) % cases.length); }, 5000);
+      // §8 FAQ: opening one closes the others
+      var items = document.querySelectorAll('.kv2-faq-item');
+      items.forEach(function(d) {
+        d.addEventListener('toggle', function() {
+          if (!d.open) return;
+          items.forEach(function(o) { if (o !== d) o.open = false; });
         });
       });
-    }
-    // 미트라 대화법 nav card → open chat-preview dialog
-    var chatDialog = document.getElementById('kv2-chat-dialog');
-    if (chatDialog) {
-      document.querySelectorAll('[data-chat-popup-open]').forEach(function(b) {
-        b.addEventListener('click', function() {
-          if (typeof chatDialog.showModal === 'function') chatDialog.showModal();
-          else chatDialog.setAttribute('open', '');
+      // Chat-preview popup: open from §2 banner, close on X / Esc / backdrop click
+      var chatDialog = document.getElementById('kv2-chat-dialog');
+      if (chatDialog) {
+        document.querySelectorAll('[data-chat-popup-open]').forEach(function(b) {
+          b.addEventListener('click', function() {
+            if (typeof chatDialog.showModal === 'function') chatDialog.showModal();
+            else chatDialog.setAttribute('open', '');
+          });
+        });
+        document.querySelectorAll('[data-chat-popup-close]').forEach(function(b) {
+          b.addEventListener('click', function() { chatDialog.close(); });
+        });
+        chatDialog.addEventListener('click', function(e) {
+          if (e.target === chatDialog) chatDialog.close();
+        });
+      }
+      // Worry-card popups: open via [data-worry-popup-open], close on X / backdrop
+      document.querySelectorAll('[data-worry-popup-open]').forEach(function(card) {
+        function openPopup(e) {
+          var target = document.getElementById(card.getAttribute('data-worry-popup-open'));
+          if (!target) return;
+          e.preventDefault();
+          // Rotated focusable cards + native dialog focus shift can nudge
+          // scroll. Capture + restore scrollY on open and on close.
+          var savedY = window.scrollY;
+          if (typeof target.showModal === 'function') target.showModal();
+          else target.setAttribute('open', '');
+          window.scrollTo(0, savedY);
+          target.addEventListener('close', function restoreOnClose() {
+            window.scrollTo(0, savedY);
+            target.removeEventListener('close', restoreOnClose);
+          });
+        }
+        card.addEventListener('click', openPopup);
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') openPopup(e);
         });
       });
-      document.querySelectorAll('[data-chat-popup-close]').forEach(function(b) {
-        b.addEventListener('click', function() { chatDialog.close(); });
+      document.querySelectorAll('.kv2-worry-popup [data-worry-popup-close]').forEach(function(b) {
+        b.addEventListener('click', function() { b.closest('dialog').close(); });
       });
-      chatDialog.addEventListener('click', function(e) {
-        if (e.target === chatDialog) chatDialog.close();
+      document.querySelectorAll('.kv2-worry-popup').forEach(function(d) {
+        d.addEventListener('click', function(e) { if (e.target === d) d.close(); });
       });
-    }
-  })();
-</script>
+    })();
+  </script>
+
+</div>
 </main>
 
 <footer class="wp-footer">
