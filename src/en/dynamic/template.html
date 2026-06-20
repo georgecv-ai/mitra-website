@@ -1,0 +1,62 @@
+<!-- META
+title: Mitra — start your free trial
+description: Meet Mitra, the AI tutor that learns your child and helps every day. Start a 7-day free trial.
+slug: dynamic/template.html
+main_class: adl-main
+-->
+<!--
+  AD-MATCHED LANDING TEMPLATE
+  One page per identified ad. Three slots get filled per ad:
+    1. .adl-adslot   -> the ad's graphic (the exact creative the user saw)
+    2. .adl-h1       -> the ad's headline / web text
+    3. .adl-sub      -> the ad's supporting line
+  Everything below the hero (CTA, trust line) is shared boilerplate.
+-->
+<div class="adl-page">
+
+  <section class="adl-hero">
+    <div class="adl-hero-grid">
+
+      <!-- AD WEB TEXT -->
+      <div class="adl-hero-text">
+        <h1 class="adl-h1">Your kid hits a wall at 8&nbsp;p.m.<br><em>Mitra picks up.</em></h1>
+        <p class="adl-sub">
+          The AI tutor that actually teaches: it learns how your child thinks,
+          works the problem <em>with</em> them, and never just hands over the answer.
+        </p>
+        <a class="adl-cta" href="{{app_base}}/en/enroll" data-cta data-dest="hero">
+          Start your 7-day free trial
+        </a>
+        <p class="adl-note">No app to install · works on the chat apps you already use</p>
+      </div>
+
+      <!-- AD GRAPHIC (placeholder — the ad's creative drops in here, 1:1) -->
+      <div class="adl-hero-media">
+        <div class="adl-adslot" role="img" aria-label="Ad creative placeholder">
+          <span class="adl-adslot-ico">🖼️</span>
+          <span class="adl-adslot-label">AD CREATIVE</span>
+          <span class="adl-adslot-dims">1:1 · the exact graphic from the ad goes here</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+  // Attribution: carry the ad's source/campaign through to enroll.
+  // (Per-ad UTM values will come from the ad's link; this just preserves them.)
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var source = (params.get('utm_source') || params.get('src') || 'ad').toLowerCase();
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'dynamic_landing_view', link_source: source, landing: 'ad_template' });
+    document.querySelectorAll('[data-cta]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        window.dataLayer.push({ event: 'dynamic_cta_click', link_source: source,
+          link_destination: a.getAttribute('data-dest') });
+      });
+    });
+  })();
+</script>

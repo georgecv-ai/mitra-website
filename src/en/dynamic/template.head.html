@@ -1,0 +1,69 @@
+<style>
+  /* Ad-matched landing template. Warm + light; navy as ink, teal as accent. */
+  .adl-main { padding: 0 !important; max-width: none !important; }
+  .adl-page {
+    --adl-ink: var(--primary-dk, #1B3A5C);
+    --adl-muted: var(--text-muted, #5b6b7a);
+    --adl-border: var(--border, #e4e8ee);
+    --adl-accent: var(--accent, #2BB6A3);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--adl-ink);
+  }
+
+  .adl-hero {
+    background: linear-gradient(180deg, #FBF7EF 0%, #F3EFE6 100%);
+    padding: 64px 22px;
+  }
+  .adl-hero-grid {
+    max-width: 1080px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px;
+    align-items: center;
+  }
+
+  /* AD WEB TEXT */
+  .adl-hero-text { min-width: 0; }
+  .adl-h1 {
+    font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.1rem); line-height: 1.1;
+    margin: 0 0 18px; color: var(--adl-ink);
+  }
+  .adl-h1 em { font-style: normal; color: var(--adl-accent); }
+  .adl-sub {
+    font-size: 1.15rem; line-height: 1.55; color: var(--adl-muted);
+    margin: 0 0 28px; max-width: 460px;
+  }
+  .adl-sub em { font-style: italic; color: var(--adl-ink); }
+  .adl-cta {
+    display: inline-block; padding: 16px 32px; border-radius: 14px;
+    background: var(--adl-accent); color: #fff; font-weight: 700; font-size: 1.1rem;
+    text-decoration: none; box-shadow: 0 6px 20px rgba(43, 182, 163, 0.28);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .adl-cta:hover, .adl-cta:focus {
+    transform: translateY(-2px); color: #fff;
+    box-shadow: 0 10px 26px rgba(43, 182, 163, 0.36);
+  }
+  .adl-note { margin: 14px 0 0; font-size: .9rem; color: var(--adl-muted); }
+
+  /* AD GRAPHIC SLOT (placeholder) */
+  .adl-hero-media { display: flex; justify-content: center; }
+  .adl-adslot {
+    width: 100%; max-width: 440px; aspect-ratio: 1 / 1;
+    background: #fff; border: 2px dashed var(--adl-accent); border-radius: 20px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; text-align: center; padding: 24px;
+    box-shadow: 0 8px 28px rgba(27, 58, 92, 0.08);
+  }
+  .adl-adslot-ico { font-size: 2.4rem; opacity: .8; }
+  .adl-adslot-label {
+    font-weight: 700; font-size: 1.05rem; letter-spacing: .08em;
+    color: var(--adl-ink);
+  }
+  .adl-adslot-dims { font-size: .85rem; color: var(--adl-muted); max-width: 240px; }
+
+  @media (max-width: 760px) {
+    .adl-hero { padding: 44px 20px; }
+    .adl-hero-grid { grid-template-columns: 1fr; gap: 30px; }
+    .adl-hero-media { order: -1; }            /* ad graphic on top on mobile */
+    .adl-adslot { max-width: 360px; }
+  }
+</style>
