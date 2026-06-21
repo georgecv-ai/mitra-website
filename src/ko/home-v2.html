@@ -22,6 +22,9 @@ slug: home-v2.html
     /* "미트라는, 이렇게 다릅니다" — centered over the review carousel (left half), reduced gap above */
     .kv2-diff-title { align-self: flex-start; width: calc(50% - 0.5rem); text-align: center; margin-top: 0.5rem; margin-bottom: 0.15rem; }
     @media (max-width: 760px) { .kv2-diff-title { width: 100%; } }
+    /* move dashboard up to top-align with the heading (keep horizontal position) */
+    .kv2-diff-dash-up { position: relative; top: -54px; }
+    @media (max-width: 760px) { .kv2-diff-dash-up { top: 0; } }
   </style>
   <section class="kv2-delivers">
     <div class="kv2-wrap">
@@ -64,7 +67,7 @@ slug: home-v2.html
                 </div>
               </figure>
             </div>
-            <a class="kv2-dash-half kv2-dash-link" href="/ko/parent-dashboard.html">
+            <a class="kv2-dash-half kv2-dash-link kv2-diff-dash-up" href="/ko/parent-dashboard.html">
               <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-growth-dashboard.png" alt="성적표보다 속 깊은 우리아이 성장록 — 교과 진도와 시간, 학습법까지 성장을 정리하는 대시보드">
             </a>
           </div>
