@@ -592,67 +592,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- 2. 미트라가 전합니다 -->
-  <style>
-    /* Section-2 "이렇게 다릅니다" block — A: centered heading w/ equal gaps; B: dashboard top@heading; C: principle bottom@dashboard; D: symmetric whitespace */
-    .kv2-diff-grid { display: flex; gap: 1.6rem; align-items: flex-start; margin-top: 1.6rem; }
-    .kv2-diff-left { flex: 1.25 1 0; min-width: 0; display: flex; flex-direction: column; }
-    .kv2-diff-h2 { text-align: center; margin: 0 0 1.6rem; }
-    .kv2-diff-right { flex: 1 1 0; min-width: 0; display: flex; gap: 1rem; align-items: flex-end; }
-    .kv2-diff-right > a { flex: 1 1 0; min-width: 0; display: block; }
-    .kv2-diff-right img { width: 100%; height: auto; display: block; border-radius: 16px; }
-    @media (max-width: 760px) {
-      .kv2-diff-grid { flex-direction: column; margin-top: 1.2rem; }
-      .kv2-diff-right { flex-direction: column; align-items: stretch; gap: 1.2rem; }
-    }
-  </style>
   <section class="kv2-delivers">
     <div class="kv2-wrap">
       <h2 class="kv2-delivers-h2">아이에겐 질문을, 부모에겐 안심을</h2>
-      <div class="kv2-dcard-row">
-        <button type="button" class="kv2-dcard kv2-dcard-popup" data-chat-popup-open aria-haspopup="dialog" aria-controls="kv2-chat-dialog">
-          <img src="/ko/static/images/home-v2/how-mitra-talks.png" alt="미트라가 어떻게 대화하는지 보기">
-          <h4>미트라 대화법</h4>
-        </button>
-        <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-students.html">
-          <img src="/ko/static/images/home-v2/illus-student.png" alt="">
-          <h4>공부가 놀이가 되는 아이들</h4>
-        </a>
-        <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-parents.html">
-          <img src="/ko/static/images/home-v2/illus-parent.png" alt="">
-          <h4>성장을 함께하는 부모님</h4>
-        </a>
-      </div>
-      <div class="kv2-diff-grid">
-        <div class="kv2-diff-left">
-          <h2 class="kv2-delivers-h2 kv2-diff-h2">미트라는, 이렇게 다릅니다.</h2>
-          <div class="kv2-reviews-card">
-            <figure class="kv2-reviews-quote">
-              <div class="kv2-reviews-marks kv2-reviews-marks-open" aria-hidden="true">
-                <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
-                <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
-              </div>
-              <div class="kv2-reviews-text" aria-live="polite">
-                <div class="kv2-reviews-track">
-                  <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
-                  <p class="kv2-review"><span class="kv2-review-tag">[공부에도 친구가 필요합니다]</span>"I met Mitra and she helped me get better grades. Homework is still boring, but it is less stressful to do with a friend."<span class="kv2-review-attr">- Azilyn N.</span></p>
-                  <p class="kv2-review"><span class="kv2-review-tag">[아이보다 부모가 먼저 놀랐습니다]</span>"널 개발한 개발자한테 상을 줘야겠어."<span class="kv2-review-attr">- 김은희</span></p>
-                  <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+      <div class="kv2-delivers-grid">
+        <div class="kv2-delivers-left">
+          <div class="kv2-dcard-row">
+            <button type="button" class="kv2-dcard kv2-dcard-popup" data-chat-popup-open aria-haspopup="dialog" aria-controls="kv2-chat-dialog">
+              <img src="/ko/static/images/home-v2/how-mitra-talks.png" alt="미트라가 어떻게 대화하는지 보기">
+              <h4>미트라 대화법</h4>
+            </button>
+            <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-students.html">
+              <img src="/ko/static/images/home-v2/illus-student.png" alt="">
+              <h4>공부가 놀이가 되는 아이들</h4>
+            </a>
+            <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-parents.html">
+              <img src="/ko/static/images/home-v2/illus-parent.png" alt="">
+              <h4>성장을 함께하는 부모님</h4>
+            </a>
+          </div>
+          <h2 class="kv2-delivers-h2" style="margin-top:2.4rem;text-align:center;">미트라는, 이렇게 다릅니다.</h2>
+          <div class="kv2-dash-row">
+            <div class="kv2-dash-half kv2-reviews-card">
+              <figure class="kv2-reviews-quote">
+                <div class="kv2-reviews-marks kv2-reviews-marks-open" aria-hidden="true">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
                 </div>
-              </div>
-              <div class="kv2-reviews-marks kv2-reviews-marks-close" aria-hidden="true">
-                <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
-                <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
-              </div>
-            </figure>
+                <div class="kv2-reviews-text" aria-live="polite">
+                  <div class="kv2-reviews-track">
+                    <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[공부에도 친구가 필요합니다]</span>"I met Mitra and she helped me get better grades. Homework is still boring, but it is less stressful to do with a friend."<span class="kv2-review-attr">- Azilyn N.</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[아이보다 부모가 먼저 놀랐습니다]</span>"널 개발한 개발자한테 상을 줘야겠어."<span class="kv2-review-attr">- 김은희</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                  </div>
+                </div>
+                <div class="kv2-reviews-marks kv2-reviews-marks-close" aria-hidden="true">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
+                  <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
+                </div>
+              </figure>
+            </div>
+            <a class="kv2-dash-half kv2-dash-link" href="/ko/parent-dashboard.html">
+              <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-growth-dashboard.png" alt="성적표보다 속 깊은 우리아이 성장록 — 교과 진도와 시간, 학습법까지 성장을 정리하는 대시보드">
+            </a>
           </div>
         </div>
-        <div class="kv2-diff-right">
-          <a class="kv2-diff-dash kv2-dash-link" href="/ko/parent-dashboard.html">
-            <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-growth-dashboard.png" alt="성적표보다 속 깊은 우리아이 성장록 — 교과 진도와 시간, 학습법까지 성장을 정리하는 대시보드">
-          </a>
-          <a class="kv2-diff-prin" href="/ko/principles">
-            <img src="/ko/static/images/home-v2/MI3-principle.png" alt="0.1초만에 알려주는 AI는 그만 — 답을 알려주기 전에 생각하게 만드는 것이 먼저입니다.">
-          </a>
+        <div class="kv2-delivers-right">
+          <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI3-principle.png" alt="0.1초만에 알려주는 AI는 그만 — 답을 알려주기 전에 생각하게 만드는 것이 먼저입니다.">
         </div>
       </div>
     </div>
