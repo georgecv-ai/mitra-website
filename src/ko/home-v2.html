@@ -25,6 +25,8 @@ slug: home-v2.html
     /* move dashboard up to top-align with the heading (keep horizontal position) */
     .kv2-diff-dash-up { position: relative; top: -54px; }
     @media (max-width: 760px) { .kv2-diff-dash-up { top: 0; } }
+    /* H3: vertically center the left points column against the comparison table (desktop) */
+    @media (min-width: 761px) { .kv2-sol-grid { align-items: center; } }
   </style>
   <section class="kv2-delivers">
     <div class="kv2-wrap">
@@ -73,7 +75,9 @@ slug: home-v2.html
           </div>
         </div>
         <div class="kv2-delivers-right">
-          <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI3-principle.png" alt="0.1초만에 알려주는 AI는 그만 — 답을 알려주기 전에 생각하게 만드는 것이 먼저입니다.">
+          <a href="/ko/principles.html">
+            <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI3-principle.png" alt="0.1초만에 알려주는 AI는 그만 — 답을 알려주기 전에 생각하게 만드는 것이 먼저입니다.">
+          </a>
         </div>
       </div>
     </div>
@@ -193,11 +197,11 @@ slug: home-v2.html
         <div class="kv2-sol-points">
           <div class="kv2-sol-point">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V10m14 11V10M3 10l9-6 9 6M9 21v-6h6v6"/></svg>
-            <p><strong class="kv2-hl-g">[안전]</strong> 언제나 아이의 곁에서 살피고 위험 상황이 감지되면 즉시 부모님께 알리는 안전</p>
+            <p><strong class="kv2-hl-g">[안전]</strong> 언제나 아이의 곁에서 살피고 위험 상황이 감지되면 즉시 부모님께 알리는 안전 알림</p>
           </div>
           <div class="kv2-sol-point">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M12 2l2.5 2 3.5-.5 1 3.4 3 1.6-1.5 3.2 1.5 3.2-3 1.6-1 3.4-3.5-.5L12 22l-2.5-2-3.5.5-1-3.4-3-1.6L3.5 11 2 7.8l3-1.6 1-3.4L9.5 4z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
-            <p><strong class="kv2-hl-g">[커리큘럼]</strong> 한국부터 글로벌(IB, Common Core) 까지, 모든 교육 과정을 품다</p>
+            <p><strong class="kv2-hl-g">[커리큘럼]</strong> 한국부터 글로벌(IB, Common Core) 까지, 주요 교육과정</p>
           </div>
           <div class="kv2-sol-point">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7"/></svg>
@@ -240,6 +244,16 @@ slug: home-v2.html
       <div class="kv2-closing-text kv2-closing-right">미트라와 함께<br>아이의 세상을 넓혀보세요.</div>
     </div>
     <a class="kv2-cta kv2-closing-cta" href="{{app_base}}/{{lang}}/enroll">시작하기</a>
+  </section>
+
+  <!-- H1: KakaoTalk channel button + QR (reused KT assets) -->
+  <section class="kv2-home-kt" style="text-align:center; padding:2.5rem 1rem 3.5rem;">
+    <div style="display:inline-flex; align-items:center; justify-content:center; gap:1.75rem; flex-wrap:wrap;">
+      <a href="http://pf.kakao.com/_taAVX" target="_blank" rel="noopener" aria-label="미트라 카카오톡 채널 추가">
+        <img src="/ko/static/images/KT/channel_add_large_2X.png" alt="미트라 카카오톡 채널 추가" style="height:48px; width:auto;">
+      </a>
+      <img src="/ko/static/images/KT/mitra-kakaotalk-qr.png" alt="미트라 카카오톡 채널 QR" style="width:120px; height:120px;">
+    </div>
   </section>
 
 
@@ -393,7 +407,7 @@ slug: home-v2.html
     <p class="kv2-worry-popup-tagline">기다려주고, 맞춰가는 진정한 맞춤 학습</p>
     <ol class="kv2-worry-popup-list">
       <li><strong>먼저 찾아가는 발걸음:</strong> 시작이 막막해 주저하는 아이에게, 미트라가 먼저 다가가 아이만의 속도로 함께 걷습니다.</li>
-      <li><strong>관심사로 채우는 배움:</strong> 학교와 학원에서 놓친 개념들도 아이가 좋아하는 주제에 담아, 아이가 이해하기 쉬운 방식으로 풀어나갑니다.</li>
+      <li><strong>관심사로 채우는 배움:</strong> 학교와 학원에서 놓친 개념들도 아이가 좋아하는 주제에 담아, 아이가 이해하기 쉬운 방식으로 풀어나갑니다. 즐거운 대화는 공부의 진도도 향상 시켜줍니다.</li>
       <li><strong>흥미를 되찾는 대화의 힘:</strong> 학습에 지쳐 마음을 닫았던 아이도, 이해받고 존중받는 대화 과정을 통해 자연스럽게 배움의 즐거움과 집중력을 되찾게 됩니다.</li>
     </ol>
     <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
