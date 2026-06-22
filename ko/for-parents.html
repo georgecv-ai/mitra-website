@@ -370,94 +370,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <main class="fpv2-main">
-<div class="fpv2-page">
+<style>
+  .fp-page { max-width: 760px; margin: 0 auto; text-align: center; }
+  .fp-page h1 { font-size: clamp(1.8rem, 5.5vw, 2.6rem); line-height: 1.3; margin-bottom: 1.25rem; color: #1A1A2E; }
+  .fp-hero-sub { font-size: 1.1rem; color: #4A5568; line-height: 1.7; margin: 0 auto 3.5rem; max-width: 640px; }
+  .fp-section { margin-bottom: 3.75rem; }
+  .fp-h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 700; color: #1A1A2E; line-height: 1.45; margin: 0 0 0.85rem; }
+  .fp-section-sub { font-size: 1.05rem; color: #4A5568; line-height: 1.6; margin: 0 0 1.75rem; }
+  .fp-3up { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .fp-card { background: #FFFFFF; border: 1px solid #CBD5E0; border-radius: 12px; padding: 1.6rem 1.35rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .fp-card h3 { font-size: 1.1rem; font-weight: 700; color: #2B4C7E; margin: 0 0 0.85rem; }
+  .fp-card p { font-size: 0.95rem; color: #4A5568; line-height: 1.7; margin: 0; }
+  .qa-card { background: #FFFFFF; border: 1px solid #CBD5E0; border-radius: 12px; padding: 1.6rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); margin-bottom: 1.25rem; }
+  .qa-card .qa-q { font-size: 1.08rem; font-weight: 700; color: #2B4C7E; margin: 0 0 0.5rem; }
+  .qa-card .qa-a { font-size: 1.02rem; font-weight: 700; color: #1A1A2E; margin: 0 0 1rem; }
+  .qa-card .qa-body { font-size: 0.95rem; color: #4A5568; line-height: 1.75; margin: 0; }
+  .fp-closing-text { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 700; color: #1A1A2E; line-height: 1.5; margin: 0 0 1rem; }
+  .fp-closing-sub { font-size: 1.1rem; color: #4A5568; line-height: 1.6; margin: 0 0 1.75rem; }
+  .fp-cta-btn { display: inline-block; background: #2A9D8F; color: #fff; font-size: 1.1rem; font-weight: 700; padding: 0.95rem 2.5rem; border-radius: 999px; text-decoration: none; }
+  .fp-cta-btn:hover { background: #21867A; color: #fff; }
+  /* preserved samples keep their own (fpv2) alignment, not the page's center */
+  .fp-sample-wrap { max-width: 560px; margin: 1.5rem auto 0; text-align: left; }
+  .fp-dash-wrap { max-width: 700px; margin: 1.5rem auto; text-align: initial; }
+  @media (max-width: 600px) {
+    .fp-3up { grid-template-columns: 1fr; }
+    .fp-card, .qa-card { padding: 1.3rem 1.15rem; }
+  }
+</style>
 
-  <!-- 1. HERO -->
-  <section class="fpv2-hero">
-    <div class="fpv2-wrap fpv2-center">
-      <div class="fpv2-hero-mark" aria-hidden="true">M</div>
-      <h1>
-        아이를 아끼고 걱정하는 부모님의 마음을<br>
-        <span class="fpv2-mitra-en">MITRA</span>가 닮아갑니다
-      </h1>
-    </div>
-  </section>
+<div class="fp-page fpv2-page">
 
-  <!-- 2. THREE STEPS -->
-  <section class="fpv2-steps">
-    <div class="fpv2-wrap fpv2-center">
-      <h2 class="fpv2-h2">
-        아이에게 공부 부담이 계속되더라도<br>
-        <span class="fpv2-mitra-en">미트라</span>와 함께라면 공부 습관은 좋아질 수 있어요
-      </h2>
-      <div class="fpv2-step-grid">
-        <div class="fpv2-step-card">
-          <div class="fpv2-step-emoji" aria-hidden="true">&#x1F4A1;</div>
-          <p class="fpv2-step-pill">Step 1</p>
-          <p class="fpv2-step-body">
-            <!-- TODO: confirm Step 1 copy from Canva -->
-            아이의 학습 스타일과 관심사를 파악하고, 친구처럼 자연스럽게 대화를 시작해요.
-          </p>
-        </div>
-        <div class="fpv2-step-card">
-          <div class="fpv2-step-emoji" aria-hidden="true">&#x1F44D;</div>
-          <p class="fpv2-step-pill">Step 2</p>
-          <p class="fpv2-step-body">
-            <!-- TODO: confirm Step 2 copy from Canva -->
-            매일의 작은 성공을 쌓아가며 아이가 스스로 공부할 수 있는 자신감을 길러요.
-          </p>
-        </div>
-        <div class="fpv2-step-card">
-          <div class="fpv2-step-emoji" aria-hidden="true">&#x1F4DA;</div>
-          <p class="fpv2-step-pill">Step 3</p>
-          <p class="fpv2-step-body">
-            <!-- TODO: confirm Step 3 copy from Canva -->
-            교과 과정에 맞춰 약점을 메우고 강점을 단단히 다지며 학습 습관을 완성해요.
-          </p>
-        </div>
+  <!-- 1. HERO (p20 top) -->
+  <h1>좋은 공부는<br>아이를 이해하는 것에서 시작됩니다.</h1>
+  <p class="fp-hero-sub">독보적인 대화법, 부드러운 객관성, 유연한 커리큘럼<br>미트라는, 가르치지 않아도 성장하는 아이로 만듭니다.</p>
+
+  <!-- 2. STEP block (p20 bottom) -->
+  <div class="fp-section">
+    <p class="fp-h2">가장 다정한 대화와<br>부드러운 유연성으로<br>공부의 문턱을 낮추는 '미트라'</p>
+    <div class="fp-3up">
+      <div class="fp-card">
+        <h3>STEP 01. 관계 먼저</h3>
+        <p>아이가 뭘 좋아하는지<br>어떤 하루를 보냈는지<br>어디서 막히는지 자연스럽게 알아갑니다.</p>
+      </div>
+      <div class="fp-card">
+        <h3>STEP 02. 작은 성공과 흥미부터</h3>
+        <p>아이의 관심사에서 출발해 학습과 연결합니다. 게임, 그림, 영화 등 강요없이 호기심으로 시작합니다.</p>
+      </div>
+      <div class="fp-card">
+        <h3>STEP 03. 아이만의 학습 습관</h3>
+        <p>아이의 속도와 스타일에 맞게 쌓아온<br>대화가, 아이만의 학습 패턴이 됩니다.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 3. TALK + WEEKLY LETTER -->
-  <section class="fpv2-talk">
-    <div class="fpv2-wrap fpv2-talk-grid">
-      <div class="fpv2-talk-left">
-        <h2 class="fpv2-h2-left">
-          우리 아이가 궁금한 부모님들에게도,<br>
-          <span class="fpv2-mitra-en">미트라</span>가 대화합니다.
-        </h2>
-        <a class="fpv2-pill" href="https://mitratutor.com/ko/enroll">자녀 등록하기 &rarr;</a>
-      </div>
+  <!-- 3. 편지 (p21) — existing weekly-letter sample preserved -->
+  <div class="fp-section">
+    <p class="fp-h2">보이지 않던 성장을<br>편지와 통계로 알려드립니다.</p>
+    <p class="fp-section-sub">아이의 한 주, 한 통의 편지로</p>
+    <div class="fp-sample-wrap">
       <div class="fpv2-letter-card">
         <div class="fpv2-letter-eyebrow">샘플 &middot; 주간 편지</div>
         <div class="fpv2-letter-body">
           <p>안녕하세요 사라님,</p>
-          <p>이번 주 애디와 좋은 시간을 보냈어요. 다섯 번의 세션 중 세 번은 애디가 먼저 시작했어요 &mdash; 자신이 먼저 다가오는 게 점점 패턴이 되어가고 있어요. 이번 주 어떤 일이 있었는지, 그리고 제가 무엇을 보고 있는지 말씀드릴게요.</p>
-          <p>이번 주 수학은 음수 연산을 더 깊이 다뤘어요. 애디가 수직선 접근법으로 음수를 직관적으로 이해하게 되었어요. 예전에 헷갈려하던 것 &mdash; 이중 부정 처리 &mdash; 이제 제가 짚어주기 전에 본인이 알아채고 말로 표현해요.</p>
-          <p>이번 주 더 큰 일은 화요일 밤에 당황한 채로 온 산업 혁명 에세이였어요. 애디와 작업할 때 정말 좋은 점은, 본인의 관심사를 산만한 주제로 보지 않고 글의 재료로 가져온다는 거예요.</p>
+          <p>이번 주 준우와 좋은 시간을 보냈어요. 다섯 번의 세션 중 세 번은 준우가 먼저 시작했어요 &mdash; 자신이 먼저 다가오는 게 점점 패턴이 되어가고 있어요. 이번 주 어떤 일이 있었는지, 그리고 제가 무엇을 보고 있는지 말씀드릴게요.</p>
+          <p>이번 주 수학은 음수 연산을 더 깊이 다뤘어요. 준우가 수직선 접근법으로 음수를 직관적으로 이해하게 되었어요. 예전에 헷갈려하던 것 &mdash; 이중 부정 처리 &mdash; 이제 제가 짚어주기 전에 본인이 알아채고 말로 표현해요.</p>
+          <p>이번 주 더 큰 일은 화요일 밤에 당황한 채로 온 산업 혁명 에세이였어요. 준우와 작업할 때 정말 좋은 점은, 본인의 관심사를 산만한 주제로 보지 않고 글의 재료로 가져온다는 거예요.</p>
           <p style="margin-bottom: 0;"><em>&mdash; 미트라</em></p>
         </div>
         <a class="fpv2-letter-more" href="/ko/parent-dashboard">전체 샘플 편지 보기 &rarr;</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 4. LIVE DASHBOARD — crisp HTML mock lifted from /ko/partners (#parentDashSample) -->
-  <section class="fpv2-dash">
-    <div class="fpv2-wrap fpv2-center">
-      <h2 class="fpv2-h2">
-        <span class="fpv2-mitra-en">미트라</span>의 실시간 대시보드
-      </h2>
-      <p class="fpv2-dash-sub">
-        <!-- TODO: confirm dashboard subhead from Canva -->
-        '광고'가 아닌 데이터로 보고, 아이의 강점/약점 모두 한눈에 확인합니다.
-      </p>
-
+  <!-- 4. 대시보드 (p22 top) — existing dashboard sample preserved -->
+  <div class="fp-section">
+    <p class="fp-h2">숫자로 보는<br>아이의 약점과 강점</p>
+    <div class="fp-dash-wrap">
       <div class="fpv2-dash-frame">
         <div class="fpv2-pd">
           <div class="fpv2-pd-context">
-            <p class="name">애디</p>
+            <p class="name">준우</p>
             <p class="meta">7학년 &middot; 미트라와 함께한 지 8주 &middot; 최근 7일</p>
           </div>
 
@@ -465,7 +457,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="fpv2-pd-mc"><p class="fpv2-pd-mc-l">세션</p><p class="fpv2-pd-mc-v">5</p><p class="fpv2-pd-mc-s up">&#9650; 지난주 대비 +1</p></div>
             <div class="fpv2-pd-mc time"><p class="fpv2-pd-mc-l">총 학습 시간</p><p class="fpv2-pd-mc-v">3.4시간</p><p class="fpv2-pd-mc-s up">&#9650; +42분</p></div>
             <div class="fpv2-pd-mc work"><p class="fpv2-pd-mc-l">완료한 학습</p><p class="fpv2-pd-mc-v">17</p><p class="fpv2-pd-mc-s">정답 14, 부분 1, 보류 2</p></div>
-            <div class="fpv2-pd-mc q"><p class="fpv2-pd-mc-l">학생 질문 수</p><p class="fpv2-pd-mc-v">28</p><p class="fpv2-pd-mc-s">애디가 한 질문</p></div>
+            <div class="fpv2-pd-mc q"><p class="fpv2-pd-mc-l">학생 질문 수</p><p class="fpv2-pd-mc-v">28</p><p class="fpv2-pd-mc-s">준우가 한 질문</p></div>
           </div>
 
           <div class="fpv2-pd-grid-2">
@@ -492,109 +484,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="fpv2-pd-footnote">샘플입니다. 실제 학생-미트라 세션 기반의 대표 데이터입니다. 전체 샘플 대시보드는 <a href="/ko/parent-dashboard">학부모 대시보드</a>에서 확인하실 수 있습니다.</p>
         </div>
       </div>
-
-      <a class="fpv2-pill" href="/ko/parent-dashboard">샘플 대시보드 살펴보기 &rarr;</a>
     </div>
-  </section>
+    <a href="/ko/parent-dashboard" class="fp-cta-btn">대시보드 자세히보기</a>
+  </div>
 
-  <!-- 5. FAQ -->
-  <section class="fpv2-faq">
-    <div class="fpv2-wrap fpv2-narrow">
-      <h2 class="fpv2-h2 fpv2-center">
-        <span class="fpv2-mitra-en">미트라 MITRA</span>가 자주 듣는 부모님의 질문
-      </h2>
-      <details class="fpv2-faq-item" open>
-        <summary>
-          <!-- TODO: confirm exact FAQ question 1 from Canva -->
-          공부보다 스마트폰이 먼저인 아이도 미트라와 잘 맞을까요?
-        </summary>
-        <div class="fpv2-faq-body"><p>네. 미트라는 카카오톡, 텔레그램, 왓츠앱처럼 아이가 이미 쓰는 메신저에서 친구처럼 대화해요. "공부 앱을 따로 켜야 한다"는 진입 장벽이 없어서, 스마트폰에 익숙한 아이일수록 미트라가 더 잘 맞아요.</p></div>
-      </details>
-      <details class="fpv2-faq-item">
-        <summary>
-          <!-- TODO: confirm FAQ question 2 from Canva -->
-          학원 진도와 충돌하지 않을까요?
-        </summary>
-        <div class="fpv2-faq-body"><p>미트라는 아이가 다니는 학원의 교재와 진도를 알고 함께 공부해요. 학원을 대체하는 게 아니라, 학원 사이의 시간에 막힌 부분을 풀어주는 학습 동반자예요.</p></div>
-      </details>
-      <details class="fpv2-faq-item">
-        <summary>
-          <!-- TODO: confirm FAQ question 3 from Canva -->
-          아이마다 다르게 맞춰주나요?
-        </summary>
-        <div class="fpv2-faq-body"><p>네. 미트라는 아이의 학습 스타일, 관심사, 지난 대화를 기억합니다. 같은 개념을 두 아이에게 설명할 때도, 한 아이에게는 좋아하는 게임으로, 다른 아이에게는 그림으로 연결해서 풀어주는 방식이에요.</p></div>
-      </details>
-      <details class="fpv2-faq-item">
-        <summary>
-          <!-- TODO: confirm FAQ question 4 from Canva -->
-          아이의 대화 내용은 어떻게 보호되나요?
-        </summary>
-        <div class="fpv2-faq-body"><p>아이의 모든 대화는 암호화되어 안전하게 저장되고, 학부모님께는 학습 진도와 주간 편지만 공유됩니다. 친구·가족 이야기 같은 사적인 내용은 보고서에 절대 인용되지 않아요.</p></div>
-      </details>
-      <details class="fpv2-faq-item">
-        <summary>
-          <!-- TODO: confirm FAQ question 5 from Canva -->
-          미트라가 안 맞으면 어떻게 하나요?
-        </summary>
-        <div class="fpv2-faq-body"><p>처음 7일은 무료 체험이에요. 아이와 잘 맞지 않으면 7일 안에 해지하시면 비용이 청구되지 않습니다. 최소 약정 기간은 없어요.</p></div>
-      </details>
+  <!-- 5. 5가지 질문 (p22 bottom → p24) -->
+  <div class="fp-section">
+    <div class="qa-card">
+      <p class="qa-q">Q : 아이가 스마트폰만 보는데 괜찮을까요?</p>
+      <p class="qa-a">A : 네, 오히려 더 잘 맞습니다.</p>
+      <p class="qa-body">미트라는 카카오톡에서 시작됩니다.<br>부 앱을 따로 켜야 한다는 진입 장벽이 없어요. 아이가 이미 즐겨 사용하는 앱으로 자연스럽게 접하게 됩니다.</p>
     </div>
-  </section>
 
-  <!-- 6. CLOSING — KakaoTalk QR + Subscribe CTA -->
-  <section class="fpv2-pricing">
-    <div class="fpv2-wrap fpv2-pricing-grid">
-
-      <!-- LEFT: two separate stacked elements
-           (1) yellow rectangle containing the barcode
-           (2) channel-add pill below, NOT part of the rectangle -->
-      <div class="fpv2-bottom-left">
-        <div class="fpv2-kt-rect">
-          <img
-            src="/ko/static/images/parents-wip/mitra-kakaotalk-qr.png"
-            alt="미트라 카카오톡 채널 QR 코드"
-            class="fpv2-kt-rect-qr">
-        </div>
-        <a class="fpv2-kt-pill" href="https://pf.kakao.com/_mitra" target="_blank" rel="noopener">
-          <img
-            src="/ko/static/images/parents-wip/kt-channel-add.png"
-            alt="카카오톡 채널 추가">
-        </a>
-      </div>
-
-      <!-- RIGHT: phone frame (dark bezel + light-mint screen) with title + body + pill inside.
-           Frame pattern lifted from /ko/home-v2 `.kv2-phone`, resized to 9:16-ish. -->
-      <div class="fpv2-phone-frame">
-        <div class="fpv2-phone-screen-mint">
-          <h3 class="fpv2-frame-title">가격 안내</h3>
-          <div class="fpv2-frame-body">
-            <p>미트라를 더 많은 아이들이 제약없이 만나,<br>다양한 학습과 성장의 기회를 갖길 바랍니다.</p>
-            <p>아이들과의 대화로 미트라도 배우고 자라며<br>더 넓고 깊은 학습이 이뤄집니다</p>
-            <p>결제 후 7일은 &ldquo;무료 체험&rdquo;을 진행하며<br>신개념 튜터를 만나보고 결정하세요</p>
-          </div>
-          <!-- TODO(george): confirm destination URL for "아이 맞춤 상담 신청" pill (currently routed to /ko/enroll) -->
-          <a class="fpv2-pill fpv2-frame-cta" href="https://mitratutor.com/ko/enroll">
-            아이 맞춤 상담 신청
-          </a>
-        </div>
-      </div>
-
+    <div class="qa-card">
+      <p class="qa-q">Q : 학원 진도와 충돌하지 않을까요?</p>
+      <p class="qa-a">A : 미트라는 수업과 수업사이를 채워 충돌이 전혀 없습니다.</p>
+      <p class="qa-body">미라는 학원을 대체하지 않습니다.<br>학원에서 배운 내용을 집에 돌아와서도 놓치지 않도록, 수업과 수업 사이를 채우는 역할입니다.</p>
     </div>
-  </section>
+
+    <div class="qa-card">
+      <p class="qa-q">Q : 아이마다 다르게 알려주나요?</p>
+      <p class="qa-a">A : 네,각각의 아이에 맞춰 전부 다르게 학습합니다.</p>
+      <p class="qa-body">아이의 이름, 관심사, 학습 스타일, 지난 대화를 기억합니다.<br>같은 개념도, 어떤 아이에게는 게임으로, 다른 아이에게는 그림으로 풀어줍니다.</p>
+    </div>
+
+    <div class="qa-card">
+      <p class="qa-q">Q : 아이의 개인 프라이버시가 보호 되나요?</p>
+      <p class="qa-a">A : 네, 모든 대화는 철저히 비공개로 관리됩니다.</p>
+      <p class="qa-body">학부모님께는 학습 관련 내용만 공유됩니다.<br>친구 이야기, 개인적인 고민 같은 사적인 내용은 보고서에 절대 인용되지 않습니다</p>
+    </div>
+
+    <div class="qa-card">
+      <p class="qa-q">Q : 미트라가 맞지 않으면 어떻게 하나요?</p>
+      <p class="qa-a">A : 7일 안에 해지 가능합니다.</p>
+      <p class="qa-body">처음 7일은 무료입니다.<br>맞지 않으면 7일 안에 해지하시면 됩니다. 최소 약정 기간은 없습니다.</p>
+    </div>
+  </div>
+
+  <!-- 6. CLOSING (p25) -->
+  <div class="fp-section">
+    <p class="fp-closing-text">모든 아이는 다르게 배우고<br>다르게 성장합니다.</p>
+    <p class="fp-closing-sub">우리 아이가 어떻게 대화하고<br>어떻게 배우는지, 직접 경험해보세요.</p>
+    <a href="https://mitratutor.com/ko/enroll" class="fp-cta-btn">7일 체험 시작하기</a>
+  </div>
 
 </div>
-
-<script>
-(function() {
-  var items = document.querySelectorAll('.fpv2-faq-item');
-  items.forEach(function(d) {
-    d.addEventListener('toggle', function() {
-      if (!d.open) return;
-      items.forEach(function(o) { if (o !== d) o.open = false; });
-    });
-  });
-})();
-</script>
 </main>
 
 <footer class="wp-footer">

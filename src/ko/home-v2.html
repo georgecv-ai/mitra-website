@@ -10,34 +10,46 @@ slug: home-v2.html
     <img class="kv2-hero-img" src="/ko/static/images/home-v2/MI1.png" alt="미트라 앱 화면 미리보기">
     <div class="kv2-wrap kv2-hero-grid">
       <div class="kv2-hero-text">
-        <h1 class="kv2-hero-h1">아이를 <em class="kv2-hl-g">관찰</em>하고,<br>관심사를 <em class="kv2-hl-c">발견</em>하고,<br>매일 우리 아이를 배우는 튜터</h1>
+        <h1 class="kv2-hero-h1">아이를 가르치기 전에<br>아이를 <em class="kv2-hl-g">먼저 배웁니다.</em></h1>
+        <p class="kv2-hero-sub">뛰어난 공감 능력과 질문으로<br>아이를 깊이 있게 바라보는 '미트라'</p>
         <a class="kv2-cta" href="{{app_base}}/{{lang}}/enroll">7일 체험 신청하기</a>
       </div>
     </div>
   </section>
 
   <!-- 2. 미트라가 전합니다 -->
+  <style>
+    /* "미트라는, 이렇게 다릅니다" — centered over the review carousel (left half), reduced gap above */
+    .kv2-diff-title { align-self: flex-start; width: calc(50% - 0.5rem); text-align: center; margin-top: 0.5rem; margin-bottom: 0.15rem; }
+    @media (max-width: 760px) { .kv2-diff-title { width: 100%; } }
+    /* move dashboard up to top-align with the heading (keep horizontal position) */
+    .kv2-diff-dash-up { position: relative; top: -54px; }
+    @media (max-width: 760px) { .kv2-diff-dash-up { top: 0; } }
+    /* H3: vertically center the left points column against the comparison table (desktop) */
+    @media (min-width: 761px) { .kv2-sol-grid { align-items: center; } }
+  </style>
   <section class="kv2-delivers">
     <div class="kv2-wrap">
-      <h2 class="kv2-delivers-h2">미트라에게 무엇이든 물어봐요</h2>
+      <h2 class="kv2-delivers-h2" style="text-align:center;">아이에겐 질문을, 부모에겐 안심을</h2>
       <div class="kv2-delivers-grid">
         <div class="kv2-delivers-left">
           <div class="kv2-dcard-row">
             <button type="button" class="kv2-dcard kv2-dcard-popup" data-chat-popup-open aria-haspopup="dialog" aria-controls="kv2-chat-dialog">
               <img src="/ko/static/images/home-v2/how-mitra-talks.png" alt="미트라가 어떻게 대화하는지 보기">
+              <h4>미트라 대화법</h4>
             </button>
             <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-students.html">
               <img src="/ko/static/images/home-v2/illus-student.png" alt="">
-              <h4>학생들에게</h4>
+              <h4>공부가 놀이가 되는 아이들</h4>
             </a>
             <a class="kv2-dcard kv2-dcard-illus" href="/ko/for-parents.html">
               <img src="/ko/static/images/home-v2/illus-parent.png" alt="">
-              <h4>부모님들에게</h4>
+              <h4>성장을 함께하는 부모님</h4>
             </a>
           </div>
+          <h2 class="kv2-delivers-h2 kv2-diff-title">미트라는, 이렇게 다릅니다.</h2>
           <div class="kv2-dash-row">
             <div class="kv2-dash-half kv2-reviews-card">
-              <img class="kv2-reviews-stars" src="/ko/static/images/home-v2/m14-v2.png" alt="학부모 후기">
               <figure class="kv2-reviews-quote">
                 <div class="kv2-reviews-marks kv2-reviews-marks-open" aria-hidden="true">
                   <img src="/ko/static/images/home-v2/mi4-quote.png" alt="">
@@ -45,10 +57,10 @@ slug: home-v2.html
                 </div>
                 <div class="kv2-reviews-text" aria-live="polite">
                   <div class="kv2-reviews-track">
-                    <p class="kv2-review">"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
-                    <p class="kv2-review">"I met Mitra and she helped me get better grades. Homework is still boring, but it is less stressful to do with a friend."<span class="kv2-review-attr">- Azilyn N.</span></p>
-                    <p class="kv2-review">"널 개발한 개발자한테 상을 줘야겠어."<span class="kv2-review-attr">- 김은희</span></p>
-                    <p class="kv2-review">"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[공부에도 친구가 필요합니다]</span>"I met Mitra and she helped me get better grades. Homework is still boring, but it is less stressful to do with a friend."<span class="kv2-review-attr">- Azilyn N.</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[아이보다 부모가 먼저 놀랐습니다]</span>"널 개발한 개발자한테 상을 줘야겠어."<span class="kv2-review-attr">- 김은희</span></p>
+                    <p class="kv2-review"><span class="kv2-review-tag">[자신감은 배움에서 시작됩니다]</span>"Mitra helped my daughter learn to love science. Her grades and confidence improved substantially."<span class="kv2-review-attr">- E. Kim</span></p>
                   </div>
                 </div>
                 <div class="kv2-reviews-marks kv2-reviews-marks-close" aria-hidden="true">
@@ -57,68 +69,56 @@ slug: home-v2.html
                 </div>
               </figure>
             </div>
-            <a class="kv2-dash-half kv2-dash-link" href="/ko/parent-dashboard.html">
-              <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-dashboard.png" alt="우리 아이 성장 대시보드">
+            <a class="kv2-dash-half kv2-dash-link kv2-diff-dash-up" href="/ko/parent-dashboard.html">
+              <img class="kv2-dash-img" src="/ko/static/images/home-v2/MI4-growth-dashboard.png" alt="성적표보다 속 깊은 우리아이 성장록 — 교과 진도와 시간, 학습법까지 성장을 정리하는 대시보드">
             </a>
           </div>
         </div>
         <div class="kv2-delivers-right">
-          <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI2.svg" alt="답만 얻는 AI 학습 대신, 관계를 쌓아 과정을 가르칩니다">
+          <a href="/ko/principles.html">
+            <img class="kv2-deliver-img" src="/ko/static/images/home-v2/MI3-principle.png" alt="0.1초만에 알려주는 AI는 그만 — 답을 알려주기 전에 생각하게 만드는 것이 먼저입니다.">
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. 이런 고민 해보셨다면 -->
+  <!-- 메인3 (p5→p6/p7) — 모든 아이의 세상에 맞춘 expand cards (worry cards → detail popups) -->
   <section class="kv2-worries">
     <div class="kv2-wrap">
-      <h2 class="kv2-worries-h2">이런 고민 해보셨다면, 지금 <span>미트라</span>와 이야기하세요</h2>
+      <h2 class="kv2-worries-h2">미트라는, 모든 아이의 세상에 맞춰 함께합니다.</h2>
       <div class="kv2-worry-cards">
         <a class="kv2-worry kv2-worry-1" data-worry-popup-open="case-busy-family" role="button" tabindex="0">
           <div class="kv2-worry-label">바쁜 가족들</div>
           <span class="kv2-worry-line"></span>
-          <p class="kv2-worry-sub">혼자 있는 시간이 많은 우리 아이에게 계속 말 걸어주는 친구가 있다면?</p>
+          <p class="kv2-worry-sub">언제든 대화하며<br>함께 공부할 수 있습니다.</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
         <a class="kv2-worry kv2-worry-2" data-worry-popup-open="case-adhd" role="button" tabindex="0">
           <div class="kv2-worry-label">ADHD 아이</div>
           <span class="kv2-worry-line"></span>
-          <p class="kv2-worry-sub">10분도 집중이 힘든 우리 아이, 스트레스 없이 편하게 학습할 수 있어요</p>
+          <p class="kv2-worry-sub">아이의 속도에 맞춰<br>절대 다그치지 않습니다.</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
         <a class="kv2-worry kv2-worry-3" data-worry-popup-open="case-teen" role="button" tabindex="0">
           <div class="kv2-worry-label">사춘기 학생</div>
           <span class="kv2-worry-line"></span>
-          <p class="kv2-worry-sub">말 수가 적어지는 시기, 갈등 없이 우리 아이를 도와줄 수 있어요.</p>
+          <p class="kv2-worry-sub">마음을 이해하며<br>갈등 없이 옆에 있어줍니다.</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
         <a class="kv2-worry kv2-worry-4" data-worry-popup-open="case-multicultural" role="button" tabindex="0">
           <div class="kv2-worry-label">다문화 가정</div>
           <span class="kv2-worry-line"></span>
-          <p class="kv2-worry-sub">다양한 문화와 언어를 이해하는 친구로 아이의 적응을 도울 수 있다면</p>
+          <p class="kv2-worry-sub">8개 문화권, 95개 언어로<br>편하게 시작합니다.</p>
           <svg class="kv2-worry-arrow" viewBox="0 0 24 24" fill="#FEE500" aria-hidden="true"><path d="M4 10h9V4l8 8-8 8v-6H4z"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 4. 카톡으로 먼저 찾아와요 -->
-  <section class="kv2-kakao">
-    <div class="kv2-wrap kv2-kakao-grid">
-      <div class="kv2-kakao-photo">
-        <img src="/ko/static/images/home-v2/MI3.png" alt="휴대폰을 보는 학생">
-      </div>
-      <div class="kv2-kakao-text">
-        <p class="kv2-eyebrow">모바일 습관을 바꾸기 어려운 아이패드 키즈들도 걱정 마세요</p>
-        <h2 class="kv2-h2">우리 아이를 기억하고<br>카톡으로 먼저 찾아와요</h2>
-        <div class="kv2-kakao-actions">
-          <img class="kv2-qr" src="/ko/static/images/KT/mitra-kakaotalk-qr.png" alt="카카오톡 QR">
-          <a class="kv2-cta" href="http://pf.kakao.com/_taAVX" target="_blank" rel="noopener">미트라와 채팅 시작하기</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 메인4 (p8): top KakaoTalk "카톡으로 먼저 찾아와요" + QR block DELETED per proposal -->
 
+  <!-- 메인4 (p8 bottom) — Sarah / Korean-family chat block kept (case rotation) -->
   <!-- 5. Case rotation -->
   <section class="kv2-story">
     <div class="kv2-cases">
@@ -177,14 +177,14 @@ slug: home-v2.html
   <!-- 6. 미트라는 이렇게 계속 배워갑니다 -->
   <section class="kv2-learns">
     <div class="kv2-wrap kv2-narrow">
-      <h2 class="kv2-h2 kv2-center"><span>미트라</span>는 이렇게 계속 배워갑니다</h2>
+      <h2 class="kv2-h2 kv2-center">아이를 이해하는 만큼, 배움도 달라집니다.</h2>
       <div class="kv2-steps">
-        <div class="kv2-step"><span class="kv2-step-pill">STEP 01</span><p>아이의 기본 정보를 부모님으로부터 전달받아, 최소한의 대화 거리를 준비합니다</p></div>
-        <div class="kv2-step"><span class="kv2-step-pill">STEP 02</span><p>기본 <span class="kv2-hl-g">정보를 기억하고 미트라가 먼저 아이에게</span> 말을 겁니다</p></div>
-        <div class="kv2-step"><span class="kv2-step-pill">STEP 03</span><p>첫 4일간은 공부 이야기 대신, 관계를 쌓아갑니다</p></div>
-        <div class="kv2-step"><span class="kv2-step-pill">STEP 04</span><p>아이의 <span class="kv2-hl-g">나이에 맞는 학습 커리큘럼</span>을 바탕으로 학습 수준을 파악합니다</p></div>
-        <div class="kv2-step"><span class="kv2-step-pill">STEP 05</span><p>질문의 방향성 / 말투 / 관심사 / 고민거리 그리고 대화량과 빈도까지 학습합니다</p></div>
-        <div class="kv2-step"><span class="kv2-step-pill kv2-step-start">START</span><p>1:1 맞춤형 튜터로의 기반을 다진 뒤, 지치지 않는 학습 동반자가 됩니다</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">01</span><p><span class="kv2-hl-g">아이를 듣고</span> — 아이의 기본 정보를 부모님으로부터 전달</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">02</span><p><span class="kv2-hl-g">아이를 기억하고</span> — 기본 정보를 통해 아이에게 먼저 말걸기</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">03</span><p><span class="kv2-hl-g">아이와 친해지고</span> — 아이마다 다르지만, 평균 일주일 정도 서로를 알아가는 시간</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">04</span><p><span class="kv2-hl-g">아이를 이해하고</span> — 아이만의 학습 방식과 속도를 파악</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill">05</span><p><span class="kv2-hl-g">아이에게 맞추기</span> — 배움도 대화도 아이에 맞게 변화</p></div>
+        <div class="kv2-step"><span class="kv2-step-pill kv2-step-start">06</span><p><span class="kv2-hl-g">그리고, 공부 시작</span> — 1:1 맞춤형 튜터로의 시작</p></div>
       </div>
     </div>
   </section>
@@ -192,20 +192,20 @@ slug: home-v2.html
   <!-- 7. 미트라 솔루션 -->
   <section class="kv2-solution">
     <div class="kv2-wrap">
-      <h2 class="kv2-h2 kv2-center">미트라 <span class="kv2-mitra-en">MITRA</span> 솔루션</h2>
+      <h2 class="kv2-h2 kv2-center">철저한 전문성부터<br>강력한 개인정보보안까지<br>아이도 부모님도 안심하세요.</h2>
       <div class="kv2-sol-grid">
         <div class="kv2-sol-points">
           <div class="kv2-sol-point">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V10m14 11V10M3 10l9-6 9 6M9 21v-6h6v6"/></svg>
-            <p>대한민국 인공지능 기본법 준수</p>
+            <p><strong class="kv2-hl-g">[안전]</strong> 언제나 아이의 곁에서 살피고 위험 상황이 감지되면 즉시 부모님께 알리는 안전 알림</p>
           </div>
           <div class="kv2-sol-point">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><path d="M12 2l2.5 2 3.5-.5 1 3.4 3 1.6-1.5 3.2 1.5 3.2-3 1.6-1 3.4-3.5-.5L12 22l-2.5-2-3.5.5-1-3.4-3-1.6L3.5 11 2 7.8l3-1.6 1-3.4L9.5 4z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>
-            <p>한국 국가교육과정뿐만 아니라, 미국 공통 핵심 교육과정(Common Core)과 국제 바칼로레아(IB)까지 포함한 커리큘럼 학습으로 더 정확하고 체계적인 학습 지도</p>
+            <p><strong class="kv2-hl-g">[커리큘럼]</strong> 한국부터 글로벌(IB, Common Core) 까지, 주요 교육과정</p>
           </div>
           <div class="kv2-sol-point">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2B6FB5" stroke-width="1.8" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7"/></svg>
-            <p>검증된 코퍼스에 기반한 언어 소통 모델</p>
+            <p><strong class="kv2-hl-g">[신뢰]</strong> 검증된 언어 모델로 구현한 가장 똑똑한 대화</p>
           </div>
         </div>
         <div class="kv2-sol-table">
@@ -232,40 +232,28 @@ slug: home-v2.html
     </div>
   </section>
 
-  <!-- 8. 자주 묻는 질문 -->
-  <section class="kv2-faq">
-    <div class="kv2-wrap kv2-narrow">
-      <img class="kv2-faq-icon" src="/ko/static/images/home-v2/icon-faq.png" alt="">
-      <h2 class="kv2-h2 kv2-center">미트라 <span class="kv2-mitra-en">MITRA</span> 자주 묻는 질문</h2>
-      <details class="kv2-faq-item" open>
-        <summary>미트라는 ChatGPT 같은 AI 모델과 어떻게 다른가요?</summary>
-        <div class="kv2-faq-body"><p>일반 목적의 AI 모델과 달리, 미트라는 관계 기반의 학습 튜터로 특별히 설계되었습니다. 미트라는 아이를 기억하고, 아이의 말투와 관심사에 맞춰 가며, 답을 던져주는 대신 과정을 함께 풀어갑니다.</p></div>
-      </details>
-      <details class="kv2-faq-item">
-        <summary>무료 체험이 있나요?</summary>
-        <div class="kv2-faq-body"><p>네, 있습니다. 첫 7일간은 무료입니다. 미트라가 아이에게 맞지 않으면 7일 이내에 취소하시면 요금이 청구되지 않습니다. 의무 약정 기간은 없습니다.</p></div>
-      </details>
-      <details class="kv2-faq-item">
-        <summary>미트라는 어떤 과목을 다루나요?</summary>
-        <div class="kv2-faq-body"><p>아이가 공부하고 있는 것이라면 무엇이든 도와드립니다. 미트라는 미국 공통 핵심 기준(Common Core), 한국 국가 교육과정, 국제 바칼로레아(IB)의 초6부터 고3까지 전체 커리큘럼을 다룹니다. 수학, 과학, 역사, 글쓰기, 외국어 등 학교 수업 내용이면 무엇이든 가능합니다.</p></div>
-      </details>
-      <details class="kv2-faq-item">
-        <summary>아이가 미트라와 함께 특정 목표에 집중했으면 해요. 어떻게 전달하나요?</summary>
-        <div class="kv2-faq-body"><p>먼저 아이와 대화를 나눠 주세요. 아이가 스스로 동의한 목표를 미트라에게 직접 전해 주면, 미트라가 대화 속에 자연스럽게 녹여 냅니다. 미트라는 아이의 동반자이지, 부모님이 아이에게 향하게 하는 도구가 아닙니다. 아이가 스스로 동의한 목표는 실제로 참여하게 되는 목표입니다.</p></div>
-      </details>
-    </div>
-  </section>
+  <!-- 메인6 (p10): FAQ block DELETED per proposal -->
 
-  <!-- 9. CLOSING -->
+  <!-- 9. CLOSING (메인6) -->
   <section class="kv2-closing">
     <div class="kv2-closing-inner">
-      <div class="kv2-closing-text kv2-closing-left">언제 어디서든<br>아이가 원할 때</div>
+      <div class="kv2-closing-text kv2-closing-left">아이의 세상은<br>질문에서 시작됩니다.</div>
       <div class="kv2-closing-phone">
         <img class="kv2-cphone-img" src="/ko/static/images/home-v2/MI-last.png" alt="미트라 앱">
       </div>
-      <div class="kv2-closing-text kv2-closing-right">미트라가<br>기억하고 대답할게요</div>
+      <div class="kv2-closing-text kv2-closing-right">미트라와 함께<br>아이의 세상을 넓혀보세요.</div>
     </div>
-    <a class="kv2-talk-btn" href="http://pf.kakao.com/_taAVX" target="_blank" rel="noopener"><span class="kv2-talk-dot"></span>톡상담</a>
+    <a class="kv2-cta kv2-closing-cta" href="{{app_base}}/{{lang}}/enroll">시작하기</a>
+  </section>
+
+  <!-- H1: KakaoTalk channel button + QR (reused KT assets) -->
+  <section class="kv2-home-kt" style="text-align:center; padding:2.5rem 1rem 3.5rem;">
+    <div style="display:inline-flex; align-items:center; justify-content:center; gap:1.75rem; flex-wrap:wrap;">
+      <a href="http://pf.kakao.com/_taAVX" target="_blank" rel="noopener" aria-label="미트라 카카오톡 채널 추가">
+        <img src="/ko/static/images/KT/channel_add_large_2X.png" alt="미트라 카카오톡 채널 추가" style="height:48px; width:auto;">
+      </a>
+      <img src="/ko/static/images/KT/mitra-kakaotalk-qr.png" alt="미트라 카카오톡 채널 QR" style="width:120px; height:120px;">
+    </div>
   </section>
 
 
@@ -402,48 +390,52 @@ slug: home-v2.html
   <!-- Worry-card popups: opened by §3 cards via data-worry-popup-open -->
   <dialog id="case-busy-family" class="kv2-worry-popup kv2-worry-popup-1">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">우리 아이의 24시간, 외로울 틈 없이</h3>
+    <h3 class="kv2-worry-popup-h3">바쁜 부모님을 대신해, 24시간 곁을 지킵니다</h3>
+    <p class="kv2-worry-popup-tagline">부모님의 빈자리를 채우는 가장 따뜻한 응원</p>
     <ol class="kv2-worry-popup-list">
-      <li>바쁜 워킹맘대디, 걱정 덜어드릴게요. 언제든지 답해주는 미트라가 함께할게요</li>
-      <li>운동, 학원으로 바쁜 아이도, 카톡 하나로 언제 어디서든 궁금한 점 해결할 수 있어요</li>
-      <li>중고생의 바쁘고 힘든 일상, 부모님이 바쁠빼도 함께하고 응원하는 미트라가 스스로 해내는 자신감을 키워줘요.</li>
-      <li>일상의 어려움을 편하게 듣고 이해하며, 우리 아이와 끈끈한 관계를 쌓아가요.</li>
+      <li><strong>든든한 육아 파트너:</strong> 바쁜 일상 속 부모님의 걱정을 덜어드릴게요. 아이의 궁금증에 언제나 즉각적으로 답하며 곁을 지킵니다.</li>
+      <li><strong>어디서든 열리는 교실:</strong> 학원과 운동으로 바쁜 아이도, 카톡 하나면 언제 어디서든 궁금한 점을 즉시 해결할 수 있습니다.</li>
+      <li><strong>스스로 해내는 힘:</strong> 부모님이 챙겨주기 어려운 순간에도, 미트라는 아이가 스스로 성취감을 느끼고 자신감을 키우도록 묵묵히 응원합니다.</li>
+      <li><strong>깊어지는 관계의 온도:</strong> 아이의 작은 어려움도 놓치지 않고 이해하며, 끈끈한 유대감으로 아이의 하루를 든든하게 받쳐줍니다.</li>
     </ol>
-    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 공교육 · 한국 국가교육과정</p>
   </dialog>
 
   <dialog id="case-adhd" class="kv2-worry-popup kv2-worry-popup-2">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">아이의 속도대로, 아이의 방식대로</h3>
+    <h3 class="kv2-worry-popup-h3">세상에서 유일한, 아이만의 속도와 방식</h3>
+    <p class="kv2-worry-popup-tagline">기다려주고, 맞춰가는 진정한 맞춤 학습</p>
     <ol class="kv2-worry-popup-list">
-      <li>남들보다 조금은 시작이 어려운 아이, 미트라가 끊임없이 찾아갑니다.</li>
-      <li>학교·학원에서 놓친 내용도 우리 아이의 관심사로 아이 맞춤 속도와 방식대로 따라갑니다.</li>
-      <li>자꾸 혼나서 흥미가 없어진 우리 아이, 흔한 학습법 대신 미트라는 아이를 이해한 대화 방식으로 집중력을 자연스럽게 키워요.</li>
+      <li><strong>먼저 찾아가는 발걸음:</strong> 시작이 막막해 주저하는 아이에게, 미트라가 먼저 다가가 아이만의 속도로 함께 걷습니다.</li>
+      <li><strong>관심사로 채우는 배움:</strong> 학교와 학원에서 놓친 개념들도 아이가 좋아하는 주제에 담아, 아이가 이해하기 쉬운 방식으로 풀어나갑니다. 즐거운 대화는 공부의 진도도 향상 시켜줍니다.</li>
+      <li><strong>흥미를 되찾는 대화의 힘:</strong> 학습에 지쳐 마음을 닫았던 아이도, 이해받고 존중받는 대화 과정을 통해 자연스럽게 배움의 즐거움과 집중력을 되찾게 됩니다.</li>
     </ol>
-    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 공교육 · 한국 국가교육과정</p>
   </dialog>
 
   <dialog id="case-teen" class="kv2-worry-popup kv2-worry-popup-3">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">나만의 시간이 많이 지는 우리 아이, 미트라는 여전히 곁에 있어요</h3>
+    <h3 class="kv2-worry-popup-h3">아이의 마음이 머무는 곳에 늘 함께합니다</h3>
+    <p class="kv2-worry-popup-tagline">공부보다 먼저, 아이의 마음을 살피는 친구</p>
     <ol class="kv2-worry-popup-list">
-      <li>누구에게도 힘든 학교 생활, 아이의 사생활을 존중하는 미트라는 언제든지 듣고 공감합니다</li>
-      <li>너무 많은 학습 내용들을 잊기 전에, 아이의 생활 패턴에 맞춰 알려주고 함께 이야기합니다</li>
-      <li>진로 고민도 걱정 없어요. 멘토부터 길잡이 역할까지, 미트라가 할게요</li>
+      <li><strong>가장 다정한 공감자:</strong> 학업과 일상에 지친 아이의 마음을 누구보다 깊이 이해하고, 언제든 아이의 이야기에 귀 기울입니다.</li>
+      <li><strong>생활에 맞춘 학습 리듬:</strong> 잊히기 쉬운 학습 내용도 아이의 평소 생활 패턴에 맞춰 적절한 타이밍에 자연스럽게 대화에 녹여냅니다.</li>
+      <li><strong>미래를 그리는 든든한 길잡이:</strong> 진로 고민으로 막막할 때, 미트라는 단순한 지식 전달자를 넘어 아이의 방향을 함께 고민하는 멘토가 되어줍니다.</li>
     </ol>
-    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 공교육 · 한국 국가교육과정</p>
   </dialog>
 
   <dialog id="case-multicultural" class="kv2-worry-popup kv2-worry-popup-4">
     <button type="button" class="kv2-worry-popup-close" aria-label="닫기" data-worry-popup-close>×</button>
-    <h3 class="kv2-worry-popup-h3">언어도 문화도 이해해야 하니까</h3>
+    <h3 class="kv2-worry-popup-h3">언어의 장벽을 넘어, 아이의 세계로</h3>
+    <p class="kv2-worry-popup-tagline">언어는 공부가 아니라, 세상을 만나는 문입니다</p>
     <ol class="kv2-worry-popup-list">
-      <li>미트라는 8가지 문화권을 이해하고 95개 언어로 소통해요. 우리 아이 언어로 편하게 시작합니다</li>
-      <li>전 세계 최신 트렌드와 아이의 관심사를 연결해, 자연스럽게 언어의 장벽을 허물어 갑니다</li>
-      <li>아이의 모국어를 기반으로 새 언어의 차이점을 쉽고 정확하게 알려줘요.</li>
-      <li>일상에서 새로운 언어까지의 연결, 편안한 언어 학습 루틴을 간단히 채팅으로.</li>
+      <li><strong>아이의 언어로 시작합니다:</strong> 8가지 문화권과 95개 언어를 아우르는 미트라는, 아이가 가장 편하게 느끼는 언어로 대화를 시작합니다.</li>
+      <li><strong>관심사가 곧 배움이 됩니다:</strong> 전 세계 최신 트렌드와 아이의 취향을 학습과 연결해, 거부감 없이 자연스럽게 언어의 벽을 허뭅니다.</li>
+      <li><strong>차이를 이해하는 깊은 언어:</strong> 모국어와 새로운 언어의 미묘한 차이를 쉽고 정확하게 짚어주어 언어적 감각을 깨워줍니다.</li>
+      <li><strong>일상에 녹아드는 루틴:</strong> 딱딱한 학습지가 아닌, 일상적인 채팅만으로도 언어 실력을 탄탄하게 쌓아가는 새로운 경험을 제공합니다.</li>
     </ol>
-    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 미국 교육 표준(US Common Core) · 한국 국가교육과정</p>
+    <p class="kv2-worry-popup-foot">🎓 국제 바칼로레아(IB) · 공교육 · 한국 국가교육과정</p>
   </dialog>
 
   <script>
