@@ -18,6 +18,7 @@
 
   "nav_items": [
     {"label": {"en": "Enroll", "ko": "등록"}, "href": "{{app_base}}/{{lang}}/enroll", "style": "cta"},
+    {"label": {"en": "Student", "ko": "학생"}, "href": "{{app_base}}/student/chat"},
     {
       "label": {"en": "Parents", "ko": "학부모"},
       "children": [
