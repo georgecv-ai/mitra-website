@@ -18,7 +18,13 @@
 
   "nav_items": [
     {"label": {"en": "Enroll", "ko": "등록"}, "href": "{{app_base}}/{{lang}}/enroll", "style": "cta"},
-    {"label": {"en": "Student", "ko": "학생"}, "href": "{{app_base}}/student/chat"},
+    {
+      "label": {"en": "Students", "ko": "학생"},
+      "children": [
+        {"label": {"en": "Mitra for Students", "ko": "학생을 위한 미트라"}, "href": "/{{lang}}/for-students.html"},
+        {"label": {"en": "Student sign in →", "ko": "학생 로그인 →"}, "href": "{{app_base}}/student/chat", "style": "sub"}
+      ]
+    },
     {
       "label": {"en": "Parents", "ko": "학부모"},
       "children": [
