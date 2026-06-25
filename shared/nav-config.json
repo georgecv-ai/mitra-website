@@ -22,7 +22,7 @@
       "label": {"en": "Students", "ko": "학생"},
       "children": [
         {"label": {"en": "Mitra for Students", "ko": "학생을 위한 미트라"}, "href": "/{{lang}}/for-students.html"},
-        {"label": {"en": "Student sign in →", "ko": "학생 로그인 →"}, "href": "{{app_base}}/student/chat", "style": "sub"}
+        {"label": {"en": "Student sign in →", "ko": "학생 로그인 →"}, "href": "{{app_base}}/student/login", "style": "sub"}
       ]
     },
     {
