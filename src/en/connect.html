@@ -272,13 +272,15 @@ extra_scripts: <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/
   else if (/^[A-Z0-9]{4}$/.test(raw)) code = 'MITRA-' + raw;
   var hasCode = !!code;
 
-  var TG_BASE = 'https://t.me/Mitradhdbot';
+  // Staging runs a separate bot (@MitraStagingBot) so it never races production
+  // (@Mitradhdbot). Point the link/QR at the right one per environment.
+  var IS_STAGING = /staging|workers\.dev|localhost|127\.0\.0\.1/.test(window.location.hostname);
+  var TG_BASE = 'https://t.me/' + (IS_STAGING ? 'MitraStagingBot' : 'Mitradhdbot');
   var WA_BASE = 'https://wa.me/18087077506';
   // Telegram one-tap (?start=CODE) requires the bot to parse the /start payload.
   // That ships to staging first, so we enable it on staging only; production keeps
   // the plain link (press Start, then paste code) until the bot change reaches prod.
   // Flip prod by removing this host gate once feat/tg-start-payload-linking is live.
-  var IS_STAGING = /staging|workers\.dev|localhost|127\.0\.0\.1/.test(window.location.hostname);
   var tgUrl = TG_BASE + (IS_STAGING && hasCode ? ('?start=' + encodeURIComponent(code)) : '');
   // WhatsApp pre-fills the code as the first message — the bot regex-matches
   // MITRA-XXXX and links automatically (works on prod today).
