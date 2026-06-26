@@ -364,10 +364,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   var TG_BASE = 'https://t.me/Mitradhdbot';
   var WA_BASE = 'https://wa.me/18087077506';
-  // Telegram bot does not yet parse /start payloads, so we send the plain bot link
-  // (the user presses Start, then sends the code). WhatsApp pre-fills the code as
-  // the first message — the bot regex-matches MITRA-XXXX and links automatically.
-  var tgUrl = TG_BASE;
+  // Telegram one-tap (?start=CODE) requires the bot to parse the /start payload.
+  // That ships to staging first, so we enable it on staging only; production keeps
+  // the plain link (press Start, then paste code) until the bot change reaches prod.
+  // Flip prod by removing this host gate once feat/tg-start-payload-linking is live.
+  var IS_STAGING = /staging|workers\.dev|localhost|127\.0\.0\.1/.test(window.location.hostname);
+  var tgUrl = TG_BASE + (IS_STAGING && hasCode ? ('?start=' + encodeURIComponent(code)) : '');
+  // WhatsApp pre-fills the code as the first message — the bot regex-matches
+  // MITRA-XXXX and links automatically (works on prod today).
   var waUrl = WA_BASE + (hasCode ? ('?text=' + encodeURIComponent(code)) : '');
 
   function show(el, on) { if (el) el.style.display = on ? '' : 'none'; }
