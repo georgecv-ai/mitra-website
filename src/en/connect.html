@@ -1,0 +1,241 @@
+<!-- META
+title: You're enrolled — now connect with Mitra
+description: You signed your child up for Mitra. Here's the 2-minute setup to get them chatting — on KakaoTalk, Telegram, or WhatsApp.
+slug: connect.html
+og_description: The 2-minute setup to get your child chatting with Mitra on KakaoTalk, Telegram, or WhatsApp.
+-->
+<style>
+  .cx { --kakao:#FEE500; --kakao-ink:#3a2e00; --tg:#0088cc; --wa:#25D366; max-width: 860px; margin: 0 auto; padding: 0 1rem; }
+  .cx-hero { text-align: center; padding: 2.25rem 1rem 0.5rem; }
+  .cx-hero h1 { color: var(--primary); font-weight: 800; margin-bottom: 0.75rem; line-height: 1.25; }
+  .cx-hero p { color: var(--text-muted); font-size: 1.08rem; max-width: 620px; margin: 0 auto; line-height: 1.6; }
+
+  /* Step 1: the code */
+  .cx-code { background: var(--primary-lt); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.5rem; margin: 2rem 0; }
+  .cx-code h2 { font-size: 1.15rem; color: var(--primary); font-weight: 700; margin: 0 0 0.5rem; }
+  .cx-code p { margin: 0 0 0.4rem; color: #2d3748; font-size: 0.97rem; line-height: 1.6; }
+  .cx-code p:last-child { margin-bottom: 0; }
+  .cx-code .cx-eg { display: inline-block; background: #fff; border: 1px dashed var(--primary); border-radius: 8px; padding: 0.2rem 0.7rem; font-weight: 700; letter-spacing: 0.12em; color: var(--primary); font-family: ui-monospace, monospace; }
+
+  .cx-section-head { text-align: center; margin: 2.5rem 0 0.4rem; }
+  .cx-section-head h2 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin: 0; }
+  .cx-section-head p { color: var(--text-muted); margin: 0.4rem 0 0; font-size: 0.98rem; }
+
+  /* Channel cards */
+  .cx-cards { display: flex; flex-direction: column; gap: 1.25rem; margin: 1.5rem 0; }
+  .cx-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+  .cx-card-top { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 1.3rem; color: #fff; }
+  .cx-card-top img { height: 24px; }
+  .cx-card-top .cx-name { font-weight: 800; font-size: 1.1rem; }
+  .cx-card-top .cx-tag { margin-left: auto; font-size: 0.78rem; font-weight: 600; background: rgba(255,255,255,0.22); padding: 0.2rem 0.7rem; border-radius: 999px; }
+  .cx-card-top.kakao { background: var(--kakao); color: var(--kakao-ink); }
+  .cx-card-top.kakao .cx-tag { background: rgba(58,46,0,0.12); }
+  .cx-card-top.tg { background: var(--tg); }
+  .cx-card-top.wa { background: var(--wa); }
+
+  .cx-card-body { display: flex; gap: 1.5rem; padding: 1.3rem 1.4rem 1.4rem; align-items: flex-start; flex-wrap: wrap; }
+  .cx-steps { flex: 1 1 360px; min-width: 0; }
+  .cx-steps ol { margin: 0; padding-left: 0; list-style: none; counter-reset: cx; }
+  .cx-steps li { position: relative; padding: 0 0 0.85rem 2.4rem; counter-increment: cx; color: #2d3748; font-size: 0.97rem; line-height: 1.55; }
+  .cx-steps li:last-child { padding-bottom: 0; }
+  .cx-steps li::before { content: counter(cx); position: absolute; left: 0; top: -1px; width: 1.7rem; height: 1.7rem; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; }
+  .cx-steps li strong { color: var(--primary); }
+  .cx-note { margin-top: 0.6rem; font-size: 0.9rem; color: var(--text-muted); background: var(--bg); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; padding: 0.55rem 0.85rem; line-height: 1.5; }
+  .cx-note.warn { border-left-color: #E8836B; }
+  .cx-note strong { color: #2d3748; }
+
+  .cx-actions { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; min-width: 130px; }
+  .cx-qr { width: 116px; height: 116px; border-radius: 10px; background: #fff; border: 1px solid var(--border); padding: 5px; }
+  .cx-open-btn { display: inline-flex; align-items: center; gap: 7px; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 700; font-size: 0.9rem; text-decoration: none; color: #fff; white-space: nowrap; }
+  .cx-open-btn img { height: 17px; }
+  .cx-open-btn.kakao { background: var(--kakao); color: var(--kakao-ink); }
+  .cx-open-btn.tg { background: var(--tg); }
+  .cx-open-btn.wa { background: var(--wa); }
+  .cx-open-btn:hover { filter: brightness(0.94); color: #fff; }
+  .cx-open-btn.kakao:hover { color: var(--kakao-ink); }
+  .cx-qr-cap { font-size: 0.72rem; color: var(--text-muted); margin-top: -0.3rem; }
+
+  /* Which one */
+  .cx-which { background: var(--bg-section); border-radius: 14px; padding: 1.3rem 1.5rem; margin: 1.5rem 0; }
+  .cx-which h3 { color: var(--primary); font-weight: 700; font-size: 1.05rem; margin: 0 0 0.6rem; }
+  .cx-which ul { margin: 0; padding-left: 1.1rem; color: #2d3748; font-size: 0.95rem; line-height: 1.7; }
+
+  /* Troubleshoot */
+  .cx-trouble { margin: 2.5rem 0 1rem; }
+  .cx-trouble details { background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 0.7rem; overflow: hidden; }
+  .cx-trouble summary { cursor: pointer; padding: 0.95rem 1.2rem; font-weight: 700; color: var(--primary); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.98rem; }
+  .cx-trouble summary::-webkit-details-marker { display: none; }
+  .cx-trouble summary::after { content: "+"; color: var(--accent); font-size: 1.35rem; font-weight: 400; }
+  .cx-trouble details[open] summary::after { content: "\00d7"; }
+  .cx-trouble-body { padding: 0 1.2rem 1.1rem; color: #2d3748; font-size: 0.95rem; line-height: 1.65; }
+  .cx-trouble-body p { margin: 0 0 0.5rem; }
+  .cx-trouble-body p:last-child { margin: 0; }
+
+  /* Next */
+  .cx-next { text-align: center; background: var(--primary); color: #fff; border-radius: 16px; padding: 2rem 1.5rem; margin: 2.5rem 0; }
+  .cx-next h2 { color: #fff; font-weight: 800; margin: 0 0 0.6rem; font-size: 1.35rem; }
+  .cx-next p { color: rgba(255,255,255,0.9); max-width: 560px; margin: 0 auto 1.2rem; line-height: 1.6; }
+  .cx-next a.cx-letter { color: #fff; text-decoration: underline; font-weight: 600; }
+  .cx-help { text-align: center; color: var(--text-muted); font-size: 0.92rem; margin: 1.5rem 0 2.5rem; }
+  .cx-help a { font-weight: 600; }
+
+  @media (max-width: 560px) {
+    .cx-card-body { flex-direction: column; }
+    .cx-actions { flex-direction: row; flex-wrap: wrap; justify-content: center; width: 100%; }
+  }
+</style>
+
+<div class="cx">
+
+  <div class="cx-hero">
+    <h1>You're enrolled. Now let's get your child talking to Mitra.</h1>
+    <p>It takes about two minutes. Your child texts Mitra on the app you already use, sends one code to link the account, and they're in. Here's exactly what to do.</p>
+  </div>
+
+  <!-- Step 1: the code -->
+  <div class="cx-code">
+    <h2>First, grab your enrollment code</h2>
+    <p>When you signed up, we showed you a short <strong>enrollment code</strong> — something like <span class="cx-eg">MITRA-7K2P</span>. Your child sends this to Mitra the first time they message her, and it links the chat to their account.</p>
+    <p style="margin-top:0.7rem;"><strong>Can't find it?</strong> Sign in to the <a href="{{app_base}}/en/parent/login">parent portal</a> to see it again, or email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> and we'll resend it.</p>
+  </div>
+
+  <div class="cx-section-head">
+    <h2>Pick your messaging app</h2>
+    <p>Use whichever one your child already texts on. The steps are slightly different for each.</p>
+  </div>
+
+  <div class="cx-cards">
+
+    <!-- KakaoTalk -->
+    <div class="cx-card">
+      <div class="cx-card-top kakao">
+        <img src="/en/static/images/KT/channel_add_large_2X.png" alt="">
+        <span class="cx-name">KakaoTalk</span>
+        <span class="cx-tag">Most popular in Korea</span>
+      </div>
+      <div class="cx-card-body">
+        <div class="cx-steps">
+          <ol>
+            <li>On your child's phone, open the button or scan the QR code to <strong>add the Mitra channel</strong> (채널 추가).</li>
+            <li>Tap into the chat and have your child <strong>send a message first</strong> — anything, even just "hi."</li>
+            <li>When Mitra asks, <strong>send your enrollment code</strong>. That links the account, and you're ready to go.</li>
+          </ol>
+          <div class="cx-note warn"><strong>Important:</strong> On KakaoTalk, Mitra can't message your child first — that's a Kakao rule. Your child always has to send the first message. After that, conversation flows normally.</div>
+        </div>
+        <div class="cx-actions">
+          <a class="cx-open-btn kakao" href="http://pf.kakao.com/_taAVX" target="_blank">Add Mitra channel</a>
+          <img class="cx-qr" src="/en/static/images/KT/mitra-kakaotalk-qr.png" alt="KakaoTalk QR code for Mitra">
+          <span class="cx-qr-cap">Scan to add</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Telegram -->
+    <div class="cx-card">
+      <div class="cx-card-top tg">
+        <img src="/en/static/images/Telegram/telegram-logo.svg" alt="" style="filter:brightness(10);">
+        <span class="cx-name">Telegram</span>
+        <span class="cx-tag">Mitra can message first</span>
+      </div>
+      <div class="cx-card-body">
+        <div class="cx-steps">
+          <ol>
+            <li>On your child's phone, open the button or scan the QR code to start a chat with <strong>@Mitradhdbot</strong>.</li>
+            <li>Tap <strong>Start</strong> and have your child say hi.</li>
+            <li>If you gave us your child's Telegram username at signup, Mitra already knows them — no code needed. If she asks, just <strong>send your enrollment code</strong>.</li>
+          </ol>
+          <div class="cx-note">On Telegram, Mitra <strong>can</strong> reach out first, so she may check in between sessions. This is the easiest app to set up.</div>
+        </div>
+        <div class="cx-actions">
+          <a class="cx-open-btn tg" href="https://t.me/Mitradhdbot" target="_blank"><img src="/en/static/images/Telegram/telegram-logo.svg" alt="" style="filter:brightness(10);">Open Telegram</a>
+          <img class="cx-qr" src="/en/static/images/Telegram/qr-mitradhdbot.png" alt="Telegram QR code for Mitra">
+          <span class="cx-qr-cap">Scan to open</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="cx-card">
+      <div class="cx-card-top wa">
+        <img src="/en/static/images/WhatsApp/whatsapp-logo-white.svg" alt="">
+        <span class="cx-name">WhatsApp</span>
+        <span class="cx-tag">Best outside Korea</span>
+      </div>
+      <div class="cx-card-body">
+        <div class="cx-steps">
+          <ol>
+            <li>On your child's phone, tap the button or scan the QR code to open a chat with Mitra.</li>
+            <li>Have your child <strong>send your enrollment code</strong> as the first message.</li>
+            <li>Mitra matches the code to your child's account and links it automatically. Done.</li>
+          </ol>
+          <div class="cx-note">Use the phone number you gave us at signup so Mitra can recognize the chat. The button can pre-fill your code for you.</div>
+        </div>
+        <div class="cx-actions">
+          <a class="cx-open-btn wa" href="https://wa.me/18087077506" target="_blank"><img src="/en/static/images/WhatsApp/whatsapp-logo-white.svg" alt="">Open WhatsApp</a>
+          <img class="cx-qr" src="/en/static/images/WhatsApp/qr-whatsapp.png" alt="WhatsApp QR code for Mitra">
+          <span class="cx-qr-cap">Scan to open</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cx-which">
+    <h3>Not sure which to use?</h3>
+    <ul>
+      <li><strong>In Korea?</strong> KakaoTalk is what most families use — your child already lives in it.</li>
+      <li><strong>Outside Korea?</strong> WhatsApp or Telegram are the easy picks.</li>
+      <li><strong>Want Mitra to gently check in?</strong> Telegram is the only app where she can start the conversation.</li>
+    </ul>
+    <p style="margin:0.6rem 0 0; font-size:0.9rem; color:var(--text-muted);">Pick one to start. You can always switch later — just message Mitra on the new app with the same code.</p>
+  </div>
+
+  <!-- Troubleshooting -->
+  <div class="cx-trouble">
+    <div class="cx-section-head" style="margin-top:0;">
+      <h2>If something's not working</h2>
+    </div>
+
+    <details>
+      <summary>Mitra isn't replying</summary>
+      <div class="cx-trouble-body">
+        <p><strong>On KakaoTalk:</strong> your child has to send the first message — Mitra can't start the chat. Make sure they've added the channel and sent something.</p>
+        <p><strong>On any app:</strong> double-check the enrollment code was sent and typed correctly. If Mitra still doesn't recognize your child, email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> and we'll link the account manually.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>I lost my enrollment code</summary>
+      <div class="cx-trouble-body">
+        <p>Sign in to the <a href="{{app_base}}/en/parent/login">parent portal</a> to view it again, or email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> and we'll resend it.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Mitra says she doesn't recognize my child</summary>
+      <div class="cx-trouble-body">
+        <p>This usually means the chat isn't linked to the account yet. Have your child send the enrollment code again. On WhatsApp, make sure they're messaging from the phone number you gave us at signup.</p>
+        <p>Still stuck? We'll sort it out — email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Can my child use more than one app?</summary>
+      <div class="cx-trouble-body">
+        <p>Stick to one app for the best experience — that way Mitra keeps everything in one continuous conversation. If you do need to switch, just message her on the new app with the same enrollment code.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- What's next -->
+  <div class="cx-next">
+    <h2>What happens next</h2>
+    <p>The first session is just a conversation — Mitra gets to know your child before any teaching starts. That's by design. The first few sessions build the relationship; the learning grows from there.</p>
+    <p style="margin-bottom:0;">Want the full picture? Read <a class="cx-letter" href="/en/how-to-work-with-mitra.html">Mitra's letter on how to work with her →</a></p>
+  </div>
+
+  <div class="cx-help">
+    Questions any time? Email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> or reach us through the <a href="{{app_base}}/en/parent/login">parent portal</a>.
+  </div>
+
+</div>
