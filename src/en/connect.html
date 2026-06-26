@@ -3,6 +3,7 @@ title: You're enrolled — now connect with Mitra
 description: You signed your child up for Mitra. Here's the 2-minute setup to get them chatting — on KakaoTalk, Telegram, or WhatsApp.
 slug: connect.html
 og_description: The 2-minute setup to get your child chatting with Mitra on KakaoTalk, Telegram, or WhatsApp.
+extra_scripts: <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 -->
 <style>
   .cx { --kakao:#FEE500; --kakao-ink:#3a2e00; --tg:#0088cc; --wa:#25D366; max-width: 860px; margin: 0 auto; padding: 0 1rem; }
@@ -12,10 +13,15 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
 
   /* Step 1: the code */
   .cx-code { background: var(--primary-lt); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.5rem; margin: 2rem 0; }
-  .cx-code h2 { font-size: 1.15rem; color: var(--primary); font-weight: 700; margin: 0 0 0.5rem; }
+  .cx-code h2 { font-size: 1.15rem; color: var(--primary); font-weight: 700; margin: 0 0 0.6rem; }
   .cx-code p { margin: 0 0 0.4rem; color: #2d3748; font-size: 0.97rem; line-height: 1.6; }
   .cx-code p:last-child { margin-bottom: 0; }
-  .cx-code .cx-eg { display: inline-block; background: #fff; border: 1px dashed var(--primary); border-radius: 8px; padding: 0.2rem 0.7rem; font-weight: 700; letter-spacing: 0.12em; color: var(--primary); font-family: ui-monospace, monospace; }
+  .cx-code-row { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin: 0.3rem 0 0.7rem; }
+  .cx-code-chip { display: inline-block; background: #fff; border: 2px solid var(--primary); border-radius: 10px; padding: 0.45rem 1rem; font-weight: 800; letter-spacing: 0.14em; color: var(--primary); font-family: ui-monospace, monospace; font-size: 1.35rem; }
+  .cx-code-chip.placeholder { border-style: dashed; color: #718096; }
+  .cx-copy { background: var(--accent); color: #fff; border: none; border-radius: 8px; padding: 0.5rem 0.95rem; font-weight: 700; font-size: 0.85rem; cursor: pointer; }
+  .cx-copy:hover { background: var(--accent-dk); }
+  .cx-copy.done { background: #2f855a; }
 
   .cx-section-head { text-align: center; margin: 2.5rem 0 0.4rem; }
   .cx-section-head h2 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin: 0; }
@@ -40,12 +46,14 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
   .cx-steps li:last-child { padding-bottom: 0; }
   .cx-steps li::before { content: counter(cx); position: absolute; left: 0; top: -1px; width: 1.7rem; height: 1.7rem; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; }
   .cx-steps li strong { color: var(--primary); }
+  .cx-start-key { display: inline-block; background: var(--tg); color: #fff; font-weight: 700; font-size: 0.78rem; padding: 0.05rem 0.5rem; border-radius: 5px; letter-spacing: 0.03em; }
   .cx-note { margin-top: 0.6rem; font-size: 0.9rem; color: var(--text-muted); background: var(--bg); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; padding: 0.55rem 0.85rem; line-height: 1.5; }
   .cx-note.warn { border-left-color: #E8836B; }
   .cx-note strong { color: #2d3748; }
 
-  .cx-actions { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; min-width: 130px; }
-  .cx-qr { width: 116px; height: 116px; border-radius: 10px; background: #fff; border: 1px solid var(--border); padding: 5px; }
+  .cx-actions { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.65rem; min-width: 130px; }
+  .cx-qr { width: 116px; height: 116px; border-radius: 10px; background: #fff; border: 1px solid var(--border); padding: 5px; display: flex; align-items: center; justify-content: center; }
+  .cx-qr img { width: 100%; height: 100%; display: block; }
   .cx-open-btn { display: inline-flex; align-items: center; gap: 7px; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 700; font-size: 0.9rem; text-decoration: none; color: #fff; white-space: nowrap; }
   .cx-open-btn img { height: 17px; }
   .cx-open-btn.kakao { background: var(--kakao); color: var(--kakao-ink); }
@@ -53,7 +61,7 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
   .cx-open-btn.wa { background: var(--wa); }
   .cx-open-btn:hover { filter: brightness(0.94); color: #fff; }
   .cx-open-btn.kakao:hover { color: var(--kakao-ink); }
-  .cx-qr-cap { font-size: 0.72rem; color: var(--text-muted); margin-top: -0.3rem; }
+  .cx-qr-cap { font-size: 0.72rem; color: var(--text-muted); margin-top: -0.2rem; text-align: center; }
 
   /* Which one */
   .cx-which { background: var(--bg-section); border-radius: 14px; padding: 1.3rem 1.5rem; margin: 1.5rem 0; }
@@ -89,14 +97,26 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
 
   <div class="cx-hero">
     <h1>You're enrolled. Now let's get your child talking to Mitra.</h1>
-    <p>It takes about two minutes. Your child texts Mitra on the app you already use, sends one code to link the account, and they're in. Here's exactly what to do.</p>
+    <p>It takes about two minutes. Your child opens the app you already use, sends one short code to link the account, and they're in. Here's exactly what to do.</p>
   </div>
 
   <!-- Step 1: the code -->
   <div class="cx-code">
-    <h2>First, grab your enrollment code</h2>
-    <p>When you signed up, we showed you a short <strong>enrollment code</strong> — something like <span class="cx-eg">MITRA-7K2P</span>. Your child sends this to Mitra the first time they message her, and it links the chat to their account.</p>
-    <p style="margin-top:0.7rem;"><strong>Can't find it?</strong> Sign in to the <a href="{{app_base}}/en/parent/login">parent portal</a> to see it again, or email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> and we'll resend it.</p>
+    <!-- WITH code (shown when ?code= is in the URL) -->
+    <div data-code-has style="display:none;">
+      <h2>Your child's enrollment code</h2>
+      <div class="cx-code-row">
+        <span class="cx-code-chip" data-code-text>MITRA-XXXX</span>
+        <button type="button" class="cx-copy" data-copy>Copy code</button>
+      </div>
+      <p>This code links the chat to your child's account. It's <strong>already built into the buttons and QR codes below</strong> for WhatsApp — for KakaoTalk and Telegram, your child sends it once when they first message Mitra.</p>
+    </div>
+    <!-- WITHOUT code (default / fallback) -->
+    <div data-code-none>
+      <h2>First, grab your enrollment code</h2>
+      <p>When you signed up, we showed you a short <strong>enrollment code</strong> — it looks like <span class="cx-code-chip placeholder">MITRA-XXXX</span>. Your child sends this to Mitra the first time they message her, and it links the chat to their account.</p>
+      <p style="margin-top:0.7rem;"><strong>Can't find it?</strong> Sign in to the <a href="{{app_base}}/en/parent/login">parent portal</a> to see it again, or email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> and we'll resend it.</p>
+    </div>
   </div>
 
   <div class="cx-section-head">
@@ -118,13 +138,13 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
           <ol>
             <li>On your child's phone, open the button or scan the QR code to <strong>add the Mitra channel</strong> (채널 추가).</li>
             <li>Tap into the chat and have your child <strong>send a message first</strong> — anything, even just "hi."</li>
-            <li>When Mitra asks, <strong>send your enrollment code</strong>. That links the account, and you're ready to go.</li>
+            <li>When Mitra asks, <strong>send your enrollment code</strong> (<span data-code-inline>your code above</span>). That links the account, and you're ready to go.</li>
           </ol>
           <div class="cx-note warn"><strong>Important:</strong> On KakaoTalk, Mitra can't message your child first — that's a Kakao rule. Your child always has to send the first message. After that, conversation flows normally.</div>
         </div>
         <div class="cx-actions">
           <a class="cx-open-btn kakao" href="http://pf.kakao.com/_taAVX" target="_blank">Add Mitra channel</a>
-          <img class="cx-qr" src="/en/static/images/KT/mitra-kakaotalk-qr.png" alt="KakaoTalk QR code for Mitra">
+          <div class="cx-qr"><img src="/en/static/images/KT/mitra-kakaotalk-qr.png" alt="KakaoTalk QR code for Mitra"></div>
           <span class="cx-qr-cap">Scan to add</span>
         </div>
       </div>
@@ -135,21 +155,21 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
       <div class="cx-card-top tg">
         <img src="/en/static/images/Telegram/telegram-logo.svg" alt="" style="filter:brightness(10);">
         <span class="cx-name">Telegram</span>
-        <span class="cx-tag">Mitra can message first</span>
+        <span class="cx-tag">Press Start to turn Mitra on</span>
       </div>
       <div class="cx-card-body">
         <div class="cx-steps">
           <ol>
-            <li>On your child's phone, open the button or scan the QR code to start a chat with <strong>@Mitradhdbot</strong>.</li>
-            <li>Tap <strong>Start</strong> and have your child say hi.</li>
-            <li>If you gave us your child's Telegram username at signup, Mitra already knows them — no code needed. If she asks, just <strong>send your enrollment code</strong>.</li>
+            <li>On your child's phone, open the button or scan the QR code to open the <strong>@Mitradhdbot</strong> chat.</li>
+            <li>Tap the big <span class="cx-start-key">START</span> button. <strong>This is the step that turns Mitra on</strong> — until your child presses Start, Telegram won't let her send a single message.</li>
+            <li>If we matched your child's Telegram username at signup, Mitra greets them right away. If not, just <strong>send your enrollment code</strong> (<span data-code-inline>your code above</span>) and she'll link the account.</li>
           </ol>
-          <div class="cx-note">On Telegram, Mitra <strong>can</strong> reach out first, so she may check in between sessions. This is the easiest app to set up.</div>
+          <div class="cx-note warn"><strong>This is the #1 thing people miss:</strong> Telegram is the only app where Mitra can check in first — but <em>only after</em> your child has pressed Start that one time. No Start, no messages.</div>
         </div>
         <div class="cx-actions">
-          <a class="cx-open-btn tg" href="https://t.me/Mitradhdbot" target="_blank"><img src="/en/static/images/Telegram/telegram-logo.svg" alt="" style="filter:brightness(10);">Open Telegram</a>
-          <img class="cx-qr" src="/en/static/images/Telegram/qr-mitradhdbot.png" alt="Telegram QR code for Mitra">
-          <span class="cx-qr-cap">Scan to open</span>
+          <a class="cx-open-btn tg" data-link="tg" href="https://t.me/Mitradhdbot" target="_blank"><img src="/en/static/images/Telegram/telegram-logo.svg" alt="" style="filter:brightness(10);">Open &amp; press Start</a>
+          <div class="cx-qr" data-qr="tg"><img src="/en/static/images/Telegram/qr-mitradhdbot.png" alt="Telegram QR code for Mitra"></div>
+          <span class="cx-qr-cap">Scan, then press Start</span>
         </div>
       </div>
     </div>
@@ -165,14 +185,14 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
         <div class="cx-steps">
           <ol>
             <li>On your child's phone, tap the button or scan the QR code to open a chat with Mitra.</li>
-            <li>Have your child <strong>send your enrollment code</strong> as the first message.</li>
+            <li><span data-wa-prefilled style="display:none;">Your code is already typed in — your child just <strong>hits send</strong>.</span><span data-wa-plain>Have your child <strong>send your enrollment code</strong> as the first message.</span></li>
             <li>Mitra matches the code to your child's account and links it automatically. Done.</li>
           </ol>
-          <div class="cx-note">Use the phone number you gave us at signup so Mitra can recognize the chat. The button can pre-fill your code for you.</div>
+          <div class="cx-note">Use the phone number you gave us at signup so Mitra can recognize the chat.</div>
         </div>
         <div class="cx-actions">
-          <a class="cx-open-btn wa" href="https://wa.me/18087077506" target="_blank"><img src="/en/static/images/WhatsApp/whatsapp-logo-white.svg" alt="">Open WhatsApp</a>
-          <img class="cx-qr" src="/en/static/images/WhatsApp/qr-whatsapp.png" alt="WhatsApp QR code for Mitra">
+          <a class="cx-open-btn wa" data-link="wa" href="https://wa.me/18087077506" target="_blank"><img src="/en/static/images/WhatsApp/whatsapp-logo-white.svg" alt="">Open WhatsApp</a>
+          <div class="cx-qr" data-qr="wa"><img src="/en/static/images/WhatsApp/qr-whatsapp.png" alt="WhatsApp QR code for Mitra"></div>
           <span class="cx-qr-cap">Scan to open</span>
         </div>
       </div>
@@ -185,7 +205,7 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
     <ul>
       <li><strong>In Korea?</strong> KakaoTalk is what most families use — your child already lives in it.</li>
       <li><strong>Outside Korea?</strong> WhatsApp or Telegram are the easy picks.</li>
-      <li><strong>Want Mitra to gently check in?</strong> Telegram is the only app where she can start the conversation.</li>
+      <li><strong>Want Mitra to gently check in?</strong> Telegram is the only app where she can start the conversation — after the first Start.</li>
     </ul>
     <p style="margin:0.6rem 0 0; font-size:0.9rem; color:var(--text-muted);">Pick one to start. You can always switch later — just message Mitra on the new app with the same code.</p>
   </div>
@@ -197,10 +217,11 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
     </div>
 
     <details>
-      <summary>Mitra isn't replying</summary>
+      <summary>Mitra isn't replying (or never messaged us)</summary>
       <div class="cx-trouble-body">
+        <p><strong>On Telegram:</strong> your child has to press the <span class="cx-start-key">START</span> button once. Telegram blocks every message from Mitra until they do — so if she's gone silent, that Start almost certainly hasn't happened yet.</p>
         <p><strong>On KakaoTalk:</strong> your child has to send the first message — Mitra can't start the chat. Make sure they've added the channel and sent something.</p>
-        <p><strong>On any app:</strong> double-check the enrollment code was sent and typed correctly. If Mitra still doesn't recognize your child, email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> and we'll link the account manually.</p>
+        <p><strong>On any app:</strong> double-check the enrollment code was sent and typed correctly. Still stuck? Email <a href="mailto:support@mitratutor.com">support@mitratutor.com</a> and we'll link the account manually.</p>
       </div>
     </details>
 
@@ -239,3 +260,72 @@ og_description: The 2-minute setup to get your child chatting with Mitra on Kaka
   </div>
 
 </div>
+
+<script>
+(function () {
+  // Read the enrollment code from the URL (?code=MITRA-XXXX or ?code=XXXX, also ?c=).
+  // The email/SMS link will carry this; absent it, we degrade to a placeholder.
+  var params = new URLSearchParams(window.location.search);
+  var raw = (params.get('code') || params.get('c') || '').trim().toUpperCase();
+  var code = '';
+  if (/^MITRA-[A-Z0-9]{4}$/.test(raw)) code = raw;
+  else if (/^[A-Z0-9]{4}$/.test(raw)) code = 'MITRA-' + raw;
+  var hasCode = !!code;
+
+  var TG_BASE = 'https://t.me/Mitradhdbot';
+  var WA_BASE = 'https://wa.me/18087077506';
+  // Telegram bot does not yet parse /start payloads, so we send the plain bot link
+  // (the user presses Start, then sends the code). WhatsApp pre-fills the code as
+  // the first message — the bot regex-matches MITRA-XXXX and links automatically.
+  var tgUrl = TG_BASE;
+  var waUrl = WA_BASE + (hasCode ? ('?text=' + encodeURIComponent(code)) : '');
+
+  function show(el, on) { if (el) el.style.display = on ? '' : 'none'; }
+
+  if (hasCode) {
+    show(document.querySelector('[data-code-has]'), true);
+    show(document.querySelector('[data-code-none]'), false);
+    var ct = document.querySelector('[data-code-text]');
+    if (ct) ct.textContent = code;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-code-inline]'), function (el) {
+      el.textContent = code;
+    });
+    show(document.querySelector('[data-wa-prefilled]'), true);
+    show(document.querySelector('[data-wa-plain]'), false);
+  }
+
+  // Wire deep links.
+  var tgLink = document.querySelector('[data-link="tg"]'); if (tgLink) tgLink.href = tgUrl;
+  var waLink = document.querySelector('[data-link="wa"]'); if (waLink) waLink.href = waUrl;
+
+  // Copy-code button.
+  var copyBtn = document.querySelector('[data-copy]');
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var done = function () { copyBtn.textContent = 'Copied!'; copyBtn.classList.add('done');
+      setTimeout(function () { copyBtn.textContent = 'Copy code'; copyBtn.classList.remove('done'); }, 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done).catch(done);
+    } else { done(); }
+  });
+
+  // Dynamic QR codes so they carry the code (WhatsApp) / current link (Telegram).
+  // Falls back silently to the bundled PNG if the QR library fails to load.
+  function renderQR(slot, text) {
+    var box = document.querySelector('[data-qr="' + slot + '"]');
+    if (!box || typeof qrcode === 'undefined') return;
+    try {
+      var qr = qrcode(0, 'M');
+      qr.addData(text);
+      qr.make();
+      box.innerHTML = qr.createImgTag(4, 8);
+      var img = box.querySelector('img');
+      if (img) { img.removeAttribute('width'); img.removeAttribute('height'); img.alt = 'QR code'; }
+    } catch (e) { /* keep the bundled PNG */ }
+  }
+  // The QR library is loaded at the end of <body>, after this script. Render once
+  // it's available (immediately if already defined, otherwise on window load).
+  function renderAllQR() { renderQR('tg', tgUrl); renderQR('wa', waUrl); }
+  if (typeof qrcode !== 'undefined') renderAllQR();
+  else window.addEventListener('load', renderAllQR);
+})();
+</script>
