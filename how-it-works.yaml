@@ -19,8 +19,11 @@ description: |
   - Blog — EN only, by design
   - Legal: Privacy, Terms, Refund Policy
 
-  Nav structure: About ▾ dropdown + Resources ▾ dropdown + Enroll CTA + Parent
-  Login. Footer: 4 columns (Learn / Resources / Legal / Get started) plus a
+  Nav structure: Enroll CTA + Students ▾ + Parents ▾ + Academies ▾ + About ▾
+  dropdowns. The Students dropdown (added 2026-06) is Mitra for Students +
+  Student sign in → app /student/login (the durable kid login); Parents and
+  Academies dropdowns each carry their own sign-in link. Footer: 4 columns
+  (Learn / Resources / Legal / Get started) plus a
   muted Admin link below. Nav and footer render from shared/nav-config.json,
   consumed both by build.py here and by portal/nav.py in the Railway app so
   the two surfaces stay in sync.
