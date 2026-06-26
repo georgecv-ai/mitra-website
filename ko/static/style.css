@@ -1315,8 +1315,10 @@ a:hover {
   .wp-nav-items.mobile-open .wp-nav-dd-menu { position: static; opacity: 1;
     visibility: visible; transform: none; min-width: 0; box-shadow: none;
     margin-top: 4px; }
-  .wp-nav-burger { display: inline-flex; align-items: center; }
-  .wp-nav-lang { margin-left: 0; padding-left: 0; border-left: none; }
+  .wp-nav-burger { display: inline-flex; align-items: center; margin-left: 8px; }
+  /* Keep the EN/KO toggle visible in the header bar on mobile (it lives outside
+     the collapsible menu now), pushed to the right next to the burger. */
+  .wp-nav-lang { margin-left: auto; padding-left: 0; border-left: none; }
   .wp-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .wp-footer { padding: 48px 0 24px; }
 }

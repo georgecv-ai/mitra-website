@@ -53,14 +53,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="/{{ html_lang }}/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
       <span>Mitra AI Tutor</span>
     </a>
-    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
     <ul class="wp-nav-items" data-nav-items>
 {{ nav_items_html }}
-      <li class="wp-nav-lang">
-        <a class="{{ en_active_class }}" href="/en/{{ en_slug }}">EN</a>
-        <a class="{{ ko_active_class }}" href="/ko/{{ ko_slug }}">KO</a>
-      </li>
     </ul>
+    <div class="wp-nav-lang">
+      <a class="{{ en_active_class }}" href="/en/{{ en_slug }}">EN</a>
+      <a class="{{ ko_active_class }}" href="/ko/{{ ko_slug }}">KO</a>
+    </div>
+    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
   </div>
 </nav>
 
