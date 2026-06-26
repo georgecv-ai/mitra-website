@@ -13,6 +13,12 @@ description: |
     section, 존댓말 (polite) for the parent section. EN and KO at structural
     parity (both 151 lines as of 2026-05-04 — KO was previously the older
     short-letter format and was rewritten to match the EN structured doc).
+  - Connect with Mitra (connect.html) — EN only as of 2026-06-26. Post-enrollment
+    onboarding page: how a newly-enrolled family gets their child chatting with
+    Mitra on KakaoTalk / Telegram / WhatsApp. Per-channel steps, the enrollment-code
+    login, channel gotchas (KT message-first, Telegram username-match), and
+    troubleshooting. Not in nav; intended to be linked from enrollment confirmation
+    + welcome email. KO mirror pending.
   - FAQ — 31 questions across parents, students, partners
   - Compliance — AI Basic Act / PIPA / safety architecture (live counters
     deferred; see backlog item compliance-live-counters)
