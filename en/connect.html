@@ -151,6 +151,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .cx-open-btn.wa { background: var(--wa); }
   .cx-open-btn:hover { filter: brightness(0.94); color: #fff; }
   .cx-open-btn.kakao:hover { color: var(--kakao-ink); }
+  .cx-save-contact { display: inline-flex; align-items: center; gap: 6px; padding: 0.45rem 0.9rem; border-radius: 999px; font-weight: 600; font-size: 0.82rem; text-decoration: none; color: var(--wa); background: #fff; border: 1.5px solid var(--wa); white-space: nowrap; }
+  .cx-save-contact:hover { background: #e6f9ed; color: var(--wa); }
   .cx-qr-cap { font-size: 0.72rem; color: var(--text-muted); margin-top: -0.2rem; text-align: center; }
 
   /* Which one */
@@ -278,10 +280,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><span data-wa-prefilled style="display:none;">Your code is already typed in — your child just <strong>hits send</strong>.</span><span data-wa-plain>Have your child <strong>send your enrollment code</strong> as the first message.</span></li>
             <li>Mitra matches the code to your child's account and links it automatically. Done.</li>
           </ol>
-          <div class="cx-note">Use the phone number you gave us at signup so Mitra can recognize the chat.</div>
+          <div class="cx-note">Use the phone number you gave us at signup so Mitra can recognize the chat. <strong>Can't find Mitra, or want to set this up on your child's phone?</strong> Save her contact card first, then open WhatsApp and message her.</div>
         </div>
         <div class="cx-actions">
           <a class="cx-open-btn wa" data-link="wa" href="https://wa.me/18087077506" target="_blank"><img src="/en/static/images/WhatsApp/whatsapp-logo-white.svg" alt="">Open WhatsApp</a>
+          <a class="cx-save-contact" href="/en/static/mitra-whatsapp.vcf" download="Mitra AI Tutor.vcf">＋ Save Mitra's contact</a>
           <div class="cx-qr" data-qr="wa"><img src="/en/static/images/WhatsApp/qr-whatsapp.png" alt="WhatsApp QR code for Mitra"></div>
           <span class="cx-qr-cap">Scan to open</span>
         </div>
