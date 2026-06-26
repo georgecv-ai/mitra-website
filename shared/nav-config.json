@@ -29,6 +29,7 @@
       "label": {"en": "Parents", "ko": "학부모"},
       "children": [
         {"label": {"en": "Mitra for Parents", "ko": "학부모를 위한 미트라"}, "href": "/{{lang}}/for-parents.html"},
+        {"label": {"en": "Connect your child", "ko": "자녀 연결하기"}, "href": "/{{lang}}/connect.html"},
         {"label": {"en": "Parent sign in →", "ko": "학부모 로그인 →"}, "href": "{{app_base}}/{{lang}}/parent/login", "style": "sub"}
       ]
     },
