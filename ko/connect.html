@@ -369,9 +369,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var IS_STAGING = /staging|workers\.dev|localhost|127\.0\.0\.1/.test(window.location.hostname);
   var TG_BASE = 'https://t.me/' + (IS_STAGING ? 'MitraStagingBot' : 'Mitradhdbot');
   var WA_BASE = 'https://wa.me/18087077506';
-  // Telegram one-tap (?start=CODE) needs the bot's /start payload parser, live on
-  // staging first; production keeps the plain link until that reaches prod.
-  var tgUrl = TG_BASE + (IS_STAGING && hasCode ? ('?start=' + encodeURIComponent(code)) : '');
+  // Telegram one-tap: the bot parses the /start payload on both production
+  // (@Mitradhdbot) and staging (@MitraStagingBot), so enable ?start=CODE everywhere.
+  var tgUrl = TG_BASE + (hasCode ? ('?start=' + encodeURIComponent(code)) : '');
   var waUrl = WA_BASE + (hasCode ? ('?text=' + encodeURIComponent(code)) : '');
 
   function show(el, on) { if (el) el.style.display = on ? '' : 'none'; }
