@@ -27,6 +27,16 @@ main_class: pain-main
   .pp-cta-btn:hover { background: #21867A; color: #fff; }
   .pp-closing-text { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 700; color: #1A1A2E; line-height: 1.5; margin: 0 0 1.75rem; }
   .partners-page .wp-depth { text-align: initial; }
+  /* Real product screenshot, framed (top-clipped). Centered for this layout. */
+  .pp-shot { background: #fff; border: 1px solid #CBD5E0; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 16px 40px rgba(27,58,92,.12); max-width: 640px; margin: 1.75rem auto 0; text-align: left; }
+  .pp-shot .bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px;
+    background: #F8FAFC; border-bottom: 1px solid #E2E8F0; }
+  .pp-shot .bar i { width: 10px; height: 10px; border-radius: 50%; background: #CBD5E0; display: inline-block; }
+  .pp-shot .bar .u { margin-left: 10px; font-size: 11px; color: #8896A6; }
+  .pp-shot .frame { max-height: 440px; overflow: hidden; }
+  .pp-shot .frame img { width: 100%; display: block; }
+  .pp-shot .cap-shot { font-size: .82rem; color: #718096; padding: 10px 14px; border-top: 1px solid #F0F2F5; }
   @media (max-width: 600px) {
     .pp-3up { grid-template-columns: 1fr; }
     .pp-card { padding: 1.3rem 1.15rem; }
@@ -55,6 +65,11 @@ main_class: pain-main
         <h3>[데이터 기반 관리]</h3>
         <p>학생별 자주 묻는 질문과 취약점을 데이터로 확인해, 다음 수업 설계를 정교하게 돕습니다.</p>
       </div>
+    </div>
+    <div class="pp-shot">
+      <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org</span></div>
+      <div class="frame"><img src="/ko/static/images/partners/feat-divergence.png" alt="미트라가 본 이번 주 — 성적표와 미트라가 다르게 보는 지점"></div>
+      <div class="cap-shot">미트라가 본 이번 주 · 성적표는 '탄탄'이라는데, 미트라는 다르게 봅니다.</div>
     </div>
   </div>
 
@@ -106,6 +121,11 @@ main_class: pain-main
       <span class="pp-tag">공교육</span>
       <span class="pp-tag">IB 교육과정</span>
     </div>
+    <div class="pp-shot">
+      <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org / student</span></div>
+      <div class="frame"><img src="/ko/static/images/partners/feat-student.png" alt="학생별 학습 지도 — 익힌 것, 익히는 중, 다음 단계"></div>
+      <div class="cap-shot">학생별 학습 지도 · 익힌 것 → 익히는 중 → 다음 단계, 그리고 이번 학기 흐름.</div>
+    </div>
   </div>
 
   <!-- 5. 연 52회 주간 리포트 (p29 bottom) -->
@@ -125,7 +145,11 @@ main_class: pain-main
       <span class="pp-tag">단원 전체 계획</span>
       <span class="pp-tag">6개월 프로그램</span>
     </div>
-    <p class="pp-caption">(수업준비 샘플)</p>
+    <div class="pp-shot">
+      <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org / insights</span></div>
+      <div class="frame"><img src="/ko/static/images/partners/feat-insights.png" alt="반에서 가장 취약한 주제, 순서대로"></div>
+      <div class="cap-shot">반에서 가장 취약한 주제, 순서대로 · 다음 수업 설계의 출발점.</div>
+    </div>
   </div>
 
   <!-- 7. 수익/할인 (p30 bottom) -->
