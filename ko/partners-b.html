@@ -498,6 +498,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .db-co dl { grid-template-columns:1fr; gap:3px 0; }
   .db-co dd { margin-bottom:10px; }
 }
+
+/* Mastery-timeline mockup */
+.mkt-body { padding:18px 20px 20px; }
+.mkt-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:3px; }
+.mkt-head .tn { font-family:'DM Sans',sans-serif; font-weight:800; color:#1B3A5C; font-size:15px; }
+.mkt-head .we { font-size:12px; color:#8A8178; white-space:nowrap; }
+.mkt-moved { font-size:13px; color:#3E7C5A; font-weight:700; margin-bottom:8px; }
+.mkt-legend { display:flex; gap:16px; font-size:11.5px; color:#8A8178; margin:8px 0 4px; }
+.mkt-legend .m { display:inline-flex; align-items:center; gap:5px; }
+.mkt-legend .sq { width:9px; height:9px; background:#3E7C5A; border-radius:2px; }
+.mkt-legend .ci { width:9px; height:9px; background:#3E7C5A; border-radius:50%; }
+.mkt-feed { margin-top:6px; }
+.mkt-ev { display:flex; align-items:center; gap:11px; padding:9px 0; border-top:1px solid #F4F0E8; font-size:12.5px; }
+.mkt-ev .date { color:#8A8178; min-width:46px; font-variant-numeric:tabular-nums; }
+.mkt-ev .by { color:#8A8178; min-width:64px; display:inline-flex; gap:5px; align-items:center; }
+.mkt-ev .sq { width:9px; height:9px; background:#3E7C5A; border-radius:2px; }
+.mkt-ev .ci { width:9px; height:9px; background:#3E7C5A; border-radius:50%; }
+.mkt-ev .basis { color:#2B2622; flex:1; }
+
+/* Grade + Narrative artifact mockup */
+.mkg-top { display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid #F4F0E8; }
+.mkg-top .as { font-family:'DM Sans',sans-serif; font-weight:800; color:#1B3A5C; font-size:15px; }
+.mkg-top .as small { display:block; color:#8A8178; font-weight:500; font-size:12px; margin-top:2px; }
+.mkg-score { font-family:'DM Sans',sans-serif; font-weight:800; color:#fff; background:#3E7C5A; border-radius:11px; padding:7px 16px; font-size:18px; }
+.mkg-narr { padding:16px 20px 6px; font-size:14px; color:#3A3A3A; line-height:1.8; }
+.mkg-tags { padding:6px 20px 14px; display:flex; gap:8px; flex-wrap:wrap; }
+.mkg-tag { font-size:12px; font-weight:700; border-radius:999px; padding:5px 12px; }
+.mkg-tag.good { background:#E8F1EC; color:#2C5E45; }
+.mkg-tag.work { background:#FBF1E6; color:#9A5A1E; }
+.mkg-foot { padding:11px 20px; border-top:1px solid #F4F0E8; font-size:11.5px; color:#8A8178; display:flex; justify-content:space-between; }
 </style>
 </head>
 <body>
@@ -574,7 +604,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="db-cta-row">
       <a class="db-btn primary" href="mailto:partnerships@mitratutor.com?subject=미트라%20학원%20파트너%20상담">파트너 상담 신청</a>
       <a class="db-btn kakao" href="mailto:partnerships@mitratutor.com?subject=미트라%20카카오톡%20문의">카카오톡으로 문의하기</a>
-      <a class="db-btn ghost" href="tel:01030949059">전화 010-3094-9059</a>
     </div>
   </div>
 </section>
@@ -646,43 +675,113 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===================== FEATURE: DIVERGENCE (mockup) ===================== -->
+<!-- ===================== FEATURE: DIVERGENCE + MAP ===================== -->
 <section class="db-sec alt">
   <div class="wrap">
     <p class="db-eyebrow">핵심 · 성적표가 놓치는 것</p>
     <h2 class="db-h2">성적표는 '탄탄'이라는데, 미트라는 빈틈을 봅니다.</h2>
-    <p class="db-lead">학원의 채점과 미트라의 세션 관찰을 한 학생·한 주제 단위로 비교합니다. 성적은 좋아 보여도 이해가 따라오지 않은 지점 — 그리고 반대로, 성적표가 과소평가한 학생까지 — 드러납니다. 시험이 아니라, 미리.</p>
-    <div class="db-grid2 wide-left">
-      <div style="max-width:520px;">
-        <div class="mk">
+    <p class="db-lead">학원의 채점과 미트라의 세션 관찰을 한 학생·한 주제 단위로 비교합니다. 성적은 좋아 보여도 이해가 따라오지 않은 지점 — 그리고 반대로, 성적표가 과소평가한 학생까지 — 드러납니다. 그리고 학생마다 익힘 → 학습 중 → 다음으로 이어지는 지도 위에서 현재 위치를 정확히 봅니다.</p>
+    <div class="db-grid2">
+      <div><div class="mk">
           <div class="mk-h"><div class="ic" style="background:#C97A2B;">!</div><div><div class="t">성적표와 미트라가 엇갈립니다</div><div class="s">이번 주 3명</div></div></div>
           <div class="mkd-row"><div class="who">남도현 <span class="tp">· 비율 비교</span></div><div class="issue">"월요일엔 됐는데 금요일엔 사라졌어요."</div><div class="mkd-cmp"><div class="mkd-box"><div class="lab">성적표</div><div class="val">능숙</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div><div class="mkd-arrow down">→</div><div class="mkd-box low"><div class="lab">미트라 관찰</div><div class="val">초기</div><span class="mk-pips"><i class="on"></i><i></i><i></i><i></i></span></div></div></div>
           <div class="mkd-row"><div class="who">문지후 <span class="tp">· 정수의 덧셈</span></div><div class="issue">"정답은 맞지만 풀이를 패턴으로 외워요."</div><div class="mkd-cmp"><div class="mkd-box"><div class="lab">성적표</div><div class="val">탄탄</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div class="mkd-arrow down">→</div><div class="mkd-box low"><div class="lab">미트라 관찰</div><div class="val">발전 중</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i></i><i></i></span></div></div></div>
           <div class="mkd-row"><div class="who">김서연 <span class="tp">· 분수</span></div><div class="issue">"사실 계속 알고 있었어요 — 시험이 과소평가했죠."</div><div class="mkd-cmp"><div class="mkd-box"><div class="lab">성적표</div><div class="val">발전 중</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i></i><i></i></span></div><div class="mkd-arrow up">→</div><div class="mkd-box hi"><div class="lab">미트라 관찰</div><div class="val">탄탄</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div></div></div>
-        </div>
-      </div>
-      <div>
-        <div class="db-feat-grid" style="grid-template-columns:1fr;">
-          <div class="db-fcard"><div class="fnum">학습 지도</div><div class="fh">학생마다, 어디까지 왔는지</div><p class="fp">익힌 것 → 익히는 중 → 다음 단계. 선수 학습으로 연결된 지도 위에서 한 학생의 현재 위치를 정확히 봅니다.</p></div>
-          <div class="db-fcard"><div class="fnum">마스터리 타임라인</div><div class="fh">초기 → 능숙, 기록으로</div><p class="fp">주제마다 채점과 세션이 한 줄에 쌓여, 학부모에게 보여줄 수 있는 성장 곡선이 됩니다.</p></div>
-          <div class="db-fcard"><div class="fnum">반 편성 신호</div><div class="fh">다음 시간을 어디에 쓸지</div><p class="fp">반에서 가장 취약한 주제를 순서대로. "19명 중 9명이 인수분해가 약함." 그걸 가르치세요.</p></div>
-        </div>
-      </div>
+        </div></div>
+      <div><div class="mk">
+          <div class="mk-h"><div class="ic" style="background:#3E7C5A;">&#9716;</div><div><div class="t">서연 · 인수분해 어디까지</div><div class="s">익힘 → 지금 학습 중 → 다음</div></div></div>
+          <div class="mkm-body">
+            <div class="mkm-cols"><div>익힘</div><div style="text-align:center;">지금 학습 중</div><div style="text-align:right;">다음</div></div>
+            <div class="mkm-stage">
+              <svg viewBox="0 0 480 330" preserveAspectRatio="xMidYMid meet">
+                <path d="M154,34 C200,34 120,150 165,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M154,113 C195,113 124,150 165,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M154,192 C195,192 124,150 165,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M154,271 C280,271 210,150 326,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M315,150 C355,150 286,150 326,150" fill="none" stroke="#DDD2BE" stroke-width="2.5" stroke-dasharray="6 6"/>
+              </svg>
+              <div class="mkm-chip" style="left:4px; top:8px; width:150px;"><div class="cn">단항식의 곱셈</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+              <div class="mkm-chip" style="left:4px; top:87px; width:150px;"><div class="cn">공통인수</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+              <div class="mkm-chip" style="left:4px; top:166px; width:150px;"><div class="cn">소인수분해</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+              <div class="mkm-chip" style="left:4px; top:245px; width:150px;"><div class="cn">다항식의 덧셈·뺄셈</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+              <div class="mkm-chip now" style="left:165px; top:122px; width:150px;"><div class="cn">이차식의 인수분해</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+              <div class="mkm-chip next" style="left:326px; top:122px; width:150px;"><div class="cn">이차방정식 풀기</div><span class="mk-pips"><i class="on"></i><i></i><i></i><i></i></span></div>
+            </div>
+          </div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURE: TIMELINE + INSIGHTS ===================== -->
+<section class="db-sec">
+  <div class="wrap">
+    <p class="db-eyebrow">성장과 반 편성</p>
+    <h2 class="db-h2">성장은 기록으로, 다음 수업은 신호로.</h2>
+    <p class="db-lead">주제마다 채점과 세션이 한 줄에 쌓여 학부모에게 보여줄 수 있는 성장 곡선이 됩니다. 반 단위로는 가장 취약한 주제가 순서대로 정리되어, 다음 시간을 어디에 쓸지 고민할 필요가 없습니다.</p>
+    <div class="db-grid2">
+      <div><div class="mk">
+          <div class="mk-h"><div class="ic" style="background:#3E7C5A;">&#8599;</div><div><div class="t">이차식의 인수분해 · 한 학기 추이</div><div class="s">학원 채점 + 미트라 세션</div></div></div>
+          <div class="mkt-body">
+            <div class="mkt-head"><div class="tn">이차식의 인수분해</div><div class="we">현재 능숙 · 마지막 평가 06-29</div></div>
+            <div class="mkt-moved">&#8593; 이번 학기 초기 → 능숙</div>
+            <svg viewBox="0 0 460 150" style="width:100%; height:auto; display:block;">
+              <g font-size="10" fill="#B7AE9C" font-family="sans-serif">
+                <line x1="62" y1="18" x2="444" y2="18" stroke="#EFE9DC"/><text x="56" y="21" text-anchor="end">탄탄</text>
+                <line x1="62" y1="44" x2="444" y2="44" stroke="#EFE9DC"/><text x="56" y="47" text-anchor="end">능숙</text>
+                <line x1="62" y1="70" x2="444" y2="70" stroke="#EFE9DC"/><text x="56" y="73" text-anchor="end">발전 중</text>
+                <line x1="62" y1="96" x2="444" y2="96" stroke="#EFE9DC"/><text x="56" y="99" text-anchor="end">초기</text>
+                <line x1="62" y1="122" x2="444" y2="122" stroke="#EFE9DC"/><text x="56" y="125" text-anchor="end">미정</text>
+              </g>
+              <path d="M62,96 L196,96 L196,70 L320,70 L320,44 L444,44" fill="none" stroke="#3E7C5A" stroke-width="2.5" stroke-linejoin="round"/>
+              <rect x="57.5" y="91.5" width="9" height="9" rx="2" fill="#3E7C5A"/>
+              <circle cx="196" cy="70" r="5" fill="#3E7C5A"/>
+              <rect x="315.5" y="39.5" width="9" height="9" rx="2" fill="#3E7C5A"/>
+              <rect x="439.5" y="39.5" width="9" height="9" rx="2" fill="#3E7C5A" stroke="#fff" stroke-width="2"/>
+              <g font-size="10" fill="#B7AE9C" font-family="sans-serif" text-anchor="middle">
+                <text x="62" y="140">05-04</text><text x="196" y="140">06-01</text><text x="320" y="140">06-22</text><text x="444" y="140">06-29</text>
+              </g>
+            </svg>
+            <div class="mkt-legend"><span class="m"><span class="sq"></span> 학원 (채점)</span><span class="m"><span class="ci"></span> 미트라 (세션)</span></div>
+            <div class="mkt-feed">
+              <div class="mkt-ev"><span class="date">06-29</span><span class="by"><span class="sq"></span>학원</span><span class="basis">단원평가 — 인수분해 안정.</span></div>
+              <div class="mkt-ev"><span class="date">06-15</span><span class="by"><span class="ci"></span>미트라</span><span class="basis">세션에서 부호 실수 줄어듦.</span></div>
+              <div class="mkt-ev"><span class="date">05-04</span><span class="by"><span class="sq"></span>학원</span><span class="basis">처음엔 공식 적용에서 막힘.</span></div>
+            </div>
+          </div>
+        </div></div>
+      <div><div class="mk">
+          <div class="mk-h"><div class="ic" style="background:#1B3A5C;">&#9637;</div><div><div class="t">보충이 필요한 곳</div><div class="s">대수 · 이번 주</div></div></div>
+          <div class="mki-body">
+            <div class="mki-lead">다음 시간은 <b>이차식의 인수분해</b>에 쓰세요 — 19명 중 9명이 아직 약함.</div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">이차식의 인수분해 <span class="gb">중3</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:53%"></div></div><span class="mki-cnt">9명 남음</span></div></div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">문장제 해결 <span class="gb">중2</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:68%"></div></div><span class="mki-cnt">6명 남음</span></div></div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">정수의 덧셈 <span class="gb">중1</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:79%"></div></div><span class="mki-cnt">4명 남음</span></div></div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">단위 비율 <span class="gb">중1</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:95%"></div></div><span class="mki-cnt ok">모두 탄탄</span></div></div>
+          </div>
+        </div></div>
     </div>
   </div>
 </section>
 
 <!-- ===================== GRADE + NARRATIVE + 상담 ===================== -->
-<section class="db-sec">
+<section class="db-sec alt">
   <div class="wrap">
     <p class="db-eyebrow">채점 · 서술 · 상담</p>
     <h2 class="db-h2">학습지 한 장이 학원의 자산이 됩니다.</h2>
     <p class="db-lead">학습지를 사진으로 찍으면 미트라가 문항별로 채점하고, 점수와 근거, 그리고 학원의 목소리·언어로 된 서술(다음 2주 전망 포함)을 만들어 냅니다. 선생님은 검토 후 내보내기만. 누적된 기록은 상담과 학부모 신뢰의 근거가 됩니다.</p>
-    <div class="db-feat-grid">
-      <div class="db-fcard"><div class="fnum">Grade + Narrative</div><div class="fh">점수에 '왜'를 더해</div><p class="fp">사진 → 문항별 채점 → 학원 목소리의 서술. 단순 점수가 아니라, 학부모에게 그대로 보낼 수 있는 한 단락의 평가.</p></div>
-      <div class="db-fcard"><div class="fnum">상담 준비</div><div class="fh">상담 전에, 이미 정리된 한 장</div><p class="fp">월간 추이와 학생 요약을 자동으로 묶어, 상담 자리에서 바로 쓰고 학부모에게 남길 수 있는 자료로.</p></div>
-      <div class="db-fcard"><div class="fnum">연속성</div><div class="fh">GPT가 흉내 낼 수 없는 학습 이력</div><p class="fp">이 학생만의 누적된 학습 궤적. 범용 챗봇이 재현할 수 없는, 학원의 진짜 자산.</p></div>
-      <div class="db-fcard"><div class="fnum">학부모 리포트</div><div class="fh">매주, 학원 이름으로 자동 발송</div><p class="fp">실시간 대시보드 + 매주 구조화된 리포트. 학부모가 묻기 전에 증거가 도착합니다.</p></div>
+    <div class="db-grid2 wide-left">
+      <div><div class="mk">
+          <div class="mkg-top"><div class="as">이차방정식 단원평가<small>김서연 · 06-28</small></div><div class="mkg-score">8/10</div></div>
+          <div class="mkg-narr">서연이는 인수분해를 탄탄하게 가져갔어요. 다만 근의 공식에서 부호를 옮길 때 실수가 두 번 보였습니다. 방법은 정확히 알고 있으니, 다음 2주는 부호 처리에 집중하면 곧 안정될 거예요.</div>
+          <div class="mkg-tags"><span class="mkg-tag good">인수분해 · 능숙</span><span class="mkg-tag work">근의 공식 · 발전 중</span></div>
+          <div class="mkg-foot"><span>학원의 목소리·언어로 작성</span><span>검토 후 학부모에게 발송</span></div>
+        </div></div>
+      <div class="db-feat-grid" style="grid-template-columns:1fr;">
+        <div class="db-fcard"><div class="fnum">상담 준비</div><div class="fh">상담 전에, 이미 정리된 한 장</div><p class="fp">월간 추이와 학생 요약을 자동으로 묶어, 상담 자리에서 바로 쓰고 학부모에게 남길 수 있는 자료로.</p></div>
+        <div class="db-fcard"><div class="fnum">연속성</div><div class="fh">GPT가 흉내 낼 수 없는 학습 이력</div><p class="fp">이 학생만의 누적된 학습 궤적. 범용 챗봇이 재현할 수 없는, 학원의 진짜 자산.</p></div>
+        <div class="db-fcard"><div class="fnum">학부모 리포트</div><div class="fh">매주, 학원 이름으로 자동 발송</div><p class="fp">실시간 대시보드 + 매주 구조화된 리포트. 학부모가 묻기 전에 증거가 도착합니다.</p></div>
+      </div>
     </div>
     <div class="db-ctaband" style="margin-top:26px;">
       <div><div class="t">우리 학원에 맞는지, 30분이면 확인됩니다.</div><div class="s">맞으면 일주일 내 온보딩. 아니면 일찍 솔직히 말씀드립니다.</div></div>
@@ -744,7 +843,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <dt>대표</dt><dd>NEAL GEORGE CLARY</dd>
           <dt>사업자등록번호</dt><dd>332-06-03605</dd>
           <dt>주소</dt><dd>서울특별시 강남구 영동대로 602, 6층 Z183호</dd>
-          <dt>전화</dt><dd>010-3094-9059</dd>
           <dt>이메일</dt><dd>support@mitratutor.com</dd>
           <dt>파트너십</dt><dd>partnerships@mitratutor.com</dd>
         </dl>
@@ -768,7 +866,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="db-cta-row" style="justify-content:center;">
       <a class="db-btn primary" href="mailto:partnerships@mitratutor.com?subject=미트라%20학원%20파트너%20상담">파트너 상담 신청</a>
       <a class="db-btn kakao" href="mailto:partnerships@mitratutor.com?subject=미트라%20카카오톡%20문의">카카오톡으로 문의</a>
-      <a class="db-btn light" href="tel:01030949059">전화 010-3094-9059</a>
     </div>
   </div>
 </section>
