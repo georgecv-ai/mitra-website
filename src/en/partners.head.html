@@ -63,6 +63,19 @@
 .cap-number .num { font-size: 1.6rem; font-weight: 800; color: #1B3A5C; line-height: 1.2; display: block; }
 .cap-number .sub { font-size: 13px; color: #8896A6; margin-top: 4px; }
 
+/* ----- Real product screenshot, framed (top-clipped so the card stays tight) ----- */
+.shot { background: #fff; border: 1px solid #E2E8F0; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 16px 40px rgba(27,58,92,.12); align-self: center; width: 100%; }
+.shot .bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px;
+  background: #F8FAFC; border-bottom: 1px solid #E2E8F0; }
+.shot .bar i { width: 10px; height: 10px; border-radius: 50%; background: #CBD5E0; display: inline-block; }
+.shot .bar .u { margin-left: 10px; font-size: 11px; color: #8896A6; font-family: 'DM Sans', sans-serif;
+  letter-spacing: .02em; }
+.shot .frame { max-height: 440px; overflow: hidden; }
+.shot .frame img { width: 100%; display: block; }
+.shot .cap-shot { font-size: 11px; color: #8896A6; font-style: italic; text-align: center;
+  padding: 10px 14px; border-top: 1px solid #F0F2F5; }
+
 /* ----- Section 1 proof: ChatGPT vs Mitra ----- */
 .s1-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .s1-pane { background: #fff; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px;
