@@ -76,6 +76,94 @@
 .shot .cap-shot { font-size: 11px; color: #8896A6; font-style: italic; text-align: center;
   padding: 10px 14px; border-top: 1px solid #F0F2F5; }
 
+/* ============================================================
+   DESIGNED MOCKUPS — readable product representations (warm,
+   matching the real /org surfaces). Used instead of tiny screenshots.
+   Shared tokens: sage #3E7C5A (mastered/good), terracotta #C97A2B (gap),
+   warm-navy #1B3A5C ink, cream surfaces. Single-tone pips (level = count).
+   ============================================================ */
+.mk { --sage:#3E7C5A; --terra:#C97A2B; --ink:#2B2622; --navy:#1B3A5C;
+  --mut:#8A8178; --line:#EFE9DC; --empty:#E7E0D2; --cream:#FBF8F2;
+  background:#fff; border:1px solid #E7E0D2; border-radius:16px;
+  box-shadow:0 18px 44px rgba(43,38,34,.12); overflow:hidden; width:100%; align-self:center; }
+.mk-h { display:flex; align-items:center; gap:11px; padding:16px 20px;
+  background:var(--cream); border-bottom:1px solid var(--line); }
+.mk-h .ic { width:28px; height:28px; border-radius:8px; flex:none; color:#fff;
+  font-weight:800; font-family:'DM Sans',sans-serif; display:flex; align-items:center; justify-content:center; font-size:15px; }
+.mk-h .t { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--navy); font-size:15px; line-height:1.2; }
+.mk-h .s { font-size:12px; color:var(--mut); margin-top:1px; }
+.mk-pips { display:inline-flex; gap:4px; }
+.mk-pips i { width:11px; height:11px; border-radius:50%; background:var(--empty); }
+.mk-pips i.on { background:var(--sage); }
+
+/* Divergence mockup */
+.mkd-row { padding:16px 20px; border-bottom:1px solid #F4F0E8; }
+.mkd-row:last-child { border-bottom:none; }
+.mkd-row .who { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--navy); font-size:16px; }
+.mkd-row .who .tp { color:var(--mut); font-weight:500; font-size:13px; }
+.mkd-row .issue { color:#5A5249; font-size:14px; font-style:italic; margin:5px 0 12px; line-height:1.4; }
+.mkd-cmp { display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:center; }
+.mkd-box { background:#FAF7F1; border-radius:10px; padding:9px 12px; }
+.mkd-box .lab { font-size:10px; text-transform:uppercase; letter-spacing:.09em; color:var(--mut); font-weight:700; }
+.mkd-box .val { font-family:'DM Sans',sans-serif; font-weight:800; font-size:15px; color:var(--navy); margin:3px 0 6px; }
+.mkd-box.low .val { color:var(--terra); }
+.mkd-box.hi .val { color:var(--sage); }
+.mkd-box.hi .mk-pips i.on { background:var(--sage); }
+.mkd-arrow { font-size:18px; font-weight:800; color:var(--mut); }
+.mkd-arrow.down { color:var(--terra); }
+.mkd-arrow.up { color:var(--sage); }
+
+/* Insights mockup */
+.mki-body { padding:18px 20px; }
+.mki-lead { background:#FBF1E6; border:1px solid #F2DEC4; border-radius:10px; padding:12px 14px;
+  margin:0 0 18px; font-size:14px; color:var(--navy); line-height:1.5; }
+.mki-lead b { color:var(--terra); }
+.mki-row { margin-bottom:16px; }
+.mki-row:last-child { margin-bottom:0; }
+.mki-top .nm { font-family:'DM Sans',sans-serif; font-weight:700; color:var(--navy); font-size:15px; }
+.mki-top .nm .gb { color:var(--mut); font-weight:500; font-size:12px; margin-left:6px; }
+.mki-line { display:flex; align-items:center; gap:12px; margin-top:7px; }
+.mki-track { flex:1; height:14px; border-radius:999px; background:#F2E9D9; overflow:hidden; }
+.mki-track .fill { height:100%; background:var(--sage); border-radius:999px; }
+.mki-cnt { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--terra); font-size:14px; white-space:nowrap; }
+.mki-cnt.ok { color:var(--sage); }
+
+/* Learning-map mockup */
+.mkm-body { padding:18px 18px 20px; }
+.mkm-cols { display:grid; grid-template-columns:1fr 1fr 1fr; font-family:'DM Sans',sans-serif;
+  font-size:10.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--mut); margin-bottom:6px; }
+.mkm-stage { position:relative; height:330px; }
+.mkm-stage svg { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.mkm-chip { position:absolute; width:30%; background:#F3F6F2; border:1.5px solid #DCE6DC; border-radius:11px;
+  padding:9px 11px; box-sizing:border-box; }
+.mkm-chip .cn { font-size:12.5px; font-weight:700; color:var(--navy); line-height:1.25; }
+.mkm-chip .mk-pips { margin-top:7px; }
+.mkm-chip.now { border-color:var(--sage); box-shadow:0 0 0 3px rgba(62,124,90,.16); background:#fff; }
+.mkm-chip.next { background:#FBF8F2; border-style:dashed; border-color:#DDD2BE; }
+.mkm-chip.next .cn { color:#8A8178; }
+
+/* Stacked-paper mockup (section 5) */
+.mks { position:relative; height:560px; background:none; border:none; box-shadow:none; overflow:visible; }
+.mks .paper { position:absolute; left:0; right:0; margin:0 auto; width:86%; background:#fff;
+  border:1px solid #E7E0D2; border-radius:6px; box-shadow:0 16px 40px rgba(43,38,34,.16); }
+.mks .paper .ph { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--navy); }
+.mks .p-back { top:0; transform:rotate(-6deg) translateX(-16px); z-index:1; padding:14px 20px 22px; }
+.mks .p-back .ph { font-size:15px; }
+.mks .p-back .pl { font-size:12px; color:var(--mut); margin-top:4px; }
+.mks .p-mid { top:58px; transform:rotate(3.8deg) translateX(14px); z-index:2; padding:14px 20px 22px; }
+.mks .p-mid .ph { font-size:15px; }
+.mks .p-mid .pl { font-size:12px; color:var(--mut); margin-top:4px; }
+.mks .p-front { top:122px; transform:rotate(-1.4deg); z-index:3; padding:18px 22px; }
+.mks .p-front .pt-tag { display:inline-block; background:var(--sage); color:#fff; font-family:'DM Sans',sans-serif;
+  font-weight:700; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+.mks .p-front .ph { font-size:18px; }
+.mks .p-front .pq { display:flex; gap:9px; padding:9px 0; border-bottom:1px solid #F0ECE3; font-size:12.5px; color:var(--ink); line-height:1.35; }
+.mks .p-front .pq:last-of-type { border-bottom:none; }
+.mks .p-front .pq .n { flex:none; width:19px; height:19px; border-radius:999px; background:var(--navy); color:#fff;
+  font-family:'DM Sans',sans-serif; font-weight:700; font-size:10px; display:flex; align-items:center; justify-content:center; }
+.mks .p-front .pf { margin-top:12px; padding-top:9px; border-top:1px solid #EFE9DC; display:flex; justify-content:space-between;
+  font-size:9.5px; color:var(--mut); font-family:'Courier New',monospace; letter-spacing:.06em; }
+
 /* ----- Section 1 proof: ChatGPT vs Mitra ----- */
 .s1-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .s1-pane { background: #fff; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px;

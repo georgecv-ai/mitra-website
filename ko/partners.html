@@ -116,6 +116,94 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .shot .cap-shot { font-size: 11px; color: #8896A6; font-style: italic; text-align: center;
   padding: 10px 14px; border-top: 1px solid #F0F2F5; }
 
+/* ============================================================
+   DESIGNED MOCKUPS — readable product representations (warm,
+   matching the real /org surfaces). Used instead of tiny screenshots.
+   Shared tokens: sage #3E7C5A (mastered/good), terracotta #C97A2B (gap),
+   warm-navy #1B3A5C ink, cream surfaces. Single-tone pips (level = count).
+   ============================================================ */
+.mk { --sage:#3E7C5A; --terra:#C97A2B; --ink:#2B2622; --navy:#1B3A5C;
+  --mut:#8A8178; --line:#EFE9DC; --empty:#E7E0D2; --cream:#FBF8F2;
+  background:#fff; border:1px solid #E7E0D2; border-radius:16px;
+  box-shadow:0 18px 44px rgba(43,38,34,.12); overflow:hidden; width:100%; align-self:center; }
+.mk-h { display:flex; align-items:center; gap:11px; padding:16px 20px;
+  background:var(--cream); border-bottom:1px solid var(--line); }
+.mk-h .ic { width:28px; height:28px; border-radius:8px; flex:none; color:#fff;
+  font-weight:800; font-family:'DM Sans',sans-serif; display:flex; align-items:center; justify-content:center; font-size:15px; }
+.mk-h .t { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--navy); font-size:15px; line-height:1.2; }
+.mk-h .s { font-size:12px; color:var(--mut); margin-top:1px; }
+.mk-pips { display:inline-flex; gap:4px; }
+.mk-pips i { width:11px; height:11px; border-radius:50%; background:var(--empty); }
+.mk-pips i.on { background:var(--sage); }
+
+/* Divergence mockup */
+.mkd-row { padding:16px 20px; border-bottom:1px solid #F4F0E8; }
+.mkd-row:last-child { border-bottom:none; }
+.mkd-row .who { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--navy); font-size:16px; }
+.mkd-row .who .tp { color:var(--mut); font-weight:500; font-size:13px; }
+.mkd-row .issue { color:#5A5249; font-size:14px; font-style:italic; margin:5px 0 12px; line-height:1.4; }
+.mkd-cmp { display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:center; }
+.mkd-box { background:#FAF7F1; border-radius:10px; padding:9px 12px; }
+.mkd-box .lab { font-size:10px; text-transform:uppercase; letter-spacing:.09em; color:var(--mut); font-weight:700; }
+.mkd-box .val { font-family:'DM Sans',sans-serif; font-weight:800; font-size:15px; color:var(--navy); margin:3px 0 6px; }
+.mkd-box.low .val { color:var(--terra); }
+.mkd-box.hi .val { color:var(--sage); }
+.mkd-box.hi .mk-pips i.on { background:var(--sage); }
+.mkd-arrow { font-size:18px; font-weight:800; color:var(--mut); }
+.mkd-arrow.down { color:var(--terra); }
+.mkd-arrow.up { color:var(--sage); }
+
+/* Insights mockup */
+.mki-body { padding:18px 20px; }
+.mki-lead { background:#FBF1E6; border:1px solid #F2DEC4; border-radius:10px; padding:12px 14px;
+  margin:0 0 18px; font-size:14px; color:var(--navy); line-height:1.5; }
+.mki-lead b { color:var(--terra); }
+.mki-row { margin-bottom:16px; }
+.mki-row:last-child { margin-bottom:0; }
+.mki-top .nm { font-family:'DM Sans',sans-serif; font-weight:700; color:var(--navy); font-size:15px; }
+.mki-top .nm .gb { color:var(--mut); font-weight:500; font-size:12px; margin-left:6px; }
+.mki-line { display:flex; align-items:center; gap:12px; margin-top:7px; }
+.mki-track { flex:1; height:14px; border-radius:999px; background:#F2E9D9; overflow:hidden; }
+.mki-track .fill { height:100%; background:var(--sage); border-radius:999px; }
+.mki-cnt { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--terra); font-size:14px; white-space:nowrap; }
+.mki-cnt.ok { color:var(--sage); }
+
+/* Learning-map mockup */
+.mkm-body { padding:18px 18px 20px; }
+.mkm-cols { display:grid; grid-template-columns:1fr 1fr 1fr; font-family:'DM Sans',sans-serif;
+  font-size:10.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--mut); margin-bottom:6px; }
+.mkm-stage { position:relative; height:330px; }
+.mkm-stage svg { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.mkm-chip { position:absolute; width:30%; background:#F3F6F2; border:1.5px solid #DCE6DC; border-radius:11px;
+  padding:9px 11px; box-sizing:border-box; }
+.mkm-chip .cn { font-size:12.5px; font-weight:700; color:var(--navy); line-height:1.25; }
+.mkm-chip .mk-pips { margin-top:7px; }
+.mkm-chip.now { border-color:var(--sage); box-shadow:0 0 0 3px rgba(62,124,90,.16); background:#fff; }
+.mkm-chip.next { background:#FBF8F2; border-style:dashed; border-color:#DDD2BE; }
+.mkm-chip.next .cn { color:#8A8178; }
+
+/* Stacked-paper mockup (section 5) */
+.mks { position:relative; height:560px; background:none; border:none; box-shadow:none; overflow:visible; }
+.mks .paper { position:absolute; left:0; right:0; margin:0 auto; width:86%; background:#fff;
+  border:1px solid #E7E0D2; border-radius:6px; box-shadow:0 16px 40px rgba(43,38,34,.16); }
+.mks .paper .ph { font-family:'DM Sans',sans-serif; font-weight:800; color:var(--navy); }
+.mks .p-back { top:0; transform:rotate(-6deg) translateX(-16px); z-index:1; padding:14px 20px 22px; }
+.mks .p-back .ph { font-size:15px; }
+.mks .p-back .pl { font-size:12px; color:var(--mut); margin-top:4px; }
+.mks .p-mid { top:58px; transform:rotate(3.8deg) translateX(14px); z-index:2; padding:14px 20px 22px; }
+.mks .p-mid .ph { font-size:15px; }
+.mks .p-mid .pl { font-size:12px; color:var(--mut); margin-top:4px; }
+.mks .p-front { top:122px; transform:rotate(-1.4deg); z-index:3; padding:18px 22px; }
+.mks .p-front .pt-tag { display:inline-block; background:var(--sage); color:#fff; font-family:'DM Sans',sans-serif;
+  font-weight:700; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+.mks .p-front .ph { font-size:18px; }
+.mks .p-front .pq { display:flex; gap:9px; padding:9px 0; border-bottom:1px solid #F0ECE3; font-size:12.5px; color:var(--ink); line-height:1.35; }
+.mks .p-front .pq:last-of-type { border-bottom:none; }
+.mks .p-front .pq .n { flex:none; width:19px; height:19px; border-radius:999px; background:var(--navy); color:#fff;
+  font-family:'DM Sans',sans-serif; font-weight:700; font-size:10px; display:flex; align-items:center; justify-content:center; }
+.mks .p-front .pf { margin-top:12px; padding-top:9px; border-top:1px solid #EFE9DC; display:flex; justify-content:space-between;
+  font-size:9.5px; color:var(--mut); font-family:'Courier New',monospace; letter-spacing:.06em; }
+
 /* ----- Section 1 proof: ChatGPT vs Mitra ----- */
 .s1-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .s1-pane { background: #fff; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px;
@@ -481,9 +569,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="cap-art">
-        <div class="shot">
-          <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org</span></div>
-          <div class="frame"><img src="/ko/static/images/partners/feat-divergence.png" alt="성적표와 미트라가 다르게 보는 지점"></div>
+        <div class="mk">
+          <div class="mk-h">
+            <div class="ic" style="background:#C97A2B;">!</div>
+            <div><div class="t">성적표와 미트라가 엇갈립니다</div><div class="s">이번 주 3명</div></div>
+          </div>
+          <div class="mkd-row">
+            <div class="who">남도현 <span class="tp">· 비율 비교</span></div>
+            <div class="issue">"월요일엔 됐는데 금요일엔 사라졌어요."</div>
+            <div class="mkd-cmp">
+              <div class="mkd-box"><div class="lab">성적표</div><div class="val">능숙</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+              <div class="mkd-arrow down">→</div>
+              <div class="mkd-box low"><div class="lab">미트라 관찰</div><div class="val">초기</div><span class="mk-pips"><i class="on"></i><i></i><i></i><i></i></span></div>
+            </div>
+          </div>
+          <div class="mkd-row">
+            <div class="who">문지후 <span class="tp">· 정수의 덧셈</span></div>
+            <div class="issue">"정답은 맞지만 풀이를 패턴으로 외워요."</div>
+            <div class="mkd-cmp">
+              <div class="mkd-box"><div class="lab">성적표</div><div class="val">탄탄</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+              <div class="mkd-arrow down">→</div>
+              <div class="mkd-box low"><div class="lab">미트라 관찰</div><div class="val">발전 중</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+            </div>
+          </div>
+          <div class="mkd-row">
+            <div class="who">김서연 <span class="tp">· 분수</span></div>
+            <div class="issue">"사실 계속 알고 있었어요 — 시험이 과소평가했죠."</div>
+            <div class="mkd-cmp">
+              <div class="mkd-box"><div class="lab">성적표</div><div class="val">발전 중</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+              <div class="mkd-arrow up">→</div>
+              <div class="mkd-box hi"><div class="lab">미트라 관찰</div><div class="val">탄탄</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -504,32 +621,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="cap-art">
-        <div class="shot">
-          <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org / mastery</span></div>
-          <div class="frame"><img src="/ko/static/images/partners/feat-timeline.png" alt="한 주제가 초기에서 능숙으로 올라가는 학습 타임라인"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 — 학생마다 학습 지도 (learning map) -->
-<section class="cap alt">
-  <div class="wp-wrap">
-    <div class="cap-row">
-      <div class="cap-text">
-        <p class="cap-num-label">03 · 학생마다, 학습 지도</p>
-        <h2 class="cap-pain">학생이 지금 어디에 있는지 정확히 압니다.</h2>
-        <p class="cap-capability">각 학생이 무엇을 익혔고, 무엇을 익히는 중이며, 다음은 무엇인지 한눈에 보는 학습 지도. 주제를 잇는 선수 학습까지.</p>
-        <div class="cap-number">
-          <span class="num">익힌 것 → 익히는 중 → 다음 단계.</span>
-          <span class="sub">학생별로, 늘 최신 상태.</span>
-        </div>
-      </div>
-      <div class="cap-art">
-        <div class="shot">
-          <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org / student</span></div>
-          <div class="frame"><img src="/ko/static/images/partners/feat-map.png" alt="학생별 학습 지도 — 익힌 것, 익히는 중, 다음 단계"></div>
+        <div class="mk">
+          <div class="mk-h">
+            <div class="ic" style="background:#3E7C5A;">◴</div>
+            <div><div class="t">서연 · 인수분해 어디까지</div><div class="s">익힘 → 지금 학습 중 → 다음</div></div>
+          </div>
+          <div class="mkm-body">
+            <div class="mkm-cols"><div>익힘</div><div style="text-align:center;">지금 학습 중</div><div style="text-align:right;">다음</div></div>
+            <div class="mkm-stage">
+              <svg viewBox="0 0 480 330" preserveAspectRatio="xMidYMid meet">
+                <path d="M154,34 C200,34 120,150 165,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M154,113 C195,113 124,150 165,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M154,192 C195,192 124,150 165,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M154,271 C280,271 210,150 326,150" fill="none" stroke="#C7BFAE" stroke-width="2.5"/>
+                <path d="M315,150 C355,150 286,150 326,150" fill="none" stroke="#DDD2BE" stroke-width="2.5" stroke-dasharray="6 6"/>
+              </svg>
+              <div class="mkm-chip" style="left:4px; top:8px; width:150px;"><div class="cn">단항식의 곱셈</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+              <div class="mkm-chip" style="left:4px; top:87px; width:150px;"><div class="cn">공통인수</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+              <div class="mkm-chip" style="left:4px; top:166px; width:150px;"><div class="cn">소인수분해</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+              <div class="mkm-chip" style="left:4px; top:245px; width:150px;"><div class="cn">다항식의 덧셈·뺄셈</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+              <div class="mkm-chip now" style="left:165px; top:122px; width:150px;"><div class="cn">이차식의 인수분해</div><span class="mk-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+              <div class="mkm-chip next" style="left:326px; top:122px; width:150px;"><div class="cn">이차방정식 풀기</div><span class="mk-pips"><i class="on"></i><i></i><i></i><i></i></span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -542,7 +656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cap-row reverse">
       <div class="cap-text">
         <p class="cap-num-label">04 · 다음 수업, 정해집니다</p>
-        <h2 class="cap-pain">무엇을 가르칠지 알고 들어가세요.</h2>
+        <h2 class="cap-pain">학생들이 인정하고 싶지 않은 것까지 짚어 드립니다.</h2>
         <p class="cap-capability">미트라가 반에서 가장 취약한 주제를 순서대로 정리합니다. 그래서 다음 시간이 가장 필요한 곳에 쓰입니다. "19명 중 9명이 인수분해가 약함." 그걸 가르치세요.</p>
         <div class="cap-number">
           <span class="num">매 수업, 취약한 순서대로.</span>
@@ -550,9 +664,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="cap-art">
-        <div class="shot">
-          <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org / insights</span></div>
-          <div class="frame"><img src="/ko/static/images/partners/feat-insights.png" alt="반에서 가장 취약한 주제, 순서대로"></div>
+        <div class="mk">
+          <div class="mk-h">
+            <div class="ic" style="background:#1B3A5C;">▥</div>
+            <div><div class="t">보충이 필요한 곳</div><div class="s">대수 · 이번 주</div></div>
+          </div>
+          <div class="mki-body">
+            <div class="mki-lead">다음 시간은 <b>이차식의 인수분해</b>에 쓰세요 — 19명 중 9명이 아직 약함.</div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">이차식의 인수분해 <span class="gb">중3</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:53%"></div></div><span class="mki-cnt">9명 남음</span></div></div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">문장제 해결 <span class="gb">중2</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:68%"></div></div><span class="mki-cnt">6명 남음</span></div></div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">정수의 덧셈 <span class="gb">중1</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:79%"></div></div><span class="mki-cnt">4명 남음</span></div></div>
+            <div class="mki-row"><div class="mki-top"><span class="nm">단위 비율 <span class="gb">중1</span></span></div><div class="mki-line"><div class="mki-track"><div class="fill" style="width:95%"></div></div><span class="mki-cnt ok">모두 탄탄</span></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -573,9 +696,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="cap-art">
-        <div class="shot">
-          <div class="bar"><i></i><i></i><i></i><span class="u">app.mitratutor.com / org / worksheet</span></div>
-          <div class="frame"><img src="/ko/static/images/partners/feat-worksheet.png" alt="미트라가 만든 인쇄용 학습지, 정답 포함"></div>
+        <div class="mk mks">
+          <div class="paper p-back">
+            <div class="ph">수업 계획 · 수학 간식</div>
+            <div class="pl">음식 속에 진짜 수학을 숨긴 6주 단원. 단원 → 차시 → 학습지.</div>
+          </div>
+          <div class="paper p-mid">
+            <div class="ph">차시 계획 · 원과 슈가 쿠키</div>
+            <div class="pl">무엇: 넓이와 둘레 · 어떻게: 진짜 쿠키 재기 · 또 다르게: 종이 접시 피자.</div>
+          </div>
+          <div class="paper p-front">
+            <div class="pt-tag">학습지 · 인쇄 준비 완료</div>
+            <div class="ph">원과 슈가 쿠키</div>
+            <div style="height:10px;"></div>
+            <div class="pq"><span class="n">1</span><span>반지름이 5 cm인 원의 넓이를 구하세요. (π ≈ 3.14)</span></div>
+            <div class="pq"><span class="n">2</span><span>둘레가 31.4 cm인 원의 반지름은?</span></div>
+            <div class="pq"><span class="n">3</span><span>반지름 4 cm인 동그란 슈가 쿠키. 위를 덮는 프로스팅의 넓이는?</span></div>
+            <div class="pq"><span class="n">4</span><span>한 쟁반에 쿠키 두 개. 하나는 반지름 3 cm, 다른 하나는 6 cm. 큰 쿠키의 반죽은 몇 배일까요?</span></div>
+            <div class="pf"><span>이름 __________  날짜 ______</span><span>MRA-M3-0207 · mitratutor.com</span></div>
+          </div>
         </div>
       </div>
     </div>
