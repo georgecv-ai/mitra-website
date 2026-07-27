@@ -13,14 +13,23 @@ description: |
     section, 존댓말 (polite) for the parent section. EN and KO at structural
     parity (both 151 lines as of 2026-05-04 — KO was previously the older
     short-letter format and was rewritten to match the EN structured doc).
+  - Connect with Mitra (connect.html) — EN only as of 2026-06-26. Post-enrollment
+    onboarding page: how a newly-enrolled family gets their child chatting with
+    Mitra on KakaoTalk / Telegram / WhatsApp. Per-channel steps, the enrollment-code
+    login, channel gotchas (KT message-first, Telegram username-match), and
+    troubleshooting. Not in nav; intended to be linked from enrollment confirmation
+    + welcome email. KO mirror pending.
   - FAQ — 31 questions across parents, students, partners
   - Compliance — AI Basic Act / PIPA / safety architecture (live counters
     deferred; see backlog item compliance-live-counters)
   - Blog — EN only, by design
   - Legal: Privacy, Terms, Refund Policy
 
-  Nav structure: About ▾ dropdown + Resources ▾ dropdown + Enroll CTA + Parent
-  Login. Footer: 4 columns (Learn / Resources / Legal / Get started) plus a
+  Nav structure: Enroll CTA + Students ▾ + Parents ▾ + Academies ▾ + About ▾
+  dropdowns. The Students dropdown (added 2026-06) is Mitra for Students +
+  Student sign in → app /student/login (the durable kid login); Parents and
+  Academies dropdowns each carry their own sign-in link. Footer: 4 columns
+  (Learn / Resources / Legal / Get started) plus a
   muted Admin link below. Nav and footer render from shared/nav-config.json,
   consumed both by build.py here and by portal/nav.py in the Railway app so
   the two surfaces stay in sync.
