@@ -73,6 +73,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     text-decoration: none; transition: background 0.15s ease, transform 0.15s ease;
   }
   .kv2-cta:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
+  .kv2-hero-cta-group { display: inline-block; }
+  .kv2-hero-price { margin: 0.7rem 0 0; text-align: center; color: var(--muted); font-size: 1.05rem; font-weight: 400; line-height: 1.6; }
 
   /* ---- 1. HERO ---- */
   .kv2-page .kv2-hero { background: #fff; position: relative; overflow: hidden; padding: 0 0 0 1.5rem; min-height: 420px; }
@@ -542,13 +544,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="/ko/static/images/mitra-logo-icon-v2_003.png" alt="Mitra">
       <span>Mitra AI Tutor</span>
     </a>
-    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
     <ul class="wp-nav-items" data-nav-items>
       <li><a class="wp-nav-link" href="https://mitratutor.com/ko/enroll">등록</a></li>
+      <li class="wp-nav-dd" data-dd>
+        <button class="wp-nav-link" data-dd-trigger>학생 <span class="caret">▾</span></button>
+        <ul class="wp-nav-dd-menu">
+          <li><a href="/ko/for-students.html">학생을 위한 미트라</a></li>
+          <li><a href="https://mitratutor.com/student/login">학생 로그인 →</a></li>
+        </ul>
+      </li>
       <li class="wp-nav-dd" data-dd>
         <button class="wp-nav-link" data-dd-trigger>학부모 <span class="caret">▾</span></button>
         <ul class="wp-nav-dd-menu">
           <li><a href="/ko/for-parents.html">학부모를 위한 미트라</a></li>
+          <li><a href="/ko/connect.html">자녀 연결하기</a></li>
           <li><a href="https://mitratutor.com/ko/parent/login">학부모 로그인 →</a></li>
         </ul>
       </li>
@@ -568,11 +577,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="/ko/about.html">미트라를 만든 이유</a></li>
         </ul>
       </li>
-      <li class="wp-nav-lang">
-        <a class="" href="/en/home-v2.html">EN</a>
-        <a class="active" href="/ko/home-v2.html">KO</a>
-      </li>
     </ul>
+    <div class="wp-nav-lang">
+      <a class="" href="/en/home-v2.html">EN</a>
+      <a class="active" href="/ko/home-v2.html">KO</a>
+    </div>
+    <button class="wp-nav-burger" data-burger aria-label="Menu">☰</button>
   </div>
 </nav>
 
@@ -586,7 +596,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="kv2-hero-text">
         <h1 class="kv2-hero-h1">아이를 가르치기 전에<br>아이를 <em class="kv2-hl-g">먼저 배웁니다.</em></h1>
         <p class="kv2-hero-sub">뛰어난 공감 능력과 질문으로<br>아이를 깊이 있게 바라보는 '미트라'</p>
-        <a class="kv2-cta" href="https://mitratutor.com/ko/enroll">7일 체험 신청하기</a>
+        <div class="kv2-hero-cta-group">
+          <a class="kv2-cta" href="https://mitratutor.com/ko/enroll">7일 체험 신청하기</a>
+          <p class="kv2-hero-price">월 이용료 50,000원</p>
+        </div>
       </div>
     </div>
   </section>
