@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 2026-06-11 | Traffic visibility (Objective B) will be built on GA4, not Plausible | George: 'I do not want to use Plausible. I want to use GA4.' Reverses the 2026-04-15 dual-track 'Plausible = source of truth' default for George's visibility tooling.
+=======
+>>>>>>> feat/app-privacy-update
 2026-06-25 | free-trial EN success page: show readable WhatsApp number (+1 808 707 7506) as fallback under the deep-link button | deep link needs the child phone; desktop/mis-tap had no manual path
 2026-06-26 | SHIPPED TO PROD: free-trial success page readable WhatsApp number fallback (master 1f26756) | build --env production, push_lock
 2026-06-26 | SHIPPED TO PROD (website): Students nav dropdown | mitra-website master 1f26756 -> 5248db5. Assembled off origin/master (nav-config from staging + build --env production), pushed via push_lock. 53 files, +371/-0, prod URLs verified, no staging leak. Sign-in -> mitratutor.com/student/login.
