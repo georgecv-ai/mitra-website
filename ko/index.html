@@ -545,12 +545,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span>Mitra AI Tutor</span>
     </a>
     <ul class="wp-nav-items" data-nav-items>
-      <li><a class="wp-nav-link" href="https://mitratutor.com/ko/enroll">등록</a></li>
+      <li><a class="wp-nav-link" href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
       <li class="wp-nav-dd" data-dd>
         <button class="wp-nav-link" data-dd-trigger>학생 <span class="caret">▾</span></button>
         <ul class="wp-nav-dd-menu">
           <li><a href="/ko/for-students.html">학생을 위한 미트라</a></li>
-          <li><a href="https://mitratutor.com/student/login">학생 로그인 →</a></li>
+          <li><a href="https://staging.mitratutor.com/student/login">학생 로그인 →</a></li>
         </ul>
       </li>
       <li class="wp-nav-dd" data-dd>
@@ -558,14 +558,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul class="wp-nav-dd-menu">
           <li><a href="/ko/for-parents.html">학부모를 위한 미트라</a></li>
           <li><a href="/ko/connect.html">자녀 연결하기</a></li>
-          <li><a href="https://mitratutor.com/ko/parent/login">학부모 로그인 →</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/parent/login">학부모 로그인 →</a></li>
         </ul>
       </li>
       <li class="wp-nav-dd" data-dd>
         <button class="wp-nav-link" data-dd-trigger>학원 <span class="caret">▾</span></button>
         <ul class="wp-nav-dd-menu">
           <li><a href="/ko/partners.html">학원을 위한 미트라</a></li>
-          <li><a href="https://mitratutor.com/ko/org/login">학원 로그인 →</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/org/login">학원 로그인 →</a></li>
         </ul>
       </li>
       <li class="wp-nav-dd" data-dd>
@@ -597,7 +597,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1 class="kv2-hero-h1">아이를 가르치기 전에<br>아이를 <em class="kv2-hl-g">먼저 배웁니다.</em></h1>
         <p class="kv2-hero-sub">뛰어난 공감 능력과 질문으로<br>아이를 깊이 있게 바라보는 '미트라'</p>
         <div class="kv2-hero-cta-group">
-          <a class="kv2-cta" href="https://mitratutor.com/ko/enroll">7일 체험 신청하기</a>
+          <a class="kv2-cta" href="https://staging.mitratutor.com/ko/enroll">7일 체험 신청하기</a>
           <p class="kv2-hero-price">월 이용료 50,000원</p>
         </div>
       </div>
@@ -830,7 +830,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="kv2-closing-text kv2-closing-right">미트라와 함께<br>아이의 세상을 넓혀보세요.</div>
     </div>
-    <a class="kv2-cta kv2-closing-cta" href="https://mitratutor.com/ko/enroll">시작하기</a>
+    <a class="kv2-cta kv2-closing-cta" href="https://staging.mitratutor.com/ko/enroll">시작하기</a>
   </section>
 
   <!-- H1: KakaoTalk channel button + QR (reused KT assets) -->
@@ -1140,7 +1140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wp-footer-col">
         <h6>시작하기</h6>
         <ul>
-          <li><a href="https://mitratutor.com/ko/enroll">등록</a></li>
+          <li><a href="https://staging.mitratutor.com/ko/enroll">등록</a></li>
           <li><a href="mailto:support@mitratutor.com">support@mitratutor.com</a></li>
         </ul>
       </div>
@@ -1185,7 +1185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Mitra launcher: collapsed pill (bottom-right) → click expands to a try-Mitra
      chat overlay. State persists in localStorage across page navigation.
-     API calls go to https://mitratutor.com/try/send (CORS-allowed on the app origin).
+     API calls go to https://staging.mitratutor.com/try/send (CORS-allowed on the app origin).
      Scoped under #mitra-launcher-root so the marketing site's CSS doesn't bleed. -->
 <div id="mitra-launcher-root">
   <button id="ml-pill" type="button" aria-label="미트라 체험하기">
@@ -1471,8 +1471,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 (function() {
-  var API_BASE = "https://mitratutor.com";
-  var ENV = "production";       // "production" or "staging"
+  var API_BASE = "https://staging.mitratutor.com";
+  var ENV = "staging";       // "production" or "staging"
   var UI_LANG = "ko";  // "en" or "ko" — sent to API so Mitra defaults to this language
   var STORAGE_KEY = 'mitra_launcher_v1';
   var OPEN_KEY = 'mitra_launcher_open_v1';
